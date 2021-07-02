@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>异步Asyncio学习笔记</title>
+      <link href="/p/574792763.html"/>
+      <url>/p/574792763.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="异步Asyncio学习笔记"><a href="#异步Asyncio学习笔记" class="headerlink" title="异步Asyncio学习笔记"></a>异步Asyncio学习笔记</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>真就一年发一篇。这一年发生了好多事，把我打得手忙脚乱，短短一年，物是人非。</p><p>昨天写awd相关脚本，想着来点狠的，加速混淆流量发包，试试异步。正好看到github上有相关源码，requests+asyncio。</p><p>想着requests是阻塞的怎么能用异步呢？折腾了好久，看着12345顺序发包，这~~~他娘~~~不就是同步发送吗！！</p><p>得，都花那么长时间了，来都来了。又开始研究异步原理，尝试httpx+asyncio。折腾好久，失败了。</p><p>翻文档视频教程到11点，最后发现，</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">with</span> httpx<span class="token punctuation">.</span>AsyncClient<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> client<span class="token punctuation">:</span>    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><code>httpx.AsyncClient</code>后面的小括号没加，try捕捉到的报错又被我pass了</p><p><img src="https://i.loli.net/2021/07/02/yr7PaN1YJgzxwbE.jpg"></p><p>无语，姑且把中间做的笔记记一下吧。</p><h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>await 后面只能跟：协程对象，task对象，future对象<br>await意义：等待一个函数结束，在等待的过程中切换到其他函数执行以免浪费时间。以此实现并发。<br>python&gt;=3.7之后，建议用<code>asyncio.create_task()</code>创建task对象</p><p>错误用法,直接<code>await task</code>不会对并发有帮助</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>func1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>func2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>正确用法：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    task1 <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>func1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    task2 <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>func2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token keyword">await</span> task1    <span class="token keyword">await</span> task2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="实用范例"><a href="#实用范例" class="headerlink" title="实用范例"></a>实用范例</h3><ul><li>范例1 在协程函数内部组合tasks，推荐</li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    tasks<span class="token operator">=</span><span class="token punctuation">[</span>asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>func1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>func2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>    done<span class="token punctuation">,</span>pending <span class="token operator">=</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span>asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>范例2 在外面把协程函数组合成tasks</li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">await</span> asnycio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>tasks<span class="token operator">=</span><span class="token punctuation">[</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>requests默认不支持异步，但可以通过线程池配合实现。但耗费资源较多</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">_request</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>    loop<span class="token operator">=</span>asyncio<span class="token punctuation">,</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>    res<span class="token operator">=</span><span class="token keyword">await</span> loop<span class="token punctuation">.</span>run_in_executor<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">,</span>url<span class="token punctuation">)</span>tasks<span class="token operator">=</span><span class="token punctuation">[</span>_request<span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token keyword">for</span> url <span class="token keyword">in</span> url_list<span class="token punctuation">]</span>asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Asyncio </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>protected/private反序列化中python发包注意点</title>
+      <link href="/p/2019161034.html"/>
+      <url>/p/2019161034.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天做了道反序列的题，<code>[网鼎杯 2020 青龙组]AreUSerialz</code><br>反序列题一直都不太会做，这道题其中也有诸多疑问，于是搭建了个环境认真研究了下</p><p>原题的wp中主要注意的一点就是php7.1+版本对属性类型不明感，可转化为public绕过</p><h2 id="改动"><a href="#改动" class="headerlink" title="改动"></a>改动</h2><p>然后我把题目改了下，把<code>function is_valid($s)&#123;&#125;</code>删掉，目的是想研究下protected变量的反序列化问题。</p><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span><span class="token keyword">class</span> <span class="token class-name-definition class-name">FileHandler</span><span class="token punctuation">&#123;</span>    <span class="token keyword">protected</span> <span class="token variable">$op</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>    <span class="token keyword">protected</span> <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"../../../WWW/localhost/flag.php"</span><span class="token punctuation">;</span>     <span class="token comment">//这里那么长是因为反序列后路径变到php.exe那里，需要改下目录或者干脆绝对路径</span><span class="token punctuation">&#125;</span><span class="token variable">$A</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$B</span> <span class="token operator">=</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$A</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">echo</span> <span class="token variable">$B</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>浏览器刷新下，复制下来</p><pre class="line-numbers language-none"><code class="language-none">O:11:&quot;FileHandler&quot;:2:&#123;s:5:&quot;*op&quot;;i:2;s:11:&quot;*filename&quot;;s:31:&quot;..&#x2F;..&#x2F;..&#x2F;WWW&#x2F;localhost&#x2F;flag.php&quot;;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>注意s:5:”*op”，实际上是有一个ascii码为0的不可见字符在里面，所以长度是5不是2。</p><p>如果长度错误反序列化就是失败。</p><p>所以如果是这两个变量的话需要手动改成以下这样的形式。</p><p>private：</p><pre class="line-numbers language-none"><code class="language-none">\x00类名\x00变量名\0类名\0变量名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>protected：</p><pre class="line-numbers language-none"><code class="language-none">\x00*\x00变量名\0*\0变量名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>然后要注意的是因为url解码会把这些字符转化掉，经测试谷歌浏览器和burpsuite都没办法正确传值，所以要用python发包</p><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token comment">//?str=\0*\0</span><span class="token keyword">echo</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'str'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 什么都没有</span><span class="token variable">$str</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword type-casting">string</span><span class="token punctuation">)</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'str'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// \0*\0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>python发包代码</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requestsurl <span class="token operator">=</span> <span class="token string">'http://localhost/test2.php/?str=O:11:"FileHandler":2:&#123;s:5:"\0*\0op";i:2;s:11:"\0*\0filename";s:31:"../../../WWW/localhost/flag.php";&#125;'</span>payload <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>response <span class="token operator">=</span> requests<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>payload<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>在这里又掉入了一个坑，平时写字符串都喜欢加个r，写什么是什么不让它自动转义，</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">url <span class="token operator">=</span> <span class="token string">r'http://localhost/test2.php/?str=O:11:"FileHandler":2:&#123;s:5:"\0*\0op";i:2;s:11:"\0*\0filename";s:31:"../../../WWW/localhost/flag.php";&#125;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>这次我加了r，实际是多次一举。</p><p>写<code>\x00*\x00</code>或<code>\0*\0</code>本意就是让它在发包的时候自动转义，加了r反而把16进制当做字符串传过去，导致反序列化失败。</p><h2 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h2><p>为什么删掉原代码中的<code>$str = (string)$_GET[&#39;str&#39;];</code>，反序列化会失败？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 反序列化 </tag>
+            
+            <tag> python </tag>
+            
+            <tag> request </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Jupyter Notebook 右键直接打开一事</title>
+      <link href="/p/257582186.html"/>
+      <url>/p/257582186.html</url>
+      
+        <content type="html"><![CDATA[<p>每次打开项目，都得点击开始菜单-找到快捷方式，然后把文件扔进去，太烦了太烦了</p><p>然后开始百度有没有什么右键直接打开的办法，折腾一两个小时无果，还以为自己环境有问题重装三四回</p><p>之后自己仔细想了想，有个十分简单的解决办法</p><p>首先找到你常打开的Jupyter Notebook(官方说明上是推荐点击用这个快捷方式</p><p><img src="/../images/jupyter/1.png"></p><p>右键-属性</p><p>找到目标，将改栏复制出来，比如我的长这样</p><pre class="line-numbers language-none"><code class="language-none">D:\Anaconda3\python.exe D:\Anaconda3\cwp.py D:\Anaconda3 D:\Anaconda3\python.exe D:\Anaconda3\Scripts\jupyter-notebook-script.py &quot;%USERPROFILE%&#x2F;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>把最后面的</p><pre class="line-numbers language-none"><code class="language-none">&quot;%USERPROFILE%&#x2F;&quot; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>替换为</p><pre class="line-numbers language-none"><code class="language-none">&quot;%V&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>记得有空格</p><p>在这忍不住想吐槽下，网上各种文章不动脑子的抄抄抄，我折腾半天都不行，结果发现中间要加空格，恶心坏了。</p><p>然后整个reg文件</p><pre class="line-numbers language-none"><code class="language-none">Windows Registry Editor Version 5.00[HKEY_CLASSES_ROOT\Directory\Background\shell\Open Jupyter]@&#x3D;&quot;Open with Jupyter Notebook&quot;&quot;Icon&quot;&#x3D;&quot;D:\\Anaconda3\\Menu\\jupyter.ico&quot;[HKEY_CLASSES_ROOT\Directory\Background\shell\Open Jupyter\command]@&#x3D;&quot;这里替换之前整的路径&quot;[HKEY_CLASSES_ROOT\Directory\shell\Open Jupyter]@&#x3D;&quot;Open with Jupyter Notebook&quot;&quot;Icon&quot;&#x3D;&quot;D:\\Anaconda3\\Menu\\jupyter.ico&quot;[HKEY_CLASSES_ROOT\Directory\shell\Open Jupyter\command]@&#x3D;&quot;这里替换之前整的路径&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>运行下完事</p><p>问题就是只能这么运行一次，再想想有没有其他办法。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 坑 </tag>
+            
+            <tag> Jupyter Notebook </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Calibre - 轻小说、漫画上佳阅读器</title>
+      <link href="/p/1395865045.html"/>
+      <url>/p/1395865045.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p>免费无广告，官方中文，上佳WIN/MAC/LINUX端阅读器/编辑器，适合轻小说，漫画爱好者，kindle用户。<br>支持格式：EPUB、MOBI、TXT、PDF、ZIP、RTF、AZW3、DOCX、FB2、HTMLZ、LIT、LRF、PDB、PMLZ、RB、RTF、SNB、TCR、TXTZ</p><h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>前些天想看看看看漫画培养一下少女心，因为找到的漫画资源是epub格式的，所以苦寻PC上epub阅读器。<br>试用了<strong>readium</strong>作者的桌面版产品<strong>Thorium</strong>，结果不尽人意，后来又试了下微软商店里的<strong>干净阅读</strong>，感觉差了点什么。<br>最后在知乎发现了这款软件<br>上手把玩了下，一种如获至宝的喜悦感油然而生，对开发者的匠心赞叹不已。从软件中能明显感觉到开发者那种仔细打磨，我也很奇怪，反正就是这种突如其来的感觉。<br>面对这款软件，真的满满的幸福感。正好心血来潮，写篇文章记录一下</p><p>作者简介啥的就不说了，捐赠的时候看作者的照片有点像印度人？</p><h2 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h2><h3 id="清爽的界面"><a href="#清爽的界面" class="headerlink" title="清爽的界面"></a>清爽的界面</h3><p><img src="/../images/calibre/1.jpg" alt="img"></p><h3 id="可切换布局"><a href="#可切换布局" class="headerlink" title="可切换布局"></a>可切换布局</h3><p><img src="/../images/calibre/2.jpg" alt="img"></p><h3 id="多样化设置"><a href="#多样化设置" class="headerlink" title="多样化设置"></a>多样化设置</h3><p>可改<strong>图标、界面字体、文本字体</strong><br><img src="/../images/calibre/3.jpg" alt="img"><br><img src="/../images/calibre/4.jpg" alt="img"></p><h3 id="在线搜书、新闻抓取-自定义RSS源"><a href="#在线搜书、新闻抓取-自定义RSS源" class="headerlink" title="在线搜书、新闻抓取 自定义RSS源"></a>在线搜书、新闻抓取 自定义RSS源</h3><p><img src="/../images/calibre/5.jpg" alt="img"><br><img src="/../images/calibre/6.jpg" alt="img"></p><h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p><img src="/../images/calibre/7.jpg" alt="img"></p><hr><p>里面能定制化的地方真的很多，功能丰富但不臃肿，还有文本编辑功能，可以拿来做epub之类的。虽然绝大部分功能我也只是看看用不来，但这软件并没有给我一种专业人士使用的感觉，而是十分的平易近人。</p><h2 id="更改文本字体演示"><a href="#更改文本字体演示" class="headerlink" title="更改文本字体演示"></a>更改文本字体演示</h2><p><img src="/../images/calibre/8.jpg" alt="img"><br><img src="/../images/calibre/9.jpg" alt="img"></p><p>然后转换一下，会生成新的内嵌字体的文本，原来的文本还是在的<br><img src="/../images/calibre/10.jpg" alt="img"></p><p><img src="/../images/calibre/11.jpg" alt="img"></p><p>注释功能也有<br><img src="/../images/calibre/12.jpg" alt="img"></p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>真的很强大，更多功能也在挖掘中，慢慢更新。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Calibre </tag>
+            
+            <tag> 推荐 </tag>
+            
+            <tag> epub </tag>
+            
+            <tag> 阅读器 </tag>
+            
+            <tag> 漫画 </tag>
+            
+            <tag> 轻小说 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nginx初步搭建二三事</title>
+      <link href="/p/777074487.html"/>
+      <url>/p/777074487.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="nginx注意事项"><a href="#nginx注意事项" class="headerlink" title="nginx注意事项"></a>nginx注意事项</h2><p>一直以来都是用宝塔建站，今天特殊情况，需要单独装个nginx用。<br>环境：Ubuntu16.06<br>首先安装nginx，直接apt装的是低版本，所以</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget http:&#x2F;&#x2F;nginx.org&#x2F;keys&#x2F;nginx_signing.keyapt-key add nginx_signing.keyecho -e &quot;deb http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;ubuntu&#x2F; xenial nginx&quot; &gt;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.listecho -e &quot;deb-src http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;ubuntu&#x2F; xenial nginx&quot; &gt;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.listapt updateapt install nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这样就是当前最新稳定版的了。<br>然后坑就开始了。<br>百度半天nginx搭建web教程(大多文章都你抄我我抄你，也是醉了)<br>怎么搞都不行，折腾几个小时烦死了。</p><p>写的比较标准的方法都是在 <strong>sites-available</strong> 里创建配置然后软链接到 <strong>sites-enabled</strong><br>没错，但我主要强调一点，也就是被坑的地方<br>注意要在 <strong>/etc/nginx/nginx.conf</strong> 里加入 <code>include /etc/nginx/sites-enabled/*;</code></p><blockquote><p>conf.d：用户自己定义的conf配置文件<br>sites-available：系统默认设置的配置文件<br>sites-enabled：由sites-available中的配置文件转换生成<br>nginx.conf：汇总以上三个配置文件的内容，同时配置我们所需要的参数</p></blockquote><p>所以有两种办法</p><ul><li>直接在<strong>conf.d/</strong> 下创建<strong>domain.com.conf</strong></li><li>在<strong>sites-available</strong> 下创建<strong>domain.com</strong> 然后<code>ln -s /etc/nginx/sites-available/excalibur.moe /etc/nginx/sites-enabled/</code>软连接过去</li></ul><p><strong>nginx.conf</strong> 文件中，谁的include在上面谁的优先级就高</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">service  nginx reloadservice  nginx startservice  nginx stopservice  nginx restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 坑 </tag>
+            
+            <tag> nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SQL注入之无列名注入</title>
+      <link href="/p/1212761655.html"/>
+      <url>/p/1212761655.html</url>
+      
+        <content type="html"><![CDATA[<p>做了道无列名注入的题，顿悟，记录一下</p><ul><li>绕过or</li></ul><p>union select会在查询的查询的数据的最后添加联合查询的数据</p><ul><li>例如这样，就相当于是一个表，虚拟表，第二行的1234就是字段名↓</li></ul><p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D1.png" alt="img"></p><ul><li>创建一个表↓</li></ul><p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D2.png" alt="img"></p><ul><li>这样就建立了一个虚拟表，1234是字段，admin—10086是数据</li></ul><p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D3.png" alt="img"></p><ul><li>这样就在不知道字段名的情况下以查找虚拟表的形式查找出来了</li></ul><p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D4.png" alt="img"></p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token punctuation">`</span><span class="token number">2</span><span class="token punctuation">`</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span><span class="token punctuation">)</span> <span class="token keyword">as</span> a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>意思就是 在新建的虚拟表中查询 列名为2的数据。<br>反单引号表示列名或者表名(反单引号就是~)</p><p>一般语句为:</p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token punctuation">`</span><span class="token number">2</span><span class="token punctuation">`</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> table_name<span class="token punctuation">)</span>a<span class="token punctuation">)</span><span class="token comment">//需要知道表名</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">select</span> c <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span> c <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users<span class="token punctuation">)</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">// 1，2，3是因为users表有三列，实际情况还需要猜测表或列的数量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>每一个派生出来的表都必须有一个自己的别名，那我给派生表加上别名即可<br>加上as a或者a，a为新表的别名</p><p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D5.png" alt="img"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> SQLI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Install-Module 找不到与参数名称Scope匹配的参数</title>
+      <link href="/p/528086098.html"/>
+      <url>/p/528086098.html</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://i.loli.net/2019/12/01/HtCcs9mBKgxGNXO.png"><br>使用 Install-Module posh-git 时报错，提示找不到与参数名称Scope匹配的参数。<br>谷歌一个多小时，发现没有相关解。怀疑人生<br>仔细一看代码才发现，提示psgetXXXXXX<br>想想应该是之前不规范配置powershell遗留下来的东西<br>管理员运行powershell 输入</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>清空 ~\WindowsPowerShell 文档下的 Microsoft.PowerShell_profile 配置文件。<br>删除 ~\WindowsPowerShell\Modules 文档下的 psget和posh-git (反正就是清理干净)<br>重新Install-Module posh-git<br>成功，结束。<br>附两篇美化指南：<br><a href="https://zhuanlan.zhihu.com/p/51901035">https://zhuanlan.zhihu.com/p/51901035</a><br><a href="https://nexmoe.com/1519803391.html">https://nexmoe.com/1519803391.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 坑 </tag>
+            
+            <tag> Powershell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

@@ -436,7 +436,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-12-01
+                    2021-07-02
                 </div>
                 
 
@@ -473,7 +473,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://i.loli.net/2019/12/01/HtCcs9mBKgxGNXO.png" alt="avatar"><br>使用 Install-Module posh-git 时报错，提示找不到与参数名称Scope匹配的参数。<br>谷歌一个多小时，发现没有相关解。怀疑人生<br>仔细一看代码才发现，提示psgetXXXXXX<br>想想应该是之前不规范配置powershell遗留下来的东西<br>管理员运行powershell 输入</p>
+                <p><img src="https://i.loli.net/2019/12/01/HtCcs9mBKgxGNXO.png"><br>使用 Install-Module posh-git 时报错，提示找不到与参数名称Scope匹配的参数。<br>谷歌一个多小时，发现没有相关解。怀疑人生<br>仔细一看代码才发现，提示psgetXXXXXX<br>想想应该是之前不规范配置powershell遗留下来的东西<br>管理员运行powershell 输入</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>清空 ~\WindowsPowerShell 文档下的 Microsoft.PowerShell_profile 配置文件。<br>删除 ~\WindowsPowerShell\Modules 文档下的 psget和posh-git (反正就是清理干净)<br>重新Install-Module posh-git<br>成功，结束。<br>附两篇美化指南：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51901035">https://zhuanlan.zhihu.com/p/51901035</a><br><a target="_blank" rel="noopener" href="https://nexmoe.com/1519803391.html">https://nexmoe.com/1519803391.html</a></p>
@@ -1101,6 +1101,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"left","hOffset":0,"vOffset":-100},"mobile":{"show":true},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 
 </html>

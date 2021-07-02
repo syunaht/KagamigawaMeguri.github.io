@@ -485,19 +485,19 @@
 <ul>
 <li>例如这样，就相当于是一个表，虚拟表，第二行的1234就是字段名↓</li>
 </ul>
-<p><img src="../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D1.png" alt="img"></p>
+<p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D1.png" alt="img"></p>
 <ul>
 <li>创建一个表↓</li>
 </ul>
-<p><img src="../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D2.png" alt="img"></p>
+<p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D2.png" alt="img"></p>
 <ul>
 <li>这样就建立了一个虚拟表，1234是字段，admin—10086是数据</li>
 </ul>
-<p><img src="../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D3.png" alt="img"></p>
+<p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D3.png" alt="img"></p>
 <ul>
 <li>这样就在不知道字段名的情况下以查找虚拟表的形式查找出来了</li>
 </ul>
-<p><img src="../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D4.png" alt="img"></p>
+<p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D4.png" alt="img"></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token punctuation">`</span><span class="token number">2</span><span class="token punctuation">`</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span><span class="token punctuation">)</span> <span class="token keyword">as</span> a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>意思就是 在新建的虚拟表中查询 列名为2的数据。<br>反单引号表示列名或者表名(反单引号就是~)</p>
@@ -508,7 +508,7 @@
 <span class="token comment">// 1，2，3是因为users表有三列，实际情况还需要猜测表或列的数量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>每一个派生出来的表都必须有一个自己的别名，那我给派生表加上别名即可<br>加上as a或者a，a为新表的别名</p>
-<p><img src="../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D5.png" alt="img"></p>
+<p><img src="/../images/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/%E6%97%A0%E5%88%97%E5%90%8D5.png" alt="img"></p>
 
                 
             </div>
@@ -1132,6 +1132,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"left","hOffset":0,"vOffset":-100},"mobile":{"show":true},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 
 </html>

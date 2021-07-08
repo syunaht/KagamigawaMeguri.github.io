@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Android崩溃笔记</title>
+      <link href="/p/288737676.html"/>
+      <url>/p/288737676.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Android崩溃笔记"><a href="#Android崩溃笔记" class="headerlink" title="Android崩溃笔记"></a>Android崩溃笔记</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>记录一下学习安卓时逐渐崩溃的心路历程。</p><p>安卓是白天学的，人是晚上走的。</p><p>半吊子学android是这样的，每个问题都让我啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊的崩溃乱叫。</p><h2 id="android-content-res-Resources-NotFoundException-String-resource-ID"><a href="#android-content-res-Resources-NotFoundException-String-resource-ID" class="headerlink" title="android.content.res.Resources$NotFoundException: String resource ID"></a>android.content.res.Resources$NotFoundException: String resource ID</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">followedNumTV<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>userInfo<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFollowedNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>由于<code>getFollowedNum()</code>返回的是integer，setText又只接收string，偏偏ide没提示！！！</p><pre class="line-numbers language-java" data-language="java"><code class="language-java">followedNumTV<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>userInfo<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFollowedNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="调用org-json-JSONObject-报错Stub"><a href="#调用org-json-JSONObject-报错Stub" class="headerlink" title="调用org.json.JSONObject 报错Stub!"></a>调用org.json.JSONObject 报错Stub!</h2><p>这玩意只能在安卓中运行，不能直接用java运行。</p><h2 id="网络请求用Retrofit2-Rxjava2"><a href="#网络请求用Retrofit2-Rxjava2" class="headerlink" title="网络请求用Retrofit2+Rxjava2"></a>网络请求用Retrofit2+Rxjava2</h2><p>安卓中不允许主线程执行网络请求，所以要另寻他法。</p><p>而Retrofit2中也有<code>.enqueue()</code>来进行异步操作，但处理返回值似乎有点麻烦，于是用Rxjava2来进行线程调度。</p><p>好文共赏：<a href="https://gank.io/post/560e15be2dca930e00da1083">给 Android 开发者的 RxJava 详解</a></p><h2 id="JSON处理"><a href="#JSON处理" class="headerlink" title="JSON处理"></a>JSON处理</h2><p>用gson或者fastjson。</p><p>一开始拒绝建javabean，用fastjson将返回值转map折腾了很久。</p><p>最终败给了异步请求，还是得建javabean。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> DEBUG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[网鼎杯 2018]Comment</title>
       <link href="/p/2243940947.html"/>
       <url>/p/2243940947.html</url>

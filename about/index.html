@@ -401,7 +401,7 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">17</a></span>
+    <span class="count"><a href="/">18</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -415,7 +415,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">27</a></span>
+    <span class="count"><a href="/tags">28</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -431,7 +431,7 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">17</a></span>
+    <span class="count"><a href="/">18</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -445,7 +445,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">27</a></span>
+    <span class="count"><a href="/tags">28</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -557,7 +557,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [1,0,1,0,0,0,0,0,0,0,0,0,12],
+                data: [1,0,1,0,0,0,0,0,0,0,0,0,13],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -599,7 +599,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"软件推荐","value":1},{"name":"Web","value":10},{"name":"杂谈","value":2},{"name":"Android","value":1},{"name":"前端","value":2},{"name":"Python","value":1}],
+                data: [{"name":"Android","value":1},{"name":"Web","value":11},{"name":"软件推荐","value":1},{"name":"前端","value":2},{"name":"杂谈","value":2},{"name":"Python","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -623,7 +623,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["CTF","Web","PHP代码审计","SQL注入","坑","错显","Calibre","epub","阅读器","冷门神器"]
+                data: ["CTF","Web","PHP代码审计","SQL注入","坑","错显","disable_functions","Android","DEBUG","命令执行"]
             }
         ],
         yAxis: [
@@ -636,7 +636,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [9,9,4,4,3,2,1,1,1,1],
+                data: [10,10,4,4,3,2,2,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -743,26 +743,14 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/Calibre/">
-                <span class="chip center-align waves-effect waves-light chip-default">Calibre</span>
+            <a href="/tags/Android/">
+                <span class="chip center-align waves-effect waves-light chip-default">Android</span>
             </a>
             
             
             
-            <a href="/tags/epub/">
-                <span class="chip center-align waves-effect waves-light chip-default">epub</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E9%98%85%E8%AF%BB%E5%99%A8/">
-                <span class="chip center-align waves-effect waves-light chip-default">阅读器</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E5%86%B7%E9%97%A8%E7%A5%9E%E5%99%A8/">
-                <span class="chip center-align waves-effect waves-light chip-default">冷门神器</span>
+            <a href="/tags/DEBUG/">
+                <span class="chip center-align waves-effect waves-light chip-default">DEBUG</span>
             </a>
             
             
@@ -787,8 +775,38 @@
             
             
             
+            <a href="/tags/Calibre/">
+                <span class="chip center-align waves-effect waves-light chip-default">Calibre</span>
+            </a>
+            
+            
+            
+            <a href="/tags/epub/">
+                <span class="chip center-align waves-effect waves-light chip-default">epub</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E9%98%85%E8%AF%BB%E5%99%A8/">
+                <span class="chip center-align waves-effect waves-light chip-default">阅读器</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%86%B7%E9%97%A8%E7%A5%9E%E5%99%A8/">
+                <span class="chip center-align waves-effect waves-light chip-default">冷门神器</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E5%9D%91/">
                 <span class="chip center-align waves-effect waves-light chip-default">坑</span>
+            </a>
+            
+            
+            
+            <a href="/tags/nginx/">
+                <span class="chip center-align waves-effect waves-light chip-default">nginx</span>
             </a>
             
             
@@ -799,14 +817,14 @@
             
             
             
-            <a href="/tags/Android/">
-                <span class="chip center-align waves-effect waves-light chip-default">Android</span>
+            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                <span class="chip center-align waves-effect waves-light chip-default">SQL注入</span>
             </a>
             
             
             
-            <a href="/tags/DEBUG/">
-                <span class="chip center-align waves-effect waves-light chip-default">DEBUG</span>
+            <a href="/tags/%E9%94%99%E6%98%BE/">
+                <span class="chip center-align waves-effect waves-light chip-default">错显</span>
             </a>
             
             
@@ -829,32 +847,14 @@
             
             
             
+            <a href="/tags/disable-functions/">
+                <span class="chip center-align waves-effect waves-light chip-default">disable_functions</span>
+            </a>
+            
+            
+            
             <a href="/tags/if-substr%E7%9B%B2%E6%B3%A8/">
                 <span class="chip center-align waves-effect waves-light chip-default">if+substr盲注</span>
-            </a>
-            
-            
-            
-            <a href="/tags/nginx/">
-                <span class="chip center-align waves-effect waves-light chip-default">nginx</span>
-            </a>
-            
-            
-            
-            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                <span class="chip center-align waves-effect waves-light chip-default">SQL注入</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E9%94%99%E6%98%BE/">
-                <span class="chip center-align waves-effect waves-light chip-default">错显</span>
-            </a>
-            
-            
-            
-            <a href="/tags/basename/">
-                <span class="chip center-align waves-effect waves-light chip-default">basename</span>
             </a>
             
             
@@ -875,6 +875,12 @@
             
             <a href="/tags/Asyncio/">
                 <span class="chip center-align waves-effect waves-light chip-default">Asyncio</span>
+            </a>
+            
+            
+            
+            <a href="/tags/basename/">
+                <span class="chip center-align waves-effect waves-light chip-default">basename</span>
             </a>
             
             

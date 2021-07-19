@@ -460,16 +460,20 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
+                            </a>
+                        
+                            <a href="/tags/Web/">
+                                <span class="chip bg-color">Web</span>
+                            </a>
+                        
                             <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
                                 <span class="chip bg-color">反序列化</span>
                             </a>
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/request/">
-                                <span class="chip bg-color">request</span>
+                            <a href="/tags/requests/">
+                                <span class="chip bg-color">requests</span>
                             </a>
                         
                     </div>
@@ -500,14 +504,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-02
+                    2021-07-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    588
+                    584
                 </div>
                 
 
@@ -594,7 +598,7 @@ response <span class="token operator">=</span> requests<span class="token punctu
 
 <p>这次我加了r，实际是多次一举。</p>
 <p>写<code>\x00*\x00</code>或<code>\0*\0</code>本意就是让它在发包的时候自动转义，加了r反而把16进制当做字符串传过去，导致反序列化失败。</p>
-<h2 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h2><p>为什么删掉原代码中的<code>$str = (string)$_GET[&#39;str&#39;];</code>，反序列化会失败？</p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>为什么删掉原代码中的<code>$str = (string)$_GET[&#39;str&#39;];</code>，反序列化会失败？</p>
 
                 
             </div>
@@ -659,16 +663,20 @@ response <span class="token operator">=</span> requests<span class="token punctu
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
+                                </a>
+                            
+                                <a href="/tags/Web/">
+                                    <span class="chip bg-color">Web</span>
+                                </a>
+                            
                                 <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
                                     <span class="chip bg-color">反序列化</span>
                                 </a>
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/request/">
-                                    <span class="chip bg-color">request</span>
+                                <a href="/tags/requests/">
+                                    <span class="chip bg-color">requests</span>
                                 </a>
                             
                         </div>

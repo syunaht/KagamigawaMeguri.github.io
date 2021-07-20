@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>关于IDA7.5版本IDApython的api差异问题及解决办法</title>
+      <link href="/p/164444668.html"/>
+      <url>/p/164444668.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于IDA7-5版本IDApython的api差异问题及解决办法"><a href="#关于IDA7-5版本IDApython的api差异问题及解决办法" class="headerlink" title="关于IDA7.5版本IDApython的api差异问题及解决办法"></a>关于IDA7.5版本IDApython的api差异问题及解决办法</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首发于吾爱破解，现转到博客上来。</p><p>不知道该分哪类，姑且放到逆向里吧</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>在7.5版本下一些函数如<code>PatchByte()</code>，<code>Byte()</code>都提示<br>NameError: name ‘Byte’ is not defined<br>又舍不得放弃7.5(一些题目拿7.5版生成的伪代码比7.0版要好看的多)，<br>于是在网上查了很久，找出了解决办法。</p><p>原来是IDApython的api问题<br>首先是官方对于api的详细迁移文档<br><a href="https://www.hex-rays.com/products/ida/support/ida74_idapython_no_bc695_porting_guide.shtml">https://www.hex-rays.com/products/ida/support/ida74_idapython_no_bc695_porting_guide.shtml</a><br>有了这个表，一些wp里的旧版代码搜索一下就能在7.5版使用了。</p><p>以下是兼容办法</p><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>其次是在比较方便的在7.5用7.0API办法，来源：<a href="https://github.com/0xgalz/Virtuailor/issues/8">https://github.com/0xgalz/Virtuailor/issues/8</a><br>在代码面前加个：<br><code>from idc_bc695 import *</code><br>即可。</p><h3 id="方法2-一劳永逸版-："><a href="#方法2-一劳永逸版-：" class="headerlink" title="方法2(一劳永逸版)："></a>方法2(一劳永逸版)：</h3><p>来源官方文档：<a href="https://www.hex-rays.com/products/ida/support/ida74_idapython_no_bc695.shtml">https://www.hex-rays.com/products/ida/support/ida74_idapython_no_bc695.shtml</a><br>找到</p><ul><li>~/.idapro/cfg/idapython.cfg (Linux)</li><li>%APPDATA%\Hex-Rays\IDA Pro\cfg\idapython.cfg (Windows) (绿色版的话在程序目录下那个cfg文件夹里)</li></ul><p>把<code>AUTOIMPORT_COMPAT_IDA695</code>的值改为<code>YES</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Reverse </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> IDA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[CISCN2019 华东南赛区]Double Secret</title>
       <link href="/p/1231048582.html"/>
       <url>/p/1231048582.html</url>

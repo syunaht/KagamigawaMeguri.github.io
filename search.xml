@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>CobaltStrike 4.3[20210317]汉化及破解整合</title>
+      <link href="/p/1120311950.html"/>
+      <url>/p/1120311950.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="CobaltStrike-4-3-20210317-汉化及破解整合"><a href="#CobaltStrike-4-3-20210317-汉化及破解整合" class="headerlink" title="CobaltStrike 4.3[20210317]汉化及破解整合"></a>CobaltStrike 4.3[20210317]汉化及破解整合</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Cobalt Strike 4.3 (March 17, 2021) [bug fixes]</p><p>资源来源于公众号：<code>孟疾杂记</code>，在此感谢<a href="https://github.com/Twi1ight">Twi1ight</a>无私分享的宝贵资源。</p><p>文件可通过官方哈希验证地址进行sha256验证。</p><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><h3 id="CobaltStrike-4-3-20210317-官方jar包"><a href="#CobaltStrike-4-3-20210317-官方jar包" class="headerlink" title="CobaltStrike 4.3[20210317]官方jar包"></a>CobaltStrike 4.3[20210317]官方jar包</h3><p>以下为@Twi1ight发布的下载地址</p><blockquote><p><a href="https://pan.baidu.com/s/11yLBMq392FMXy5GywjbyNQ">https://pan.baidu.com/s/11yLBMq392FMXy5GywjbyNQ</a><br>提取码: xiyg</p><p><a href="https://wwr.lanzoux.com/ii0ehopvdgj">https://wwr.lanzoux.com/ii0ehopvdgj</a><br>密码:3yn1</p></blockquote><p>验证命令(windows自带)</p><pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">certutil -hashfile cobaltstrike.jar SHA256<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721140132514.png" alt="image-20210721140132514"></p><h3 id="CobaltStrike-4-3-20210317-破解版"><a href="#CobaltStrike-4-3-20210317-破解版" class="headerlink" title="CobaltStrike 4.3[20210317]破解版"></a>CobaltStrike 4.3[20210317]破解版</h3><blockquote><p>破解思路和以前版本一样，替换resources/authkey.pub，然后自己签发cobaltstrike.auth</p><p>改了四个地方：</p><ol><li>替换resources/authkey.pub文件</li><li>修改common/AuthCrypto.class里面authkey.pub的MD5值</li><li>修复beacon/BeaconData.class里30分钟退出的暗桩</li><li>在aggressor/Aggressor.class的版本号后面加了自己的半个ID</li></ol></blockquote><p>以下为@Twi1ight发布的下载地址</p><blockquote><p><a href="https://pan.baidu.com/s/1vISRhX6ELpaXDVJ4RlWQZQ">https://pan.baidu.com/s/1vISRhX6ELpaXDVJ4RlWQZQ</a><br>提取码: jtv9<br>解压密码: A.F_ck1ng.Gift.for.51.Fr0m.TW</p><p><a href="https://wwr.lanzoux.com/i3X4Sopvdcf">https://wwr.lanzoux.com/i3X4Sopvdcf</a><br>密码:gbs3</p></blockquote><p>因为是直接破解原版jar，所以哈希值与原版不同。</p><h3 id="汉化-破解加载器"><a href="#汉化-破解加载器" class="headerlink" title="汉化+破解加载器"></a>汉化+破解加载器</h3><p><a href="https://github.com/Twi1ight/CSAgent">https://github.com/Twi1ight/CSAgent</a></p><h3 id="汉化破解个人整合版"><a href="#汉化破解个人整合版" class="headerlink" title="汉化破解个人整合版"></a>汉化破解个人整合版</h3><p>这个则是个人整合，除了把上面的资源整合了下，官方jar包+CSAgent，还做了些修改，具体如下：</p><ul><li><p>新增<code>cobalstrike.vbs</code></p><p>windows启动方式，其中jdk路径请自行替换<code>C:\Program Files\Java\jdk-14.0.2\bin\java.exe</code></p><p>优点：任意指定java版本，无需担心系统变量问题</p></li><li><p>新增<code>start.sh</code></p><p>linux启动方式，届时可直接<code>./start.sh</code>启动。代码来源于<code>CSAgent</code></p></li><li><p>修改<code>teamserver</code></p><p>代码来源于<code>CSAgent</code>，加了个<code>--add-opens=java.base/java.lang.reflect=ALL-UNNAMED</code>以忽略warning，具体见后文</p></li></ul><blockquote><p>下载:<a href="https://avalonair.lanzoui.com/i2WHFrodk1a">https://avalonair.lanzoui.com/i2WHFrodk1a</a> </p><p>密码:e7fr</p></blockquote><h2 id="相关问题集锦"><a href="#相关问题集锦" class="headerlink" title="相关问题集锦"></a>相关问题集锦</h2><h3 id="WARNING-An-illegal-reflective-access-operation-has-occurred"><a href="#WARNING-An-illegal-reflective-access-operation-has-occurred" class="headerlink" title="WARNING: An illegal reflective access operation has occurred"></a>WARNING: An illegal reflective access operation has occurred</h3><p>teamserver启动报如下错误：</p><p><img src="/../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721142058187.png" alt="image-20210721142058187"></p><p>主要出现在高版本(&gt;=jdk9)情况下，没有影响，忽略就好</p><p>在启动项加个如下命令即可忽略该warning</p><pre class="line-numbers language-none"><code class="language-none">--add-opens&#x3D;java.base&#x2F;java.lang.reflect&#x3D;ALL-UNNAMED<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="官方哈希验证地址"><a href="#官方哈希验证地址" class="headerlink" title="官方哈希验证地址"></a>官方哈希验证地址</h2><pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;verify.cobaltstrike.com&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721135356961.png" alt="image-20210721135356961"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CobaltStrike </tag>
+            
+            <tag> 渗透 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于IDA7.5版本IDApython的api差异问题及解决办法</title>
       <link href="/p/164444668.html"/>
       <url>/p/164444668.html</url>

@@ -552,7 +552,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    754
+                    777
                 </div>
                 
 
@@ -652,9 +652,9 @@
     <span class="token keyword">print</span><span class="token punctuation">(</span>alive_target<span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>start_time<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>这个其实和多线程没啥区别，无非一个用手动设置线程，一个自动增加线程。</p>
-<p>不过按理来说还是这个要更好一点，无论是时间还是空间上来说。</p>
-<p>因为ping不支持异步，所以用线程池形式，以空间换时间。</p>
+<h3 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h3><p>因为ping不支持异步，所以用线程池形式，以空间换时间。</p>
+<p>这个其实和多线程没啥区别，无非一个用手动设置线程，一个自动增加线程。</p>
+<p>不过按理来说还是这个要更好一点，无论是时间还是空间上来说，更为”自动化“，代码更少，而且Python因为有GIL锁，用协程更为适合。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> ping3 <span class="token keyword">import</span> ping<span class="token punctuation">,</span> verbose_ping
 <span class="token keyword">import</span> asyncio
 <span class="token keyword">import</span> time
@@ -692,7 +692,7 @@
     <span class="token keyword">print</span><span class="token punctuation">(</span>alive_target<span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>start_time<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="异步uvloop"><a href="#异步uvloop" class="headerlink" title="异步uvloop"></a>异步uvloop</h3><p>姑且测试了一下，暂时没感觉出太大区别，可能测试样本太少了。</p>
+<h3 id="协程uvloop"><a href="#协程uvloop" class="headerlink" title="协程uvloop"></a>协程uvloop</h3><p>姑且测试了一下，暂时没感觉出太大区别，可能测试样本太少了。</p>
 <blockquote>
 <p>python模块uvloop暂不支持windows和python3.9</p>
 </blockquote>

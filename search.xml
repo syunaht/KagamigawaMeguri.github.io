@@ -4,6 +4,87 @@
   
     
     <entry>
+      <title>[hack101]THE WEB IN DEPTH</title>
+      <link href="/p/3674367581.html"/>
+      <url>/p/3674367581.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="hack101-THE-WEB-IN-DEPTH"><a href="#hack101-THE-WEB-IN-DEPTH" class="headerlink" title="[hack101]THE WEB IN DEPTH"></a>[hack101]THE WEB IN DEPTH</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>In this session we’ll talk about how the web works from a security perspective.</p><p>在这节课我们将讨论从安全角度触发web服务如何工作的问题。</p><p><strong>What you’ll learn</strong></p><ul><li>HTTP basics</li><li>Cookie security</li><li>HTML parsing</li><li>MIME sniffing</li><li>Encoding sniffing</li><li>Same-Origin Policy</li><li>CSRF (Cross-Site Request Forgery)</li></ul></blockquote><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><strong>1.http报文的结构是什么？（1分）</strong></p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/../images/hacker101-THE-WEB-IN-DEPTH/22901708-0141fed962448a31.png"></p><p><strong>2.什么是crlf？在http报文的哪个位置。（1分）</strong></p><p>回车换行，每行末位</p><p><strong>3.解释下这几个头的含义（5分）</strong></p><p>HOST:请求主机</p><p>Accept:表示客户端可接受哪种MIME类型，指定web服务是用json或者xml输出。</p><p>Cookie:给服务器传送cookie</p><p>Referer:来源页(HTTPS情况下不会传递)</p><p>Authorization:设置身份验证的凭证</p><p><strong>4.cookie具有哪些特点，不同的域名和子域名对cookie有怎样的权限？Cookie的Secure和HTTPOnly这两个flag分别有什么作用？请结合xss攻击来进行说明（3分）</strong></p><p>以键值对的形式临时存在。为域名设置的cookie，子域名也可读。子域名只可写自身的cookie。</p><p>Secure:限制只有通过https访问时才能传递cookie</p><p>httponly:阻止JavaScript读取cookie，可防xss攻击</p><p><strong>5.简述本视频提到的xss绕过web防火墙的方案（5分）</strong></p><p>用UTF-7/UTF-32编码payload</p><p><strong>6.内容嗅探是什么？主要有哪些类型？请分别举例，主要用途是什么？在什么情况下可以利用这些漏洞？。为什么facebook等网站需要使用不同的域名来存储图片？（5分）</strong></p><p>通过解析文件的内容，来猜测MIME类型的格式。有浏览器嗅探和客户端嗅探。客户端嗅探可用来判断浏览器为什么浏览器。</p><p>有些MIME类型是可执行类型，可以通过混淆MIME嗅探算法来执行XSS。</p><p>防止内容嗅探。</p><p><strong>7.同源策略是什么？限制是什么？浏览器在遇到哪两种情况的时候会用到同源策略？如何放松SOP限制？放松SOP限制会对浏览器插件安全造成怎样的破坏？</strong></p><p>协议域名端口三者相同。</p><p>通过XHR连接域名和跨独立的框架/窗口进行访问。</p><p>容易造成XSS,CSRF攻击。</p><p><strong>8.csrf是什么？如何设计规避csrf？视频中提到的错误的csrf配置方法是什么？</strong></p><p>跨站请求伪造。</p><p>验证token，验证HTTP请求的Referer，还有验证XHR里的自定义header。</p><p>没有对请求来源进行验证/过滤。</p><p><strong>附加题：5、6两点主要利用的是由于服务端和客户端对同一信息的处理方式不同造成的漏洞，你还能举出相似的例子么？（1分）</strong></p><p>SSTI</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web </tag>
+            
+            <tag> 英语学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[hacker101]A STARTERS GUIDE TO PENTESTING WITH OWASP</title>
+      <link href="/p/960623103.html"/>
+      <url>/p/960623103.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="【hacker101】A-STARTERS-GUIDE-TO-PENTESTING-WITH-OWASP"><a href="#【hacker101】A-STARTERS-GUIDE-TO-PENTESTING-WITH-OWASP" class="headerlink" title="【hacker101】A STARTERS GUIDE TO PENTESTING WITH OWASP"></a>【hacker101】A STARTERS GUIDE TO PENTESTING WITH OWASP</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://www.hacker101.com/sessions/pentest_owasp">https://www.hacker101.com/sessions/pentest_owasp</a></p><blockquote><p>What is OWASP and what is the OWASP Top 10? Quick review of top 10 categories and types of vulnerabilities. Concludes with a detailed testing guide walkthrough.</p><p>什么是OWASP，OWASP中的TOP10又是什么？快速回顾下TOP10的分类以及漏洞类型，最后给出一个详细的测试指南演练。</p></blockquote><p><strong>1.目前owasp的十大web安全漏洞是哪些？这些漏洞排名是按照漏洞的严重程度排序的还是按照漏洞的常见程度排序的？（2分）</strong></p><p>Injection, Broken Authentication, Sensitive Data Exposure, XXE, Broken Access Control, Security Misconfiguration, XSS, Insecure Deserialization, Using Components with Known Vulnerabilities, Insufficient Logging &amp; Monitoring</p><p>常见程度</p><p><strong>2.请翻译一下credential stuffing（1分）</strong></p><p>撞库</p><p><strong>3.为什么说不充分的日志记录(insufficient logging)也算owasp十大漏洞的一种？他的危害性如何（2分）</strong></p><p>因为这可以让攻击者进一步攻击系统，保持持久的连接，转而篡改、提取、破坏数据。</p><p>很多研究表明超过200天以上的违规攻击，都是由内部的日志记录引起的。</p><p><strong>4.请翻阅一下<em>owasp testing guide</em>，以及<em>owasp testing guide check-list</em>，视频说怎么结合这两个文档来学习渗透测试？ 结合你平时渗透过程中的经验，谈谈你的感想。（3分）</strong></p><p>大致浏览看check-list，跟着guide中的具体操作去尝试，不用担心记不下所有漏洞，多做笔记多回顾就好。</p><p><strong>5.You are only as good as you notes. You are only as good as things you can refer to. 结合这两句话谈谈你的感想。（2分）</strong></p><p>多做笔记，好记性不如烂笔头，不要好高骛远，把握当下能掌握的才是最重要的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web </tag>
+            
+            <tag> 英语学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[hacker101]INTRODUCTION</title>
+      <link href="/p/84257377.html"/>
+      <url>/p/84257377.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="hacker101-INTRODUCTION"><a href="#hacker101-INTRODUCTION" class="headerlink" title="[hacker101]INTRODUCTION"></a>[hacker101]INTRODUCTION</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://www.hacker101.com/sessions/introduction.html">https://www.hacker101.com/sessions/introduction.html</a></p><blockquote><p>In this session we talk about the class and introduce the instructor, Cody Brocious, then jump into the mind of a breaker and talk about how you can take the things you learn in this class and apply them to real situations.</p><p>在这个章节我们将讨论课程相关的内容，介绍下导师Cody Brocious，然后以一个breaker的思维去讨论你在课程中学到的东西该如何去做，如何应用到真实环境。</p><p><strong>What you’ll learn</strong></p><ul><li>Required tools 所需要的工具</li><li>Thinking like a breaker 像breaker一样思考</li><li>Attacker-defender imbalance 攻防失衡</li><li>Lightweight threat assessment and prioritization 轻度风险评估和优先级</li><li>How to write good bug reports 如何写一个优雅的bug报告</li><li>Reflected XSS (Cross-Site Scripting) XSS反射</li></ul></blockquote><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><strong>1.本视频一开始介绍了哪两个工具，他们的作用分别是什么？为什么作者会推荐firefox，它的优点是什么？（5分）</strong></p><p>Burpsuite：允许你监视包括HTTP/HTTPS数据流，可以中途修改或重发数据包。</p><p>Firefox浏览器：可以设置代理而避免系统代理的诸多问题。</p><p><strong>2.本视频中体现了哪些攻防上的哲学观点？作者希望你养成什么样的思维？这些思维在帮助你挖掘漏洞的时候有什么帮助？结合你的经历与视频内容谈谈你的看法。（10分）</strong></p><p>先发制人。</p><p>按下最关键的按钮去查看反馈。如果不理解这个程序在做什么/为什么，就很难去找到方法去渗透。</p><p>漏洞是潜藏在程序流程之中的，所以挖掘漏洞的前提是把我程序脉络。</p><p><strong>3.审计以下代码：</strong></p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span>?php<span class="token keyword">if</span><span class="token punctuation">(</span>isset<span class="token punctuation">(</span>$_GET<span class="token punctuation">[</span> <span class="token string">' name '</span> <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>echo <span class="token string">"&lt;h1>Hello &#123;$_GET['name']&#125; !&lt;/h1>"</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span>?<span class="token operator">></span><span class="token operator">&lt;</span>form method<span class="token operator">=</span><span class="token string">"GET"</span><span class="token operator">></span>Enter your name<span class="token punctuation">:</span> <span class="token operator">&lt;</span><span class="token builtin">input</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token string">"input"</span> name<span class="token operator">=</span><span class="token string">"name"</span><span class="token operator">></span><span class="token operator">&lt;</span>br<span class="token operator">></span><span class="token operator">&lt;</span><span class="token builtin">input</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token string">" submit"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>本段代码涉及到客户端，服务端以及通信协议。</p><p>运行在客户端的代码主要有HTML以及javascript，由浏览器核心负责解释</p><p>通信协议为HTTP协议，有多种格式的请求包，常见的为POST与GET 运行在服务端的代码为php，由php核心负责解释。</p><p>用户端与服务端通过HTTP通信协议进行交互。 </p></blockquote><p>**那么，以上代码中，哪些部分属于客户端的内容，哪些属于服务端的内容？（1分） **</p><p>客户端：</p><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>GET<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Enter your name: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span> submit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>服务端：</p><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string single-quoted-string">' name '</span> <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;h1>Hello <span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span> !&lt;/h1>"</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>**客户端是通过传递什么参数来控制服务端代码的？（1分） **</p><p>GET参数</p><p><strong>客户端通过控制该参数会对服务端造成什么影响，继而使得客户端本身收到影响，从而造成了什么漏洞？如果是xss漏洞，具体又是什么类型的xss漏洞，为什么？（3分）</strong></p><p>可以任意执行JavaScript/HTML代码，造成xss漏洞。</p><p>属于反射型，恶意代码未被服务器存储，需要通过GET/POST方式才可触发。</p><p><strong>4.思考：现实中如何利用xss漏洞实施攻击，我们应该如何预防？（1分）</strong></p><p>找on事件、img标签等带有xss漏洞的地方，写入恶意代码，获取敏感信息，入cookie/session</p><p>用户可换带有XSS Auditor的谷歌浏览器，管理人员则需要加强过滤。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web </tag>
+            
+            <tag> 英语学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[GYCTF2020]Easyphp</title>
       <link href="/p/3540088970.html"/>
       <url>/p/3540088970.html</url>
@@ -1497,7 +1578,7 @@
             
             <tag> 阅读器 </tag>
             
-            <tag> 冷门神器 </tag>
+            <tag> 软件推荐 </tag>
             
         </tags>
       

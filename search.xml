@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>QQ机器人插件:第七史诗wiki</title>
+      <link href="/p/4034348205.html"/>
+      <url>/p/4034348205.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="QQ机器人插件-第七史诗wiki"><a href="#QQ机器人插件-第七史诗wiki" class="headerlink" title="QQ机器人插件:第七史诗wiki"></a>QQ机器人插件:第七史诗wiki</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有了之前的经验，这个写起来就很快了。</p><h2 id="开发日志"><a href="#开发日志" class="headerlink" title="开发日志"></a>开发日志</h2><h3 id="2021年8月10日00-55-31"><a href="#2021年8月10日00-55-31" class="headerlink" title="2021年8月10日00:55:31"></a>2021年8月10日00:55:31</h3><p>基本处理完了。上线测试，收工。</p><h3 id="2021年8月10日00-14-28"><a href="#2021年8月10日00-14-28" class="headerlink" title="2021年8月10日00:14:28"></a>2021年8月10日00:14:28</h3><p>给数据库弄了个触发器记录更新时间，方便机器人读取已经后续查看。</p><h3 id="2021年8月9日23-25-50"><a href="#2021年8月9日23-25-50" class="headerlink" title="2021年8月9日23:25:50"></a>2021年8月9日23:25:50</h3><p>基本的人机交互逻辑整好了，还加了个自动同意好友和加群申请，接下来继续优化下交互逻辑吧。</p><h3 id="2021年8月9日17-57-50"><a href="#2021年8月9日17-57-50" class="headerlink" title="2021年8月9日17:57:50"></a>2021年8月9日17:57:50</h3><p>OK，wiki上的数据都扒完了，beautifulsoup真好使啊，接下来就是放到数据库里了。</p><p>还是先写入到excel里，方便日后修改。 </p><h3 id="2021年8月9日11-30-05"><a href="#2021年8月9日11-30-05" class="headerlink" title="2021年8月9日11:30:05"></a>2021年8月9日11:30:05</h3><p>无语，一觉醒来，用火狐复制xpath路径，和chrome结果也一样了，真无语。还是老老实实用bs4吧。</p><h3 id="2021年8月9日00-02-39"><a href="#2021年8月9日00-02-39" class="headerlink" title="2021年8月9日00:02:39"></a>2021年8月9日00:02:39</h3><p>首先是扒wiki数据，谷歌浏览器不行啊，会自动补足什么，xpath路径给的不对。edge也是如此，换了火狐，竟然可以了，很久没用火狐了，这玩意手感还挺好。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> nonebot2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[hack101]THE WEB IN DEPTH</title>
       <link href="/p/3674367581.html"/>
       <url>/p/3674367581.html</url>

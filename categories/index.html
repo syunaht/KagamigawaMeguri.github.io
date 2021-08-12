@@ -168,17 +168,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
@@ -340,17 +329,6 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-address-book"></i>
@@ -457,29 +435,29 @@
                 
                 
                 
-                <a href="/categories/%E6%9D%82%E8%B0%88/" title="杂谈: 4">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">杂谈
-                        <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/categories/Android/" title="Android: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">Android
+                            style="background-color: #F9EBEA;">Android
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Web/" title="Web: 36">
+                <a href="/categories/%E6%9D%82%E8%B0%88/" title="杂谈: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">杂谈
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Web/" title="Web: 37">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #D5F5E3;">Web
-                        <span class="tag-length">36</span>
+                        <span class="tag-length">37</span>
                     </span>
                 </a>
                 
@@ -562,7 +540,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"杂谈","max":37},{"name":"Android","max":37},{"name":"Web","max":37},{"name":"Tools","max":37},{"name":"Python","max":37},{"name":"前端","max":37},{"name":"Reverse","max":37}],
+            indicator: [{"name":"Android","max":38},{"name":"杂谈","max":38},{"name":"Web","max":38},{"name":"Tools","max":38},{"name":"Python","max":38},{"name":"前端","max":38},{"name":"Reverse","max":38}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -573,7 +551,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [4,1,36,1,5,2,13],
+                    value : [1,4,37,1,5,2,13],
                     name : '文章分类数量'
                 }
             ]
@@ -823,6 +801,16 @@ $(function () {
 
     <!-- Baidu Analytics -->
 
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?419a24beb94d4fd7fed0042a3b4aaecc";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
     <!-- Baidu Push -->
 
 <script>
@@ -848,6 +836,25 @@ $(function () {
 
     
 
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "9df8ae19"
+        });
+        daovoice('update');
+    </script>
     
 
     <!--腾讯兔小巢-->

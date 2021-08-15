@@ -531,14 +531,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    757
+                    885
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -600,26 +600,59 @@
 
 
 p <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">'printrscandir'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> n1<span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> n2<span class="token punctuation">,</span> j <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>n1<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> n3<span class="token punctuation">,</span> k <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>n2<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">for</span> m <span class="token keyword">in</span> p<span class="token punctuation">[</span>n3<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> p<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> p<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> k <span class="token keyword">in</span> p<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> m <span class="token keyword">in</span> p<span class="token punctuation">:</span>
                 <span class="token keyword">if</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
                     <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">==</span> k <span class="token keyword">or</span> j <span class="token operator">==</span> m <span class="token keyword">or</span> m <span class="token operator">==</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
                         <span class="token keyword">continue</span>
                     <span class="token keyword">else</span><span class="token punctuation">:</span>
                         <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token string">'=='</span><span class="token operator">+</span>j <span class="token operator">+</span> <span class="token string">'^'</span> <span class="token operator">+</span> k <span class="token operator">+</span> <span class="token string">'^'</span><span class="token operator">+</span>m<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
                         <span class="token keyword">print</span><span class="token punctuation">(</span>
-                            <span class="token string">'%&#123;:0>2&#125;  =>  %&#123;:0>2&#125;  %&#123;:0>2&#125;  %&#123;:0>2&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>
+                            <span class="token string">'&#123;:0>2&#125;  =>  ["&#123;:0>2&#125;","&#123;:0>2&#125;","&#123;:0>2&#125;"]'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>
                                 en<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
                         <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815225300857.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815235405221.png"></p>
 <p>挑些出现次数较少的字符替换一下，比如</p>
 <p>原来是t，我选<code>t==s^d^c     %8b  =&gt;  %8c  %9b  %9c</code></p>
 <pre class="line-numbers language-none"><code class="language-none">(%8b)^(%ff)
 变成
 (%8c)^(%ff)^(%9b)^(9c)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>半自动替换脚本：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">tail</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    s <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'^'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'%'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    p <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'ff'</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>p<span class="token punctuation">,</span> p<span class="token punctuation">]</span>
+
+
+<span class="token keyword">def</span> <span class="token function">head</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    s <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'^'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'%'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> s
+
+
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    s <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> l<span class="token punctuation">:</span>
+        s <span class="token operator">+=</span> <span class="token string">'%'</span><span class="token operator">+</span>i
+    <span class="token keyword">return</span> s
+
+
+s <span class="token operator">=</span> <span class="token string">'(%8f%8d%96%91%8b%a0%8d)^(%ff%ff%ff%ff%ff%ff%ff)'</span>
+l <span class="token operator">=</span> head<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+p <span class="token operator">=</span> tail<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+to_fix_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'8b'</span><span class="token punctuation">,</span> <span class="token string">'91'</span><span class="token punctuation">,</span> <span class="token string">'8d'</span><span class="token punctuation">]</span>
+to_replace <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"8c"</span><span class="token punctuation">,</span> <span class="token string">"9b"</span><span class="token punctuation">,</span> <span class="token string">"9c"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"96"</span><span class="token punctuation">,</span> <span class="token string">"9c"</span><span class="token punctuation">,</span> <span class="token string">"9b"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"9e"</span><span class="token punctuation">,</span> <span class="token string">"9c"</span><span class="token punctuation">,</span> <span class="token string">"8f"</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> t<span class="token punctuation">,</span> to_fix <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>to_fix_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> n<span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> to_fix <span class="token operator">==</span> i<span class="token punctuation">:</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>to_fix<span class="token punctuation">,</span> to_replace<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> to_replace<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+            p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> to_replace<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;^(&#123;&#125;)^(&#123;&#125;)"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> add<span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> add<span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>至于为什么要用三个字符异或，因为两个字符异或出来的结果很少甚至没有。</p>
 <pre class="line-numbers language-none"><code class="language-none">print_r&#x3D;((%8f%9e%96%96%8c%a0%9e)^(%ff%ff%ff%ff%ff%ff%ff)^(%ff%9c%ff%9c%9c%ff%9c)^(%ff%8f%ff%9b%9b%ff%8f))

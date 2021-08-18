@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-18T17:00:00.146Z</updated>
+  <updated>2021-08-18T17:00:32.950Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://syunaht.com/p/1000059223.html"/>
     <id>https://syunaht.com/p/1000059223.html</id>
     <published>2021-08-18T14:31:03.000Z</published>
-    <updated>2021-08-18T17:00:00.146Z</updated>
+    <updated>2021-08-18T17:00:32.950Z</updated>
     
     
       
@@ -52,7 +52,7 @@
     <link href="https://syunaht.com/p/1953862148.html"/>
     <id>https://syunaht.com/p/1953862148.html</id>
     <published>2021-08-18T12:05:13.000Z</published>
-    <updated>2021-08-18T13:48:47.070Z</updated>
+    <updated>2021-08-18T17:00:32.955Z</updated>
     
     
       
@@ -81,7 +81,7 @@
     <link href="https://syunaht.com/p/2798247945.html"/>
     <id>https://syunaht.com/p/2798247945.html</id>
     <published>2021-08-18T05:14:54.000Z</published>
-    <updated>2021-08-18T12:01:05.070Z</updated>
+    <updated>2021-08-18T17:00:32.953Z</updated>
     
     
       
@@ -141,7 +141,7 @@
     <link href="https://syunaht.com/p/2343151245.html"/>
     <id>https://syunaht.com/p/2343151245.html</id>
     <published>2021-08-16T09:57:21.000Z</published>
-    <updated>2021-08-16T13:49:55.672Z</updated>
+    <updated>2021-08-18T17:01:34.129Z</updated>
     
     
       
@@ -154,7 +154,7 @@
     
     
     
-    <category term="刷题笔记:[RoarCTF 2019]Simple Upload" scheme="https://syunaht.com/categories/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RoarCTF-2019-Simple-Upload/"/>
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
     
     
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>

@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-18T17:00:32.950Z</updated>
+  <updated>2021-08-19T13:58:14.893Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>刷题笔记:[DDCTF 2019]homebrew event loop</title>
+    <link href="https://syunaht.com/p/203110635.html"/>
+    <id>https://syunaht.com/p/203110635.html</id>
+    <published>2021-08-19T07:07:05.000Z</published>
+    <updated>2021-08-19T13:58:14.893Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;刷题笔记-DDCTF-2019-homebrew-event-loop&quot;&gt;&lt;a href=&quot;#刷题笔记-DDCTF-2019-homebrew-event-loop&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[DDCTF</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="Flask" scheme="https://syunaht.com/tags/Flask/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[b01lers2020]Life on Mars</title>
+    <link href="https://syunaht.com/p/2559628216.html"/>
+    <id>https://syunaht.com/p/2559628216.html</id>
+    <published>2021-08-19T05:05:30.000Z</published>
+    <updated>2021-08-19T07:05:41.195Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;刷题笔记-b01lers2020-Life-on-Mars&quot;&gt;&lt;a href=&quot;#刷题笔记-b01lers2020-Life-on-Mars&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[b01lers2020]Life on</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="SQL注入" scheme="https://syunaht.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>刷题笔记:[GXYCTF2019]BabysqliV3.0</title>
@@ -166,18 +224,18 @@
   </entry>
   
   <entry>
-    <title>刷题笔记:[HarekazeCTF2019]Avatar Uploader 1</title>
+    <title>刷题笔记:[HarekazeCTF2019]Avatar Uploader</title>
     <link href="https://syunaht.com/p/2917397323.html"/>
     <id>https://syunaht.com/p/2917397323.html</id>
     <published>2021-08-16T06:08:47.000Z</published>
-    <updated>2021-08-16T09:42:37.065Z</updated>
+    <updated>2021-08-19T05:05:46.865Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;刷题笔记-HarekazeCTF2019-Avatar-Uploader-1&quot;&gt;&lt;a href=&quot;#刷题笔记-HarekazeCTF2019-Avatar-Uploader-1&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;刷题笔记-HarekazeCTF2019-Avatar-Uploader&quot;&gt;&lt;a href=&quot;#刷题笔记-HarekazeCTF2019-Avatar-Uploader&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -520,60 +578,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;hack101-THE-WEB-IN-DEPTH&quot;&gt;&lt;a href=&quot;#hack101-THE-WEB-IN-DEPTH&quot; class=&quot;headerlink&quot; title=&quot;[hack101]THE WEB IN DEPTH&quot;&gt;&lt;/a&gt;[hack101]THE</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="英语学习" scheme="https://syunaht.com/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[hacker101]A STARTERS GUIDE TO PENTESTING WITH OWASP</title>
-    <link href="https://syunaht.com/p/960623103.html"/>
-    <id>https://syunaht.com/p/960623103.html</id>
-    <published>2021-08-08T07:14:57.000Z</published>
-    <updated>2021-08-08T13:43:09.968Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;【hacker101】A-STARTERS-GUIDE-TO-PENTESTING-WITH-OWASP&quot;&gt;&lt;a href=&quot;#【hacker101】A-STARTERS-GUIDE-TO-PENTESTING-WITH-OWASP&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="英语学习" scheme="https://syunaht.com/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[hacker101]INTRODUCTION</title>
-    <link href="https://syunaht.com/p/84257377.html"/>
-    <id>https://syunaht.com/p/84257377.html</id>
-    <published>2021-08-08T05:15:46.000Z</published>
-    <updated>2021-08-08T13:43:09.964Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;hacker101-INTRODUCTION&quot;&gt;&lt;a href=&quot;#hacker101-INTRODUCTION&quot; class=&quot;headerlink&quot;</summary>
         
       
     

@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-20T08:40:04.756Z</updated>
+  <updated>2021-08-20T14:26:33.699Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[GoogleCTF2019 Quals]Bnv</title>
+    <link href="https://syunaht.com/p/1267717976.html"/>
+    <id>https://syunaht.com/p/1267717976.html</id>
+    <published>2021-08-20T08:43:25.000Z</published>
+    <updated>2021-08-20T14:26:33.699Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;刷题笔记-GoogleCTF2019-Quals-Bnv&quot;&gt;&lt;a href=&quot;#刷题笔记-GoogleCTF2019-Quals-Bnv&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[GoogleCTF2019</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="XXE" scheme="https://syunaht.com/tags/XXE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[HFCTF2020]BabyUpload</title>
     <link href="https://syunaht.com/p/2499911821.html"/>
     <id>https://syunaht.com/p/2499911821.html</id>
     <published>2021-08-20T06:08:37.000Z</published>
-    <updated>2021-08-20T08:40:04.756Z</updated>
+    <updated>2021-08-20T08:40:19.823Z</updated>
     
     
       
@@ -50,7 +79,7 @@
     <link href="https://syunaht.com/p/4138483003.html"/>
     <id>https://syunaht.com/p/4138483003.html</id>
     <published>2021-08-20T02:49:39.000Z</published>
-    <updated>2021-08-20T04:32:19.820Z</updated>
+    <updated>2021-08-20T08:40:19.820Z</updated>
     
     
       
@@ -562,37 +591,6 @@
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
     <category term="SQL注入" scheme="https://syunaht.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[SCTF2019]Flag Shop</title>
-    <link href="https://syunaht.com/p/1841453998.html"/>
-    <id>https://syunaht.com/p/1841453998.html</id>
-    <published>2021-08-10T07:33:04.000Z</published>
-    <updated>2021-08-10T11:58:23.603Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;刷题笔记-SCTF2019-Flag-Shop&quot;&gt;&lt;a href=&quot;#刷题笔记-SCTF2019-Flag-Shop&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[SCTF2019]Flag</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="SSTI" scheme="https://syunaht.com/tags/SSTI/"/>
-    
-    <category term="Ruby" scheme="https://syunaht.com/tags/Ruby/"/>
     
   </entry>
   

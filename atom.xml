@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-21T08:53:40.704Z</updated>
+  <updated>2021-08-21T17:03:01.827Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[CISCN2019 华东北赛区]Web2</title>
+    <link href="https://syunaht.com/p/563486977.html"/>
+    <id>https://syunaht.com/p/563486977.html</id>
+    <published>2021-08-21T12:58:22.000Z</published>
+    <updated>2021-08-21T17:03:01.827Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;刷题笔记-CISCN2019-华东北赛区-Web2&quot;&gt;&lt;a href=&quot;#刷题笔记-CISCN2019-华东北赛区-Web2&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[CISCN2019</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[CISCN2019 华东南赛区]Web4</title>
+    <link href="https://syunaht.com/p/358833585.html"/>
+    <id>https://syunaht.com/p/358833585.html</id>
+    <published>2021-08-21T09:17:10.000Z</published>
+    <updated>2021-08-21T12:50:52.329Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;刷题笔记-CISCN2019-华东南赛区-Web4&quot;&gt;&lt;a href=&quot;#刷题笔记-CISCN2019-华东南赛区-Web4&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[CISCN2019</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="Flask" scheme="https://syunaht.com/tags/Flask/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[SUCTF 2018]MultiSQL</title>
     <link href="https://syunaht.com/p/3887377890.html"/>
     <id>https://syunaht.com/p/3887377890.html</id>
     <published>2021-08-21T05:15:06.000Z</published>
-    <updated>2021-08-21T08:53:40.704Z</updated>
+    <updated>2021-08-21T08:53:55.069Z</updated>
     
     
       
@@ -531,66 +587,6 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:bestphp&#39;s revenge</title>
-    <link href="https://syunaht.com/p/3063917200.html"/>
-    <id>https://syunaht.com/p/3063917200.html</id>
-    <published>2021-08-12T11:45:49.000Z</published>
-    <updated>2021-08-13T08:48:39.741Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;刷题笔记-bestphp’’s-revenge&quot;&gt;&lt;a href=&quot;#刷题笔记-bestphp’’s-revenge&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:bestphp’’s revenge&quot;&gt;&lt;/a&gt;刷题笔记:bestphp’’s</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-    <category term="SSRF" scheme="https://syunaht.com/tags/SSRF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次electron反编译之JavaScript简单混淆记录</title>
-    <link href="https://syunaht.com/p/2475939034.html"/>
-    <id>https://syunaht.com/p/2475939034.html</id>
-    <published>2021-08-10T16:26:17.000Z</published>
-    <updated>2021-08-11T12:59:47.329Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;记一次electron反编译之JavaScript简单混淆记录&quot;&gt;&lt;a href=&quot;#记一次electron反编译之JavaScript简单混淆记录&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="杂谈" scheme="https://syunaht.com/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-    <category term="Reverse" scheme="https://syunaht.com/tags/Reverse/"/>
-    
-    <category term="electron" scheme="https://syunaht.com/tags/electron/"/>
-    
-    <category term="app.asar" scheme="https://syunaht.com/tags/app-asar/"/>
     
   </entry>
   

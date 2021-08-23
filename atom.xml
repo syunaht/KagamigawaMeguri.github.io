@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-21T17:03:01.827Z</updated>
+  <updated>2021-08-23T16:11:19.311Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,152 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Burp插件-Unicode Auto Decode</title>
+    <link href="https://syunaht.com/p/1323803757.html"/>
+    <id>https://syunaht.com/p/1323803757.html</id>
+    <published>2021-08-23T15:55:45.000Z</published>
+    <updated>2021-08-23T16:11:19.311Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Burp插件-Unicode-Auto-Decode&quot;&gt;&lt;a href=&quot;#Burp插件-Unicode-Auto-Decode&quot; class=&quot;headerlink&quot; title=&quot;Burp插件-Unicode Auto</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://syunaht.com/categories/Tools/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="BurpSuite" scheme="https://syunaht.com/tags/BurpSuite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Burp插件-Copy as requests</title>
+    <link href="https://syunaht.com/p/3960013565.html"/>
+    <id>https://syunaht.com/p/3960013565.html</id>
+    <published>2021-08-23T15:41:57.000Z</published>
+    <updated>2021-08-23T15:53:05.107Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Burp插件-Copy-as-requests&quot;&gt;&lt;a href=&quot;#Burp插件-Copy-as-requests&quot; class=&quot;headerlink&quot; title=&quot;Burp插件-Copy as requests&quot;&gt;&lt;/a&gt;Burp插件-Copy as</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://syunaht.com/categories/Tools/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="BurpSuite" scheme="https://syunaht.com/tags/BurpSuite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Burp插件开发笔记</title>
+    <link href="https://syunaht.com/p/1947914890.html"/>
+    <id>https://syunaht.com/p/1947914890.html</id>
+    <published>2021-08-23T08:39:46.000Z</published>
+    <updated>2021-08-23T15:41:07.853Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Burp插件开发笔记&quot;&gt;&lt;a href=&quot;#Burp插件开发笔记&quot; class=&quot;headerlink&quot; title=&quot;Burp插件开发笔记&quot;&gt;&lt;/a&gt;Burp插件开发笔记&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="杂谈" scheme="https://syunaht.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="BurpSuite" scheme="https://syunaht.com/tags/BurpSuite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[2020 新春红包题]1</title>
+    <link href="https://syunaht.com/p/3729230019.html"/>
+    <id>https://syunaht.com/p/3729230019.html</id>
+    <published>2021-08-22T13:31:44.000Z</published>
+    <updated>2021-08-22T13:33:06.251Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;刷题笔记-2020-新春红包题-1&quot;&gt;&lt;a href=&quot;#刷题笔记-2020-新春红包题-1&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[2020 新春红包题]1&quot;&gt;&lt;/a&gt;刷题笔记:[2020 新春红包题]1&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[FireshellCTF2020]Caas</title>
+    <link href="https://syunaht.com/p/1884635343.html"/>
+    <id>https://syunaht.com/p/1884635343.html</id>
+    <published>2021-08-22T10:09:43.000Z</published>
+    <updated>2021-08-22T13:30:25.113Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;刷题笔记-FireshellCTF2020-Caas&quot;&gt;&lt;a href=&quot;#刷题笔记-FireshellCTF2020-Caas&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[CISCN2019 华东北赛区]Web2</title>
     <link href="https://syunaht.com/p/563486977.html"/>
     <id>https://syunaht.com/p/563486977.html</id>
     <published>2021-08-21T12:58:22.000Z</published>
-    <updated>2021-08-21T17:03:01.827Z</updated>
+    <updated>2021-08-22T10:09:10.373Z</updated>
     
     
       
@@ -48,7 +189,7 @@
     <link href="https://syunaht.com/p/358833585.html"/>
     <id>https://syunaht.com/p/358833585.html</id>
     <published>2021-08-21T09:17:10.000Z</published>
-    <updated>2021-08-21T12:50:52.329Z</updated>
+    <updated>2021-08-21T17:03:43.359Z</updated>
     
     
       
@@ -437,145 +578,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;刷题笔记-HarekazeCTF2019-Avatar-Uploader&quot;&gt;&lt;a href=&quot;#刷题笔记-HarekazeCTF2019-Avatar-Uploader&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[ISITDTU 2019]EasyPHP</title>
-    <link href="https://syunaht.com/p/2441275844.html"/>
-    <id>https://syunaht.com/p/2441275844.html</id>
-    <published>2021-08-15T08:59:16.000Z</published>
-    <updated>2021-08-15T15:54:32.131Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;刷题笔记-ISITDTU-2019-EasyPHP&quot;&gt;&lt;a href=&quot;#刷题笔记-ISITDTU-2019-EasyPHP&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[ISITDTU</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[SUCTF 2018]GetShell</title>
-    <link href="https://syunaht.com/p/1142081591.html"/>
-    <id>https://syunaht.com/p/1142081591.html</id>
-    <published>2021-08-14T09:15:02.000Z</published>
-    <updated>2021-08-15T14:57:30.701Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;刷题笔记-SUCTF-2018-GetShell&quot;&gt;&lt;a href=&quot;#刷题笔记-SUCTF-2018-GetShell&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[SUCTF 2018]GetShell&quot;&gt;&lt;/a&gt;刷题笔记:[SUCTF</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[安洵杯 2019]不是文件上传</title>
-    <link href="https://syunaht.com/p/893436503.html"/>
-    <id>https://syunaht.com/p/893436503.html</id>
-    <published>2021-08-14T07:00:21.000Z</published>
-    <updated>2021-08-15T14:57:30.703Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;刷题笔记-安洵杯-2019-不是文件上传&quot;&gt;&lt;a href=&quot;#刷题笔记-安洵杯-2019-不是文件上传&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[安洵杯 2019]不是文件上传&quot;&gt;&lt;/a&gt;刷题笔记:[安洵杯</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[红明谷CTF 2021]write_shell</title>
-    <link href="https://syunaht.com/p/1139417858.html"/>
-    <id>https://syunaht.com/p/1139417858.html</id>
-    <published>2021-08-14T04:51:04.000Z</published>
-    <updated>2021-08-15T14:57:30.705Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;刷题笔记-红明谷CTF-2021-write-shell&quot;&gt;&lt;a href=&quot;#刷题笔记-红明谷CTF-2021-write-shell&quot; class=&quot;headerlink&quot; title=&quot;刷题笔记:[红明谷CTF</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[GXYCTF2019]StrongestMind</title>
-    <link href="https://syunaht.com/p/2768731149.html"/>
-    <id>https://syunaht.com/p/2768731149.html</id>
-    <published>2021-08-13T09:14:30.000Z</published>
-    <updated>2021-08-15T14:57:30.696Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;刷题笔记-GXYCTF2019-StrongestMind&quot;&gt;&lt;a href=&quot;#刷题笔记-GXYCTF2019-StrongestMind&quot; class=&quot;headerlink&quot;</summary>
         
       
     

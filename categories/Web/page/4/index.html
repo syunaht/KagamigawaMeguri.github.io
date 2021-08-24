@@ -509,9 +509,9 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                [hacker101]INTRODUCTION前言https://www.hacker101.com/sessions/introduction.html
+                                前言https://www.hacker101.com/sessions/introduction.html
 
-In this session we talk about the class a
+In this session we talk about the class and introduce the instru
                             
                         </div>
                         <div class="publish-info">
@@ -561,13 +561,16 @@ In this session we talk about the class a
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[GYCTF2020]Easyphp前言关键字:[反序列化字符串逃逸]
+                                前言关键字:[反序列化字符串逃逸]
 十分复杂且经典的例题，需要多回顾。
 
 题解随便打，提示用户不存在
 输入admin，提示密码错误，那么用户名应该就是admin了，先爆破一下
 
-提示被检测到了，
+提示被检测到了，那可能是sql注入。
+老规矩，fuzz一下
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -625,12 +628,15 @@ In this session we talk about the class a
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[网鼎杯2018]Unfinish前言关键字:[过滤逗号|ascii|from for|substr]
+                                前言关键字:[过滤逗号|ascii|from for|substr]
 
 题解扫目录扫出register.php，真无语，又要扫
 
 好活
-没想到是二次注入，注入点在register.php的user
+没想到是二次注入，注入点在register.php的username里
+fuzz一下看看过滤
+
+这俩被屏
                             
                         </div>
                         <div class="publish-info">
@@ -688,8 +694,8 @@ In this session we talk about the class a
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                MD5长度扩展攻击MD5原理
-1.MD5加密过程中512比特（64字节）为一组，属于分组加密，而且在运算的过程中，将512比特分为32bit*16块，分块运算2.我们关键利用的是MD5的填充，对加密的字符串进行填充(比特第一位为1其余比特为
+                                MD5原理
+1.MD5加密过程中512比特（64字节）为一组，属于分组加密，而且在运算的过程中，将512比特分为32bit*16块，分块运算2.我们关键利用的是MD5的填充，对加密的字符串进行填充(比特第一位为1其余比特为0)，使之(二进制
                             
                         </div>
                         <div class="publish-info">
@@ -743,12 +749,16 @@ In this session we talk about the class a
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[NPUCTF2020]ezinclude前言关键字:[临时文件包含|session|条件竞争]
+                                前言关键字:[临时文件包含|session|条件竞争]
 
 题解
 一看疑似hash长度扩展攻击，转头花了几个小时学了下。
 结果不是，可惜了。
-直接?pass=fa25e54758d5d5c1
+直接?pass=fa25e54758d5d5c1927781a6ede89f8a
+
+文件包含
+
+包含
                             
                         </div>
                         <div class="publish-info">
@@ -802,14 +812,16 @@ In this session we talk about the class a
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[GYCTF2020]EasyThinking前言关键字:[session|thinkphp6.0|disable_function]
+                                前言关键字:[session|thinkphp6.0|disable_function]
 
 题解
 扫了下目录，发现www.zip源码泄漏
 
 
 thinkphp6.0
-searchspl
+searchsploit搜了下没啥结果
+
+谷歌搜搜，搜到个有关sessio
                             
                         </div>
                         <div class="publish-info">
@@ -863,12 +875,13 @@ searchspl
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[BJDCTF2020]EzPHP前言关键词:[create_function|get_defined_vars|正则绕过]
+                                前言关键词:[create_function|get_defined_vars|正则绕过]
 写了快半个月的机器人了，摸了好久的鱼，今天重新开始做web！
 
 题解
 base64解一下，乱码
-试试其他
+试试其他的
+最后base32解出来1nD3x.php
                             
                         </div>
                         <div class="publish-info">
@@ -926,13 +939,16 @@ base64解一下，乱码
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[CISCN2019 华东南赛区]Double Secret前言关键字:[rc4|ssti|flask]
+                                前言关键字:[rc4|ssti|flask]
 
 题解就是靠灵光一闪
 
 
 buu上的题最近不知道为啥，浏览器里敲连接必触发dns rebind attack检测，真的烦
-输
+输到12345的时候报错了
+
+
+rc4算法，密钥HereIsTreasu
                             
                         </div>
                         <div class="publish-info">
@@ -986,13 +1002,18 @@ buu上的题最近不知道为啥，浏览器里敲连接必触发dns rebind att
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[RootersCTF2019]I_&lt;3_Flask前言关键字:[flask|ssti]
+                                前言关键字:[flask|ssti]
 
 可见flask，盲猜一手ssti
 题解粗略看了一圈，没发现什么，扫扫目录试试
 扫了一圈没发现啥，照着SSTI路子走吧。
 
 得，还真是
+也可以拿arjun跑一下
+
+
+直接跑tplmap吧
+python2
                             
                         </div>
                         <div class="publish-info">

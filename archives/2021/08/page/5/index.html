@@ -536,8 +536,8 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    MD5长度扩展攻击MD5原理
-1.MD5加密过程中512比特（64字节）为一组，属于分组加密，而且在运算的过程中，将512比特分为32bit*16块，分块运算2.我们关键利用的是MD5的填充，对加密的字符串进行填充(比特第一位为1其余比特为
+                                    MD5原理
+1.MD5加密过程中512比特（64字节）为一组，属于分组加密，而且在运算的过程中，将512比特分为32bit*16块，分块运算2.我们关键利用的是MD5的填充，对加密的字符串进行填充(比特第一位为1其余比特为0)，使之(二进制
                                 
                             </div>
                             <div class="publish-info">
@@ -600,12 +600,16 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[NPUCTF2020]ezinclude前言关键字:[临时文件包含|session|条件竞争]
+                                    前言关键字:[临时文件包含|session|条件竞争]
 
 题解
 一看疑似hash长度扩展攻击，转头花了几个小时学了下。
 结果不是，可惜了。
-直接?pass=fa25e54758d5d5c1
+直接?pass=fa25e54758d5d5c1927781a6ede89f8a
+
+文件包含
+
+包含
                                 
                             </div>
                             <div class="publish-info">
@@ -668,14 +672,16 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[GYCTF2020]EasyThinking前言关键字:[session|thinkphp6.0|disable_function]
+                                    前言关键字:[session|thinkphp6.0|disable_function]
 
 题解
 扫了下目录，发现www.zip源码泄漏
 
 
 thinkphp6.0
-searchspl
+searchsploit搜了下没啥结果
+
+谷歌搜搜，搜到个有关sessio
                                 
                             </div>
                             <div class="publish-info">
@@ -738,12 +744,13 @@ searchspl
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[BJDCTF2020]EzPHP前言关键词:[create_function|get_defined_vars|正则绕过]
+                                    前言关键词:[create_function|get_defined_vars|正则绕过]
 写了快半个月的机器人了，摸了好久的鱼，今天重新开始做web！
 
 题解
 base64解一下，乱码
-试试其他
+试试其他的
+最后base32解出来1nD3x.php
                                 
                             </div>
                             <div class="publish-info">

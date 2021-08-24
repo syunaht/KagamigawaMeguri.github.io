@@ -536,13 +536,16 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[CISCN2019 华东南赛区]Double Secret前言关键字:[rc4|ssti|flask]
+                                    前言关键字:[rc4|ssti|flask]
 
 题解就是靠灵光一闪
 
 
 buu上的题最近不知道为啥，浏览器里敲连接必触发dns rebind attack检测，真的烦
-输
+输到12345的时候报错了
+
+
+rc4算法，密钥HereIsTreasu
                                 
                             </div>
                             <div class="publish-info">
@@ -605,13 +608,18 @@ buu上的题最近不知道为啥，浏览器里敲连接必触发dns rebind att
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[RootersCTF2019]I_&lt;3_Flask前言关键字:[flask|ssti]
+                                    前言关键字:[flask|ssti]
 
 可见flask，盲猜一手ssti
 题解粗略看了一圈，没发现什么，扫扫目录试试
 扫了一圈没发现啥，照着SSTI路子走吧。
 
 得，还真是
+也可以拿arjun跑一下
+
+
+直接跑tplmap吧
+python2
                                 
                             </div>
                             <div class="publish-info">
@@ -674,14 +682,16 @@ buu上的题最近不知道为啥，浏览器里敲连接必触发dns rebind att
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[WUSTCTF2020]CV Maker前言
+                                    前言
 题解看到这种站挺吓人的，随便点了点大多都是死界面，还好。
 先尝试性的扫一下，没扫到什么信息泄漏。
 注册用户，还报错了
 
 登录，有个头像上传，先试试。
 
-看来用了exif_imaget
+看来用了exif_imagetype函数限制了，加个文件幻数可绕过。
+
+试了试，没
                                 
                             </div>
                             <div class="publish-info">
@@ -742,13 +752,14 @@ buu上的题最近不知道为啥，浏览器里敲连接必触发dns rebind att
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[watevrCTF-2019]Cookie Store前言
+                                    前言
 题解配合题目名，大概就知道是从cookie入手。
 需要把price改到100然后购买这个。
 
 买了几次，发现cookie在变化，一看cookie
 
-base64字符串，
+base64字符串，解密下
+&#123;"money": 48, "history":
                                 
                             </div>
                             <div class="publish-info">
@@ -813,13 +824,17 @@ base64字符串，
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[NCTF2019]SQLi前言关键字:[%00|regexp|sql注入regexp]
+                                    前言关键字:[%00|regexp|sql注入regexp]
 
 题解首先先fuzz一下，检测如下字符
 
 这过滤的也太全了。
 试了试不太行。找找看有没有其他线索
-打开/robots.txt，里面有提示/h
+打开/robots.txt，里面有提示/hint.txt
+
+
+%00截断要点
+p
                                 
                             </div>
                             <div class="publish-info">
@@ -882,11 +897,13 @@ base64字符串，
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[HarekazeCTF2019]encode_and_encode前言关键词:[json|unicode]
+                                    前言关键词:[json|unicode]
 &lt;?php
 error_reporting(0);
 
-if (isset($_GET['source'])) &#
+if (isset($_GET['source'])) &#123;
+  show_source(__FILE__);
+  exit();
                                 
                             </div>
                             <div class="publish-info">
@@ -951,10 +968,10 @@ if (isset($_GET['source'])) &#
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    disable_functions bypass笔记前言具体原理会贴连接，此文主要是记录下基本操作，便于日后做题。
+                                    前言具体原理会贴连接，此文主要是记录下基本操作，便于日后做题。
 命令不可执行原因
 通常来说，导致 webshell 不能执行命令的原因大概有三类：
-1.php.ini 中用 disable
+1.php.ini 中用 disable_functions 指示器禁用了 system()
                                 
                             </div>
                             <div class="publish-info">
@@ -1017,13 +1034,13 @@ if (isset($_GET['source'])) &#
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    [CTFSHOW]命令执行合集前言来源于
+                                    前言来源于
 【原创】ctfshow—web入门—命令执行 （29-77）（持续更新）
 [CTFSHOW]命令执行
 进行归纳总结。
 Web29 flag&lt;?php
 error_reporting(0);
-i
+if(isset($_GET['
                                 
                             </div>
                             <div class="publish-info">
@@ -1088,11 +1105,11 @@ i
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[SUCTF 2019]EasyWeb前言又是一道做过的题。easy，但不完全easy。
+                                    前言又是一道做过的题。easy，但不完全easy。
 代码审计题
 &lt;?php
 function get_the_flag()&#123;
-    // webadmin will remo
+    // webadmin will remove your upload file ever
                                 
                             </div>
                             <div class="publish-info">

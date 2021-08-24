@@ -435,9 +435,9 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                异步Asyncio学习笔记前言真就一年发一篇。这一年发生了好多事，把我打得手忙脚乱，短短一年，物是人非。
+                                前言真就一年发一篇。这一年发生了好多事，把我打得手忙脚乱，短短一年，物是人非。
 昨天写awd相关脚本，想着来点狠的，加速混淆流量发包，试试异步。正好看到github上有相关源码，requests+asyncio。
-
+想着requests是阻塞
                             
                         </div>
                         <div class="publish-info">
@@ -490,7 +490,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[2021GKCTF]QQQQT前言关键词:[base58|加密算法题|密码学|常见加密]
+                                前言关键词:[base58|加密算法题|密码学|常见加密]
 当时没做出来，贴贴wp里的内容
 题解
 
@@ -499,7 +499,8 @@
 import binascii
 
 
-def b58encode(tmp: str) -> st
+def b58encode(tmp: str) -> str:
+    tmp = list(map
                             
                         </div>
                         <div class="publish-info">
@@ -556,9 +557,9 @@ def b58encode(tmp: str) -> st
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[极客大挑战 2019]RCE ME前言关键字:[无字母数字shell|ld_preload|disable_function]
+                                前言关键字:[无字母数字shell|ld_preload|disable_function]
 以前做的题，现在再看之前写的记录，太逗乐了，当时怎么那么多迷惑操作呢
-题解一开始是想着无参websh
+题解一开始是想着无参webshell，还写了好久的fuzz代码得 没用，代码
                             
                         </div>
                         <div class="publish-info">
@@ -611,14 +612,15 @@ def b58encode(tmp: str) -> st
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[MRCTF2020]套娃前言以前做的题
+                                前言以前做的题
 题解
 ?b+u+p+t&#x3D;23333%0a
 
 
 file_get_contents配合伪协议data://使用
 re = 'flag.php'
-for i, j in enumer
+for i, j in enumerate(re):
+    print
                             
                         </div>
                         <div class="publish-info">
@@ -675,10 +677,10 @@ for i, j in enumer
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                利用phpinfo与文件包含进行条件竞争前言2021国赛做到一道，记录下
+                                前言2021国赛做到一道，记录下
 类似题：利用PHP_SESSION_UPLOAD_PROGRESS进行文件包含
 大致思路前瞻需要先找到phpinfo.php =》扫目录吧然后有两条路：
-1.给php
+1.给phpinfo.php发包 示例2.利用ses
                             
                         </div>
                         <div class="publish-info">
@@ -735,7 +737,7 @@ for i, j in enumer
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:BabyConst前言关键词:[MD5|加密算法题|密码学|常见加密]
+                                前言关键词:[MD5|加密算法题|密码学|常见加密]
 题解
 
 虽然也搜出了其他加密算法……姑且认为这个是MD5算法
@@ -799,13 +801,15 @@ for i, j in enumer
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:BabyAlgorithm前言关键词:[RC4|加密算法题|密码学|常见加密]
+                                前言关键词:[RC4|加密算法题|密码学|常见加密]
 加密算法里有好几个mod 256 然后交换啥的，可以判断为RC4算法，具体看笔记特征值识别
 题解
 
 
 v8 = [0]*46
 v8[0] = 0xC6
+v8[1] = 0x21
+v8[2
                             
                         </div>
                         <div class="publish-info">
@@ -862,7 +866,7 @@ v8[0] = 0xC6
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[DDCTF 2019]Windows_Reverse1前言以前做的题，这题似乎有点小迷惑？
+                                前言以前做的题，这题似乎有点小迷惑？
 题解
 
 这里把v4给ecx
@@ -871,7 +875,10 @@ v8[0] = 0xC6
 
 所以*v1=var_804
 
-ascii 32位之
+ascii 32位之前是不可视字符，所以有种情况是字符显示不出来，但实际有字符
+
+
+d
                             
                         </div>
                         <div class="publish-info">
@@ -924,13 +931,13 @@ ascii 32位之
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[百越杯2018]crazy前言
+                                前言
 题解v = '327a6c4304ad5938eaf0efb6cc3e53dc'
 
 flag = ''
 
 for i in range(32):
-    flag += chr((ord(v[i]
+    flag += chr((ord(v[i])-11 ^ 0x13)-23 ^ 0
                             
                         </div>
                         <div class="publish-info">

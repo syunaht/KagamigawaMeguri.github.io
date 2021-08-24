@@ -536,13 +536,17 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[NCTF2019]SQLi前言关键字:[%00|regexp|sql注入regexp]
+                                    前言关键字:[%00|regexp|sql注入regexp]
 
 题解首先先fuzz一下，检测如下字符
 
 这过滤的也太全了。
 试了试不太行。找找看有没有其他线索
-打开/robots.txt，里面有提示/h
+打开/robots.txt，里面有提示/hint.txt
+
+
+%00截断要点
+p
                                 
                             </div>
                             <div class="publish-info">
@@ -605,11 +609,13 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[HarekazeCTF2019]encode_and_encode前言关键词:[json|unicode]
+                                    前言关键词:[json|unicode]
 &lt;?php
 error_reporting(0);
 
-if (isset($_GET['source'])) &#
+if (isset($_GET['source'])) &#123;
+  show_source(__FILE__);
+  exit();
                                 
                             </div>
                             <div class="publish-info">
@@ -674,10 +680,10 @@ if (isset($_GET['source'])) &#
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    disable_functions bypass笔记前言具体原理会贴连接，此文主要是记录下基本操作，便于日后做题。
+                                    前言具体原理会贴连接，此文主要是记录下基本操作，便于日后做题。
 命令不可执行原因
 通常来说，导致 webshell 不能执行命令的原因大概有三类：
-1.php.ini 中用 disable
+1.php.ini 中用 disable_functions 指示器禁用了 system()
                                 
                             </div>
                             <div class="publish-info">
@@ -740,13 +746,13 @@ if (isset($_GET['source'])) &#
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    [CTFSHOW]命令执行合集前言来源于
+                                    前言来源于
 【原创】ctfshow—web入门—命令执行 （29-77）（持续更新）
 [CTFSHOW]命令执行
 进行归纳总结。
 Web29 flag&lt;?php
 error_reporting(0);
-i
+if(isset($_GET['
                                 
                             </div>
                             <div class="publish-info">
@@ -811,11 +817,11 @@ i
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[SUCTF 2019]EasyWeb前言又是一道做过的题。easy，但不完全easy。
+                                    前言又是一道做过的题。easy，但不完全easy。
 代码审计题
 &lt;?php
 function get_the_flag()&#123;
-    // webadmin will remo
+    // webadmin will remove your upload file ever
                                 
                             </div>
                             <div class="publish-info">
@@ -880,15 +886,15 @@ function get_the_flag()&#123;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[SWPUCTF 2018]SimplePHP前言关键词:[phar|pop|上传]
+                                    前言关键词:[phar|pop|上传]
 
 题解F12有惊喜
 
 file.php?file=可以看到各个php界面源码
 文件源码
 file.php
-&lt;?php 
-header("c
+&lt;?php
+header("content-type:text/html;charset
                                 
                             </div>
                             <div class="publish-info">
@@ -953,7 +959,7 @@ header("c
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[GYCTF2020]Ezsqli前言关键词:[孙笑川|二分法崩溃]
+                                    前言关键词:[孙笑川|二分法崩溃]
 
 开局孙笑川，晦气，真的晦气。
 这题貌似做过，但是我忘了
@@ -961,7 +967,8 @@ header("c
 id=sleep不会被检测，id=1sleep才会
 检测字符
 
-
+id=1^0 =&gt;Nu1L
+id=1^
                                 
                             </div>
                             <div class="publish-info">
@@ -1026,9 +1033,9 @@ id=sleep不会被检测，id=1sleep才会
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Android崩溃笔记前言记录一下学习安卓时逐渐崩溃的心路历程。
+                                    前言记录一下学习安卓时逐渐崩溃的心路历程。
 安卓是白天学的，人是晚上走的。
-半吊子学android是这样的，每个问题都让我啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+半吊子学android是这样的，每个问题都让我啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
                                 
                             </div>
                             <div class="publish-info">
@@ -1089,14 +1096,15 @@ id=sleep不会被检测，id=1sleep才会
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[网鼎杯 2018]Comment前言关键字:[留言|评论|发帖]
+                                    前言关键字:[留言|评论|发帖]
 
 这题真的难。
 题解发帖要登录，
 
 爆破一下，密码是zhangwei666。
 1.git泄漏扫目录扫出/.git，用githack下载一下源码，发现是不全的。
-g
+git log一下，是空的。
+git log 
                                 
                             </div>
                             <div class="publish-info">

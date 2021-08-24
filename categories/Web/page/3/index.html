@@ -509,7 +509,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[安洵杯 2019]不是文件上传前言
+                                前言
 
 题解主页注释，第一时间想到git泄漏
 
@@ -519,7 +519,8 @@
 源码show.php
 &lt;?php
 include("./helper.php");
-$show
+$show = new show();
+if($_G
                             
                         </div>
                         <div class="publish-info">
@@ -569,11 +570,12 @@ $show
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[红明谷CTF 2021]write_shell前言关键字:[短标签|反引号]
+                                前言关键字:[短标签|反引号]
 &lt;?php
 error_reporting(0);
 highlight_file(__FILE__);
-function check($inpu
+function check($input)&#123;
+    if(preg_match("/
                             
                         </div>
                         <div class="publish-info">
@@ -627,12 +629,13 @@ function check($inpu
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[GXYCTF2019]StrongestMind前言
+                                前言
 题解第一反应是，写个爬虫跑一千次。
 延迟2s+每10次再延迟10s都会429 真的烦。
 最高记录：
 
-而且很奇怪，明明是同一个session，先get再post答案是错的，要
+而且很奇怪，明明是同一个session，先get再post答案是错的，要想跑脚本只能不停的post结果。没法重试。
+百度看了下别人的
                             
                         </div>
                         <div class="publish-info">
@@ -682,12 +685,12 @@ function check($inpu
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:bestphp’’s revenge前言关键字:[SoapClient|call_user_func|ssrf]
+                                前言关键字:[SoapClient|call_user_func|ssrf]
 
 &lt;?php
 highlight_file(__FILE__);
 $b = 'implode';
-call_u
+call_user_func($_GET['f'], $_
                             
                         </div>
                         <div class="publish-info">
@@ -745,12 +748,12 @@ call_u
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[RoarCTF 2019]Online Proxy前言buu上的这题慢的要死，一个请求卡十秒，无语了
+                                前言buu上的这题慢的要死，一个请求卡十秒，无语了
 题解简单的sql注入
 类似于二次注入，先是在请求头打入
 X-Forwarded-For: 1&#39; or &#39;1
 
-
+然后会出现在Current Ip，之前打入的会出现在Last 
                             
                         </div>
                         <div class="publish-info">
@@ -804,13 +807,13 @@ X-Forwarded-For: 1&#39; or &#39;1
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[SCTF2019]Flag Shop前言关键字:[ruby erb|ssti|jwt]
+                                前言关键字:[ruby erb|ssti|jwt]
 
 题解点work会加钱，所以可以007不停工作这样几百年后就能买房了。
 这题很容易想到有关cookie。
 抓个包再随便点一点
 
-网页上已经7
+网页上已经77了，burp里还是74，可见金额不是存sess
                             
                         </div>
                         <div class="publish-info">
@@ -868,11 +871,12 @@ X-Forwarded-For: 1&#39; or &#39;1
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[MRCTF2020]Ezaudit前言关键字:[php_mt_seed]
+                                前言关键字:[php_mt_seed]
 
 题解随手一输，www.zip，得 源码泄漏
 源码&lt;?php
-header('Content-type:text/html; charset=utf
+header('Content-type:text/html; charset=utf-8');
+error_reporting(0
                             
                         </div>
                         <div class="publish-info">
@@ -926,9 +930,10 @@ header('Content-type:text/html; charset=utf
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                [hack101]THE WEB IN DEPTH前言
+                                前言
 In this session we’ll talk about how the web works from a security perspective.
-在这节课我们将讨论从安全
+在这节课我们将讨论从安全角度触发web服务如何工作的问题。
+What yo
                             
                         </div>
                         <div class="publish-info">
@@ -978,9 +983,9 @@ In this session we’ll talk about how the web works from a security perspective
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                [hacker101]A STARTERS GUIDE TO PENTESTING WITH OWASP前言https://www.hacker101.com/sessions/pentest_owasp
+                                前言https://www.hacker101.com/sessions/pentest_owasp
 
-What is OWASP an
+What is OWASP and what is the OWASP Top 10? Quick review of top 10 c
                             
                         </div>
                         <div class="publish-info">

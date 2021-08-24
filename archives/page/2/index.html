@@ -536,10 +536,11 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[HFCTF2020]BabyUpload前言关键字:[file_exists|postman|文件上传|session]
+                                    前言关键字:[file_exists|postman|文件上传|session]
 &lt;?php
 error_reporting(0);
-session_save_path("/var/
+session_save_path("/var/babyctf/");
+session_start(
                                 
                             </div>
                             <div class="publish-info">
@@ -602,7 +603,7 @@ session_save_path("/var/
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[Black Watch 入群题]Web前言
+                                    前言
 题解抓包，看到有?id
 
 老规矩，先fuzz一下
@@ -613,7 +614,10 @@ session_save_path("/var/
 库
 news
 表
-admin,conten
+admin,contents
+
+admin表的字段
+id,username
                                 
                             </div>
                             <div class="publish-info">
@@ -676,11 +680,13 @@ admin,conten
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[N1CTF 2018]eating_cms前言关键字:[system注释|system执行漏洞|php system]
+                                    前言关键字:[system注释|system执行漏洞|php system]
 
 题解有个/register.php可以注册用户
 
-user.php?page=guest，第一反应先试试伪
+user.php?page=guest，第一反应先试试伪协议
+guest.php
+PD9waHAKaWYgKE
                                 
                             </div>
                             <div class="publish-info">
@@ -743,10 +749,13 @@ user.php?page=guest，第一反应先试试伪
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[DDCTF 2019]homebrew event loop前言关键字:[flask|session解密]
+                                    前言关键字:[flask|session解密]
 
 题解源码from flask import Flask, session, request, Response
-imp
+import urllib
+
+app = Flask(__name__)
+ap
                                 
                             </div>
                             <div class="publish-info">
@@ -809,7 +818,7 @@ imp
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[b01lers2020]Life on Mars前言关键字:[SQLMAP]
+                                    前言关键字:[SQLMAP]
 
 题解抓到包
 
@@ -817,7 +826,9 @@ imp
 
 
 sqlmap跑一下，没啥好说的了。
--D alien_code 
+-D alien_code -T code -C code --dump
+
+
                                 
                             </div>
                             <div class="publish-info">
@@ -880,14 +891,16 @@ sqlmap跑一下，没啥好说的了。
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[GXYCTF2019]BabysqliV3.0前言关键字:[phar|手动激活phar|phar:///]
+                                    前言关键字:[phar|手动激活phar|phar:///]
 
 题解
 用户名输入admin
 
 试了下也没找着注入点，先爆破一下吧。
 跑出来密码是password
-/home.php?
+/home.php?file=upload
+
+尝试下伪协议，拿到upload.
                                 
                             </div>
                             <div class="publish-info">
@@ -952,12 +965,12 @@ sqlmap跑一下，没啥好说的了。
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[极客少年挑战赛]Easy_re前言好友发来的题，真难啊
+                                    前言好友发来的题，真难啊
 题解
 其实不用查，看图标也知道
 
 用pyinstxtractor反编译一下，找到生成的main.pyc。
-然后尝试用uncompyle6反编译pyc，会发现反编译不了pyt
+然后尝试用uncompyle6反编译pyc，会发现反编译不了python3.9字节码，一看github，ro
                                 
                             </div>
                             <div class="publish-info">
@@ -1020,7 +1033,7 @@ sqlmap跑一下，没啥好说的了。
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[SWPU2019]Web4前言关键字:[PDO|PDOSQL注入]
+                                    前言关键字:[PDO|PDOSQL注入]
 
 题解/static/js/login.js
 
@@ -1030,7 +1043,9 @@ sqlmap跑一下，没啥好说的了。
 
 再加上分号又正常，所以可以尝试堆叠注入.
 
-PDO注入类似O
+PDO注入类似ORM框架吧。
+
+PHP数据对象（PDO
                                 
                             </div>
                             <div class="publish-info">
@@ -1093,7 +1108,7 @@ PDO注入类似O
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[EIS 2019]EzPOP前言关键字:[反序列化]
+                                    前言关键字:[反序列化]
 &lt;?php
 error_reporting(0);
 
@@ -1101,7 +1116,9 @@ class A &#123;
 
     protected $store;
 
-    protected $key
+    protected $key;
+
+    protected $ex
                                 
                             </div>
                             <div class="publish-info">

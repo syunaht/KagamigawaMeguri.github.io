@@ -435,15 +435,15 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[SWPUCTF 2018]SimplePHP前言关键词:[phar|pop|上传]
+                                前言关键词:[phar|pop|上传]
 
 题解F12有惊喜
 
 file.php?file=可以看到各个php界面源码
 文件源码
 file.php
-&lt;?php 
-header("c
+&lt;?php
+header("content-type:text/html;charset
                             
                         </div>
                         <div class="publish-info">
@@ -504,7 +504,7 @@ header("c
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[GYCTF2020]Ezsqli前言关键词:[孙笑川|二分法崩溃]
+                                前言关键词:[孙笑川|二分法崩溃]
 
 开局孙笑川，晦气，真的晦气。
 这题貌似做过，但是我忘了
@@ -512,7 +512,8 @@ header("c
 id=sleep不会被检测，id=1sleep才会
 检测字符
 
-
+id=1^0 =&gt;Nu1L
+id=1^
                             
                         </div>
                         <div class="publish-info">
@@ -573,9 +574,9 @@ id=sleep不会被检测，id=1sleep才会
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Android崩溃笔记前言记录一下学习安卓时逐渐崩溃的心路历程。
+                                前言记录一下学习安卓时逐渐崩溃的心路历程。
 安卓是白天学的，人是晚上走的。
-半吊子学android是这样的，每个问题都让我啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+半吊子学android是这样的，每个问题都让我啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
                             
                         </div>
                         <div class="publish-info">
@@ -628,14 +629,15 @@ id=sleep不会被检测，id=1sleep才会
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[网鼎杯 2018]Comment前言关键字:[留言|评论|发帖]
+                                前言关键字:[留言|评论|发帖]
 
 这题真的难。
 题解发帖要登录，
 
 爆破一下，密码是zhangwei666。
 1.git泄漏扫目录扫出/.git，用githack下载一下源码，发现是不全的。
-g
+git log一下，是空的。
+git log 
                             
                         </div>
                         <div class="publish-info">
@@ -692,7 +694,7 @@ g
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[RCTF2015]EasySQL前言
+                                前言
 
 题解关键词:[二次注入|先登后改|改密|正则]
 注册的时候有过滤
@@ -701,7 +703,7 @@ g
 
 注册个账号为1&quot;
 改密码提示：
-You have an error in
+You have an error in your SQL syntax; chec
                             
                         </div>
                         <div class="publish-info">
@@ -762,10 +764,11 @@ You have an error in
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[CISCN2019 华北赛区 Day1 Web5]CyberPunk前言关键字:[cyberpunk|2077]
+                                前言关键字:[cyberpunk|2077]
 
 又是一道一年前做过的题，翻了翻当时的笔记，折腾了很久，没做出来。
-看了看wp，才知道flag在/flag.txt
+看了看wp，才知道flag在/flag.txt下面，之前一直在用错显爆数据库
+题解1.文件包含首先在注释里发现&lt;!--?
                             
                         </div>
                         <div class="publish-info">
@@ -826,10 +829,12 @@ You have an error in
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                [Zer0pts2020]Can you guess it?前言关键词：[guess|basename|正则]
+                                前言关键词：[guess|basename|正则]
 
 &lt;?php
 include 'config.php'; // FLAG is defined in config.php
+
+if (preg_match('/config\.php
                             
                         </div>
                         <div class="publish-info">
@@ -890,10 +895,11 @@ include 'config.php'; // FLAG is defined in config.php
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:Easyweb[CISCN2019 总决赛 Day2 Web1]前言着实惭愧，这题一年前还做过，今天再做，得，忘得一干二净。
+                                前言着实惭愧，这题一年前还做过，今天再做，得，忘得一干二净。
 写好的脚本一打开，payload都是原封不动了，尴尬。
 题解
-截个图，写个关键字，方便日后检索：[猫图|
+截个图，写个关键字，方便日后检索：[猫图|猫头|猫猫]
+这题主要三个考点：1.备份文件泄漏；2.SQL盲注；3.文件
                             
                         </div>
                         <div class="publish-info">
@@ -950,10 +956,12 @@ include 'config.php'; // FLAG is defined in config.php
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                微信小程序基础概念
+                                基础概念
 数据驱动将差异应用到Dom树上，达到更新UI的目的，意味着只有“修改”的相关属性才会刷新，而没有变化的就不动，避免了小部分字节修改导致全局页面都得刷新一遍的情况。
 
-onLoad=&gt;onShow=&gt;onRea
+onLoad=&gt;onShow=&gt;onReady。
+
+
                             
                         </div>
                         <div class="publish-info">

@@ -536,11 +536,13 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[RoarCTF 2019]Simple Upload前言关键字:[thinkphp|uniqid|thinkphp上传]
+                                    前言关键字:[thinkphp|uniqid|thinkphp上传]
 &lt;?php
 namespace Home\Controller;
 
-use Think\Contro
+use Think\Controller;
+
+class IndexController ext
                                 
                             </div>
                             <div class="publish-info">
@@ -603,12 +605,15 @@ use Think\Contro
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[HarekazeCTF2019]Avatar Uploader前言
+                                    前言
 题解上传限制png，还会检测尺寸，发包看不到反馈，挺烦的
 原来题目还给了源码，
 源码upload.php
 &lt;?php
-error_reporting(0)
+error_reporting(0);
+
+require_once('config.php');
+requir
                                 
                             </div>
                             <div class="publish-info">
@@ -669,11 +674,11 @@ error_reporting(0)
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[ISITDTU 2019]EasyPHP前言&lt;?php
+                                    前言&lt;?php
 highlight_file(__FILE__);
 
 $_ = @$_GET['_'];
-if ( preg_match('/[\x00- 0-9\'"`$&amp;
+if ( preg_match('/[\x00- 0-9\'"`$&amp;.,|[&#123;_defgops\x7F]+/i
                                 
                             </div>
                             <div class="publish-info">
@@ -736,7 +741,7 @@ if ( preg_match('/[\x00- 0-9\'"`$&amp;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[SUCTF 2018]GetShell前言关键字:[无字母数字webshell]
+                                    前言关键字:[无字母数字webshell]
 
 
 题解开局index.php?act=upload
@@ -744,7 +749,8 @@ if ( preg_match('/[\x00- 0-9\'"`$&amp;
 不太行。
 随便上传了个空jpg文件，直接变成php，好活
 
-基
+基本把数字，字母全过滤了，|^%也过滤了
+试了下()
                                 
                             </div>
                             <div class="publish-info">
@@ -805,7 +811,7 @@ if ( preg_match('/[\x00- 0-9\'"`$&amp;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[安洵杯 2019]不是文件上传前言
+                                    前言
 
 题解主页注释，第一时间想到git泄漏
 
@@ -815,7 +821,8 @@ if ( preg_match('/[\x00- 0-9\'"`$&amp;
 源码show.php
 &lt;?php
 include("./helper.php");
-$show
+$show = new show();
+if($_G
                                 
                             </div>
                             <div class="publish-info">
@@ -876,11 +883,12 @@ $show
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[红明谷CTF 2021]write_shell前言关键字:[短标签|反引号]
+                                    前言关键字:[短标签|反引号]
 &lt;?php
 error_reporting(0);
 highlight_file(__FILE__);
-function check($inpu
+function check($input)&#123;
+    if(preg_match("/
                                 
                             </div>
                             <div class="publish-info">
@@ -943,12 +951,13 @@ function check($inpu
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[GXYCTF2019]StrongestMind前言
+                                    前言
 题解第一反应是，写个爬虫跑一千次。
 延迟2s+每10次再延迟10s都会429 真的烦。
 最高记录：
 
-而且很奇怪，明明是同一个session，先get再post答案是错的，要
+而且很奇怪，明明是同一个session，先get再post答案是错的，要想跑脚本只能不停的post结果。没法重试。
+百度看了下别人的
                                 
                             </div>
                             <div class="publish-info">
@@ -1009,12 +1018,12 @@ function check($inpu
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:bestphp’’s revenge前言关键字:[SoapClient|call_user_func|ssrf]
+                                    前言关键字:[SoapClient|call_user_func|ssrf]
 
 &lt;?php
 highlight_file(__FILE__);
 $b = 'implode';
-call_u
+call_user_func($_GET['f'], $_
                                 
                             </div>
                             <div class="publish-info">
@@ -1079,8 +1088,10 @@ call_u
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    记一次electron反编译之JavaScript简单混淆记录前言摸鱼的时候想边打游戏边看看小说，小说又是txt，于是找了个阅读器，可惜要会员，一搜，有破解版
-【EPUB阅读器】Neat Reader v6.0.8 例行更新 去广告&amp
+                                    前言摸鱼的时候想边打游戏边看看小说，小说又是txt，于是找了个阅读器，可惜要会员，一搜，有破解版
+【EPUB阅读器】Neat Reader v6.0.8 例行更新 去广告&amp;去各种限制&amp;可珍藏
+在此感谢@夜泉的无私奉献！
+破解
                                 
                             </div>
                             <div class="publish-info">

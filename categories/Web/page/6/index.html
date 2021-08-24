@@ -509,14 +509,15 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[网鼎杯 2018]Comment前言关键字:[留言|评论|发帖]
+                                前言关键字:[留言|评论|发帖]
 
 这题真的难。
 题解发帖要登录，
 
 爆破一下，密码是zhangwei666。
 1.git泄漏扫目录扫出/.git，用githack下载一下源码，发现是不全的。
-g
+git log一下，是空的。
+git log 
                             
                         </div>
                         <div class="publish-info">
@@ -570,7 +571,7 @@ g
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[RCTF2015]EasySQL前言
+                                前言
 
 题解关键词:[二次注入|先登后改|改密|正则]
 注册的时候有过滤
@@ -579,7 +580,7 @@ g
 
 注册个账号为1&quot;
 改密码提示：
-You have an error in
+You have an error in your SQL syntax; chec
                             
                         </div>
                         <div class="publish-info">
@@ -637,10 +638,11 @@ You have an error in
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[CISCN2019 华北赛区 Day1 Web5]CyberPunk前言关键字:[cyberpunk|2077]
+                                前言关键字:[cyberpunk|2077]
 
 又是一道一年前做过的题，翻了翻当时的笔记，折腾了很久，没做出来。
-看了看wp，才知道flag在/flag.txt
+看了看wp，才知道flag在/flag.txt下面，之前一直在用错显爆数据库
+题解1.文件包含首先在注释里发现&lt;!--?
                             
                         </div>
                         <div class="publish-info">
@@ -698,10 +700,12 @@ You have an error in
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                [Zer0pts2020]Can you guess it?前言关键词：[guess|basename|正则]
+                                前言关键词：[guess|basename|正则]
 
 &lt;?php
 include 'config.php'; // FLAG is defined in config.php
+
+if (preg_match('/config\.php
                             
                         </div>
                         <div class="publish-info">
@@ -759,10 +763,11 @@ include 'config.php'; // FLAG is defined in config.php
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:Easyweb[CISCN2019 总决赛 Day2 Web1]前言着实惭愧，这题一年前还做过，今天再做，得，忘得一干二净。
+                                前言着实惭愧，这题一年前还做过，今天再做，得，忘得一干二净。
 写好的脚本一打开，payload都是原封不动了，尴尬。
 题解
-截个图，写个关键字，方便日后检索：[猫图|
+截个图，写个关键字，方便日后检索：[猫图|猫头|猫猫]
+这题主要三个考点：1.备份文件泄漏；2.SQL盲注；3.文件
                             
                         </div>
                         <div class="publish-info">
@@ -816,9 +821,9 @@ include 'config.php'; // FLAG is defined in config.php
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[极客大挑战 2019]RCE ME前言关键字:[无字母数字shell|ld_preload|disable_function]
+                                前言关键字:[无字母数字shell|ld_preload|disable_function]
 以前做的题，现在再看之前写的记录，太逗乐了，当时怎么那么多迷惑操作呢
-题解一开始是想着无参websh
+题解一开始是想着无参webshell，还写了好久的fuzz代码得 没用，代码
                             
                         </div>
                         <div class="publish-info">
@@ -868,14 +873,15 @@ include 'config.php'; // FLAG is defined in config.php
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[MRCTF2020]套娃前言以前做的题
+                                前言以前做的题
 题解
 ?b+u+p+t&#x3D;23333%0a
 
 
 file_get_contents配合伪协议data://使用
 re = 'flag.php'
-for i, j in enumer
+for i, j in enumerate(re):
+    print
                             
                         </div>
                         <div class="publish-info">
@@ -929,10 +935,10 @@ for i, j in enumer
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                利用phpinfo与文件包含进行条件竞争前言2021国赛做到一道，记录下
+                                前言2021国赛做到一道，记录下
 类似题：利用PHP_SESSION_UPLOAD_PROGRESS进行文件包含
 大致思路前瞻需要先找到phpinfo.php =》扫目录吧然后有两条路：
-1.给php
+1.给phpinfo.php发包 示例2.利用ses
                             
                         </div>
                         <div class="publish-info">
@@ -986,12 +992,12 @@ for i, j in enumer
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[GKCTF2020]老八小超市儿前言
+                                前言
 默认后台/admin.php默认账户admin默认密码shopxo
 题解进后台，这种第一时间考虑主题替换，在网上下载了个主题，然后把一句话php扔进去
 
 路径
-http:&#x2F;&#x2
+http:&#x2F;&#x2F;c09edc10-f98b-46fc-b
                             
                         </div>
                         <div class="publish-info">

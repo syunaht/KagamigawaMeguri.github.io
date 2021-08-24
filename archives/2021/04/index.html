@@ -536,7 +536,7 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:BabyConst前言关键词:[MD5|加密算法题|密码学|常见加密]
+                                    前言关键词:[MD5|加密算法题|密码学|常见加密]
 题解
 
 虽然也搜出了其他加密算法……姑且认为这个是MD5算法
@@ -606,13 +606,15 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:BabyAlgorithm前言关键词:[RC4|加密算法题|密码学|常见加密]
+                                    前言关键词:[RC4|加密算法题|密码学|常见加密]
 加密算法里有好几个mod 256 然后交换啥的，可以判断为RC4算法，具体看笔记特征值识别
 题解
 
 
 v8 = [0]*46
 v8[0] = 0xC6
+v8[1] = 0x21
+v8[2
                                 
                             </div>
                             <div class="publish-info">
@@ -675,7 +677,7 @@ v8[0] = 0xC6
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[DDCTF 2019]Windows_Reverse1前言以前做的题，这题似乎有点小迷惑？
+                                    前言以前做的题，这题似乎有点小迷惑？
 题解
 
 这里把v4给ecx
@@ -684,7 +686,10 @@ v8[0] = 0xC6
 
 所以*v1=var_804
 
-ascii 32位之
+ascii 32位之前是不可视字符，所以有种情况是字符显示不出来，但实际有字符
+
+
+d
                                 
                             </div>
                             <div class="publish-info">
@@ -745,13 +750,13 @@ ascii 32位之
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[百越杯2018]crazy前言
+                                    前言
 题解v = '327a6c4304ad5938eaf0efb6cc3e53dc'
 
 flag = ''
 
 for i in range(32):
-    flag += chr((ord(v[i]
+    flag += chr((ord(v[i])-11 ^ 0x13)-23 ^ 0
                                 
                             </div>
                             <div class="publish-info">
@@ -812,7 +817,7 @@ for i in range(32):
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:simple-check-100前言来源：school-ctf-winter-2015
+                                    前言来源：school-ctf-winter-2015
 这题Win程序有问题，输出乱码
 题解
 
@@ -827,7 +832,7 @@ RAX是64位寄存器
 
 
 
-D
+Dword=双字=取两个字=取四个字节=取4
                                 
                             </div>
                             <div class="publish-info">
@@ -888,11 +893,12 @@ D
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:parallel-comparator-200前言来源：school-ctf-winter-2015
+                                    前言来源：school-ctf-winter-2015
 这题目名字也忒长了，linux c题
 题解
 
-just_a_string = [115, 116, 114, 97, 110, 
+just_a_string = [115, 116, 114, 97, 110, 103, 101, 95,
+              
                                 
                             </div>
                             <div class="publish-info">

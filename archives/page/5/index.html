@@ -536,8 +536,8 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    MD5长度扩展攻击MD5原理
-1.MD5加密过程中512比特（64字节）为一组，属于分组加密，而且在运算的过程中，将512比特分为32bit*16块，分块运算2.我们关键利用的是MD5的填充，对加密的字符串进行填充(比特第一位为1其余比特为
+                                    MD5原理
+1.MD5加密过程中512比特（64字节）为一组，属于分组加密，而且在运算的过程中，将512比特分为32bit*16块，分块运算2.我们关键利用的是MD5的填充，对加密的字符串进行填充(比特第一位为1其余比特为0)，使之(二进制
                                 
                             </div>
                             <div class="publish-info">
@@ -600,12 +600,16 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[NPUCTF2020]ezinclude前言关键字:[临时文件包含|session|条件竞争]
+                                    前言关键字:[临时文件包含|session|条件竞争]
 
 题解
 一看疑似hash长度扩展攻击，转头花了几个小时学了下。
 结果不是，可惜了。
-直接?pass=fa25e54758d5d5c1
+直接?pass=fa25e54758d5d5c1927781a6ede89f8a
+
+文件包含
+
+包含
                                 
                             </div>
                             <div class="publish-info">
@@ -668,14 +672,16 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[GYCTF2020]EasyThinking前言关键字:[session|thinkphp6.0|disable_function]
+                                    前言关键字:[session|thinkphp6.0|disable_function]
 
 题解
 扫了下目录，发现www.zip源码泄漏
 
 
 thinkphp6.0
-searchspl
+searchsploit搜了下没啥结果
+
+谷歌搜搜，搜到个有关sessio
                                 
                             </div>
                             <div class="publish-info">
@@ -738,12 +744,13 @@ searchspl
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    刷题笔记:[BJDCTF2020]EzPHP前言关键词:[create_function|get_defined_vars|正则绕过]
+                                    前言关键词:[create_function|get_defined_vars|正则绕过]
 写了快半个月的机器人了，摸了好久的鱼，今天重新开始做web！
 
 题解
 base64解一下，乱码
-试试其他
+试试其他的
+最后base32解出来1nD3x.php
                                 
                             </div>
                             <div class="publish-info">
@@ -813,11 +820,11 @@ base64解一下，乱码
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    QQ机器人插件:天命之子wiki前言群友想要个这样的机器人，我想着挺简单的，于是就写了。
+                                    前言群友想要个这样的机器人，我想着挺简单的，于是就写了。
 人机交互上不难，重点还是wiki数据库。
 这次数据库是用了ORM，第一次用，有不少麻烦，思路通了就好多了。
 预览
-开发日志2021年7月31日21:0
+开发日志2021年7月31日21:01:53鬼知道这modles能折
                                 
                             </div>
                             <div class="publish-info">
@@ -880,8 +887,8 @@ base64解一下，乱码
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    QQ机器人插件:扫描BUGKU公开AWD房间前言QQ机器人开发是我一直以来的梦想啊，当初刚打算写的时候，得，腾讯全面封杀QQ机器人。于是搜了搜，mirai还活着，一看文档，“需要Kotlin”知识，一下把我打退了。
-于是就这样搁置了一年，再
+                                    前言QQ机器人开发是我一直以来的梦想啊，当初刚打算写的时候，得，腾讯全面封杀QQ机器人。于是搜了搜，mirai还活着，一看文档，“需要Kotlin”知识，一下把我打退了。
+于是就这样搁置了一年，再搜，nonebot2，python开发。上手
                                 
                             </div>
                             <div class="publish-info">
@@ -944,8 +951,9 @@ base64解一下，乱码
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Ping+多线程/协程的Python脚本前言前些日子开始使用bugku的awd平台进行练习，靶机ip还得自己扫，于是为了方便就写了个简单的ping+文件写入脚本，用于扫好ip放入特定txt便于后续脚本读取。
-前几天想着有点慢，于是加了个多线
+                                    前言前些日子开始使用bugku的awd平台进行练习，靶机ip还得自己扫，于是为了方便就写了个简单的ping+文件写入脚本，用于扫好ip放入特定txt便于后续脚本读取。
+前几天想着有点慢，于是加了个多线程。
+最近又正好学了异步，抱着大过年的来
                                 
                             </div>
                             <div class="publish-info">
@@ -1008,9 +1016,10 @@ base64解一下，乱码
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    CobaltStrike 4.3[20210317]汉化及破解整合前言Cobalt Strike 4.3 (March 17, 2021) [bug fixes]
+                                    前言Cobalt Strike 4.3 (March 17, 2021) [bug fixes]
 资源来源于公众号：孟疾杂记，在此感谢Twi1ight无私分享的宝贵资源。
-文
+文件可通过官方哈希验证地址进行sha256验证。
+下载地址Cobal
                                 
                             </div>
                             <div class="publish-info">
@@ -1071,9 +1080,9 @@ base64解一下，乱码
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    关于IDA7.5版本IDApython的api差异问题及解决办法前言首发于吾爱破解，现转到博客上来。
+                                    前言首发于吾爱破解，现转到博客上来。
 不知道该分哪类，姑且放到逆向里吧
-正文在7.5版本下一些函数如PatchByte()，Byte()都提示NameError: name ‘
+正文在7.5版本下一些函数如PatchByte()，Byte()都提示NameError: name ‘Byte’ is not defined又舍不得放弃7.5(一些
                                 
                             </div>
                             <div class="publish-info">

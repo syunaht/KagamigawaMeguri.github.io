@@ -513,14 +513,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2021-08-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -635,10 +635,11 @@
 <p>提前闭合+恶意代码+注释后面</p>
 <p>栗子1：</p>
 <blockquote>
-<p>注意：第二个参数需要双引号，否则纯粹就是字符串没有代码执行功能。</p>
+<p>注意：第二个参数内的<strong>变量</strong>如果没有在外部声明，则需要单引号；如果在外部声明了，就用双引号。</p>
 </blockquote>
+<p><code>$a</code>与<code>$b</code>没有声明变量，所以用单引号。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token variable">$func</span> <span class="token operator">=</span> <span class="token function">create_function</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'$a, $b'</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"return(<span class="token interpolation"><span class="token variable">$a</span></span>+<span class="token interpolation"><span class="token variable">$b</span></span>);"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$func</span> <span class="token operator">=</span> <span class="token function">create_function</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'$a, $b'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'return($a+$b);'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$func</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">//func()等价于</span>
@@ -655,12 +656,13 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>栗子2：</p>
+<p><code>$c</code>在外声明变量了，可以用双引号。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$c</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token variable">$lambda</span> <span class="token operator">=</span> <span class="token function">create_function</span><span class="token punctuation">(</span><span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"return <span class="token interpolation"><span class="token variable">$c</span></span>;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$lambda</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$lambda</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">//等价于</span>
-<span class="token keyword">function</span> <span class="token function-definition function">func</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function-definition function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
 <span class="token keyword">return</span> <span class="token variable">$c</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>

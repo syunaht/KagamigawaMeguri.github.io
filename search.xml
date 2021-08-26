@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>刷题笔记:[极客大挑战 2020]Roamphp1-Welcome</title>
+      <link href="/p/3383602229.html"/>
+      <url>/p/3383602229.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>打开靶机</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2020-Roamphp1-Welcome/image-20210826174233449.png"></p><p>还以为靶机坏了，结果是需要POST</p><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span><span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REQUEST_METHOD'</span><span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string single-quoted-string">'POST'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"HTTP/1.1 405 Method Not Allowed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>        <span class="token function">show_source</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam1'</span><span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam2'</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sha1</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token function">sha1</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>        <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// collect information from phpinfo!</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>签到题，没什么好说的。</p><pre class="line-numbers language-none"><code class="language-none">roam1[]&#x3D;1&amp;roam2[]&#x3D;2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>搜下flag，结束。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> PHP代码审计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[XNUCA2019Qualifier]EasyPHP</title>
       <link href="/p/1042722407.html"/>
       <url>/p/1042722407.html</url>

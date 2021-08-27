@@ -509,7 +509,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2021-08-27
                 </div>
                 
 
@@ -568,7 +568,8 @@
 
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820214714839.png"></p>
 <p>请求成功。</p>
-<p>接下来利用<a target="_blank" rel="noopener" href="https://beeceptor.com/%EF%BC%8C%E8%BF%99%E4%B8%AA%E7%BD%91%E7%AB%99%E5%8F%AF%E4%BB%A5%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%B8%B4%E6%97%B6%E5%9F%9F%E5%90%8D%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%AF%B9%E8%AF%A5%E5%9F%9F%E5%90%8D%E7%9A%84%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97">https://beeceptor.com/，这个网站可以创建个临时域名并保存对该域名的请求日志</a></p>
+<p>接下来利用<a target="_blank" rel="noopener" href="https://beeceptor.com/">https://beeceptor.com/</a></p>
+<p>这个网站可以创建个临时域名并保存对该域名的请求日志</p>
 <p>尝试加载外部实体</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0"?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">message</span> <span class="token punctuation">[</span><span class="token internal-subset">
@@ -606,7 +607,6 @@
 <p>假设第一次读取**/flag<strong>实体，第二次把</strong>/flag的里的值<strong>当做实体来读取，明显</strong>/flag的里的值**这个实体不存在，然后就会报错返回，这样就拿到flag了。</p>
 <p>利用系统自带的dtd文件。</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820221838853.png"></p>
-<h3 id="奇文共赏"><a href="#奇文共赏" class="headerlink" title="奇文共赏"></a>奇文共赏</h3><p><a target="_blank" rel="noopener" href="https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/">Exploiting XXE with local DTD files</a></p>
 <p>payload</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0"?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">message</span><span class="token punctuation">[</span><span class="token internal-subset">
@@ -619,7 +619,7 @@
 '>
 %local_dtd;
 </span><span class="token punctuation">]</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<h3 id="奇文共赏"><a href="#奇文共赏" class="headerlink" title="奇文共赏"></a>奇文共赏</h3><p><a target="_blank" rel="noopener" href="https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/">Exploiting XXE with local DTD files</a></p>
 
                 
             </div>

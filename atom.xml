@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-26T14:14:56.228Z</updated>
+  <updated>2021-08-27T13:35:17.266Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[网鼎杯 2020 青龙组]filejava</title>
+    <link href="https://syunaht.com/p/697982602.html"/>
+    <id>https://syunaht.com/p/697982602.html</id>
+    <published>2021-08-27T10:12:25.000Z</published>
+    <updated>2021-08-27T13:35:17.266Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[tomcat|CVE-2014-3574|java|excel]&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="XXE" scheme="https://syunaht.com/tags/XXE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[NPUCTF2020]ezlogin</title>
     <link href="https://syunaht.com/p/720437907.html"/>
     <id>https://syunaht.com/p/720437907.html</id>
     <published>2021-08-26T12:33:55.000Z</published>
-    <updated>2021-08-26T14:14:56.228Z</updated>
+    <updated>2021-08-26T14:15:13.747Z</updated>
     
     
       
@@ -455,7 +485,7 @@
     <link href="https://syunaht.com/p/1267717976.html"/>
     <id>https://syunaht.com/p/1267717976.html</id>
     <published>2021-08-20T08:43:25.000Z</published>
-    <updated>2021-08-24T06:54:40.309Z</updated>
+    <updated>2021-08-27T12:26:56.036Z</updated>
     
     
       
@@ -565,36 +595,6 @@
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
     <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[DDCTF 2019]homebrew event loop</title>
-    <link href="https://syunaht.com/p/203110635.html"/>
-    <id>https://syunaht.com/p/203110635.html</id>
-    <published>2021-08-19T07:07:05.000Z</published>
-    <updated>2021-08-24T06:54:40.310Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[flask|session解密]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="Flask" scheme="https://syunaht.com/tags/Flask/"/>
     
   </entry>
   

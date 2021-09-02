@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-08-31T16:57:10.140Z</updated>
+  <updated>2021-09-02T10:54:50.608Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[NESTCTF 2019]Love Math 2</title>
+    <link href="https://syunaht.com/p/3991483090.html"/>
+    <id>https://syunaht.com/p/3991483090.html</id>
+    <published>2021-09-02T08:40:58.000Z</published>
+    <updated>2021-09-02T10:54:50.608Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-php&quot; data-language=&quot;php&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[HarekazeCTF2019]Easy Notes</title>
     <link href="https://syunaht.com/p/67449346.html"/>
     <id>https://syunaht.com/p/67449346.html</id>
     <published>2021-08-31T09:22:46.000Z</published>
-    <updated>2021-08-31T16:57:10.140Z</updated>
+    <updated>2021-08-31T16:58:23.487Z</updated>
     
     
       
@@ -565,35 +594,6 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[CISCN2019 华东北赛区]Web2</title>
-    <link href="https://syunaht.com/p/563486977.html"/>
-    <id>https://syunaht.com/p/563486977.html</id>
-    <published>2021-08-21T12:58:22.000Z</published>
-    <updated>2021-08-24T15:26:13.831Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="XSS" scheme="https://syunaht.com/tags/XSS/"/>
     
   </entry>
   

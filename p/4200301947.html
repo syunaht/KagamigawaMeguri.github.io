@@ -509,14 +509,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2021-09-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    405
+                    430
                 </div>
                 
 
@@ -546,14 +546,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021国赛做到一道，记录下</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021年9月4日21:06:29</p>
+<p>又做了很多类型的题，具体可见<a href="https://syunaht.com/p/2193317358.html">刷题笔记:[NPUCTF2020]ezinclude</a></p>
+<hr>
+<p>2021国赛做到一道，记录下</p>
 <p>类似题：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/NPFS/p/13795170.html">利用PHP_SESSION_UPLOAD_PROGRESS进行文件包含</a></p>
 <h2 id="大致思路"><a href="#大致思路" class="headerlink" title="大致思路"></a>大致思路</h2><h3 id="前瞻"><a href="#前瞻" class="headerlink" title="前瞻"></a>前瞻</h3><p>需要先找到phpinfo.php =》扫目录吧<br>然后有两条路：</p>
 <p>1.给phpinfo.php发包 <a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub/blob/master/php/inclusion/README.zh-cn.md">示例</a><br>2.利用session。<br>国赛这里是第二条</p>
 <h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><p>利用<code>session.upload_progress</code>将木马写入<code>session</code>文件</p>
 <p>1.session.use_strict_mode=off(默认)</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89/image-20210720195058143.png" alt="image-20210720195058143"></p>
-<p>此时用户是可以自己定义Session ID的。比如，我们在Cookie里设置PHPSESSID=flag，PHP将会在服务器上创建一个文件：/tmp/sess_flag”。即使此时用户没有初始化Session，PHP也会自动初始化Session,并产生一个键值。</p>
+<p>此时用户是可以自己定义Session ID的。比如，我们在Cookie里设置PHPSESSID=flag，PHP将会在服务器上创建一个文件：/tmp/sess_flag。即使此时用户没有初始化Session，PHP也会自动初始化Session,并产生一个键值。</p>
 <blockquote>
 <p>在Linux系统中，session文件一般的默认存储位置为/tmp或/var/lib/php/session</p>
 </blockquote>

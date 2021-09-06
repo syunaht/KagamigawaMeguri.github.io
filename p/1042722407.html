@@ -13,6 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -509,14 +510,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-26
+                    2021-09-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    980
+                    953
                 </div>
                 
 
@@ -618,7 +619,6 @@ php_value zend.script_encoding &quot;UTF-7&quot;
 
 <p>注意，在这里直接访问<code>/?2=phpinfo();</code>,payload里也是<code>die()</code>，目的就是为了不让代码执行到删除文件那里！！！在这里浪费了两个小时才意识到！！！！</p>
 <h3 id="非预期解1"><a href="#非预期解1" class="headerlink" title="非预期解1"></a>非预期解1</h3><p>设置pcre的一些选项可以导致文件名判断失效，从而直接写入<code>fl3g.php</code></p>
-<p>设置pcre的一些选项可以导致文件名判断失效，从而直接写入<code>fl3g.php</code></p>
 <p>大概就是<code>preg_match()</code>函数在进行正则回溯的时候(比如贪婪匹配)超过100000次后会直接返回false，在这里就把这个次数设为0，导致这个函数直接坏掉。</p>
 <pre class="line-numbers language-none"><code class="language-none">php_value pcre.backtrack_limit 0
 php_value pcre.jit 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>

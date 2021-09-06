@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-09-04T16:23:05.341Z</updated>
+  <updated>2021-09-06T07:27:12.021Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[羊城杯2020]easyphp</title>
+    <link href="https://syunaht.com/p/1631723733.html"/>
+    <id>https://syunaht.com/p/1631723733.html</id>
+    <published>2021-09-06T05:57:42.000Z</published>
+    <updated>2021-09-06T07:27:12.021Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-php&quot; data-language=&quot;php&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[SWPU2019]Web3</title>
+    <link href="https://syunaht.com/p/950891946.html"/>
+    <id>https://syunaht.com/p/950891946.html</id>
+    <published>2021-09-05T03:29:59.000Z</published>
+    <updated>2021-09-05T06:07:41.775Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[proc|session构造]&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="Flask" scheme="https://syunaht.com/tags/Flask/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[WMCTF2020]Make PHP Great Again</title>
     <link href="https://syunaht.com/p/2339718074.html"/>
     <id>https://syunaht.com/p/2339718074.html</id>
     <published>2021-09-04T08:51:35.000Z</published>
-    <updated>2021-09-04T16:23:05.341Z</updated>
+    <updated>2021-09-05T06:03:50.352Z</updated>
     
     
       
@@ -53,7 +110,7 @@
     <link href="https://syunaht.com/p/1213141305.html"/>
     <id>https://syunaht.com/p/1213141305.html</id>
     <published>2021-09-03T09:46:04.000Z</published>
-    <updated>2021-09-03T16:00:51.747Z</updated>
+    <updated>2021-09-04T16:23:21.151Z</updated>
     
     
       
@@ -429,7 +486,7 @@
     <link href="https://syunaht.com/p/1042722407.html"/>
     <id>https://syunaht.com/p/1042722407.html</id>
     <published>2021-08-25T13:44:17.000Z</published>
-    <updated>2021-08-25T16:08:27.375Z</updated>
+    <updated>2021-09-06T07:06:45.179Z</updated>
     
     
       
@@ -532,65 +589,6 @@
     
     
     <category term="Tools" scheme="https://syunaht.com/categories/Tools/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="BurpSuite" scheme="https://syunaht.com/tags/BurpSuite/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Burp插件-Copy as requests</title>
-    <link href="https://syunaht.com/p/3960013565.html"/>
-    <id>https://syunaht.com/p/3960013565.html</id>
-    <published>2021-08-23T15:41:57.000Z</published>
-    <updated>2021-08-24T06:54:40.311Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Tools" scheme="https://syunaht.com/categories/Tools/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="BurpSuite" scheme="https://syunaht.com/tags/BurpSuite/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Burp插件开发笔记</title>
-    <link href="https://syunaht.com/p/1947914890.html"/>
-    <id>https://syunaht.com/p/1947914890.html</id>
-    <published>2021-08-23T08:39:46.000Z</published>
-    <updated>2021-08-24T06:54:40.311Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;想把一些好用的插件改成自己想要的形状，于是尝试一下，当做拓展学习了。&lt;/p&gt;
-&lt;h2 id=&quot;JAR打包&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="杂谈" scheme="https://syunaht.com/categories/%E6%9D%82%E8%B0%88/"/>
     
     
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>

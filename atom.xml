@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-09-06T07:28:15.869Z</updated>
+  <updated>2021-09-06T12:19:05.792Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>刷题笔记:[watevrCTF-2019]Pickle Store</title>
+    <link href="https://syunaht.com/p/3521738078.html"/>
+    <id>https://syunaht.com/p/3521738078.html</id>
+    <published>2021-09-06T11:29:56.000Z</published>
+    <updated>2021-09-06T12:19:05.792Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[pickle反序列化漏洞|内网]&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
   
   <entry>
     <title>刷题笔记:[羊城杯2020]easyphp</title>
@@ -567,35 +595,6 @@
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
     <category term="XSS" scheme="https://syunaht.com/tags/XSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Burp插件-Unicode Auto Decode</title>
-    <link href="https://syunaht.com/p/1323803757.html"/>
-    <id>https://syunaht.com/p/1323803757.html</id>
-    <published>2021-08-23T15:55:45.000Z</published>
-    <updated>2021-08-24T06:54:40.310Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Tools" scheme="https://syunaht.com/categories/Tools/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="BurpSuite" scheme="https://syunaht.com/tags/BurpSuite/"/>
     
   </entry>
   

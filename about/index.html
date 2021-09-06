@@ -654,7 +654,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["CTF","Web","PHP代码审计","Reverse","SQL注入","Python","反序列化","SSTI","BurpSuite","坑"]
+                data: ["CTF","Web","PHP代码审计","Reverse","SQL注入","Python","反序列化","SSTI","BurpSuite","英语学习"]
             }
         ],
         yAxis: [
@@ -806,18 +806,6 @@
             
             
             
-            <a href="/tags/CobaltStrike/">
-                <span class="chip center-align waves-effect waves-light chip-default">CobaltStrike</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%B8%97%E9%80%8F/">
-                <span class="chip center-align waves-effect waves-light chip-default">渗透</span>
-            </a>
-            
-            
-            
             <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
                 <span class="chip center-align waves-effect waves-light chip-default">PHP代码审计</span>
             </a>
@@ -854,6 +842,18 @@
             
             
             
+            <a href="/tags/CobaltStrike/">
+                <span class="chip center-align waves-effect waves-light chip-default">CobaltStrike</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%B8%97%E9%80%8F/">
+                <span class="chip center-align waves-effect waves-light chip-default">渗透</span>
+            </a>
+            
+            
+            
             <a href="/tags/electron/">
                 <span class="chip center-align waves-effect waves-light chip-default">electron</span>
             </a>
@@ -872,18 +872,6 @@
             
             
             
-            <a href="/tags/%E5%9D%91/">
-                <span class="chip center-align waves-effect waves-light chip-default">坑</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Jupyter-Notebook/">
-                <span class="chip center-align waves-effect waves-light chip-default">Jupyter Notebook</span>
-            </a>
-            
-            
-            
             
             
             <a href="/tags/QQ%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8F%92%E4%BB%B6/">
@@ -898,20 +886,38 @@
             
             
             
-            <a href="/tags/nonebot2/">
-                <span class="chip center-align waves-effect waves-light chip-default">nonebot2</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">
                 <span class="chip center-align waves-effect waves-light chip-default">英语学习</span>
             </a>
             
             
             
+            <a href="/tags/%E5%9D%91/">
+                <span class="chip center-align waves-effect waves-light chip-default">坑</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Jupyter-Notebook/">
+                <span class="chip center-align waves-effect waves-light chip-default">Jupyter Notebook</span>
+            </a>
+            
+            
+            
             <a href="/tags/disable-functions/">
                 <span class="chip center-align waves-effect waves-light chip-default">disable_functions</span>
+            </a>
+            
+            
+            
+            <a href="/tags/nonebot2/">
+                <span class="chip center-align waves-effect waves-light chip-default">nonebot2</span>
+            </a>
+            
+            
+            
+            <a href="/tags/nginx/">
+                <span class="chip center-align waves-effect waves-light chip-default">nginx</span>
             </a>
             
             
@@ -924,12 +930,6 @@
             
             <a href="/tags/requests/">
                 <span class="chip center-align waves-effect waves-light chip-default">requests</span>
-            </a>
-            
-            
-            
-            <a href="/tags/nginx/">
-                <span class="chip center-align waves-effect waves-light chip-default">nginx</span>
             </a>
             
             
@@ -976,6 +976,12 @@
             
             
             
+            <a href="/tags/SSTI/">
+                <span class="chip center-align waves-effect waves-light chip-default">SSTI</span>
+            </a>
+            
+            
+            
             <a href="/tags/Flask/">
                 <span class="chip center-align waves-effect waves-light chip-default">Flask</span>
             </a>
@@ -984,12 +990,6 @@
             
             <a href="/tags/%E9%94%99%E6%98%BE/">
                 <span class="chip center-align waves-effect waves-light chip-default">错显</span>
-            </a>
-            
-            
-            
-            <a href="/tags/SSTI/">
-                <span class="chip center-align waves-effect waves-light chip-default">SSTI</span>
             </a>
             
             
@@ -1090,12 +1090,6 @@
             
             
             
-            <a href="/tags/Powershell/">
-                <span class="chip center-align waves-effect waves-light chip-default">Powershell</span>
-            </a>
-            
-            
-            
             <a href="/tags/Code/">
                 <span class="chip center-align waves-effect waves-light chip-default">Code</span>
             </a>
@@ -1104,6 +1098,12 @@
             
             <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
                 <span class="chip center-align waves-effect waves-light chip-default">微信小程序</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Powershell/">
+                <span class="chip center-align waves-effect waves-light chip-default">Powershell</span>
             </a>
             
             
@@ -1282,6 +1282,7 @@ $(function () {
                         return;
                     }
                     // perform local searching
+                    var cnt = 1;
                     datas.forEach(function (data) {
                         var isMatch = true;
                         var data_title = data.title.trim().toLowerCase();
@@ -1310,22 +1311,16 @@ $(function () {
                         }
                         // show search results
                         if (isMatch) {
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + String(cnt) + ". " + data_title + "</a>";
+                            cnt += 1;
                             var content = data.content.trim().replace(/<[^>]+>/g, "");
                             if (first_occur >= 0) {
                                 // cut out 100 characters
                                 var start = first_occur - 20;
-                                var end = first_occur + 80;
                                 if (start < 0) {
                                     start = 0;
                                 }
-                                if (start === 0) {
-                                    end = 100;
-                                }
-                                if (end > content.length) {
-                                    end = content.length;
-                                }
-                                var match_content = content.substr(start, end);
+                                var match_content = content.substr(start, 100);
                                 // highlight all keywords
                                 keywords.forEach(function (keyword) {
                                     var regS = new RegExp(keyword, "gi");
@@ -1338,6 +1333,7 @@ $(function () {
                         }
                     });
                     str += "</ul>";
+                    str = "<p class=\"search-result-summary\">共找到" + String(cnt-1) + "条结果</p>"  + str;
                     $resultContent.innerHTML = str;
                 });
             }

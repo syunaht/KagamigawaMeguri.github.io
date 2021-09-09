@@ -510,14 +510,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2021-09-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    339
+                    347
                 </div>
                 
 
@@ -562,6 +562,7 @@
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
 parse<span class="token punctuation">.</span>unquote<span class="token punctuation">(</span><span class="token string">'%00'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<p>postman里直接打<code>%2500</code>就好</p>
 <hr>
 <p>在此测试下%00截断,payload:</p>
 <pre class="line-numbers language-none"><code class="language-none">username&#x3D;\&amp;passwd&#x3D;||1;%00<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>

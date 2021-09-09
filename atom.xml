@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-09-08T05:23:21.585Z</updated>
+  <updated>2021-09-09T05:37:34.909Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[GWCTF 2019]你的名字</title>
+    <link href="https://syunaht.com/p/4169927949.html"/>
+    <id>https://syunaht.com/p/4169927949.html</id>
+    <published>2021-09-09T02:31:49.000Z</published>
+    <updated>2021-09-09T05:37:34.909Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[网鼎杯 2020 青龙组]notes</title>
     <link href="https://syunaht.com/p/285081490.html"/>
     <id>https://syunaht.com/p/285081490.html</id>
     <published>2021-09-08T02:27:14.000Z</published>
-    <updated>2021-09-08T05:23:21.585Z</updated>
+    <updated>2021-09-08T05:23:43.503Z</updated>
     
     
       
@@ -561,36 +588,6 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[极客大挑战 2020]Roamphp1-Welcome</title>
-    <link href="https://syunaht.com/p/3383602229.html"/>
-    <id>https://syunaht.com/p/3383602229.html</id>
-    <published>2021-08-26T09:30:18.000Z</published>
-    <updated>2021-08-26T09:47:15.094Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;打开靶机&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
   </entry>
   

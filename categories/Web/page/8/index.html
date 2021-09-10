@@ -449,11 +449,11 @@
                 </a>
                 
                 
-                <a href="/categories/Web/" title="Web: 84">
+                <a href="/categories/Web/" title="Web: 86">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #E8F8F5;">Web
-                        <span class="tag-length">84</span>
+                        <span class="tag-length">86</span>
                     </span>
                 </a>
                 
@@ -485,6 +485,15 @@
                 </a>
                 
                 
+                <a href="/categories/Web/" title="Web#: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">Web#
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
             </div>
         </div>
     </div>
@@ -495,6 +504,130 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/p/2417191136.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/45.jpg" class="responsive-img" alt="刷题笔记:[RootersCTF2019]I_&lt;3_Flask">
+                            
+                            <span class="card-title">刷题笔记:[RootersCTF2019]I_&lt;3_Flask</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言关键字:[flask|ssti]
+
+可见flask，盲猜一手ssti
+题解粗略看了一圈，没发现什么，扫扫目录试试
+扫了一圈没发现啥，照着SSTI路子走吧。
+
+得，还真是
+也可以拿arjun跑一下
+
+
+直接跑tplmap吧
+python2
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-20
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Web/" class="post-category">
+                                    Web
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/Web/">
+                            <span class="chip bg-color">Web</span>
+                        </a>
+                        
+                        <a href="/tags/SSTI/">
+                            <span class="chip bg-color">SSTI</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/p/233234935.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/65.jpg" class="responsive-img" alt="刷题笔记:[WUSTCTF2020]CV Maker">
+                            
+                            <span class="card-title">刷题笔记:[WUSTCTF2020]CV Maker</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言
+题解看到这种站挺吓人的，随便点了点大多都是死界面，还好。
+先尝试性的扫一下，没扫到什么信息泄漏。
+注册用户，还报错了
+
+登录，有个头像上传，先试试。
+
+看来用了exif_imagetype函数限制了，加个文件幻数可绕过。
+
+试了试，没
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Web/" class="post-category">
+                                    Web
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/Web/">
+                            <span class="chip bg-color">Web</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -931,135 +1064,6 @@ header("content-type:text/html;charset
                         
                         <a href="/tags/Phar/">
                             <span class="chip bg-color">Phar</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/p/1354079185.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/64.jpg" class="responsive-img" alt="刷题笔记:[GYCTF2020]Ezsqli">
-                            
-                            <span class="card-title">刷题笔记:[GYCTF2020]Ezsqli</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言关键词:[孙笑川|二分法崩溃]
-
-开局孙笑川，晦气，真的晦气。
-这题貌似做过，但是我忘了
-题解有注入检测，所以先fuzz一下。
-id=sleep不会被检测，id=1sleep才会
-检测字符
-
-id=1^0 =&gt;Nu1L
-id=1^
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
-                        
-                        <a href="/tags/Web/">
-                            <span class="chip bg-color">Web</span>
-                        </a>
-                        
-                        <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                            <span class="chip bg-color">SQL注入</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/">
-                            <span class="chip bg-color">无列名注入</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/p/2243940947.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/58.jpg" class="responsive-img" alt="刷题笔记:[网鼎杯 2018]Comment">
-                            
-                            <span class="card-title">刷题笔记:[网鼎杯 2018]Comment</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言关键字:[留言|评论|发帖]
-
-这题真的难。
-题解发帖要登录，
-
-爆破一下，密码是zhangwei666。
-1.git泄漏扫目录扫出/.git，用githack下载一下源码，发现是不全的。
-git log一下，是空的。
-git log 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
-                        
-                        <a href="/tags/Web/">
-                            <span class="chip bg-color">Web</span>
-                        </a>
-                        
-                        <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                            <span class="chip bg-color">SQL注入</span>
                         </a>
                         
                     </div>

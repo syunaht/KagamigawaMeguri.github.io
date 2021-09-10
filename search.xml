@@ -4,6 +4,89 @@
   
     
     <entry>
+      <title>刷题笔记:[PASECA2019]honey_shop</title>
+      <link href="/p/679339218.html"/>
+      <url>/p/679339218.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[proc|session]</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PASECA2019-honey-shop/image-20210910195243330.png"></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这种题做过很多了，当初解个码</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PASECA2019-honey-shop/image-20210910195847956.png" alt="image-20210910195847956"></p><p>接下来问题就是找key</p><p>尝试破解一下，没成功，还是得老老实实找key</p><p>点击图片可以下载，尝试文件包含漏洞</p><p>可行。</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PASECA2019-honey-shop/image-20210910201311755.png"></p><pre class="line-numbers language-none"><code class="language-none">&#x2F;proc&#x2F;self&#x2F;&#x2F; 其路径指向当前进程&#x2F;environ&#x2F;&#x2F; 记录当前进程的环境变量信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>读取环境变量</p><pre class="line-numbers language-none"><code class="language-none">..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;proc&#x2F;self&#x2F;environ <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PASECA2019-honey-shop/image-20210910201820721.png"></p><pre class="line-numbers language-none"><code class="language-none">O41Bwjq2maq75AD7lFKnfhZv7DoOe8PMEzl4jBHu<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>加密下，结束。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web# </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>刷题笔记:virink_2019_files_share</title>
+      <link href="/p/170828619.html"/>
+      <url>/p/170828619.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[魔方]</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-virink-2019-files-share/image-20210910130313751.png"></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>index.js文件有这种混淆代码，必有蹊跷。</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-virink-2019-files-share/image-20210910191018766.png"></p><p>得，折腾半天整不出来，原来不在这里。</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-virink-2019-files-share/image-20210910192621403.png"></p><p>/uploads目录遍历是开着的</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-virink-2019-files-share/image-20210910192720626.png"></p><p>读取下/etc/passwd</p><p>似乎有过滤</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-virink-2019-files-share/image-20210910193115046.png"></p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-virink-2019-files-share/image-20210910193339328.png"></p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-virink-2019-files-share/image-20210910193357908.png"></p><p>显然，<code>../</code>和<code>/</code>被替换为空，但可以双写绕过</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-virink-2019-files-share/image-20210910193702819.png"></p><pre class="line-numbers language-none"><code class="language-none">preview?f&#x3D;...&#x2F;.&#x2F;...&#x2F;.&#x2F;...&#x2F;.&#x2F;...&#x2F;.&#x2F;...&#x2F;.&#x2F;...&#x2F;.&#x2F;etc..&#x2F;&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>没想到最后得再加个/flag,实在想不到</p><pre class="line-numbers language-none"><code class="language-none">&#x2F;preview?f&#x3D;...&#x2F;.&#x2F;...&#x2F;.&#x2F;...&#x2F;.&#x2F;...&#x2F;.&#x2F;...&#x2F;.&#x2F;...&#x2F;.&#x2F;f1ag_Is_h3re..&#x2F;&#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>刷题笔记:[CSAWQual 2016]i_got_id</title>
+      <link href="/p/563209711.html"/>
+      <url>/p/563209711.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[perl]</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910104442590.png"></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>/cgi-bin/hello.pl</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910104458963.png"></p><p>看来是perl语言，整不会了。</p><p>猜测下上传的后端代码</p><pre class="line-numbers language-perl" data-language="perl"><code class="language-perl"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$cgi</span><span class="token operator">-></span>upload<span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">my</span> <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$cgi</span><span class="token operator">-></span>param<span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token variable">$file</span><span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        <span class="token keyword">print</span> <span class="token string">"$_"</span><span class="token punctuation">;</span>        <span class="token keyword">print</span> <span class="token string">"&lt;br />"</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>param()函数会返回一个列表的文件但是只有第一个文件会被放入到下面的file变量中。而对于下面的读文件逻辑来说，如果我们传入一个ARGV的文件，那么Perl会将传入的参数作为文件名读出来。</p></blockquote><p>这样，我们的利用方法就出现了：在正常的上传文件前面加上一个文件上传项ARGV，然后在URL中传入文件路径参数，这样就可以读取任意文件了。</p><p>再加个上传项，删掉filename，改为ARGV,然后在url中加个路径：</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910110842899.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> Perl </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[RCTF 2019]Nextphp</title>
       <link href="/p/2407208614.html"/>
       <url>/p/2407208614.html</url>

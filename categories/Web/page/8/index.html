@@ -449,11 +449,11 @@
                 </a>
                 
                 
-                <a href="/categories/Web/" title="Web: 90">
+                <a href="/categories/Web/" title="Web: 92">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #E8F8F5;">Web
-                        <span class="tag-length">90</span>
+                        <span class="tag-length">92</span>
                     </span>
                 </a>
                 
@@ -504,6 +504,127 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/p/3379740036.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/39.jpg" class="responsive-img" alt="刷题笔记:[网鼎杯2018]Unfinish">
+                            
+                            <span class="card-title">刷题笔记:[网鼎杯2018]Unfinish</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言关键字:[过滤逗号|ascii|from for|substr]
+
+题解扫目录扫出register.php，真无语，又要扫
+
+好活
+没想到是二次注入，注入点在register.php的username里
+fuzz一下看看过滤
+
+这俩被屏
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Web/" class="post-category">
+                                    Web
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/Web/">
+                            <span class="chip bg-color">Web</span>
+                        </a>
+                        
+                        <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                            <span class="chip bg-color">SQL注入</span>
+                        </a>
+                        
+                        <a href="/tags/%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5/">
+                            <span class="chip bg-color">二次注入</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/p/1343946995.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="MD5长度扩展攻击">
+                            
+                            <span class="card-title">MD5长度扩展攻击</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                MD5原理
+1.MD5加密过程中512比特（64字节）为一组，属于分组加密，而且在运算的过程中，将512比特分为32bit*16块，分块运算2.我们关键利用的是MD5的填充，对加密的字符串进行填充(比特第一位为1其余比特为0)，使之(二进制
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Web/" class="post-category">
+                                    Web
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/Web/">
+                            <span class="chip bg-color">Web</span>
+                        </a>
+                        
+                        <a href="/tags/MD5/">
+                            <span class="chip bg-color">MD5</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -943,134 +1064,6 @@ base64字符串，解密下
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/p/2489403193.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/69.jpg" class="responsive-img" alt="刷题笔记:[NCTF2019]SQLi">
-                            
-                            <span class="card-title">刷题笔记:[NCTF2019]SQLi</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言关键字:[%00|regexp|sql注入regexp]
-
-题解首先先fuzz一下，检测如下字符
-
-这过滤的也太全了。
-试了试不太行。找找看有没有其他线索
-打开/robots.txt，里面有提示/hint.txt
-
-
-%00截断要点
-p
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
-                        
-                        <a href="/tags/Web/">
-                            <span class="chip bg-color">Web</span>
-                        </a>
-                        
-                        <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                            <span class="chip bg-color">SQL注入</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/p/2319372040.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/68.jpg" class="responsive-img" alt="刷题笔记:[HarekazeCTF2019]encode_and_encode">
-                            
-                            <span class="card-title">刷题笔记:[HarekazeCTF2019]encode_and_encode</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言关键词:[json|unicode]
-&lt;?php
-error_reporting(0);
-
-if (isset($_GET['source'])) &#123;
-  show_source(__FILE__);
-  exit();
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
-                        
-                        <a href="/tags/Web/">
-                            <span class="chip bg-color">Web</span>
-                        </a>
-                        
-                        <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
-                            <span class="chip bg-color">PHP代码审计</span>
-                        </a>
-                        
-                        <a href="/tags/json-decode/">
-                            <span class="chip bg-color">json_decode()</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 </main>
@@ -1087,7 +1080,7 @@ if (isset($_GET['source'])) &#123;
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">8 / 10</div>
+            <div class="center-align b-text-gray">8 / 11</div>
         </div>
         <div class="col s6 m4 l4">
             

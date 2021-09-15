@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-09-15T01:20:58.875Z</updated>
+  <updated>2021-09-15T14:50:36.653Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[CISCN2021 Quals]upload</title>
+    <link href="https://syunaht.com/p/3974435572.html"/>
+    <id>https://syunaht.com/p/3974435572.html</id>
+    <published>2021-09-15T02:24:11.000Z</published>
+    <updated>2021-09-15T14:50:36.653Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[代码审计|图片马]&lt;/p&gt;
+&lt;p&gt;之前比赛做过来着，貌似当时没做出来。现在再试试，还是做不出来，无语了。&lt;/p&gt;
+&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[FBCTF2019]Event</title>
     <link href="https://syunaht.com/p/3098408404.html"/>
     <id>https://syunaht.com/p/3098408404.html</id>
     <published>2021-09-14T15:43:53.000Z</published>
-    <updated>2021-09-15T01:20:58.875Z</updated>
+    <updated>2021-09-15T01:21:28.249Z</updated>
     
     
       
@@ -52,7 +81,7 @@
     <link href="https://syunaht.com/p/3756000955.html"/>
     <id>https://syunaht.com/p/3756000955.html</id>
     <published>2021-09-14T05:53:25.000Z</published>
-    <updated>2021-09-14T11:18:44.195Z</updated>
+    <updated>2021-09-15T01:21:28.245Z</updated>
     
     
       
@@ -571,38 +600,6 @@
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
     <category term="Flask" scheme="https://syunaht.com/tags/Flask/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[WMCTF2020]Make PHP Great Again</title>
-    <link href="https://syunaht.com/p/2339718074.html"/>
-    <id>https://syunaht.com/p/2339718074.html</id>
-    <published>2021-09-04T08:51:35.000Z</published>
-    <updated>2021-09-05T06:03:50.352Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[require_once|proc|文件包含|session|session.upload_progress]&lt;/p&gt;
-&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-    <category term="条件竞争" scheme="https://syunaht.com/tags/%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89/"/>
     
   </entry>
   

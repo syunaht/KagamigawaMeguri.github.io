@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-09-15T14:50:36.653Z</updated>
+  <updated>2021-09-18T15:58:31.052Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,20 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[羊城杯 2020]Blackcat</title>
+    <link href="https://syunaht.com/p/1831754947.html"/>
+    <id>https://syunaht.com/p/1831754947.html</id>
+    <published>2021-09-18T13:18:20.000Z</published>
+    <updated>2021-09-18T15:58:31.052Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[hash_hmac|黑猫警长]&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[CISCN2021 Quals]upload</title>
     <link href="https://syunaht.com/p/3974435572.html"/>
     <id>https://syunaht.com/p/3974435572.html</id>
     <published>2021-09-15T02:24:11.000Z</published>
-    <updated>2021-09-15T14:50:36.653Z</updated>
+    <updated>2021-09-15T14:52:48.077Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[代码审计|图片马]&lt;/p&gt;
-&lt;p&gt;之前比赛做过来着，貌似当时没做出来。现在再试试，还是做不出来，无语了。&lt;/p&gt;
-&lt;pre</summary>
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -570,36 +598,6 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[SWPU2019]Web3</title>
-    <link href="https://syunaht.com/p/950891946.html"/>
-    <id>https://syunaht.com/p/950891946.html</id>
-    <published>2021-09-05T03:29:59.000Z</published>
-    <updated>2021-09-06T07:28:15.867Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[proc|session构造]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="Flask" scheme="https://syunaht.com/tags/Flask/"/>
     
   </entry>
   

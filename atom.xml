@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-09-27T14:37:35.879Z</updated>
+  <updated>2021-10-05T15:31:27.858Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,100 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>充电桩 - 项目开发日志</title>
+    <link href="https://syunaht.com/p/4095777995.html"/>
+    <id>https://syunaht.com/p/4095777995.html</id>
+    <published>2021-10-05T10:51:26.000Z</published>
+    <updated>2021-10-05T15:31:27.858Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="https://syunaht.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="微信小程序" scheme="https://syunaht.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    <category term="Django" scheme="https://syunaht.com/tags/Django/"/>
+    
+    <category term="后端" scheme="https://syunaht.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django学习笔记</title>
+    <link href="https://syunaht.com/p/418459895.html"/>
+    <id>https://syunaht.com/p/418459895.html</id>
+    <published>2021-10-04T09:14:43.000Z</published>
+    <updated>2021-10-04T09:43:37.179Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Models&quot;&gt;&lt;a href=&quot;#Models&quot; class=&quot;headerlink&quot; title=&quot;Models&quot;&gt;&lt;/a&gt;Models&lt;/h2&gt;&lt;p&gt;新增/更改Models表后需要生成建库脚本&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="https://syunaht.com/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="https://syunaht.com/tags/Python/"/>
+    
+    <category term="Django" scheme="https://syunaht.com/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[MRCTF2020]Ezpop_Revenge</title>
+    <link href="https://syunaht.com/p/4087374903.html"/>
+    <id>https://syunaht.com/p/4087374903.html</id>
+    <published>2021-09-27T14:56:54.000Z</published>
+    <updated>2021-09-30T09:44:07.593Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[反序列化|typecho|soap]&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+    <category term="SSRF" scheme="https://syunaht.com/tags/SSRF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:Wallbreaker_Easy</title>
     <link href="https://syunaht.com/p/1536130113.html"/>
     <id>https://syunaht.com/p/1536130113.html</id>
     <published>2021-09-27T14:18:16.000Z</published>
-    <updated>2021-09-27T14:37:35.879Z</updated>
+    <updated>2021-09-27T14:37:58.819Z</updated>
     
     
       
@@ -522,94 +611,6 @@
     <category term="nodejs" scheme="https://syunaht.com/tags/nodejs/"/>
     
     <category term="沙箱逃逸" scheme="https://syunaht.com/tags/%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[XDCTF 2015]filemanager</title>
-    <link href="https://syunaht.com/p/2656617040.html"/>
-    <id>https://syunaht.com/p/2656617040.html</id>
-    <published>2021-09-10T12:26:47.000Z</published>
-    <updated>2021-09-11T01:35:23.041Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[二次注入]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="SQL注入" scheme="https://syunaht.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[PASECA2019]honey_shop</title>
-    <link href="https://syunaht.com/p/679339218.html"/>
-    <id>https://syunaht.com/p/679339218.html</id>
-    <published>2021-09-10T11:52:05.000Z</published>
-    <updated>2021-09-10T12:24:50.729Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[proc|session]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web#" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:virink_2019_files_share</title>
-    <link href="https://syunaht.com/p/170828619.html"/>
-    <id>https://syunaht.com/p/170828619.html</id>
-    <published>2021-09-10T05:01:19.000Z</published>
-    <updated>2021-09-10T12:26:16.482Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[魔方]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="文件包含" scheme="https://syunaht.com/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
     
   </entry>
   

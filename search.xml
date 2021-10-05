@@ -4,6 +4,93 @@
   
     
     <entry>
+      <title>充电桩 - 项目开发日志</title>
+      <link href="/p/4095777995.html"/>
+      <url>/p/4095777995.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>开发三四天了，今天才想着写个开发日志，主要是感觉开发效率越来越低下了，明明一天除了吃饭睡觉都坐在电脑前，但一天都写不出几行代码，挺烦的。原本昨晚就想好要写了，得，今天又蹉跎了一天，现在才想起来写。</p><h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><h3 id="2021年10月2日"><a href="#2021年10月2日" class="headerlink" title="2021年10月2日"></a>2021年10月2日</h3><p>前端开库。</p><p>写了一天基本功能写好，暂时采用云函数。</p><h3 id="2021年10月3日"><a href="#2021年10月3日" class="headerlink" title="2021年10月3日"></a>2021年10月3日</h3><p>后端开库，再三考虑决定用Django。反正也是小项目，效率至上。</p><h3 id="2021年10月4日"><a href="#2021年10月4日" class="headerlink" title="2021年10月4日"></a>2021年10月4日</h3><p>后端基本完工，数据库用的sqlite。</p><h3 id="2021年10月5日"><a href="#2021年10月5日" class="headerlink" title="2021年10月5日"></a>2021年10月5日</h3><p>尝试部署到服务器上，没想到django部署还挺麻烦，还得配置nginx。</p><h4 id="19-01-46"><a href="#19-01-46" class="headerlink" title="19:01:46"></a>19:01:46</h4><p>定时任务测试失败，读不到数据库的数据，怀疑是sqlite的原因。别把，sqlite的触发器没有if功能，我扔了，废了很大劲多写了好多代码，现在你让我换mysql？？？</p><h4 id="19-04-57"><a href="#19-04-57" class="headerlink" title="19:04:57"></a>19:04:57</h4><p>啊，还以为sqlite不支持多进程读取，我寻思总不可能这么残废吧。果然不是。但问题还是没找到。</p><h4 id="19-12-24"><a href="#19-12-24" class="headerlink" title="19:12:24"></a>19:12:24</h4><p>还好还好，只是sql路径问题。找不到文件应该写个报错的。</p><h4 id="19-30-25"><a href="#19-30-25" class="headerlink" title="19:30:25"></a>19:30:25</h4><p>我是啥b，原来表名写错了</p><h4 id="23-09-37"><a href="#23-09-37" class="headerlink" title="23:09:37"></a>23:09:37</h4><p>洗了半小时澡，吃了半小时西瓜，摸了一个小时鱼，最后花了十分钟部署完哩！启动成哩！</p><p>准备重写前端api，有点热，开个空调，先拿点葡萄吃吧。</p><h4 id="23-27-37"><a href="#23-27-37" class="headerlink" title="23:27:37"></a>23:27:37</h4><p>整了杯热牛奶，舒服，据说热牛奶有助睡眠，今天要早点睡！</p><p>这玻璃杯买来好几年了，淘宝店上说可以放微波炉，一直没敢放。刚刚鼓起勇气去放了下，在角落躲了三分钟，还好没爆。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微信小程序 </tag>
+            
+            <tag> Django </tag>
+            
+            <tag> 后端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Django学习笔记</title>
+      <link href="/p/418459895.html"/>
+      <url>/p/418459895.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h2><p>新增/更改Models表后需要生成建库脚本</p><pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">#生成脚本python manage.py makemigrations index#写入库python manage.py migrate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="管理员"><a href="#管理员" class="headerlink" title="管理员"></a>管理员</h2><pre class="line-numbers language-none"><code class="language-none">python manage.py createsuperuser<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="将models纳入管理范围"><a href="#将models纳入管理范围" class="headerlink" title="将models纳入管理范围"></a>将models纳入管理范围</h3><p>在admin.py或models.py中写入：</p><pre class="line-numbers language-none"><code class="language-none">from .models import Dataadmin.site.register(Data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174009236.png"></p><p>这数据库名，我明明没加s，他自动给加了个s。怪</p><p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174224004.png"></p><p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174257947.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Django </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>刷题笔记:[MRCTF2020]Ezpop_Revenge</title>
+      <link href="/p/4087374903.html"/>
+      <url>/p/4087374903.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[反序列化|typecho|soap]</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210927230014040.png"></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>扫目录扫出<a href="http://www.zip/">www.zip</a></p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210927230136422.png"></p><p>第一步是找输入点，在usr/plugins/HelloWorld/Plugin.php中找到个action()</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000129387.png"></p><blockquote><p>这里的action一般是自动加载的，当路由加载类时会自动加载某个函数。</p></blockquote><p>比如路径是这样的，所有搜HelloWorld_Plugin(类似于字符串拼接而成的包名，由路由代码决定)</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000253789.png"></p><p>在var/Typecho/Plugin.php中找到</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000359877.png"></p><p>访问<code>/page_admin</code>的时候，会自动加载<code>HelloWorld_Plugin</code>类，而且会自动调用<code>action</code>函数，所以我们输入点的路由为<code>/page_admin</code></p><p>在usr/plugins/HelloWorld/Plugin.php中还有</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000736200.png"></p><h3 id="SoapClient-SSRF"><a href="#SoapClient-SSRF" class="headerlink" title="SoapClient SSRF"></a>SoapClient SSRF</h3><p>详细见<a href="https://syunaht.com/p/3063917200.html#toc-heading-6">刷题笔记:bestphp’s revenge</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> PHP代码审计 </tag>
+            
+            <tag> SSRF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:Wallbreaker_Easy</title>
       <link href="/p/1536130113.html"/>
       <url>/p/1536130113.html</url>

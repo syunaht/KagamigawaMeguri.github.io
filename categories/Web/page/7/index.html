@@ -135,6 +135,13 @@
         </a>
       </li>
       
+      <li>
+        <a href="/categories/Development">
+          
+          <span>开发</span>
+        </a>
+      </li>
+      
     </ul>
     
   </li>
@@ -285,6 +292,14 @@
                   <a href="/categories/Tools " style="margin-left:75px">
 				  
 		          <span>Tools</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/Development " style="margin-left:75px">
+				  
+		          <span>开发</span>
                   </a>
                 </li>
               
@@ -458,20 +473,20 @@
                 </a>
                 
                 
-                <a href="/categories/Web/" title="Web: 103">
+                <a href="/categories/Web/" title="Web: 104">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #FEF9E7;">Web
-                        <span class="tag-length">103</span>
+                        <span class="tag-length">104</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Python/" title="Python: 5">
+                <a href="/categories/Python/" title="Python: 6">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F8F9F9;">Python
-                        <span class="tag-length">5</span>
+                        <span class="tag-length">6</span>
                     </span>
                 </a>
                 
@@ -494,6 +509,15 @@
                 </a>
                 
                 
+                <a href="/categories/%E5%BC%80%E5%8F%91/" title="开发: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #A3E4D7;">开发
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
             </div>
         </div>
     </div>
@@ -504,6 +528,66 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/p/2163136062.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="刷题笔记:[N1CTF 2018]eating_cms">
+                            
+                            <span class="card-title">刷题笔记:[N1CTF 2018]eating_cms</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言关键字:[system注释|system执行漏洞|php system]
+
+题解有个/register.php可以注册用户
+
+user.php?page=guest，第一反应先试试伪协议
+guest.php
+PD9waHAKaWYgKE
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Web/" class="post-category">
+                                    Web
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/Web/">
+                            <span class="chip bg-color">Web</span>
+                        </a>
+                        
+                        <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
+                            <span class="chip bg-color">PHP代码审计</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -999,65 +1083,6 @@ if ( preg_match('/[\x00- 0-9\'"`$&amp;.,|[&#123;_defgops\x7F]+/i
                         
                         <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
                             <span class="chip bg-color">PHP代码审计</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/p/1142081591.html">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/53.jpg" class="responsive-img" alt="刷题笔记:[SUCTF 2018]GetShell">
-                            
-                            <span class="card-title">刷题笔记:[SUCTF 2018]GetShell</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言关键字:[无字母数字webshell]
-
-
-题解开局index.php?act=upload
-还给出源码，先试试文件包含。
-不太行。
-随便上传了个空jpg文件，直接变成php，好活
-
-基本把数字，字母全过滤了，|^%也过滤了
-试了下()
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
-                        
-                        <a href="/tags/Web/">
-                            <span class="chip bg-color">Web</span>
                         </a>
                         
                     </div>

@@ -525,14 +525,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2021-10-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    177
+                    189
                 </div>
                 
 
@@ -577,12 +577,17 @@
 <pre class="line-numbers language-none"><code class="language-none">02:42:ac:10:b8:1e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>转换成十进制数，6*8=48bit</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">mac <span class="token operator">=</span> <span class="token string">"02:42:ac:10:b9:08"</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> random
+
+mac <span class="token operator">=</span> <span class="token string">"02:42:ac:10:b9:08"</span>
 temp <span class="token operator">=</span> mac<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span>
 temp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> temp<span class="token punctuation">]</span>
 temp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">bin</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'0b'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>zfill<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> temp<span class="token punctuation">]</span>
 temp <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
-mac <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+mac <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span>mac<span class="token punctuation">)</span>
+randStr <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">233</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>randStr<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>生成key为147.922415852</p>
 <p>用flask-session-cookie-manager构造下session，结束。</p>

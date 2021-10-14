@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>刷题笔记:[BSidesCF 2020]Cards</title>
+      <link href="/p/742807103.html"/>
+      <url>/p/742807103.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BSidesCF-2020-Cards/image-20211014214252629.png"></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>原来是打牌游戏。</p><p>看下cookie，是空的。</p><p>抓个包吧。</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BSidesCF-2020-Cards/image-20211014214712559.png"></p><p>还有js代码能看，但不知道怎样才能拿到flag。</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BSidesCF-2020-Cards/image-20211014214707424.png"></p><p>啊 这个能看到规则</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BSidesCF-2020-Cards/image-20211014215709743.png"></p><p>大概就是赢到100000然后拿flag吧</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BSidesCF-2020-Cards/image-20211014221306500.png"></p><p>还以为是真的要想办法改点什么东西，没想到真的要通过打牌</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requestsstart <span class="token operator">=</span> <span class="token string">"http://e55998dd-c347-4c45-b0c8-dc9ede19d51e.node3.buuoj.cn/api"</span>deal <span class="token operator">=</span> start <span class="token operator">+</span> <span class="token string">"/deal"</span><span class="token comment"># 开局</span>state <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>start<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"SecretState"</span><span class="token punctuation">]</span><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>    <span class="token comment"># 下注</span>    <span class="token keyword">try</span><span class="token punctuation">:</span>        resp <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>deal<span class="token punctuation">,</span> json<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">"Bet"</span><span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token string">"SecretState"</span><span class="token punctuation">:</span> state<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">except</span><span class="token punctuation">:</span>        <span class="token keyword">continue</span>    <span class="token keyword">if</span> resp<span class="token punctuation">[</span><span class="token string">'GameState'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'Blackjack'</span><span class="token punctuation">:</span>        state <span class="token operator">=</span> resp<span class="token punctuation">[</span><span class="token string">'SecretState'</span><span class="token punctuation">]</span>    <span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">[</span><span class="token string">'Balance'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token keyword">if</span> resp<span class="token punctuation">[</span><span class="token string">'Balance'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">100000</span><span class="token punctuation">:</span>        <span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">)</span>        <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>我们在每次请求都会有一个SecretState参数，用来保存游戏状态，并且在客户端和服务端同步。这个参数没法篡改。每次请求，服务端都会生成一个新的SecretState，但是旧的SecretState并不失效，问题就出在于此。<br>游戏如果赢了，就更新SecretState，如果输了，则不更新SecretState。这样就可以达到类似一种分数只增不减的效果。<br>但是有个问题，下注之后要开牌的话，必须得用新的SecretState，而下注的时候分数已经扣了，这样输的状态依然存在。<br>这就需要利用21点里一个规则，如果先发的2张牌已经是21点（black jack），则直接赢。这种状态下可以省去开牌那一步。</p></blockquote><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://blog.csdn.net/solitudi/article/details/109186061">https://blog.csdn.net/solitudi/article/details/109186061</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[HFCTF 2021 Final]easyflask</title>
       <link href="/p/651701872.html"/>
       <url>/p/651701872.html</url>

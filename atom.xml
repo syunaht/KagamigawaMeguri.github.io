@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-10-14T15:10:06.135Z</updated>
+  <updated>2021-10-16T13:52:20.345Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,71 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记:[BSidesCF 2019]Sequel</title>
+    <link href="https://syunaht.com/p/3809605982.html"/>
+    <id>https://syunaht.com/p/3809605982.html</id>
+    <published>2021-10-16T06:16:19.000Z</published>
+    <updated>2021-10-16T13:52:20.345Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[2021祥云杯]Package Manager 2021</title>
+    <link href="https://syunaht.com/p/1706625664.html"/>
+    <id>https://syunaht.com/p/1706625664.html</id>
+    <published>2021-10-16T02:22:21.000Z</published>
+    <updated>2021-10-16T06:15:44.885Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[mongdb注入]&lt;/p&gt;
+&lt;p&gt;给了源码，是typescript，这倒是第一次见&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="SQL注入" scheme="https://syunaht.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+    <category term="mongdb" scheme="https://syunaht.com/tags/mongdb/"/>
+    
+  </entry>
+  
+  <entry>
     <title>刷题笔记:[HCTF 2018]Hideandseek</title>
     <link href="https://syunaht.com/p/3370612058.html"/>
     <id>https://syunaht.com/p/3370612058.html</id>
     <published>2021-10-14T14:28:26.000Z</published>
-    <updated>2021-10-14T15:10:06.135Z</updated>
+    <updated>2021-10-14T15:10:17.650Z</updated>
     
     
       
@@ -533,66 +593,6 @@
     <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;题目描述&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I heard cookies and string formatting are</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="SSTI" scheme="https://syunaht.com/tags/SSTI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[网鼎杯 2020 玄武组]SSRFMe</title>
-    <link href="https://syunaht.com/p/3756000955.html"/>
-    <id>https://syunaht.com/p/3756000955.html</id>
-    <published>2021-09-14T05:53:25.000Z</published>
-    <updated>2021-09-15T01:21:28.245Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;无语，去年做过，今天再做又做不来了。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-php&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="SSRF" scheme="https://syunaht.com/tags/SSRF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[watevrCTF-2019]Supercalc</title>
-    <link href="https://syunaht.com/p/1429696811.html"/>
-    <id>https://syunaht.com/p/1429696811.html</id>
-    <published>2021-09-14T03:10:03.000Z</published>
-    <updated>2021-09-14T05:09:07.774Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[SSTI|flask session构造]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
         
       
     

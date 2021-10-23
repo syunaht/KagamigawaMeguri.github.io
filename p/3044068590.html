@@ -513,14 +513,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    908
+                    859
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    4 分
                 </div>
                 
 
@@ -540,115 +540,115 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第二次参加了，开局平台直接拉胯，崩了一个多小时，真滴无语。</p>
 <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="checkin"><a href="#checkin" class="headerlink" title="checkin"></a>checkin</h3><p>签到题，看下返回包的header，没什么好说的。</p>
-<h3 id="pppop"><a href="#pppop" class="headerlink" title="pppop"></a>pppop</h3><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<h3 id="pppop"><a href="#pppop" class="headerlink" title="pppop"></a>pppop</h3><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 
-class A1
-&#123;
-    public $tmp1;
-    public $tmp2;
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A1</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp1</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp2</span><span class="token punctuation">;</span>
 
-    public function __construct()
-    &#123;
-        echo &quot;Enjoy Hacking!&quot;;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Enjoy Hacking!"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-    public function __wakeup()
-    &#123;
-        $this-&gt;tmp1-&gt;hacking();
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__wakeup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp1</span><span class="token operator">-></span><span class="token function">hacking</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class A2
-&#123;
-    public $tmp1;
-    public $tmp2;
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A2</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp1</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp2</span><span class="token punctuation">;</span>
 
-    public function hacking()
-    &#123;
-        echo &quot;Hacked By Bi0x&quot;;
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">hacking</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Hacked By Bi0x"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class A3
-&#123;
-    public $tmp1;
-    public $tmp2;
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A3</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp1</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp2</span><span class="token punctuation">;</span>
 
-    public function hacking()
-    &#123;
-        $this-&gt;tmp2-&gt;get_flag();
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">hacking</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp2</span><span class="token operator">-></span><span class="token function">get_flag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class A4
-&#123;
-    public $tmp1 &#x3D; &#39;1919810&#39;;
-    public $tmp2;
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A4</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp1</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'1919810'</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp2</span><span class="token punctuation">;</span>
 
-    public function get_flag()
-    &#123;
-        echo &quot;flag&#123;&quot; . $this-&gt;tmp1 . &quot;&#125;&quot;;
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">get_flag</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"flag&#123;"</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp1</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"&#125;"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class A5
-&#123;
-    public $tmp1;
-    public $tmp2;
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A5</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp1</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp2</span><span class="token punctuation">;</span>
 
-    public function __call($a, $b)
-    &#123;
-        $f &#x3D; $this-&gt;tmp1;
-        $f();
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__call</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token variable">$f</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp1</span><span class="token punctuation">;</span>
+        <span class="token variable">$f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class A6
-&#123;
-    public $tmp1;
-    public $tmp2;
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A6</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp1</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp2</span><span class="token punctuation">;</span>
 
-    public function __toString()
-    &#123;
-        $this-&gt;tmp1-&gt;hack4fun();
-        return &quot;114514&quot;;
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp1</span><span class="token operator">-></span><span class="token function">hack4fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string double-quoted-string">"114514"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class A7
-&#123;
-    public $tmp1 &#x3D; &quot;Hello World!&quot;;
-    public $tmp2;
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A7</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp1</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"Hello World!"</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp2</span><span class="token punctuation">;</span>
 
-    public function __invoke()
-    &#123;
-        echo &quot;114514&quot; . $this-&gt;tmp2 . $this-&gt;tmp1;
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__invoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"114514"</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp2</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class A8
-&#123;
-    public $tmp1;
-    public $tmp2;
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A8</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp1</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$tmp2</span><span class="token punctuation">;</span>
 
-    public function hack4fun()
-    &#123;
-        echo &quot;Last step,Ganbadie~&quot;;
-        if (isset($_GET[&#39;DAS&#39;])) &#123;
-            $this-&gt;tmp1 &#x3D; $_GET[&#39;DAS&#39;];
-        &#125;
-        if (isset($_GET[&#39;CTF&#39;])) &#123;
-            $this-&gt;tmp2 &#x3D; $_GET[&#39;CTF&#39;];
-        &#125;
-        echo new $this-&gt;tmp1($this-&gt;tmp2);
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">hack4fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Last step,Ganbadie~"</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'DAS'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp1</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'DAS'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'CTF'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp2</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'CTF'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">echo</span> <span class="token keyword">new</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token function">tmp1</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-></span><span class="token property">tmp2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-if (isset($_GET[&#39;DASCTF&#39;])) &#123;
-    unserialize($_GET[&#39;DASCTF&#39;]);
-&#125; else &#123;
-    highlight_file(__FILE__);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'DASCTF'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'DASCTF'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>反序列化题，pop链很简单，应该还有其他链</p>
 <pre class="line-numbers language-none"><code class="language-none">A1 -&gt; A3 -&gt; A4 -&gt; A6 -&gt; A8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -975,13 +975,13 @@ cmd <span class="token operator">=</span> <span class="token string">'stegolsb s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/p/2758433489.html">
+                <a href="/p/725288439.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="刷题笔记:[网鼎杯 2020 半决赛]faka">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="刷题笔记:[b01lers2020]Space Noodles">
                         
-                        <span class="card-title">刷题笔记:[网鼎杯 2020 半决赛]faka</span>
+                        <span class="card-title">刷题笔记:[b01lers2020]Space Noodles</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -992,12 +992,16 @@ cmd <span class="token operator">=</span> <span class="token string">'stegolsb s
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            巡璃
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web/" class="post-category">
+                                    Web
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1005,12 +1009,12 @@ cmd <span class="token operator">=</span> <span class="token string">'stegolsb s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tag1/">
-                        <span class="chip bg-color">tag1</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/tag2/">
-                        <span class="chip bg-color">tag2</span>
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-10-23T13:31:08.648Z</updated>
+  <updated>2021-10-23T13:32:20.536Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://syunaht.com/p/3044068590.html"/>
     <id>https://syunaht.com/p/3044068590.html</id>
     <published>2021-10-23T11:33:13.000Z</published>
-    <updated>2021-10-23T13:31:08.648Z</updated>
+    <updated>2021-10-23T13:32:20.536Z</updated>
     
     
       
@@ -41,23 +41,6 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="比赛" scheme="https://syunaht.com/tags/%E6%AF%94%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[网鼎杯 2020 半决赛]faka</title>
-    <link href="https://syunaht.com/p/2758433489.html"/>
-    <id>https://syunaht.com/p/2758433489.html</id>
-    <published>2021-10-23T02:25:24.000Z</published>
-    <updated>2021-10-23T05:35:02.599Z</updated>
-    
-    
-    
-    
-    
-    <category term="tag1" scheme="https://syunaht.com/tags/tag1/"/>
-    
-    <category term="tag2" scheme="https://syunaht.com/tags/tag2/"/>
     
   </entry>
   
@@ -590,6 +573,36 @@
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
     <category term="disable_function" scheme="https://syunaht.com/tags/disable-function/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[BSidesCF 2019]Mixer</title>
+    <link href="https://syunaht.com/p/777913984.html"/>
+    <id>https://syunaht.com/p/777913984.html</id>
+    <published>2021-09-20T06:39:16.000Z</published>
+    <updated>2021-09-20T08:12:08.254Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[其实是密码题|AES]&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="AES" scheme="https://syunaht.com/tags/AES/"/>
     
   </entry>
   

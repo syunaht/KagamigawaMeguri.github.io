@@ -506,21 +506,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-23
+                    2021-10-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    859
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -787,8 +787,88 @@ flag <span class="token operator">=</span> hashlib<span class="token punctuation
         <span class="token keyword">if</span> d<span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'&#125;'</span> <span class="token keyword">and</span> d<span class="token punctuation">[</span><span class="token number">42</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'&#123;'</span> <span class="token keyword">and</span> d<span class="token punctuation">[</span><span class="token number">24</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'l'</span> <span class="token keyword">and</span> d<span class="token punctuation">[</span><span class="token number">36</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'g'</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span><span class="token punctuation">(</span>rails<span class="token punctuation">,</span> offset<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>我写的爆破脚本</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token string">"flag&#123;*********************************************************&#125;"</span>
+m <span class="token operator">=</span> <span class="token string">"reetdrvhns0eutbftafmeon&#125;linnd=a1cOh!gcedos&#123;neuwkYav0irOceytounw"</span>
+a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">63</span>
+<span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'&#123;'</span><span class="token punctuation">,</span> <span class="token string">'&#125;'</span><span class="token punctuation">,</span> <span class="token string">'l'</span><span class="token punctuation">,</span> <span class="token string">'g'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">continue</span>
+    tmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        tmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> x <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+            tmp<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+        data <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+        en_data <span class="token operator">=</span> encrypt<span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> en_data<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token comment"># print(m[j], i)  # 输出可能的原位置</span>
+            <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+                a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"重复："</span><span class="token punctuation">,</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我这写的思路比较麻烦，简直是倒过来爆破。先是</p>
+<pre class="line-numbers language-none"><code class="language-none">ffffffffffb0verthefenceeveny0udOnotunderstandhowitworks!&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后把重复的f加入过滤，</p>
+<pre class="line-numbers language-none"><code class="language-none">aaaaaaaaimb0vertheenceeveny0udOnotunderstandhowitworks!&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>最后再加a</p>
+<pre class="line-numbers language-none"><code class="language-none">YOucnc1imb0vertheenceeveny0udOnotunderstndhowitworks!&#x3D;
+YOuc nc1imb0verthe enceeveny0udOnotunderst ndhowitworks!&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>少了f和a字符，当时脑子没转过来，还在想怎么缺了字符！！！其实光是看着英文都能补全！！气死了。浪费了好多时间。</p>
+<p>这是多对1的，多个不同字符可能会移动到相同位置还满足条件，有可能会把正确的位置给覆盖了。</p>
+<p>这种思路其实不太好，碰到重复字符多一点就糟了。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token string">"flag&#123;*********************************************************&#125;"</span>
+m <span class="token operator">=</span> <span class="token string">"reetdrvhns0eutbftafmeon&#125;linnd=a1cOh!gcedos&#123;neuwkYav0irOceytounw"</span>
+a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">63</span>
+<span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        data <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> s<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+        en_data <span class="token operator">=</span> encrypt<span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> en_data<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+                a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                <span class="token keyword">break</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"重复："</span><span class="token punctuation">,</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>小改了一下，很接近了。</p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001414688.png"></p>
+<p>在这加个</p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001459116.png"></p>
+<p>倒是很接近，但还不够完善。这条路本来就是崎岖了，没必要走下去了。</p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001513778.png"></p>
+<p>队友写的：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">compare</span><span class="token punctuation">(</span>str1<span class="token punctuation">,</span> str2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ans <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> str1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> str2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            ans <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> ans
 
 
+Rail <span class="token operator">=</span> <span class="token number">13</span>
+Offset <span class="token operator">=</span> <span class="token number">5</span>
+m <span class="token operator">=</span> <span class="token string">'flag&#123;_________________________________________________________&#125;'</span>
+target <span class="token operator">=</span> <span class="token string">'reetdrvhns0eutbftafmeon&#125;linnd=a1cOh!gcedos&#123;neuwkYav0irOceytounw'</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">62</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span> <span class="token number">127</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        m <span class="token operator">=</span> m<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token builtin">chr</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">+</span> m<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> compare<span class="token punctuation">(</span>target<span class="token punctuation">,</span> encrypt<span class="token punctuation">(</span>m<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>也可以用工具一把梭。</p>
 <p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023202256229.png"></p>
 <h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="qrimg"><a href="#qrimg" class="headerlink" title="qrimg"></a>qrimg</h3><p>可用Steganography导出二维码，用脚本批量跑一下</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os

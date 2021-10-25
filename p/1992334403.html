@@ -532,7 +532,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    324
+                    303
                 </div>
                 
 
@@ -569,7 +569,11 @@
 <li><p>p-q</p>
 <pre class="line-numbers language-none"><code class="language-none">3216514606297172806828066063738105740383963382396892688569683235383985567043193404185955880509592930874764682428425994713750665248099953457550673860782324431970917492727256948066013701406000049963109681898567026552657377599263519201715733179565306750754520746601394738797021362510415215113118083969304423858<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>已知：<br>$$<br>m=(p-1)(q-1)<br>$$<br>然后配凑一下<br>$$<br>m=(p-1)(q-1)=pq-(p+q)+1=pq-\sqrt{(p-q)^2+4pq}+1<br>$$<br>已知<code>n=pq</code>和<code>p-q</code>，所以可以在不算出p/q单个值的情况下直接算出m。算出m之后就是常规的rsa解法。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>已知：</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025203948705-16351659635291.png"></p>
+<p>然后配凑一下</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025203935030-16351659739372.png"></p>
+<p>已知<code>n=pq</code>和<code>p-q</code>，所以可以在不算出p/q单个值的情况下直接算出m。算出m之后就是常规的rsa解法。</p>
 <p>但问题来了，数字那么大，该怎么算？</p>
 <p>掏出segamath</p>
 <p>t是p-q</p>
@@ -953,13 +957,6 @@ plain <span class="token operator">=</span> <span class="token builtin">pow</spa
 
 </main>
 
-
-<script src="/js/MathJax.js"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

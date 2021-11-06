@@ -521,14 +521,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-22
+                    2021-11-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    82
+                    241
                 </div>
                 
 
@@ -570,6 +570,40 @@ admin.site.register(Data)<span aria-hidden="true" class="line-numbers-rows"><spa
 <p>这数据库名，我明明没加s，他自动给加了个s。怪</p>
 <p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174224004.png"></p>
 <p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174257947.png"></p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>1.安装库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install django gunicorn gevent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2.在<code>nginx.conf</code>的<code>http&#123;&#125;</code>里添加</p>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">http</span></span><span class="token punctuation">&#123;</span>
+    <span class="token directive"><span class="token keyword">upstream</span> app_server</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment"># fail_timeout=0 means we always retry an upstream even if it failed</span>
+        <span class="token comment"># to return a good HTTP response</span>
+
+        <span class="token comment">#for a TCP configuration</span>
+        <span class="token directive"><span class="token keyword">server</span> 127.0.0.1:8000 fail_timeout=0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171832820.png"></p>
+<p>3.在网站配置里添加</p>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">&#123;</span>
+  <span class="token directive"><span class="token keyword">proxy_pass</span> http://app_server</span><span class="token punctuation">;</span>
+  <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171932377.png"></p>
+<h2 id="一键运行"><a href="#一键运行" class="headerlink" title="一键运行"></a>一键运行</h2><p>编辑<code>./run.sh</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!&#x2F;bin&#x2F;bash
+DIR&#x3D;&quot;$(cd &quot;$(dirname &quot;$0&quot;)&quot; &amp;&amp; pwd)&quot;
+echo $DIR
+cd $DIR
+PROC_NAME&#x3D;gunicorn
+ProcNumber&#x3D;$(ps -ef | grep -w $PROC_NAME | grep -v grep | wc -l)
+if [ $ProcNumber -ge 0 ]; then
+  kill $(ps -ef | grep &#39;gunicorn&#39; | grep -v grep | awk &#39;&#123;print $2&#125;&#39;)
+fi
+nohup gunicorn --config&#x3D;gunicorn.py djangoProject.wsgi &amp;&gt;&#x2F;dev&#x2F;null &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>

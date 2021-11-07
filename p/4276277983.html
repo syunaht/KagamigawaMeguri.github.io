@@ -525,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-20
+                    2021-11-07
                 </div>
                 
 
@@ -1004,7 +1004,7 @@ conn<span class="token punctuation">.</span>close<span class="token punctuation"
 <span class="token comment">//    $filepath = $_REQUEST['filepath'];</span>
 <span class="token comment">//&#125;</span>
 
-<span class="token variable">$filepath</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"/var/www/html/add_api.php"</span><span class="token punctuation">;</span>
+<span class="token variable">$filepath</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"/var/www/html/add_api.php"</span><span class="token punctuation">;</span>  <span class="token comment">//SCRIPT_FILENAME</span>
 <span class="token variable">$req</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'/'</span><span class="token operator">.</span><span class="token function">basename</span><span class="token punctuation">(</span><span class="token variable">$filepath</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$uri</span> <span class="token operator">=</span> <span class="token variable">$req</span> <span class="token operator">.</span><span class="token string single-quoted-string">'?'</span><span class="token operator">.</span><span class="token string single-quoted-string">'command=whoami'</span><span class="token punctuation">;</span>
 <span class="token variable">$client</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FCGIClient</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"unix:///var/run/php-fpm.sock"</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

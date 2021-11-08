@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>BurpSuite Pro 2021最新版破解激活教程及下载</title>
+      <link href="/p/895015936.html"/>
+      <url>/p/895015936.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>还有很多师傅不知道，portswigger其实已经公开了各个版本的下载地址了。配合之前的keygen loader，就可以一直保持最新版破解。</p><p>正好要给新生做培训，一个一个手把手弄太累了，所以写篇教程方便授课。</p><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="官方jar包"><a href="#官方jar包" class="headerlink" title="官方jar包"></a>官方jar包</h3><p><a href="https://portswigger.net/burp/releases">https://portswigger.net/burp/releases</a></p><p>下载pro的jar包就行。</p><p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184955342.png"></p><p>为方便后续操作，请下载完成后将文件名改为<code>burpsuite_pro.jar</code></p><h3 id="旧版-新版loader"><a href="#旧版-新版loader" class="headerlink" title="旧版+新版loader"></a>旧版+新版loader</h3><p>点击<a href="https://avalonair.lanzoui.com/iXSiAwao94j">蓝奏云下载</a>，密码:<code>18yk</code></p><h2 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h2><p><strong>windows/linux通用</strong></p><blockquote><p>注意：在有些java版本，比如单纯的jre1.8是可以点击jar包启动而不用输入命令启动，但现在新版的burpsuite都推荐jdk11，国外论坛甚至推荐jdk14。故点击启动不在讨论范围内。</p></blockquote><h3 id="1-启动loader"><a href="#1-启动loader" class="headerlink" title="1.启动loader"></a>1.启动loader</h3><p>打开命令行，输入：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -Dfile.encoding&#x3D;utf-8  -noverify -javaagent:BurpSuiteLoader.jar -jar burpsuite_pro.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>一行代码的事就不需要写脚本了吧。</p><p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108183808380.png"></p><p>点击<code>Next</code></p><p>点击<code>Manual activation</code></p><p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108183935784.png"></p><p>然后会出现一大堆码，复制一下。</p><h3 id="2-启动旧版loader。"><a href="#2-启动旧版loader。" class="headerlink" title="2.启动旧版loader。"></a>2.启动旧版loader。</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar burploader-old.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>然后将刚刚复制的一大串代码粘贴到<code>Actvation Request</code>里</p><p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184156458.png"></p><p>之后下方的<code>Activation Response</code>会生成激活码，复制粘贴到之前那个框框就行了。</p><p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184009453.png"></p><p>以后启动都需要用loader启动，且更新后也不需要再次激活。</p><h2 id="一键启动"><a href="#一键启动" class="headerlink" title="一键启动"></a>一键启动</h2><p>一般启动burpsuite都是用环境变量里的java，但这种方式不够自由！</p><p>所以在此祭出我的独家启动秘方！</p><pre class="line-numbers language-vbs" data-language="vbs"><code class="language-vbs">CreateObject(&quot;WScript.Shell&quot;).Run &quot;&quot;&quot;C:\Program Files\Java\jdk-14.0.2\bin\java.exe&quot;&quot; -Dfile.encoding&#x3D;utf-8  -noverify -javaagent:BurpSuiteLoader.jar -jar burpsuite_pro.jar&quot;&quot;&quot;,0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>代码复制下来，把java路径改一下，文件改为vbs后缀</p><p>linux的话就自个写sh吧。</p><h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><p>集成了汉化+激活+启动。</p><p><a href="https://github.com/h3110w0r1d-y/BurpLoaderKeygen">https://github.com/h3110w0r1d-y/BurpLoaderKeygen</a></p><h2 id="懒人包"><a href="#懒人包" class="headerlink" title="懒人包"></a>懒人包</h2><p>写教程的时候是想写详细一下，结果越写越多越写越多……累了，最后决定整个懒人包得了。</p><p>没有整合汉化，因为汉化更新跟不上进度而且有些汉化加载后界面会变得很丑，所以我还是推荐用原汁原味的英文版。</p><p><a href="https://pan.baidu.com/s/1_huP_N2TJO3RqiHgthvOsA">百度网盘下载</a> 提取码: <code>2upf</code></p><h2 id="疑难解答"><a href="#疑难解答" class="headerlink" title="疑难解答"></a>疑难解答</h2><p><strong>2K屏甚至1080P启动，界面有点模糊？</strong></p><p>更改如下设置</p><p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108192303097.png"></p><blockquote><p>注：JDK8可能无效，JDK11不行就换JDK14</p></blockquote><p><strong>笔记本改了还是不行？</strong></p><p>这里看看是不是<code>100%</code>/<code>125%</code>/<code>150%</code>/<code>175%</code>这四个值，自定义缩放修改无效。</p><p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108192542813.png"></p><p><strong>界面字体很丑，想改，但是在设置里找不到电脑上的字体？</strong></p><p>下载字体后，请用右键选择<code>为所有用户安装</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Burpsuite </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>刷题笔记:[FBCTF2019]Products Manager</title>
+      <link href="/p/4184488030.html"/>
+      <url>/p/4184488030.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>给了源码</p><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Products-Manager/image-20211108152005820.png"></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一开始以为就是常规的sql注入，但是有预编译，想想用也没法用堆叠注入，陷入僵局。</p><p>看了看wp，原来是<code>基于约束的SQL注入</code></p><h3 id="数据库字符串比较"><a href="#数据库字符串比较" class="headerlink" title="数据库字符串比较"></a>数据库字符串比较</h3><p>在数据库对字符串进行比较时，若两字符串长度不一样，则会在较短的字符串末尾填充空格，使两个字符串长度一致。<br>如：<code>str1</code>和<code>str</code>的比较，比较时会在<code>str</code>的后面添加一个<code>空格</code>以补足长度。</p><p>也就是说，对于查询语句：</p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> username<span class="token operator">=</span><span class="token string">'test'</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> username<span class="token operator">=</span><span class="token string">'test '</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>查询结果是一致的。</p><h3 id="INSERT截断"><a href="#INSERT截断" class="headerlink" title="INSERT截断"></a><strong>INSERT截断</strong></h3><p>在数据插入时，若数据长度超过了预先设定的限制，例如：<code>name char(64)</code>时，数据库会对字符串进行截断，只保留限定的长度。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>刷题笔记:[陇原战疫2021网络安全大赛]eaaasyphp</title>
       <link href="/p/389324891.html"/>
       <url>/p/389324891.html</url>

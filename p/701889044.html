@@ -536,7 +536,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2021-11-18
                 </div>
                 
 
@@ -614,7 +614,7 @@
 <pre class="line-numbers language-none"><code class="language-none">jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;数据库名?user&#x3D;用户名&amp;password&#x3D;密码&amp;useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8&amp;serverTimezone&#x3D;GMT<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E6%9C%B1%E9%9B%80%E7%BB%84-Think-Java/image-20211019142513265.png"></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E6%9C%B1%E9%9B%80%E7%BB%84-Think-Java/image-20211019143910826.png" alt="image-20211019143910826"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E6%9C%B1%E9%9B%80%E7%BB%84-Think-Java/image-20211019143910826.png"></p>
 <p>在这有个问题，首先他要在连接数据库的时候拼接字符串，又在sql语句里拼接，如果按照以前sql注入那样闭合+注释，就会导致在执行jdbc的时候直接报错。但还好，jdbc对于<code>#?</code>有特殊的处理</p>
 <h4 id="号问题"><a href="#号问题" class="headerlink" title="#?号问题"></a>#?号问题</h4><p><code>#</code>在jdbc中无实际意义且#号后面的会被忽视。</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E6%9C%B1%E9%9B%80%E7%BB%84-Think-Java/image-20211019143108255.png"></p>

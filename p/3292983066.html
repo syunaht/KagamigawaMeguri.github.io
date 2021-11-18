@@ -536,7 +536,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2021-11-18
                 </div>
                 
 
@@ -569,14 +569,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[session|thinkphp6.0|disable_function]</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802134114753.png" alt="image-20210802134114753"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802134245687.png" alt="image-20210802134245687"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802134114753.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802134245687.png"></p>
 <p>扫了下目录，发现<a target="_blank" rel="noopener" href="http://www.zip源码泄漏/">www.zip源码泄漏</a></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802141917354.png" alt="image-20210802141917354"></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802142005356.png" alt="image-20210802142005356"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802141917354.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802142005356.png"></p>
 <p>thinkphp6.0</p>
 <p>searchsploit搜了下没啥结果</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802142053259.png" alt="image-20210802142053259"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802142053259.png"></p>
 <p>谷歌搜搜，搜到个有关session的。</p>
 <p>正好代码里session是可控的。</p>
 <blockquote>
@@ -584,29 +584,29 @@
 </blockquote>
 <p>于是</p>
 <p>先构造session</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802160818951.png" alt="image-20210802160818951"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802160818951.png"></p>
 <p>比如这样，需要在登录的时候就构造，因为不登录，那就没办法search。</p>
 <p>然后</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802160926197.png" alt="image-20210802160926197"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802160926197.png"></p>
 <p>之后访问：</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php">runtime<span class="token operator">/</span>session<span class="token operator">/</span>sess_1111111111111111111111111111<span class="token operator">.</span>php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802161015328.png" alt="image-20210802161015328"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802161015328.png"></p>
 <p>成功。</p>
 <p>然后发个马过去，连蚁剑，发现没权限读。下面还有个readflag。明显，是要执行这个文件</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162239911.png" alt="image-20210802162239911"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162239911.png"></p>
 <p>phpinfo看一下禁用了很多函数，然后开始考虑绕过disable_function</p>
 <h3 id="蚁剑"><a href="#蚁剑" class="headerlink" title="蚁剑"></a>蚁剑</h3><p>掏出蚁剑大宝贝，一个一个试过去。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162324799.png" alt="image-20210802162324799"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162324799.png"></p>
 <p>一键bypass！蚁剑牛逼(破音</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162224999.png" alt="image-20210802162224999"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162224999.png"></p>
 <h3 id="手动"><a href="#手动" class="headerlink" title="手动"></a>手动</h3><p>接下来手动下</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/mm0r1/exploits/blob/master/php7-backtrace-bypass/exploit.php">https://github.com/mm0r1/exploits/blob/master/php7-backtrace-bypass/exploit.php</a></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162534169.png" alt="image-20210802162534169"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162534169.png"></p>
 <p>然后把文件上传</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162731298.png" alt="image-20210802162731298"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162731298.png"></p>
 <p>文件包含一下</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162744004.png" alt="image-20210802162744004"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-EasyThinking/image-20210802162744004.png"></p>
 <p>结束。</p>
 
                 

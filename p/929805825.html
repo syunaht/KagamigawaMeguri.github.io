@@ -5,7 +5,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="刷题笔记:[RCTF2015]EasySQL, 远离尘世的幻想乡">
-    <meta name="description" content="">
+    <meta name="description" content="前言
+
+题解关键词:[二次注入|先登后改|改密|正则]
+注册的时候有过滤
+
+跑个fuzz试试，限制了这些字符：
+
+注册个账号为1&amp;quot;
+改密码提示：
+You have an error in your SQL syntax; chec">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,7 +40,7 @@
     <title>刷题笔记:[RCTF2015]EasySQL | 远离尘世的幻想乡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
@@ -39,7 +48,7 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
@@ -212,8 +221,6 @@
             
         </div>
     </div>
-
-    
 
     <ul class="menu-list mobile-menu-list">
         
@@ -1274,6 +1281,18 @@ $(function () {
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
 
     <!-- Baidu Analytics -->
 

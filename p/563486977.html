@@ -5,7 +5,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="刷题笔记:[CISCN2019 华东北赛区]Web2, 远离尘世的幻想乡">
-    <meta name="description" content="">
+    <meta name="description" content="前言
+题解给了xss平台，明示这题是xss了。
+这种措辞，暗示了是xss。
+
+
+投票里的英文单引号会变成中文单引号
+
+
+先到xss平台拿xss代码
+
+然后使用HTML Markup进行转码绕过
+(new Image()).src改为wind">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,7 +42,7 @@
     <title>刷题笔记:[CISCN2019 华东北赛区]Web2 | 远离尘世的幻想乡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
@@ -39,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
@@ -212,8 +223,6 @@
             
         </div>
     </div>
-
-    
 
     <ul class="menu-list mobile-menu-list">
         
@@ -1191,6 +1200,18 @@ $(function () {
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
 
     <!-- Baidu Analytics -->
 

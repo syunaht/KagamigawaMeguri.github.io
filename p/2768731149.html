@@ -536,7 +536,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2021-11-19
                 </div>
                 
 
@@ -691,7 +691,7 @@ r <span class="token operator">=</span> s<span class="token punctuation">.</span
   <span class="token keyword type-declaration">string</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token string double-quoted-string">"aaa"</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="测试3"><a href="#测试3" class="headerlink" title="测试3"></a>测试3</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<h4 id="测试3"><a href="#测试3" class="headerlink" title="测试3"></a>测试3</h4><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">session_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">setcookie</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'TEST'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'TEST'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$_COOKIE</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"PHPSESSID"</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'  '</span> <span class="token operator">.</span> <span class="token variable">$_COOKIE</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'TEST'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -741,7 +741,7 @@ r <span class="token operator">=</span> s<span class="token punctuation">.</span
 第4次的cookies：&lt;RequestsCookieJar[&lt;Cookie TEST&#x3D;TEST for 127.0.0.1&#x2F;&gt;]&gt;
 第4次的session的cookies ：&lt;RequestsCookieJar[&lt;Cookie PHPSESSID&#x3D;5r5fbk2ljn1n7jo1so7s5qjjuc for 127.0.0.1&#x2F;&gt;, &lt;Cookie TEST&#x3D;TEST for 127.0.0.1&#x2F;&gt;]&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>无论是常规get还是session，流程都是：</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>无论是常规get还是session，流程都是：</p>
 <p><strong>HTTP请求-&gt;Server设置COOKIES-&gt;把COOKIES传回Client-&gt;Client第二次请求-&gt;Server获取对应Cookies。</strong></p>
 <p>第一次请求的时候Client还没有Cookies所以不会打印cookies。</p>
 <p>经过测试，发现<code>PHPSESSID</code>这个Cookie很特殊，用Session的话只有在第一次客户端设定session并返回的时候才会出现在<code>r</code>的<code>cookies</code>里(因为需要把cookies返回)，之后就会交给<code>s</code>进行管理。</p>

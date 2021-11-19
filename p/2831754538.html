@@ -544,7 +544,7 @@ if (isset($_GET[&#39;source&#39;])) &amp;#123;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-26
+                    2021-11-18
                 </div>
                 
 
@@ -628,7 +628,7 @@ if (isset($_GET[&#39;source&#39;])) &amp;#123;
   <span class="token string single-quoted-string">'message'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'Thank you for your vote! The result will be published after the CTF finished.'</span>
 <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>有正确错误两个界面，可用来作为盲注判断条件，但过滤了<code>&#39;</code>和<code>&quot;</code>，没法用字符判断，又过滤了<code>char</code>，没法用ascii码判断。在这可以用<code>hex</code>，<a href="https://syunaht.com/p/3887377890.html#toc-heading-3">刷题笔记:[SUCTF 2018]MultiSQL</a>中用过，只用36个字符进行判断。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>有正确错误两个界面，可用来作为盲注判断条件，但过滤了<code>&#39;</code>和<code>&quot;</code>，没法用字符判断，又过滤了<code>char</code>，没法用ascii码判断。在这可以用<code>hex</code>，<a href="/p/3887377890.html#toc-heading-3">刷题笔记:[SUCTF 2018]MultiSQL</a>中用过，只用36个字符进行判断。</p>
 <h3 id="位运算判断长度"><a href="#位运算判断长度" class="headerlink" title="位运算判断长度"></a>位运算判断长度</h3><blockquote>
 <p>先考虑对 flag 16 进制长度的判断，假设它的长度为<code>x</code>，<code>y</code>表示2的n次方，那么<code>x&amp;y</code>就能表现出<code>x</code>二进制为1的位置，将这些<code>y</code>再进行或运算就可以得到完整的<code>x</code>的二进制，也就得到了flag的长度，而<code>1&lt;&lt;n</code>恰可以表示2的n次方</p>
 </blockquote>
@@ -641,14 +641,14 @@ if (isset($_GET[&#39;source&#39;])) &amp;#123;
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">abs(case(length(hex((select(flag)from(flag))))&amp;&#123;1&lt;&lt;n&#125;)when(0)then(0)else(0x8000000000000000)end)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>sqlite判断两种用法</p>
-<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">select 
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">select
 	case &#39;a&#39; when &#39;a&#39;
 	then 1
 	else 0
 end
 --可不用等号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">select 
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">select
 	case when &#39;a&#39;&#x3D;&#39;a&#39;
 	then 1
 	else 0

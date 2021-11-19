@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2021-11-08T11:46:14.313Z</updated>
+  <updated>2021-11-19T05:22:57.461Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>赛题笔记:2021全国大学生软件测试Web安全测试个人赛-决赛</title>
+    <link href="https://syunaht.com/p/4150217060.html"/>
+    <id>https://syunaht.com/p/4150217060.html</id>
+    <published>2021-11-18T12:58:26.000Z</published>
+    <updated>2021-11-19T05:22:57.461Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;第一次参加，很多都是原题，发挥的不是很好，挺可惜的。&lt;/p&gt;
+&lt;h2 id=&quot;Web1&quot;&gt;&lt;a href=&quot;#Web1&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
+    
+    <category term="比赛" scheme="https://syunaht.com/tags/%E6%AF%94%E8%B5%9B/"/>
+    
+  </entry>
   
   <entry>
     <title>BurpSuite Pro 2021最新版破解激活教程及下载</title>
@@ -76,7 +104,7 @@
     <link href="https://syunaht.com/p/389324891.html"/>
     <id>https://syunaht.com/p/389324891.html</id>
     <published>2021-11-07T05:27:24.000Z</published>
-    <updated>2021-11-08T04:57:44.048Z</updated>
+    <updated>2021-11-18T13:03:15.180Z</updated>
     
     
       
@@ -104,7 +132,7 @@
     <link href="https://syunaht.com/p/1625935779.html"/>
     <id>https://syunaht.com/p/1625935779.html</id>
     <published>2021-10-30T09:26:14.000Z</published>
-    <updated>2021-11-06T03:05:08.331Z</updated>
+    <updated>2021-11-18T13:03:15.181Z</updated>
     
     
       
@@ -368,7 +396,7 @@
     <link href="https://syunaht.com/p/3370612058.html"/>
     <id>https://syunaht.com/p/3370612058.html</id>
     <published>2021-10-14T14:28:26.000Z</published>
-    <updated>2021-10-14T15:10:17.650Z</updated>
+    <updated>2021-11-18T13:03:15.181Z</updated>
     
     
       
@@ -425,7 +453,7 @@
     <link href="https://syunaht.com/p/651701872.html"/>
     <id>https://syunaht.com/p/651701872.html</id>
     <published>2021-10-11T06:46:41.000Z</published>
-    <updated>2021-10-14T04:30:46.965Z</updated>
+    <updated>2021-11-18T13:03:15.184Z</updated>
     
     
       
@@ -512,7 +540,7 @@
     <link href="https://syunaht.com/p/4087374903.html"/>
     <id>https://syunaht.com/p/4087374903.html</id>
     <published>2021-09-27T14:56:54.000Z</published>
-    <updated>2021-10-05T15:31:36.309Z</updated>
+    <updated>2021-11-18T13:03:15.181Z</updated>
     
     
       
@@ -544,7 +572,7 @@
     <link href="https://syunaht.com/p/1536130113.html"/>
     <id>https://syunaht.com/p/1536130113.html</id>
     <published>2021-09-27T14:18:16.000Z</published>
-    <updated>2021-09-27T14:37:58.819Z</updated>
+    <updated>2021-11-18T13:03:15.181Z</updated>
     
     
       
@@ -566,33 +594,6 @@
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
     <category term="disable_function" scheme="https://syunaht.com/tags/disable-function/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[NPUCTF2020]web狗</title>
-    <link href="https://syunaht.com/p/2598013568.html"/>
-    <id>https://syunaht.com/p/2598013568.html</id>
-    <published>2021-09-27T08:51:14.000Z</published>
-    <updated>2021-09-27T13:54:06.201Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-php&quot; data-language=&quot;php&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
   </entry>
   

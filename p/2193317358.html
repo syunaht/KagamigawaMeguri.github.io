@@ -576,7 +576,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-18
+                    2022-01-28
                 </div>
                 
 
@@ -609,14 +609,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[临时文件包含|session|条件竞争|segment fault|session.upload_progress]</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802163522235.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802164104898.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802163522235.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802164104898.png"></p>
 <p>一看疑似hash长度扩展攻击，转头花了几个小时学了下。</p>
 <p>结果不是，可惜了。</p>
 <p>直接?pass=fa25e54758d5d5c1927781a6ede89f8a</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802231716300.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802231716300.png"></p>
 <p>文件包含</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802231817384.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802231817384.png"></p>
 <p>包含../../../../../../flag，没有结果，看来没那么简单。</p>
 <p>伪协议读一下源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
@@ -672,9 +672,9 @@ print(r.text)<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
 <p>打进去后，提示实例无法访问，因为崩溃了嘛</p>
 <p>产生临时文件</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802234200446.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802234200446.png"></p>
 <p>之后再文件包含下，flag在phpinfo里</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802234243611.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802234243611.png"></p>
 <h4 id="条件竞争：利用session-upload-progress"><a href="#条件竞争：利用session-upload-progress" class="headerlink" title="条件竞争：利用session.upload_progress"></a>条件竞争：利用session.upload_progress</h4><blockquote>
 <p>在PHP&gt;5.4，<code>session.upload_progress.enabled</code>这个参数在<code>php.ini</code>中默认开启，在上传的过程中会生成上传进度文件，PHP将会把此次文件上传的详细信息(如上传时间、上传进度等)存储在session当中 ，它的存储路径可以在<code>phpinfo</code>中查到</p>
 </blockquote>

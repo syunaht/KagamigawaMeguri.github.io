@@ -579,7 +579,7 @@ git log ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-18
+                    2022-01-28
                 </div>
                 
 
@@ -612,52 +612,52 @@ git log ">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[留言|评论|发帖]</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706193426485.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706193426485.png"></p>
 <p>这题真的难。</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>发帖要登录，</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706193537032.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706193537032.png"></p>
 <p>爆破一下，密码是zhangwei666。</p>
 <h3 id="1-git泄漏"><a href="#1-git泄漏" class="headerlink" title="1.git泄漏"></a>1.git泄漏</h3><p>扫目录扫出/.git，用githack下载一下源码，发现是不全的。</p>
 <p><code>git log</code>一下，是空的。</p>
 <p><code>git log --reflog</code>有不少东西</p>
 <p>在题目F12 CONSOLE处也能看到提示。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706194210821.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706194210821.png"></p>
 <blockquote>
 <p><code>git log --reflog</code> 查看所有分支的所有操作记录（包括已经被删除的commit记录和reset的操作）</p>
 </blockquote>
 <p><code>git reset --hard commit记录</code>，还原一下源码</p>
-<h3 id="2-SQL注入"><a href="#2-SQL注入" class="headerlink" title="2.SQL注入"></a>2.SQL注入</h3><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706194036881.png"></p>
+<h3 id="2-SQL注入"><a href="#2-SQL注入" class="headerlink" title="2.SQL注入"></a>2.SQL注入</h3><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706194036881.png"></p>
 <p><code>addslashes()</code>一下就联想到昨天做的一道题，利用加的<code>\</code>来注释后面一个单引号。不过这题似乎没机会</p>
 <p>在此测试下</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706195931843.png"></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706195938395.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706195931843.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706195938395.png"></p>
 <p>可知</p>
 <blockquote>
 <p>数据库会自动清除反斜杠</p>
 </blockquote>
 <p>所以，如果<code>addslashes()</code>处理的值往数据库里走一圈，相当于没处理。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706200140233.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706200140233.png"></p>
 <p><code>category</code>从数据库中取值，漏洞点就在这</p>
 <p>梳理下二次注入逻辑</p>
 <p>注意看这句话，这样换行写sql语句，那写入的sql语句也是有换行符存在的，所以用<code>#</code>来注释后面的内容就不好使了。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706202819141.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706202819141.png"></p>
 <p>第一次，在catagory里输入</p>
 <pre class="line-numbers language-none"><code class="language-none">1&#39;,content&#x3D;user(),&#x2F;*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后在评论content里输入<code>*/#</code>就会形成入下图所示代码：</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706202627995.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706202627995.png"></p>
 <p>第二行的<code>/*</code>与第三行的<code>*/</code>遥相呼应，将中间的给注释了，而第三行的<code>#</code>，将后面的<code>单引号</code>和<code>逗号</code>给注释了。</p>
 <p>第四行还有一句不能忽略，所以那个逗号也需要加。</p>
 <p>于是，注入成立。</p>
 <p>这里给了个root权限，也是一个提示</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706203110292.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706203110292.png"></p>
 <blockquote>
 <p>说明flag不在数据库而在本地文件里，需要读取。在数据库中无需root权限。</p>
 </blockquote>
 <p>读取/etc/passwd</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1</span><span class="token string">',content=(select load_file('</span><span class="token operator">/</span>etc<span class="token operator">/</span>passwd'<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">/</span><span class="token operator">*</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706203558299.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706203558299.png"></p>
 <p>一般设置web的都是www用户，所以找www。</p>
 <p>找到www用户目录<code>/home/www/</code></p>
 <p>读下历史命令记录</p>
@@ -666,7 +666,7 @@ git log ">
 <blockquote>
 <p>.bash_history保存了当前用户使用过的历史命令</p>
 </blockquote>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706203803113.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706203803113.png"></p>
 <p>删除了<code>/var/www/html/.DS_Store</code></p>
 <p>但是没删<code>/tmp/html/.DS_Store</code></p>
 <blockquote>
@@ -675,17 +675,17 @@ git log ">
 <p>所以读取下</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1</span><span class="token string">',content=(select load_file('</span><span class="token operator">/</span>tmp<span class="token operator">/</span>html<span class="token operator">/</span><span class="token punctuation">.</span>DS_Store'<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">/</span><span class="token operator">*</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706204250029.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706204250029.png"></p>
 <p>用<code>hex()</code>转换下</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1</span><span class="token string">',content=(select hex(load_file('</span><span class="token operator">/</span>tmp<span class="token operator">/</span>html<span class="token operator">/</span><span class="token punctuation">.</span>DS_Store'<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">/</span><span class="token operator">*</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>一大堆16进制，解个码</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706204545320.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706204545320.png"></p>
 <p>最后读取下</p>
 <pre class="line-numbers language-none"><code class="language-none">1&#39;,content&#x3D;(select hex(load_file(&#39;&#x2F;var&#x2F;www&#x2F;html&#x2F;flag_8946e1ff1ee3e40f.php&#39;))),&#x2F;*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果不加<code>hex()</code>，那还得查看源码</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706204946881.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Comment/image-20210706204946881.png"></p>
 <p>游戏结束。</p>
 
                 

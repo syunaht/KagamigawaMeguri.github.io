@@ -575,7 +575,7 @@ session_start(">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-18
+                    2022-01-28
                 </div>
                 
 
@@ -674,20 +674,20 @@ session_start(">
 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>显然，只要让session为admin就能拿到flag。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820142952016.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820142952016.png"></p>
 <p>先测试了下上传，没有反馈，奇怪。</p>
 <p>再试试下载</p>
 <blockquote>
 <p>php的session默认存储文件名是sess_+PHPSESSID的值</p>
 </blockquote>
 <p>session保存路径和上传路径一致，所以可以直接上传自己构造的session。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820160430631.png"></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820155422265.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820160430631.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820155422265.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">direction&#x3D;download&amp;filename&#x3D;sess_d7bd37299f06fbba3ab39c8a8008aad2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820155355360.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820155355360.png"></p>
 <p>根据之前做的一道题里的关于php系列化引擎知识点<a href="/p/3063917200.html#toc-heading-5">刷题笔记:bestphp’s revenge</a></p>
 <blockquote>
 <p>php_binary引擎:键名的长度对应的ascii字符+键名+经过serialize()函数序列化后的值</p>
@@ -704,13 +704,13 @@ $_SESSION[&#39;username&#39;] &#x3D; &#39;admin&#39;;<span aria-hidden="true" cl
 <pre class="line-numbers language-none"><code class="language-none">432b8b09e30c4a75986b719d1312b63a69f1b833ab602c9ad5f0299d1d76a5a4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这样，按照这两行代码，上传的文件名就是sess_432b8b09e30c4a75986b719d1312b63a69f1b833ab602c9ad5f0299d1d76a5a4</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820161223950.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820161223950.png"></p>
 <p>上传需要BODY参数，所以拿postman整吧</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820162158835.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820162158835.png"></p>
 <p>再试试有没有上传成功。</p>
 <pre class="line-numbers language-none"><code class="language-none">direction&#x3D;download&amp;filename&#x3D;sess_432b8b09e30c4a75986b719d1312b63a69f1b833ab602c9ad5f0299d1d76a5a4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820162241097.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HFCTF2020-BabyUpload/image-20210820162241097.png"></p>
 <p>然后还需要验证success.txt</p>
 <p>先查查<code>file_exists()</code>有没有漏洞，百度到可以/file/**/../checkfile这样利用，可惜在这用不上。</p>
 <blockquote>

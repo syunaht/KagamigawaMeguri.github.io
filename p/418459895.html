@@ -573,7 +573,7 @@ python manage.py migrate
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-06
+                    2022-01-28
                 </div>
                 
 
@@ -618,10 +618,10 @@ python manage.py migrate<span aria-hidden="true" class="line-numbers-rows"><span
 
 admin.site.register(Data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174009236.png"></p>
+<p><img src="/../.images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174009236.png"></p>
 <p>这数据库名，我明明没加s，他自动给加了个s。怪</p>
-<p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174224004.png"></p>
-<p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174257947.png"></p>
+<p><img src="/../.images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174224004.png"></p>
+<p><img src="/../.images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174257947.png"></p>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>1.安装库</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install django gunicorn gevent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -636,14 +636,14 @@ admin.site.register(Data)<span aria-hidden="true" class="line-numbers-rows"><spa
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171832820.png"></p>
+<p><img src="/../.images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171832820.png"></p>
 <p>3.在网站配置里添加</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">&#123;</span>
   <span class="token directive"><span class="token keyword">proxy_pass</span> http://app_server</span><span class="token punctuation">;</span>
   <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171932377.png"></p>
+<p><img src="/../.images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171932377.png"></p>
 <h2 id="一键运行"><a href="#一键运行" class="headerlink" title="一键运行"></a>一键运行</h2><p>编辑<code>./run.sh</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!&#x2F;bin&#x2F;bash
 DIR&#x3D;&quot;$(cd &quot;$(dirname &quot;$0&quot;)&quot; &amp;&amp; pwd)&quot;

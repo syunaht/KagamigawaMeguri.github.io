@@ -569,7 +569,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-21
+                    2022-01-28
                 </div>
                 
 
@@ -605,7 +605,7 @@
 <p>正好要给新生做培训，一个一个手把手弄太累了，所以写篇教程方便授课。</p>
 <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="官方jar包"><a href="#官方jar包" class="headerlink" title="官方jar包"></a>官方jar包</h3><p><a target="_blank" rel="noopener" href="https://portswigger.net/burp/releases">https://portswigger.net/burp/releases</a></p>
 <p>下载pro的jar包就行。</p>
-<p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184955342.png"></p>
+<p><img src="/../.images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184955342.png"></p>
 <p>为方便后续操作，请下载完成后将文件名改为<code>burpsuite_pro.jar</code></p>
 <h3 id="旧版-新版loader"><a href="#旧版-新版loader" class="headerlink" title="旧版+新版loader"></a>旧版+新版loader</h3><p>点击<a target="_blank" rel="noopener" href="https://avalonair.lanzoui.com/iXSiAwao94j">蓝奏云下载</a>，密码:<code>18yk</code></p>
 <h2 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h2><p><strong>windows/linux通用</strong></p>
@@ -616,17 +616,17 @@
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -Dfile.encoding&#x3D;utf-8  -noverify -javaagent:BurpSuiteLoader.jar -jar burpsuite_pro.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>一行代码的事就不需要写脚本了吧。</p>
-<p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108183808380.png"></p>
+<p><img src="/../.images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108183808380.png"></p>
 <p>点击<code>Next</code></p>
 <p>点击<code>Manual activation</code></p>
-<p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108183935784.png"></p>
+<p><img src="/../.images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108183935784.png"></p>
 <p>然后会出现一大堆码，复制一下。</p>
 <h3 id="2-启动旧版loader。"><a href="#2-启动旧版loader。" class="headerlink" title="2.启动旧版loader。"></a>2.启动旧版loader。</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar burploader-old.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后将刚刚复制的一大串代码粘贴到<code>Actvation Request</code>里</p>
-<p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184156458.png"></p>
+<p><img src="/../.images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184156458.png"></p>
 <p>之后下方的<code>Activation Response</code>会生成激活码，复制粘贴到之前那个框框就行了。</p>
-<p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184009453.png"></p>
+<p><img src="/../.images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108184009453.png"></p>
 <p>以后启动都需要用loader启动，且更新后也不需要再次激活。</p>
 <h2 id="一键启动"><a href="#一键启动" class="headerlink" title="一键启动"></a>一键启动</h2><p>一般启动burpsuite都是用环境变量里的java，但这种方式不够自由！</p>
 <p>所以在此祭出我的独家启动秘方！</p>
@@ -641,13 +641,13 @@
 <p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1_huP_N2TJO3RqiHgthvOsA">百度网盘下载</a> 提取码: <code>2upf</code></p>
 <h2 id="疑难解答"><a href="#疑难解答" class="headerlink" title="疑难解答"></a>疑难解答</h2><p><strong>2K屏甚至1080P启动，界面有点模糊？</strong></p>
 <p>更改如下设置</p>
-<p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108192303097.png"></p>
+<p><img src="/../.images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108192303097.png"></p>
 <blockquote>
 <p>注：JDK8可能无效，JDK11不行就换JDK14</p>
 </blockquote>
 <p><strong>笔记本改了还是不行？</strong></p>
 <p>这里看看是不是<code>100%</code>/<code>125%</code>/<code>150%</code>/<code>175%</code>这四个值，自定义缩放修改无效。</p>
-<p><img src="/../images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108192542813.png"></p>
+<p><img src="/../.images/BurpSuite-2021%E6%9C%80%E6%96%B0%E7%89%88%E7%A0%B4%E8%A7%A3/image-20211108192542813.png"></p>
 <p><strong>界面字体很丑，想改，但是在设置里找不到电脑上的字体？</strong></p>
 <p>下载字体后，请用右键选择<code>为所有用户安装</code></p>
 

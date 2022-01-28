@@ -578,7 +578,7 @@ if ($cgi-&gt;upload(&#39;file&#39;)) &amp;#123;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-10
+                    2022-01-28
                 </div>
                 
 
@@ -611,9 +611,9 @@ if ($cgi-&gt;upload(&#39;file&#39;)) &amp;#123;
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[perl]</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910104442590.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910104442590.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>/cgi-bin/hello.pl</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910104458963.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910104458963.png"></p>
 <p>看来是perl语言，整不会了。</p>
 <p>猜测下上传的后端代码</p>
 <pre class="line-numbers language-perl" data-language="perl"><code class="language-perl"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$cgi</span><span class="token operator">-></span>upload<span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -629,7 +629,7 @@ if ($cgi-&gt;upload(&#39;file&#39;)) &amp;#123;
 </blockquote>
 <p>这样，我们的利用方法就出现了：在正常的上传文件前面加上一个文件上传项ARGV，然后在URL中传入文件路径参数，这样就可以读取任意文件了。</p>
 <p>再加个上传项，删掉filename，改为ARGV,然后在url中加个路径：</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910110842899.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CSAWQual-2016-i-got-id/image-20210910110842899.png"></p>
 
                 
             </div>

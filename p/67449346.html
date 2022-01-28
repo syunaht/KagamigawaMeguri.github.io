@@ -612,19 +612,19 @@ session路径是在TEMP_DIR上
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[反序列化|session]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831172314653.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831172314653.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>需要获取admin权限拿flag</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831172357242.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831172357242.png"></p>
 <p>然后登录，可以写东西，怀疑是XSS</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831172836634.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831172836634.png"></p>
 <p>转了一圈没头绪，原来给了源码</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831173610225.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831173618790.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831173610225.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831173618790.png"></p>
 <p>显然，是要构造session</p>
 <p>session路径是在<strong>TEMP_DIR</strong>上</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831215026817.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831215026817.png"></p>
 <p>而这个也被用来创建临时的打包文件，显然，可以利用这个构造。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831215105843.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831215105843.png"></p>
 <p>payload:</p>
 <p>用户名为<code>sess_</code></p>
 <p>title为<code>|N;admin|b:1;</code></p>
@@ -667,13 +667,13 @@ i <span class="token operator">=</span> <span class="token number">0</span>
         <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>本地测试了下，新建的session格式是</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831230656058.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210831230656058.png"></p>
 <p>关于session反序列化问题看<a href="/p/3063917200.html#toc-heading-5">刷题笔记:bestphp’s revenge</a></p>
 <p>写入文件是这样</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210901004508966.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210901004508966.png"></p>
 <p>经过反序列化后再序列化变这样</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210901004523024.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210901005442296.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210901004523024.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Easy-Notes/image-20210901005442296.png"></p>
 <p>大致想了一下，类似这种反序列化题，应该可以直接无脑<code>|N;</code>+构造好的序列化字符串。</p>
 
                 

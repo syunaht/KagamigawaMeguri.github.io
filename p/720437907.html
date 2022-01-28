@@ -604,7 +604,7 @@ document.querySelector(&amp;#39;#username&amp;#39;).addEventL">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[登录框动画]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826203523313.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826203523313.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>看了下，登录验证在static/main.js里</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">var current &#x3D; null;
 document.querySelector(&#39;#username&#39;).addEventListener(&#39;focus&#39;, function(e) &#123;
@@ -686,11 +686,11 @@ function doLogin()&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这动画还蛮炫的</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826203824528.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826203824528.png"></p>
 <p>是以这样的形式传过去的：</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826204841573.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826204841573.png"></p>
 <p>加个<code>&lt;?xml version=&quot;1.0&quot;?&gt;</code>提示格式错误</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826205028810.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826205028810.png"></p>
 <p>还以为是XXE试了半天不行，一看wp，得，xpath注入。</p>
 <p>虽然爬虫用过xpath，但没想到还能注入。</p>
 <h3 id="XPath注入"><a href="#XPath注入" class="headerlink" title="XPath注入"></a>XPath注入</h3><blockquote>
@@ -837,11 +837,11 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
 <blockquote>
 <p>注意，xpath是从[1]开始的</p>
 </blockquote>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826214759893.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826214759893.png"></p>
 <p>root的子节点</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826215028755.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826215028755.png"></p>
 <p>/root/accounts的子节点</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826220116565.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826220116565.png"></p>
 <p>就是这样一个一个跑就行了。</p>
 <p>跑出来大概形式就是这样</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span><span class="token punctuation">></span></span>
@@ -864,7 +864,7 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
 
 <p>用adm1n@gtfly123登录</p>
 <p>登录后发现base64，解码：flag is in /flag</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826220844743.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826220844743.png"></p>
 <p>利用文件包含，提示nonono。有过滤，最后用大小写绕过，这要是不说，没有源码真想不到啊，尽量多做尝试吧。</p>
 <pre class="line-numbers language-none"><code class="language-none">?file&#x3D;pHp:&#x2F;&#x2F;filter&#x2F;convert.BAse64-encode&#x2F;resource&#x3D;&#x2F;flag
 ?file&#x3D;pHp:&#x2F;&#x2F;FiltEr&#x2F;convert.BAse64-eNcode&#x2F;resource&#x3D;&#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>

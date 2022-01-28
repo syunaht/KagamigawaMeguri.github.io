@@ -658,10 +658,10 @@ response <span class="token operator">=</span> requests<span class="token punctu
 <p>整理下思路，假设是<code>DASCTF&#123;123&#125;</code>，已知最后一个字符是<code>&#125;</code></p>
 <p>于是从倒数第二个字符开始猜。</p>
 <p>填充字符是自动生成的不用管，由于是<strong>吃掉</strong>倒数第二个字符并插入字符串，这样<code>&#125;</code>就被挤到了最后，所以扩展字符就是<code>&#125;</code>，如图所示：</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95Web%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E4%B8%AA%E4%BA%BA%E8%B5%9B-%E5%86%B3%E8%B5%9B/image-20211119132150053.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95Web%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E4%B8%AA%E4%BA%BA%E8%B5%9B-%E5%86%B3%E8%B5%9B/image-20211119132150053.png"></p>
 <p>于是，<code>*</code>跑一遍ascii字符，如果<code>*</code>正确，则<code>$_GET[&quot;md5&quot;] === md5($fl4g)</code>返回1。</p>
 <p>然后就可以猜第二个字符，此时扩展</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95Web%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E4%B8%AA%E4%BA%BA%E8%B5%9B-%E5%86%B3%E8%B5%9B/image-20211119132203801.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95Web%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E4%B8%AA%E4%BA%BA%E8%B5%9B-%E5%86%B3%E8%B5%9B/image-20211119132203801.png"></p>
 <p>按这个思路，就可以一步一步爆出flag</p>
 <p>脚本如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>

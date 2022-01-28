@@ -616,15 +616,15 @@ if (!preg_match(&#39;/^hint\/hint">
 <p>一开始还以为是过滤hint和hint.txt，仔细一看才发现hint是文件夹。</p>
 <pre class="line-numbers language-none"><code class="language-none">?cmd&#x3D;hint&#x2F;hint.txt%0a..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B5%99%E6%B1%9F%E7%9C%81%E5%86%B3%E8%B5%9B/image-20211030173436955.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B5%99%E6%B1%9F%E7%9C%81%E5%86%B3%E8%B5%9B/image-20211030173436955.png"></p>
 <h3 id="justlogin-web"><a href="#justlogin-web" class="headerlink" title="justlogin_web"></a>justlogin_web</h3><p>sqlite3注入</p>
 <p>以为这才是签到题，sql注入登录进去后，啥都没有。</p>
 <p>后来又在<code>images()</code>看了半天。</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B5%99%E6%B1%9F%E7%9C%81%E5%86%B3%E8%B5%9B/image-20211030173539925.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B5%99%E6%B1%9F%E7%9C%81%E5%86%B3%E8%B5%9B/image-20211030173539925.png"></p>
 <p>最后才反应过来这里可以盲注来着。</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B5%99%E6%B1%9F%E7%9C%81%E5%86%B3%E8%B5%9B/image-20211030173659079.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B5%99%E6%B1%9F%E7%9C%81%E5%86%B3%E8%B5%9B/image-20211030173659079.png"></p>
 <p>部分有过滤，双写绕过下：</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B5%99%E6%B1%9F%E7%9C%81%E5%86%B3%E8%B5%9B/image-20211030173750750.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B5%99%E6%B1%9F%E7%9C%81%E5%86%B3%E8%B5%9B/image-20211030173750750.png"></p>
 <p>最后半小时着实有点慌张，写脚本的时候不是忘记加循环就是逻辑有问题，最后慌慌张张脚本能跑，发现username能跑但password是空的，整麻了。</p>
 <hr>
 <p>2021年11月6日10:11:41更新</p>

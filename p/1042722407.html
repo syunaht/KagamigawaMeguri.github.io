@@ -645,7 +645,7 @@
 
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一开始想着真简单啊，直接写shell，</p>
 <p>然后变成了字符串，</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XNUCA2019Qualifier-EasyPHP/image-20210825220859953.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XNUCA2019Qualifier-EasyPHP/image-20210825220859953.png"></p>
 <h3 id="预期解"><a href="#预期解" class="headerlink" title="预期解"></a>预期解</h3><blockquote>
 <p>利用error_log写入log文件到<code>/tmp/fl3g.php</code>，再设置<code>include_path=/tmp</code>即可让index.php能够包含我们想要的文件。这里的报错可以通过设置<code>include_path</code>到一个不存在的文件夹即可触发包含时的报错，且include_path的值也会被输出到屏幕上。</p>
 </blockquote>
@@ -692,7 +692,7 @@ php_value pcre.jit 0<span aria-hidden="true" class="line-numbers-rows"><span></s
 </blockquote>
 <p>换行符是<code>\n</code>,加了个<code>\</code>就变成<code>\\n</code>,就不是换行符了</p>
 <p>就被解析成这样：</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XNUCA2019Qualifier-EasyPHP/image-20210825233858546.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XNUCA2019Qualifier-EasyPHP/image-20210825233858546.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">php_value auto_prepend_fi\
 le &quot;.htaccess&quot;
 # &lt;?php phpinfo();?&gt;\<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>

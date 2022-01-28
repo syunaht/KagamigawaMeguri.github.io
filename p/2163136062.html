@@ -610,9 +610,9 @@ PD9waHAKaWYgKE">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[system注释|system执行漏洞|php system]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819221635361.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819221635361.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>有个/register.php可以注册用户</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819221715070.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819221715070.png"></p>
 <p><code>user.php?page=guest</code>，第一反应先试试伪协议</p>
 <p>guest.php</p>
 <pre class="line-numbers language-none"><code class="language-none">PD9waHAKaWYgKEZMQUdfU0lHICE9IDEpewogICAgZGllKCJ5b3UgY2FuIG5vdCB2aXNpdCBpdCBkaXJlY3RseSAiKTsKfQppbmNsdWRlICJ0ZW1wbGF0ZXMvZ3Vlc3QuaHRtbCI7Cj8+Cgo&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -816,20 +816,20 @@ PD9waHAKaWYgKE">
 <span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里有parse_url()，可以尝试php的解析漏洞</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819224520220.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819224520220.png"></p>
 <h3 id="parse-url-解析漏洞"><a href="#parse-url-解析漏洞" class="headerlink" title="parse_url()解析漏洞"></a>parse_url()解析漏洞</h3><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$uri</span> <span class="token operator">=</span> <span class="token function">parse_url</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"REQUEST_URI"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$uri</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li><p><a target="_blank" rel="noopener" href="http://127.0.0.1/1.php?a=123">http://127.0.0.1/1.php?a=123</a></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819225541928.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819225541928.png"></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="http://127.0.0.1//1.php?a=123">http://127.0.0.1//1.php?a=123</a></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819225609362.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819225609362.png"></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="http://127.0.0.1///1.php?a=123">http://127.0.0.1///1.php?a=123</a></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819225636243.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819225636243.png"></p>
 </li>
 </ul>
 <p>这里用两个//也行，不知道是不是版本问题。</p>
@@ -854,8 +854,8 @@ PD9waHAKaWYgKE">
 <span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>打开/templates/upload.html</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819225951089.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819230004733.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819225951089.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819230004733.png"></p>
 <p>templates里怎么会有php文件呢？</p>
 <p>尝试读取upllloadddd.php</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
@@ -889,11 +889,11 @@ PD9waHAKaWYgKE">
 
 
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819230654935.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819230654935.png"></p>
 <p>但上传点不在这，竟然在/user.php?page=m4aaannngggeee</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819231049213.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819231049213.png"></p>
 <p>ls /不行，不知道为什么。看了下代码也没过滤呀。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819232125222.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-N1CTF-2018-eating-cms/image-20210819232125222.png"></p>
 
                 
             </div>

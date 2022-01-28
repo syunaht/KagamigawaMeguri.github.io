@@ -604,15 +604,15 @@ judge无法反编译，所以加过密或者有花指令
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前做的题，整理下放blog上</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326201322598_8856.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326201322598_8856.png"></p>
 <p>judge无法反编译，所以加过密或者有花指令</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326201500918_5365.png"><br>这里的0xCu的u是unsigned的意思<br>然后得找到judge函数的地址<br>有两种方法，1.动态调试/GDB；2.直接翻<br><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326202018083_6226.png"><br>7.0直接看到</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326202043985_12175.png"><br>7.5不显示这个函数，但可以直接跳转过去</p>
-<p>或者把数组解密一下<br><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326234906342_12620-1626703087202.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326201500918_5365.png"><br>这里的0xCu的u是unsigned的意思<br>然后得找到judge函数的地址<br>有两种方法，1.动态调试/GDB；2.直接翻<br><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326202018083_6226.png"><br>7.0直接看到</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326202043985_12175.png"><br>7.5不显示这个函数，但可以直接跳转过去</p>
+<p>或者把数组解密一下<br><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210326234906342_12620-1626703087202.png"></p>
 <p>然后依次按<br>U 取消定义<br>C 反汇编<br>P 生成函数</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210327000418688_11093.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210327000418688_11093.png"></p>
 <p>judge代码就出来了，不过这道题还是7.0版生成的伪代码漂亮点。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210327000358991_5191.png"><br>flag{n1c3_j0b}</p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-BABYRE/20210327000358991_5191.png"><br>flag{n1c3_j0b}</p>
 
                 
             </div>

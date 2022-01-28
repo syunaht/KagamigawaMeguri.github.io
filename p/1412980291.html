@@ -629,7 +629,7 @@ $hash = bin2hex(openssl_random_pseud">
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$lambda</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注意没加括号，会打印<code>%00lambda_%d</code>这样形式的字符串，也就是匿名函数的函数名，会随着刷新不断增大。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-annonymous/image-20210825191722768.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-annonymous/image-20210825191722768.png"></p>
 <blockquote>
 <p><code>%d</code>是持续递增的，这里的<code>%d</code>会一直递增到最大长度直到结束，通过大量的请求来迫使<code>Pre-fork</code>模式启动Apache启动新的线程，这样这里的<code>%d</code>会刷新为1</p>
 </blockquote>

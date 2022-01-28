@@ -617,11 +617,11 @@ id,username">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-Black-Watch-%E5%85%A5%E7%BE%A4%E9%A2%98-Web/image-20210820105016300.png"></p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-Black-Watch-%E5%85%A5%E7%BE%A4%E9%A2%98-Web/image-20210820105016300.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>抓包，看到有?id</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-Black-Watch-%E5%85%A5%E7%BE%A4%E9%A2%98-Web/image-20210820120740418.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-Black-Watch-%E5%85%A5%E7%BE%A4%E9%A2%98-Web/image-20210820120740418.png"></p>
 <p>老规矩，先fuzz一下</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-Black-Watch-%E5%85%A5%E7%BE%A4%E9%A2%98-Web/image-20210820120847396.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-Black-Watch-%E5%85%A5%E7%BE%A4%E9%A2%98-Web/image-20210820120847396.png"></p>
 <p>单引号双引号都被过滤了，这可咋整</p>
 <p>试试1^1,1^0，可行。那懂了，是异或盲注。</p>
 <p>跑脚本</p>

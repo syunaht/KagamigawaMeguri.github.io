@@ -609,13 +609,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[无字母数字webshell|变量函数]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814171538120.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814171625633.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814171538120.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814171625633.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>开局index.php?act=upload</p>
 <p>还给出源码，先试试文件包含。</p>
 <p>不太行。</p>
 <p>随便上传了个空jpg文件，直接变成php，好活</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814180946756.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814180946756.png"></p>
 <p>基本把数字，字母全过滤了，<code>|^%</code>也过滤了</p>
 <p>试了下<code>()~</code>没被过滤，但<code>%</code>被过滤了就没法用平时用的那种办法了。</p>
 <p>咋办呢？可以利用中文。</p>
@@ -672,14 +672,14 @@ echo ~瞎[$____];&#x2F;&#x2F;a<span aria-hidden="true" class="line-numbers-rows"
 
 <pre class="line-numbers language-none"><code class="language-none">a&#x3D;ls &#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814190038386.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814190038386.png"></p>
 <p>百度了下说环境有问题，flag没写进去</p>
 <p>不过写到env里面了，执行下</p>
 <pre class="line-numbers language-none"><code class="language-none">a&#x3D;env<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814190127237.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-GetShell/image-20210814190127237.png"></p>
 <p>就有了。</p>
 <h3 id="变量函数"><a href="#变量函数" class="headerlink" title="变量函数"></a>变量函数</h3><p>这里是利用了<code>变量函数(variable-functions)</code>，可以用system，但不能于eval</p>
 <blockquote>

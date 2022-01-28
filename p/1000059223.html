@@ -617,14 +617,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[phar|手动激活phar|phar:///]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818223134859.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818224334283.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818223134859.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818224334283.png"></p>
 <p>用户名输入admin</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818224349239.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818224349239.png"></p>
 <p>试了下也没找着注入点，先爆破一下吧。</p>
 <p>跑出来密码是password</p>
 <p>/home.php?file=upload</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818224938800.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818224938800.png"></p>
 <p>尝试下伪协议，拿到upload.php源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Content-Type<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/html; charset=utf-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 
@@ -703,18 +703,18 @@
 <span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在这可以执行命令，看看$cmd能否控制。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818235954167.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210818235954167.png"></p>
 <p>文件上传+类似反序列化的类又没有反序列化函数，可以考虑phar</p>
 <p>构造下pop链：</p>
 <pre class="line-numbers language-none"><code class="language-none">__destruct() &lt;-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>pop链还没构造完，发现这个代码</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819001119305.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819001119305.png"></p>
 <p>试了下直接传进去了</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819001144591.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819001201859.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819001144591.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819001201859.png"></p>
 <p>幸福来的太突然</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/QQ%E5%9B%BE%E7%89%8720210819001215.jpg"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/QQ%E5%9B%BE%E7%89%8720210819001215.jpg"></p>
 <p>连接蚁剑，结束。</p>
 <p>还构造个p构造。</p>
 <p>算了还是继续学习下。</p>
@@ -722,11 +722,11 @@
 <p>phar:伪协议可以不依赖unserialize()直接进行反序列化操作，</p>
 </blockquote>
 <p>$uploader为对象，这里会触发<code>__toString()</code>，而且<code>file_get_contents()</code>可以配合伪协议，就造成了phar反序列化漏洞点。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819001624504.png"></p>
-<p>$Filename是可控的，<img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819005913757.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819001624504.png"></p>
+<p>$Filename是可控的，<img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819005913757.png"></p>
 <p>这样就可以让<code>file_get_contents()</code>去触发phar</p>
 <p>先把token记下来</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819003715193.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819003715193.png"></p>
 <p>生成phar文件然后上传。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 
@@ -753,13 +753,13 @@
 <span class="token comment">//签名自动计算</span>
 <span class="token variable">$phar</span><span class="token operator">-></span><span class="token function">stopBuffering</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819005211484.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819005211484.png"></p>
 <p>再用phar协议触发反序列化</p>
 <pre class="line-numbers language-none"><code class="language-none">?file&#x3D;upload&amp;name&#x3D;phar:&#x2F;&#x2F;&#x2F;var&#x2F;www&#x2F;html&#x2F;uploads&#x2F;809e1a55c1990c491e2578068d1ae0e3&#x2F;GXY7f17dc42f4567993f9be1dcb117e757d.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>最后随便上传个文件，返回之前反序列化的类。</p>
 <p>其实在之前就可以感觉得到，上传文件，不会马上给出反馈，而是上传下一个文件的时候把上一个上传的结果反馈出来。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819005355530.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GXYCTF2019-BabysqliV3-0/image-20210819005355530.png"></p>
 
                 
             </div>

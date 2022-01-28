@@ -626,16 +626,16 @@
 <p>在此记录下bypass的一般操作</p>
 <h3 id="攻击后端组件"><a href="#攻击后端组件" class="headerlink" title="攻击后端组件"></a>攻击后端组件</h3><p>在phpinfo()中查看组件版本，例如<code>ImageMagick</code></p>
 <p>然后用<code>searchsploit</code>搜索相关poc并加以利用。</p>
-<p><img src="/../.images/disable-functions-bypass/image-20210717172227637.png"></p>
+<p><img src="/../images/disable-functions-bypass/image-20210717172227637.png"></p>
 <p>TODO：找个例题实际操作下</p>
 <hr>
 <h3 id="利用LD-PRELOAD"><a href="#利用LD-PRELOAD" class="headerlink" title="利用LD_PRELOAD"></a>利用LD_PRELOAD</h3><blockquote>
 <p>设想这样一种思路：利用漏洞控制web启动新进程a.bin即便进程名无法让我随意指定),a.bin内部调用系统函数b()，b()位于系统共享对象c.so中，所以系统为该进程加载共c.so，我想法在c.so前优先加载可控的c_evil.so，c_evil.so内含与 b()同名的恶意函数，由于c_evil.so优先级较高，所以，a.bin将调用到c_evil.so内b()而非系统的c.so内b()，同时，c_evil.so可控，达到执行恶意代码的目的。基于这一思路，将突破disable_functions限制执行操作系统命令这一目标，大致分解成几步在本地推演：查看进程调用系统函数明细、操作系统环境下劫持系统函数注入代码、找寻内部启动新进程的 PHP函数、PHP环境下劫持系统函数注入代码。</p>
 </blockquote>
 <p>查看系统加载的共享对象<code>ldd /usr/bin/id</code></p>
-<p><img src="/../.images/disable-functions-bypass/image-20210717172619760.png"></p>
+<p><img src="/../images/disable-functions-bypass/image-20210717172619760.png"></p>
 <p>由于可执行文件/usr/bin/id内含符号表,所以，运行<code>nm -D /usr/bin/id 2&gt;&amp;1</code>或<code>readelf -Ws /usr/bin/id</code>可查看该程序可能调用的系统 API 明细：</p>
-<p><img src="/../.images/disable-functions-bypass/image-20210717173012286.png"></p>
+<p><img src="/../images/disable-functions-bypass/image-20210717173012286.png"></p>
 <p><code>strace -f /usr/bin/id 2&gt;&amp;1</code> 跟踪命令<code>/usr/bin/id</code>实际API调用情况</p>
 <blockquote>
 <p>操作系统环境下劫持系统函数注入代码。linux的环境变量LD_PRELOAD是一种类似win32 API hook的更优雅的实现，适用于打热补丁、读取进程空间数据、禁止程序调用指定 API、调试程序等等场景，甚至可以在不更改原始可执行文件前提下植入后门(管理员常用的/bin/ps)</p>
@@ -658,7 +658,7 @@
 <span class="token comment">// imap_mail("", "", ""); //需要安装imap拓展</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>具体题目可见<code>刷题笔记:[SUCTF 2019]EasyWeb</code></p>
-<h4 id="蚁剑实操"><a href="#蚁剑实操" class="headerlink" title="蚁剑实操"></a>蚁剑实操</h4><p><img src="/../.images/disable-functions-bypass/image-20210717205438970.png"></p>
+<h4 id="蚁剑实操"><a href="#蚁剑实操" class="headerlink" title="蚁剑实操"></a>蚁剑实操</h4><p><img src="/../images/disable-functions-bypass/image-20210717205438970.png"></p>
 <p>然后创建副本(密码与原来的shell密码相同)，用蚁剑连接<code>/.antproxy.php</code></p>
 
                 

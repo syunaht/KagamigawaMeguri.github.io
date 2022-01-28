@@ -607,7 +607,7 @@ requir">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816141134001.png"></p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816141134001.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>上传限制png，还会检测尺寸，发包看不到反馈，挺烦的</p>
 <p>原来题目还给了源码，</p>
 <h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>upload.php</p>
@@ -657,18 +657,18 @@ requir">
 <span class="token function">redirect</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>在这拿flag</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816143639267.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816143639267.png"></p>
 <p>重点是绕过这里</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165109112.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165109112.png"></p>
 <blockquote>
 <p><code>finfo_file()</code>主要是识别<strong>PNG</strong>文件十六进制下的第一行信息，若保留文件头信息，破坏掉文件长宽等其余信息，也就可以绕过<code>getimagesize()</code>函数的检验</p>
 </blockquote>
 <p>随便找个图片，删掉多余的东西</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165632093.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165924125.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165632093.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816165924125.png"></p>
 <p>上传一下，结束。</p>
 <p>测试了下，就第一行，一个字符都不能多，多了就会变成<code>octet-stream</code></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816173818763.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HarekazeCTF2019-Avatar-Uploader-1/image-20210816173818763.png"></p>
 <p>弄本地环境的时候，谷歌浏览器不知道抽什么风，明明设置好了hosts，一会可以，一会有跳转到莫名其妙的网站，隐声模式有没问题，火狐，phpstorm，edge也可以。换了个网址，得，开始隐私错误，越来越想放弃chrome了。</p>
 
                 

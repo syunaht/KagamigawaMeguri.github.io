@@ -660,7 +660,7 @@ define(&#34;METHOD&#34;, &#34;aes-128-cbc&#34;);  //定义">
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>先看到HelloWorld.class，</p>
 <p>一堆数字，很像是ascii码。</p>
 <p>解个码</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-web%E7%8B%97/image-20210927165543378.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-web%E7%8B%97/image-20210927165543378.png"></p>
 <p>这是干嘛？</p>
 <p>先看看加密结果</p>
 <pre class="line-numbers language-none"><code class="language-none">IV:6666666666666666
@@ -789,7 +789,7 @@ result <span class="token operator">=</span> <span class="token string">b''</spa
 <pre class="line-numbers language-none"><code class="language-none">b&#39;4QEcETI99mhXkM8WmvsIkA&#x3D;&#x3D;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>一开始生成的<code>sRpq7ZA2Eo4vGkeq9EJp+Q==</code>不行，清理了下cookie就重新生成就OK了，难道是加号的缘故？</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-web%E7%8B%97/image-20210927202640568.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-web%E7%8B%97/image-20210927202640568.png"></p>
 <p>原来正常操作是这个网盘能下载之前那个helloworld.class文件。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zlhff/p/5519175.html">Padding Oracle Attack的一些细节与实现</a></p>
 

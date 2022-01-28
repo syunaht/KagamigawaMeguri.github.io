@@ -620,9 +620,9 @@ n
 <pre class="line-numbers language-none"><code class="language-none">3216514606297172806828066063738105740383963382396892688569683235383985567043193404185955880509592930874764682428425994713750665248099953457550673860782324431970917492727256948066013701406000049963109681898567026552657377599263519201715733179565306750754520746601394738797021362510415215113118083969304423858<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>已知：</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025203948705-16351659635291.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025203948705-16351659635291.png"></p>
 <p>然后配凑一下</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025203935030-16351659739372.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025203935030-16351659739372.png"></p>
 <p>已知<code>n=pq</code>和<code>p-q</code>，所以可以在不算出p/q单个值的情况下直接算出m。算出m之后就是常规的rsa解法。</p>
 <p>但问题来了，数字那么大，该怎么算？</p>
 <p>掏出segamath</p>
@@ -636,7 +636,7 @@ m <span class="token operator">=</span> n<span class="token operator">-</span><s
 <pre class="line-numbers language-none"><code class="language-none">27552304606229034903366058815849954030287648695063385362955432137790872571412035824128918674719247737295565001575991597519270789776408208970323808016733976338433371328100880898942106515627607388226912870981180215883273805491209461671730377099185278711453949265641966582563910708529619185885928310168288810488452249048361792190062286900087513922744159737091583808351713622260845711638281055969511895420947879300731919183830759012447400161458551140739059886287572056575864045508330251848028360471591770162350542916982579543446708446143640478066426347229913784237231663261383992631285889273004630202243388356152746024080<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>普通python环境下会报错的。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025195302692.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025195302692.png"></p>
 <p>在segamath就可以跑。我原以为segamath仅仅是python库，调用其方法才能体现它的特别之处，但没想到它是把python内部都给改造成了合适的形状，可以直接进行大数计算，十分舒服！</p>
 <p>然后就是rsa常规解法。</p>
 <p>先求d，d是e在模m下的逆元：<code>d*e%m=1</code></p>
@@ -654,7 +654,7 @@ plain <span class="token operator">=</span> <span class="token builtin">pow</spa
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">hex</span><span class="token punctuation">(</span>plain<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 将该十进制数转换为16进制数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>最后</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025203407026.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B-ez-rsa/image-20211025203407026.png"></p>
 
                 
             </div>

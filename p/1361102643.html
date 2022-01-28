@@ -612,8 +612,8 @@ or  前面都为真，后面就不执行
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[PHP_SESSION_UPLOAD_PROGRESS|if+substr盲注]</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919185115444.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919185109284.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919185115444.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919185109284.png"></p>
 <p>源码都是写成一行的形式</p>
 <blockquote>
 <p>and 前面都为假，后面就不执行</p>
@@ -625,12 +625,12 @@ or  前面都为真，后面就不执行
 
 <p>奇怪，照理说按这条代码逻辑，username=admin,不会返回<code>Not allowed!</code></p>
 <p>怪。</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919201320146.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919201320146.png"></p>
 <blockquote>
 <p>在phpsession里如果在php.ini中设置session.auto_start=On，那么PHP每次处理PHP文件的时候都会自动执行session_start()，但是session.auto_start默认为Off。与Session相关的另一个叫session.upload_progress.enabled，默认为On，在这个选项被打开的前提下我们在multipart POST的时候传入PHP_SESSION_UPLOAD_PROGRESS，PHP会执行session_start()</p>
 </blockquote>
 <p>那思路就是执行session_start()绕过index.php的过滤</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919202808381.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919202808381.png"></p>
 <p>用<code>proxies</code>参数可设置代理，让bp抓python脚本的包。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 
@@ -643,7 +643,7 @@ a <span class="token operator">=</span> requests<span class="token punctuation">
 <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>成功绕过了</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919203849190.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-PwnThyBytes-2019-Baby-SQL/image-20210919203849190.png"></p>
 <p>碎碎念：太久没做sql注入都有丶忘记了，我要做的不是让username=一个正确的值而是让<code>where</code>后面的条件为真或假，所以直接<code>1&quot; or 1#</code>不就完了，非得搁着想着如何凑出正确的username，这都没有任何过滤随便注，还搁着想半天，该打该打。</p>
 <p>跑脚本完事</p>
 <p>库</p>

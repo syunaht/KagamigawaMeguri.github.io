@@ -618,15 +618,15 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[mongdb注入]</p>
 <p>给了源码，是typescript，这倒是第一次见</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E7%A5%A5%E4%BA%91%E6%9D%AF-Package-Manager-2021/image-20211016103024123.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E7%A5%A5%E4%BA%91%E6%9D%AF-Package-Manager-2021/image-20211016103024123.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>感觉像是XSS。</p>
 <p>没想到是SQL注入……</p>
 <p>数据库是mongodb</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E7%A5%A5%E4%BA%91%E6%9D%AF-Package-Manager-2021/image-20211016104633903.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E7%A5%A5%E4%BA%91%E6%9D%AF-Package-Manager-2021/image-20211016104633903.png"></p>
 <p>在index.ts中有字符串拼接，意味着可能存在sql注入</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E7%A5%A5%E4%BA%91%E6%9D%AF-Package-Manager-2021/image-20211016104746370.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E7%A5%A5%E4%BA%91%E6%9D%AF-Package-Manager-2021/image-20211016104746370.png"></p>
 <p>而正则检测没有加<code>^$</code>,意味着后面可以加or条件</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E7%A5%A5%E4%BA%91%E6%9D%AF-Package-Manager-2021/image-20211016104801318.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E7%A5%A5%E4%BA%91%E6%9D%AF-Package-Manager-2021/image-20211016104801318.png"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token keyword">import</span> string
 

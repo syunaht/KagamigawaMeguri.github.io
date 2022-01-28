@@ -604,7 +604,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>给了源码</p>
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Products-Manager/image-20211108152005820.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Products-Manager/image-20211108152005820.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一开始以为就是常规的sql注入，但是有预编译，想想用也没法用堆叠注入，陷入僵局。</p>
 <p>看了看wp，原来是<code>基于约束的SQL注入</code></p>
 <h3 id="数据库字符串比较"><a href="#数据库字符串比较" class="headerlink" title="数据库字符串比较"></a>数据库字符串比较</h3><p>在数据库对字符串进行比较时，若两字符串长度不一样，则会在较短的字符串末尾填充空格，使两个字符串长度一致。<br>如：<code>str1</code>和<code>str</code>的比较，比较时会在<code>str</code>的后面添加一个<code>空格</code>以补足长度。</p>

@@ -652,7 +652,7 @@ class SYCLOVER &amp;#123;
     <span class="token keyword">echo</span> <span class="token string double-quoted-string">"sha1相等"</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/../.images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2020-Greatphp/image-20210907185653017.png"></p>
+<p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2020-Greatphp/image-20210907185653017.png"></p>
 <p>由于题目用preg_match过滤了小括号无法调用函数，所以我们尝试直接<code>include &quot;/flag&quot;</code>将flag包含进来即可；由于过滤了引号，于是在这里进行取反，这样解码后就自动是<strong>字符串</strong>，无需再加双引号或单引号。</p>
 <p>而且eval执行带有完整标签的语句需要先闭合，就类似于将字符串当成代码写入到源码中。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>

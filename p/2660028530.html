@@ -676,7 +676,7 @@ class a
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token punctuation">(</span><span class="token string single-quoted-string">'phpinfo'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//可以</span>
 <span class="token punctuation">(</span><span class="token string single-quoted-string">'$this->eval'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//不行。这个执行的是函数名为$this->eval的函数。而常规的$this用法可以理解为先到$this的命名空间去，然后找到eval这个函数并执行。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>想了很久，什么招都用上了，整不来，幸好有**@F10wers_13eiCheng<strong>和</strong>@Dji0x1n**两位师傅指点了一下，才知道还有这一种特殊用法。</p>
+<p>想了很久，什么招都用上了，整不来，幸好有@F10wers_13eiCheng和@Dji0x1n两位师傅指点了一下，才知道还有这一种特殊用法。</p>
 <p>先来看第一个demo。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 

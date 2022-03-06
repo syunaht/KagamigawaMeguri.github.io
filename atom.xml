@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2022-01-28T14:54:15.477Z</updated>
+  <updated>2022-03-06T08:14:39.944Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Shiro550/Shiro721复现</title>
+    <link href="https://syunaht.com/p/3654935441.html"/>
+    <id>https://syunaht.com/p/3654935441.html</id>
+    <published>2022-03-06T05:23:54.000Z</published>
+    <updated>2022-03-06T08:14:39.944Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Shiro550&quot;&gt;&lt;a href=&quot;#Shiro550&quot; class=&quot;headerlink&quot; title=&quot;Shiro550&quot;&gt;&lt;/a&gt;Shiro550&lt;/h2&gt;&lt;h3 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="SRC" scheme="https://syunaht.com/categories/SRC/"/>
+    
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="CVE-2016-4437" scheme="https://syunaht.com/tags/CVE-2016-4437/"/>
+    
+    <category term="Shiro" scheme="https://syunaht.com/tags/Shiro/"/>
+    
+  </entry>
   
   <entry>
     <title>关于SwitchyOmega+Burpsuite+Chrome无法抓取127.0.0.1/localhost问题及解决办法</title>
@@ -560,36 +589,6 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[HFCTF 2021 Final]easyflask</title>
-    <link href="https://syunaht.com/p/651701872.html"/>
-    <id>https://syunaht.com/p/651701872.html</id>
-    <published>2021-10-11T06:46:41.000Z</published>
-    <updated>2022-01-28T14:54:15.476Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[pickle|&lt;code&gt;__reduce__&lt;/code&gt;]&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="Flask" scheme="https://syunaht.com/tags/Flask/"/>
     
   </entry>
   

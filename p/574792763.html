@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="异步Asyncio学习笔记, 远离尘世的幻想乡">
+    <meta name="keywords" content="异步asyncio学习笔记, 远离尘世的幻想乡">
     <meta name="description" content="前言真就一年发一篇。这一年发生了好多事，把我打得手忙脚乱，短短一年，物是人非。
 昨天写awd相关脚本，想着来点狠的，加速混淆流量发包，试试异步。正好看到github上有相关源码，requests+asyncio。
 想着requests是阻塞">
@@ -30,7 +30,7 @@
 </script>
 
 
-    <title>异步Asyncio学习笔记 | 远离尘世的幻想乡</title>
+    <title>异步asyncio学习笔记 | 远离尘世的幻想乡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -412,12 +412,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/81.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/76.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">异步Asyncio学习笔记</h1>
+                    <h1 class="description center-align post-title">异步asyncio学习笔记</h1>
                 </div>
             </div>
         </div>
@@ -537,8 +537,8 @@
                                 <span class="chip bg-color">Python</span>
                             </a>
                         
-                            <a href="/tags/Asyncio/">
-                                <span class="chip bg-color">Asyncio</span>
+                            <a href="/tags/asyncio/">
+                                <span class="chip bg-color">asyncio</span>
                             </a>
                         
                     </div>
@@ -569,7 +569,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-22
+                    2022-05-12
                 </div>
                 
 
@@ -646,7 +646,7 @@ asyncio<span class="token punctuation">.</span>run<span class="token punctuation
 <li>范例2 在外面把协程函数组合成tasks</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">await</span> asnycio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
 
 tasks<span class="token operator">=</span><span class="token punctuation">[</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -737,8 +737,8 @@ asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
                                     <span class="chip bg-color">Python</span>
                                 </a>
                             
-                                <a href="/tags/Asyncio/">
-                                    <span class="chip bg-color">Asyncio</span>
+                                <a href="/tags/asyncio/">
+                                    <span class="chip bg-color">asyncio</span>
                                 </a>
                             
                         </div>

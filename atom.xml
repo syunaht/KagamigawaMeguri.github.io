@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2022-05-30T09:04:02.754Z</updated>
+  <updated>2022-08-23T10:24:26.052Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -15,6 +15,116 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>赛题笔记-[CISCN2022]总决赛-第一天</title>
+    <link href="https://syunaht.com/p/1463605317.html"/>
+    <id>https://syunaht.com/p/1463605317.html</id>
+    <published>2022-08-23T08:38:12.000Z</published>
+    <updated>2022-08-23T10:24:26.052Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;web-unserialize-game&quot;&gt;&lt;a href=&quot;#web-unserialize-game&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="AwdP" scheme="https://syunaht.com/tags/AwdP/"/>
+    
+    <category term="break&amp;fix" scheme="https://syunaht.com/tags/break-fix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记-[2021东华杯]Ezgadget</title>
+    <link href="https://syunaht.com/p/2513904777.html"/>
+    <id>https://syunaht.com/p/2513904777.html</id>
+    <published>2022-08-19T14:34:45.000Z</published>
+    <updated>2022-08-23T02:21:26.872Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;第一道JAVA题！&lt;/p&gt;
+&lt;p&gt;题目给了jar包。&lt;/p&gt;
+&lt;h2 id=&quot;题解&quot;&gt;&lt;a href=&quot;#题解&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="Java" scheme="https://syunaht.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记-简单的SSRF</title>
+    <link href="https://syunaht.com/p/1644113306.html"/>
+    <id>https://syunaht.com/p/1644113306.html</id>
+    <published>2022-08-17T04:28:32.000Z</published>
+    <updated>2022-08-23T02:21:26.869Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;[SSRF|gopher]&lt;/p&gt;
+&lt;p&gt;群里看到的题&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="SSRF" scheme="https://syunaht.com/tags/SSRF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷题笔记:[2022强网杯]初赛</title>
+    <link href="https://syunaht.com/p/299496437.html"/>
+    <id>https://syunaht.com/p/299496437.html</id>
+    <published>2022-07-31T06:05:34.000Z</published>
+    <updated>2022-08-23T02:21:26.875Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;crash&quot;&gt;&lt;a href=&quot;#crash&quot; class=&quot;headerlink&quot; title=&quot;crash&quot;&gt;&lt;/a&gt;crash&lt;/h2&gt;&lt;h3 id=&quot;源码&quot;&gt;&lt;a href=&quot;#源码&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="反序列化" scheme="https://syunaht.com/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    
+    <category term="flask" scheme="https://syunaht.com/tags/flask/"/>
+    
+  </entry>
   
   <entry>
     <title>CISCN2022初赛-Web</title>
@@ -465,125 +575,6 @@
     <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
     
     <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[羊城杯 2020]EasySer</title>
-    <link href="https://syunaht.com/p/1492341886.html"/>
-    <id>https://syunaht.com/p/1492341886.html</id>
-    <published>2021-10-22T07:52:43.000Z</published>
-    <updated>2022-01-28T14:54:15.447Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[死亡exit]&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[网鼎杯 2020 朱雀组]Think Java</title>
-    <link href="https://syunaht.com/p/701889044.html"/>
-    <id>https://syunaht.com/p/701889044.html</id>
-    <published>2021-10-17T15:21:23.000Z</published>
-    <updated>2022-01-28T14:54:15.448Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="JAVA" scheme="https://syunaht.com/tags/JAVA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[BSidesCF 2019]Sequel</title>
-    <link href="https://syunaht.com/p/3809605982.html"/>
-    <id>https://syunaht.com/p/3809605982.html</id>
-    <published>2021-10-16T06:16:19.000Z</published>
-    <updated>2022-01-28T14:54:15.477Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[2021祥云杯]Package Manager 2021</title>
-    <link href="https://syunaht.com/p/1706625664.html"/>
-    <id>https://syunaht.com/p/1706625664.html</id>
-    <published>2021-10-16T02:22:21.000Z</published>
-    <updated>2022-01-28T14:54:15.477Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关键字:[mongdb注入]&lt;/p&gt;
-&lt;p&gt;给了源码，是typescript，这倒是第一次见&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
-    
-    <category term="mongdb" scheme="https://syunaht.com/tags/mongdb/"/>
-    
-    <category term="SQL注入" scheme="https://syunaht.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   

@@ -6,7 +6,7 @@
   <link href="https://syunaht.com/atom.xml" rel="self"/>
   
   <link href="https://syunaht.com/"/>
-  <updated>2022-08-23T10:24:26.052Z</updated>
+  <updated>2022-09-24T00:59:20.884Z</updated>
   <id>https://syunaht.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>刷题笔记-[观安杯]ezweb</title>
+    <link href="https://syunaht.com/p/2130346180.html"/>
+    <id>https://syunaht.com/p/2130346180.html</id>
+    <published>2022-08-26T07:28:48.000Z</published>
+    <updated>2022-09-24T00:59:20.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;[flask|文件覆盖]&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-python&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
+    
+    
+    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
+    
+    <category term="flask" scheme="https://syunaht.com/tags/flask/"/>
+    
+  </entry>
+  
+  <entry>
     <title>赛题笔记-[CISCN2022]总决赛-第一天</title>
     <link href="https://syunaht.com/p/1463605317.html"/>
     <id>https://syunaht.com/p/1463605317.html</id>
     <published>2022-08-23T08:38:12.000Z</published>
-    <updated>2022-08-23T10:24:26.052Z</updated>
+    <updated>2022-08-23T12:43:05.453Z</updated>
     
     
       
@@ -547,34 +575,6 @@
     <category term="PHP代码审计" scheme="https://syunaht.com/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
     <category term="ThinkPHP" scheme="https://syunaht.com/tags/ThinkPHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题笔记:[b01lers2020]Space Noodles</title>
-    <link href="https://syunaht.com/p/725288439.html"/>
-    <id>https://syunaht.com/p/725288439.html</id>
-    <published>2021-10-22T12:58:45.000Z</published>
-    <updated>2022-01-28T14:54:15.477Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;这题很欢乐，思维比较开阔。但对于当下而言参考价值不大。&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://syunaht.com/categories/Web/"/>
-    
-    
-    <category term="CTF" scheme="https://syunaht.com/tags/CTF/"/>
-    
-    <category term="Web" scheme="https://syunaht.com/tags/Web/"/>
     
   </entry>
   

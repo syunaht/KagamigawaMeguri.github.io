@@ -631,7 +631,7 @@ echo <span class="token function">urlencode</span><span class="token punctuation
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match_all</span><span class="token punctuation">(</span><span class="token string">"(eval|dl|ls|p|escape|er|str|cat|flag|file|ay|or|ftp|dict|\.\.|h|w|exec|s|open)/i"</span><span class="token punctuation">,</span> $a<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">die</span><span class="token punctuation">(</span><span class="token string">"Hacker!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match_all</span><span class="token punctuation">(</span><span class="token string">"(find|filter|c|pa|proc|dir|regexp|n|alter|load|grep|o|file|t|w|insert|sort|h|sy|\.\.|array|sh|touch|e|php)/i"</span><span class="token punctuation">,</span> $b<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">die</span><span class="token punctuation">(</span><span class="token string">"fl4g?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="web-just"><a href="#web-just" class="headerlink" title="web_just"></a>web_just</h2><h3 id="fix-1"><a href="#fix-1" class="headerlink" title="fix"></a>fix</h3><p>随手访问<a target="_blank" rel="noopener" href="http://www.zip发现源码/">www.zip发现源码</a></p>
+<h2 id="web-just"><a href="#web-just" class="headerlink" title="web_just"></a>web_just</h2><h3 id="fix-1"><a href="#fix-1" class="headerlink" title="fix"></a>fix</h3><p>随手访问<code>www.zip</code>发现源码</p>
 <p>common.php文件里有十分明显的RCE</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">'if('</span> <span class="token punctuation">.</span> $matches<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>$i<span class="token punctuation">]</span> <span class="token punctuation">.</span> <span class="token string">')&#123;$flag="if";&#125;else&#123;$flag="else";&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1046,18 +1046,17 @@ $vpattern <span class="token operator">=</span> <span class="token function">exp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/p/1463605317.html">
+                <a href="/p/2130346180.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/51.jpg" class="responsive-img" alt="赛题笔记-[CISCN2022]总决赛-第一天">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="刷题笔记-[观安杯]ezweb">
                         
-                        <span class="card-title">赛题笔记-[CISCN2022]总决赛-第一天</span>
+                        <span class="card-title">刷题笔记-[观安杯]ezweb</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1067,9 +1066,9 @@ $vpattern <span class="token operator">=</span> <span class="token function">exp
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1082,16 +1081,15 @@ $vpattern <span class="token operator">=</span> <span class="token function">exp
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/AwdP/">
-                        <span class="chip bg-color">AwdP</span>
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
                     </a>
                     
-                    <a href="/tags/break-fix/">
-                        <span class="chip bg-color">break&amp;fix</span>
+                    <a href="/tags/flask/">
+                        <span class="chip bg-color">flask</span>
                     </a>
                     
                 </div>

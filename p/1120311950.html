@@ -570,14 +570,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-28
+                    2022-10-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    504
+                    590
                 </div>
                 
 
@@ -648,12 +648,21 @@
 <p>下载:<a target="_blank" rel="noopener" href="https://avalonair.lanzoui.com/i2WHFrodk1a">https://avalonair.lanzoui.com/i2WHFrodk1a</a></p>
 <p>密码:e7fr</p>
 </blockquote>
-<h2 id="相关问题集锦"><a href="#相关问题集锦" class="headerlink" title="相关问题集锦"></a>相关问题集锦</h2><h3 id="WARNING-An-illegal-reflective-access-operation-has-occurred"><a href="#WARNING-An-illegal-reflective-access-operation-has-occurred" class="headerlink" title="WARNING: An illegal reflective access operation has occurred"></a>WARNING: An illegal reflective access operation has occurred</h3><p>teamserver启动报如下错误：</p>
+<h2 id="相关问题集锦"><a href="#相关问题集锦" class="headerlink" title="相关问题集锦"></a>相关问题集锦</h2><p><strong>WARNING: An illegal reflective access operation has occurred</strong></p>
+<p>teamserver启动报如下错误：</p>
 <p><img src="/../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721142058187.png"></p>
 <p>主要出现在高版本(&gt;=jdk9)情况下，没有影响，忽略就好</p>
 <p>在启动项加个如下命令即可忽略该warning</p>
 <pre class="line-numbers language-none"><code class="language-none">--add-opens&#x3D;java.base&#x2F;java.lang.reflect&#x3D;ALL-UNNAMED<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p><strong>java.security.NoSuchAlgorithmException</strong></p>
+<p>teamserver启动报如下错误：</p>
+<p><img src="/../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20221007232228997.png"></p>
+<p><img src="/../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20221007232306280.png"></p>
+<ol>
+<li>java版本问题，缺少某个算法包。用jdk11即可。</li>
+<li>也有可能是因为<code>cobaltstrike.store</code>文件的问题。经过测试，哪怕是自定义的<code>.profile</code>且指定了<code>.store</code>，也需要读取<code>cobaltstrike.store</code>文件，所以可以考虑将此文件删除让其重新生成。</li>
+</ol>
 <h2 id="官方哈希验证地址"><a href="#官方哈希验证地址" class="headerlink" title="官方哈希验证地址"></a>官方哈希验证地址</h2><pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;verify.cobaltstrike.com&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721135356961.png"></p>

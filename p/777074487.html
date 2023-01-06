@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="nginx初步搭建二三事, 远离尘世的幻想乡">
     <meta name="description" content="nginx注意事项一直以来都是用宝塔建站，今天特殊情况，需要单独装个nginx用。环境：Ubuntu16.06首先安装nginx，直接apt装的是低版本，所以
-wget http:&amp;#x2F;&amp;#x2F;nginx.org&amp;#x2F;key">
+wget http://nginx.org/keys/nginx_signing">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -106,6 +106,13 @@ wget http:&amp;#x2F;&amp;#x2F;nginx.org&amp;#x2F;key">
       </li>
       
       <li>
+        <a href="/categories/%E6%B8%97%E9%80%8F">
+          
+          <span>渗透</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/SRC">
           
           <span>SRC</span>
@@ -130,20 +137,6 @@ wget http:&amp;#x2F;&amp;#x2F;nginx.org&amp;#x2F;key">
         <a href="/categories/Crypto">
           
           <span>Crypto</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/%E5%89%8D%E7%AB%AF">
-          
-          <span>前端</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/Android">
-          
-          <span>Android</span>
         </a>
       </li>
       
@@ -277,6 +270,14 @@ wget http:&amp;#x2F;&amp;#x2F;nginx.org&amp;#x2F;key">
               
                 <li>
 
+                  <a href="/categories/%E6%B8%97%E9%80%8F " style="margin-left:75px">
+				  
+		          <span>渗透</span>
+                  </a>
+                </li>
+              
+                <li>
+
                   <a href="/categories/SRC " style="margin-left:75px">
 				  
 		          <span>SRC</span>
@@ -304,22 +305,6 @@ wget http:&amp;#x2F;&amp;#x2F;nginx.org&amp;#x2F;key">
                   <a href="/categories/Crypto " style="margin-left:75px">
 				  
 		          <span>Crypto</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/%E5%89%8D%E7%AB%AF " style="margin-left:75px">
-				  
-		          <span>前端</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/Android " style="margin-left:75px">
-				  
-		          <span>Android</span>
                   </a>
                 </li>
               
@@ -548,8 +533,8 @@ wget http:&amp;#x2F;&amp;#x2F;nginx.org&amp;#x2F;key">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                杂谈
                             </a>
                         
                     </div>
@@ -568,14 +553,14 @@ wget http:&amp;#x2F;&amp;#x2F;nginx.org&amp;#x2F;key">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-07
+                    2023-01-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    385
+                    357
                 </div>
                 
 
@@ -601,12 +586,12 @@ wget http:&amp;#x2F;&amp;#x2F;nginx.org&amp;#x2F;key">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="nginx注意事项"><a href="#nginx注意事项" class="headerlink" title="nginx注意事项"></a>nginx注意事项</h2><p>一直以来都是用宝塔建站，今天特殊情况，需要单独装个nginx用。<br>环境：Ubuntu16.06<br>首先安装nginx，直接apt装的是低版本，所以</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget http:&#x2F;&#x2F;nginx.org&#x2F;keys&#x2F;nginx_signing.key
-apt-key add nginx_signing.key
-echo -e &quot;deb http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;ubuntu&#x2F; xenial nginx&quot; &gt;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.list
-echo -e &quot;deb-src http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;ubuntu&#x2F; xenial nginx&quot; &gt;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.list
-apt update
-apt install nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">wget</span> http://nginx.org/keys/nginx_signing.key
+apt-key <span class="token function">add</span> nginx_signing.key
+<span class="token builtin class-name">echo</span> -e <span class="token string">"deb http://nginx.org/packages/ubuntu/ xenial nginx"</span> <span class="token operator">>></span> /etc/apt/sources.list
+<span class="token builtin class-name">echo</span> -e <span class="token string">"deb-src http://nginx.org/packages/ubuntu/ xenial nginx"</span> <span class="token operator">>></span> /etc/apt/sources.list
+<span class="token function">apt</span> update
+<span class="token function">apt</span> <span class="token function">install</span> nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这样就是当前最新稳定版的了。<br>然后坑就开始了。<br>百度半天nginx搭建web教程(大多文章都你抄我我抄你，也是醉了)<br>怎么搞都不行，折腾几个小时烦死了。</p>
 <p>写的比较标准的方法都是在 <strong>sites-available</strong> 里创建配置然后软链接到 <strong>sites-enabled</strong><br>没错，但我主要强调一点，也就是被坑的地方<br>注意要在 <strong>/etc/nginx/nginx.conf</strong> 里加入 <code>include /etc/nginx/sites-enabled/*;</code></p>
@@ -619,10 +604,10 @@ apt install nginx<span aria-hidden="true" class="line-numbers-rows"><span></span
 <li>在<strong>sites-available</strong> 下创建<strong>domain.com</strong> 然后<code>ln -s /etc/nginx/sites-available/excalibur.moe /etc/nginx/sites-enabled/</code>软连接过去</li>
 </ul>
 <p><strong>nginx.conf</strong> 文件中，谁的include在上面谁的优先级就高</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">service  nginx reload
-service  nginx start
-service  nginx stop
-service  nginx restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">service</span>  nginx reload
+<span class="token function">service</span>  nginx start
+<span class="token function">service</span>  nginx stop
+<span class="token function">service</span>  nginx restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

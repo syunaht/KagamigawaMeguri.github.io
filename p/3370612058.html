@@ -112,6 +112,13 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
       </li>
       
       <li>
+        <a href="/categories/%E6%B8%97%E9%80%8F">
+          
+          <span>渗透</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/SRC">
           
           <span>SRC</span>
@@ -136,20 +143,6 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
         <a href="/categories/Crypto">
           
           <span>Crypto</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/%E5%89%8D%E7%AB%AF">
-          
-          <span>前端</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/Android">
-          
-          <span>Android</span>
         </a>
       </li>
       
@@ -283,6 +276,14 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
               
                 <li>
 
+                  <a href="/categories/%E6%B8%97%E9%80%8F " style="margin-left:75px">
+				  
+		          <span>渗透</span>
+                  </a>
+                </li>
+              
+                <li>
+
                   <a href="/categories/SRC " style="margin-left:75px">
 				  
 		          <span>SRC</span>
@@ -310,22 +311,6 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
                   <a href="/categories/Crypto " style="margin-left:75px">
 				  
 		          <span>Crypto</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/%E5%89%8D%E7%AB%AF " style="margin-left:75px">
-				  
-		          <span>前端</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/Android " style="margin-left:75px">
-				  
-		          <span>Android</span>
                   </a>
                 </li>
               
@@ -538,12 +523,12 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="/tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="/tags/flask/">
@@ -585,7 +570,7 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    630
+                    626
                 </div>
                 
 
@@ -617,7 +602,7 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014225146618.png"></p>
 <p>随便上传了个zip，然后会解压显示，那很明显，用软连接</p>
 <p>先试试/etc/passwd</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm -f test &amp;&amp; rm -f test.zip &amp;&amp; ln -s &#x2F;etc&#x2F;passwd test &amp;&amp; zip -ry test.zip test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">rm</span> -f <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> -f test.zip <span class="token operator">&amp;&amp;</span> <span class="token function">ln</span> -s /etc/passwd <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">zip</span> -ry test.zip <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -628,7 +613,7 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
 <p>中间件是uwsgi</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014224449417.png"></p>
 <p>再读取下/app/uwsgi.ini</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm -f test &amp;&amp; rm -f test.zip &amp;&amp; ln -s &#x2F;app&#x2F;uwsgi.ini test &amp;&amp; zip -ry test.zip test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">rm</span> -f <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> -f test.zip <span class="token operator">&amp;&amp;</span> <span class="token function">ln</span> -s /app/uwsgi.ini <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">zip</span> -ry test.zip <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014224657061.png"></p>
 <p>读了下/app/main.py，没什么内容，应该不是真正的main</p>
@@ -808,12 +793,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="/tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="/tags/flask/">
@@ -1167,12 +1152,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="/tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="/tags/mongdb/">
@@ -1228,12 +1213,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="/tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>

@@ -118,6 +118,13 @@ key在访问不存在的目录时，会出现在请求头当中
       </li>
       
       <li>
+        <a href="/categories/%E6%B8%97%E9%80%8F">
+          
+          <span>渗透</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/SRC">
           
           <span>SRC</span>
@@ -142,20 +149,6 @@ key在访问不存在的目录时，会出现在请求头当中
         <a href="/categories/Crypto">
           
           <span>Crypto</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/%E5%89%8D%E7%AB%AF">
-          
-          <span>前端</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/Android">
-          
-          <span>Android</span>
         </a>
       </li>
       
@@ -289,6 +282,14 @@ key在访问不存在的目录时，会出现在请求头当中
               
                 <li>
 
+                  <a href="/categories/%E6%B8%97%E9%80%8F " style="margin-left:75px">
+				  
+		          <span>渗透</span>
+                  </a>
+                </li>
+              
+                <li>
+
                   <a href="/categories/SRC " style="margin-left:75px">
 				  
 		          <span>SRC</span>
@@ -316,22 +317,6 @@ key在访问不存在的目录时，会出现在请求头当中
                   <a href="/categories/Crypto " style="margin-left:75px">
 				  
 		          <span>Crypto</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/%E5%89%8D%E7%AB%AF " style="margin-left:75px">
-				  
-		          <span>前端</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/Android " style="margin-left:75px">
-				  
-		          <span>Android</span>
                   </a>
                 </li>
               
@@ -544,12 +529,12 @@ key在访问不存在的目录时，会出现在请求头当中
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="/tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="/tags/Flask/">
@@ -591,7 +576,7 @@ key在访问不存在的目录时，会出现在请求头当中
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    414
+                    409
                 </div>
                 
 
@@ -719,8 +704,8 @@ key在访问不存在的目录时，会出现在请求头当中
 <p>给出了flag路径</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905135552520.png"></p>
 <p>这里利用软链接和<code>/proc/self/cwd</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ln -s &#x2F;proc&#x2F;self&#x2F;cwd&#x2F;flag&#x2F;flag.jpg test
-zip -ry test.zip test<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ln</span> -s /proc/self/cwd/flag/flag.jpg <span class="token builtin class-name">test</span>
+<span class="token function">zip</span> -ry test.zip <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>上传，结束</p>
 <p><img src="/../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905140736523.png"></p>
@@ -788,12 +773,12 @@ zip -ry test.zip test<span aria-hidden="true" class="line-numbers-rows"><span></
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="/tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="/tags/Flask/">
@@ -1147,12 +1132,12 @@ zip -ry test.zip test<span aria-hidden="true" class="line-numbers-rows"><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="/tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1200,12 +1185,12 @@ zip -ry test.zip test<span aria-hidden="true" class="line-numbers-rows"><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="/tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

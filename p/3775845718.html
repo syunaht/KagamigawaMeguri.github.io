@@ -44,7 +44,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -609,7 +609,7 @@
 	retVal <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r"(?i)\b%s\b"</span> <span class="token operator">%</span> keyword<span class="token punctuation">,</span> <span class="token string">"%s%s%s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>keyword<span class="token punctuation">[</span><span class="token punctuation">:</span>_<span class="token punctuation">]</span><span class="token punctuation">,</span> keyword<span class="token punctuation">,</span> keyword<span class="token punctuation">[</span>_<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> retVal<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>其逻辑为：用正则进行搜索<strong>单词</strong>，类似：</p>
-<p><img src="./../images/SQLMAP-Tamper%E4%B9%8B%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/image-20220221212851777.png"></p>
+<p><img src="../images/SQLMAP-Tamper%E4%B9%8B%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/image-20220221212851777.png"></p>
 <p>当检测到payload中存在关键字，就将该关键字插入到原本关键字字符串的随机位置。</p>
 <p>很常规的逻辑，但在这里有一些问题：</p>
 <p>1.类似<strong>SELECT</strong>-&gt;<strong>S<code>ELSE</code>LECTECT</strong>，如果添加的位置不对，就可能新生成一个存在于黑名单的字样导致sqlmap误判。</p>
@@ -704,9 +704,9 @@ __priority__ <span class="token operator">=</span> PRIORITY<span class="token pu
 <p><code>for t in keywords[:index]:</code>第三层循环就是二次校验了，比如<code>[&#39;A&#39;,&#39;ELSE&#39;,&#39;B&#39;,&#39;SELECT&#39;,&#39;C&#39;]</code>，混淆的时候从后往前，如果插入的位置不好，<code>SELECT</code>-&gt;<code>SELSELECTECT</code>。这样从前面循环检测，检测到<code>ELSE</code>，则该位置不合法，重新插入。个人感觉从中间插入组成新敏感词的几率比较小，但仔细琢磨一下也没必要多加几行代码，于是就干脆用顺序了。</p>
 <p>至于<code>not re.search(t, key)</code>是为了避免<code>ORDER</code>中存在<code>OR</code>而被误判位置不合法的情况。 </p>
 <p>使用的时候把keywords列表一替换，拿到sqlmap一打，结束！</p>
-<p><img src="./../images/SQLMAP-Tamper%E4%B9%8B%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/image-20220221221550620.png"></p>
+<p><img src="../images/SQLMAP-Tamper%E4%B9%8B%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/image-20220221221550620.png"></p>
 <p>有个比较无语的点是<code>re.sub()</code>函数的第四个参数才是<code>flags</code>。</p>
-<p><img src="./../images/SQLMAP-Tamper%E4%B9%8B%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/image-20220221211902217.png"></p>
+<p><img src="../images/SQLMAP-Tamper%E4%B9%8B%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/image-20220221211902217.png"></p>
 <p>写代码的时候习惯性的在第三个参数位置打上<code>re.I</code>，然后又因为<code>int(re.I)</code>为2，程序正常运行不报错，最大替换次数为2次。折磨了好长时间。</p>
 
                 

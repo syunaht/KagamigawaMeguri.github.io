@@ -13,9 +13,7 @@ file提示直接hack
 dict和gopher没提示
 可以读取文件
 
-读取/proc/self/environ
-
-读/app/a">
+读取&amp;#x2F;proc&amp;#x2F;self&amp;#x2F;e">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -51,7 +49,7 @@ dict和gopher没提示
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -526,12 +524,12 @@ dict和gopher没提示
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/Flask/">
@@ -573,7 +571,7 @@ dict和gopher没提示
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    189
+                    195
                 </div>
                 
 
@@ -599,25 +597,25 @@ dict和gopher没提示
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[flask|uuid.getnode|网卡|MAC|session]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821171753058.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821171753058.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>感觉像是SSRF</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821171813290.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821171813290.png"></p>
 <p>file提示直接hack</p>
 <p>dict和gopher没提示</p>
 <p>可以读取文件</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821180857549.png"></p>
-<p>读取/proc/self/environ</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821195311382.png"></p>
-<p>读/app/app.py</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821180857549.png"></p>
+<p>读取&#x2F;proc&#x2F;self&#x2F;environ</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821195311382.png"></p>
+<p>读&#x2F;app&#x2F;app.py</p>
 <p>看来需要构造session</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821200209222.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821200209222.png"></p>
 <p>构造session需要拿到key，而key是由随机生成的，那接下来的问题就是如何拿到随机种子。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821200938155.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821200938155.png"></p>
 <p>而<code>uuid.getnode()</code>获取的是网卡MAC地址的十进制数，需要读取<code>/sys/class/net/eth0/address</code></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821202127531.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4/image-20210821202127531.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">02:42:ac:10:b8:1e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>转换成十进制数，6*8=48bit</p>
+<p>转换成十进制数，6*8&#x3D;48bit</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> random
 
 mac <span class="token operator">=</span> <span class="token string">"02:42:ac:10:b9:08"</span>
@@ -696,12 +694,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/Flask/">
@@ -1055,12 +1053,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/XSS/">
@@ -1112,12 +1110,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">

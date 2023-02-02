@@ -51,7 +51,7 @@ class A &amp;#123;
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -526,12 +526,12 @@ class A &amp;#123;
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -577,7 +577,7 @@ class A &amp;#123;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -735,7 +735,8 @@ class A &amp;#123;
 <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">array_intersect_key</span><span class="token punctuation">(</span><span class="token variable">$a1</span><span class="token punctuation">,</span> <span class="token variable">$a2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment">//Array ( [a] => red [c] => 123 )</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment">//Array ( [a] => red [c] => 123 )</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p><code>array_flip</code> 反转键值对</p>
 <pre class="line-numbers language-none"><code class="language-none">$cachedProperties &#x3D; array_flip([
     &#39;path&#39;, &#39;dirname&#39;
@@ -746,13 +747,13 @@ var_dump($cachedProperties);
 </ul>
 <p>第一步，先找哪里能输出flag或执行代码的地方。</p>
 <p>很明显，在这里了。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817165436129.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817165436129.png"></p>
 <p>大致pop链如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">B::set() &lt;- A::save() &lt;- A::__destruct()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后得具体构造了</p>
 <p>先看这里：</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817171544413.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817171544413.png"></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$expire</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'abcd'</span><span class="token punctuation">;</span>
 <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'%012d'</span><span class="token punctuation">,</span> <span class="token variable">$expire</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token variable">$data</span><span class="token punctuation">;</span>
@@ -767,7 +768,7 @@ var_dump($cachedProperties);
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/qingwuyou/p/10687463.html">php sprintf函数漏洞</a></p>
 <p>看了一会，得，实际上这里并不是用这个格式化漏洞，而是直接绕过的。</p>
 <p>可以从<code>$filename</code>入手</p>
-<p><a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html">谈一谈php://filter的妙用</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html">谈一谈php:&#x2F;&#x2F;filter的妙用</a></p>
 <blockquote>
 <p>PHP在解码base64时，遇到不在其中的字符时，将会跳过这些字符，仅将合法字符组成一个新的字符串进行解码</p>
 </blockquote>
@@ -779,7 +780,7 @@ file_put_contents($filename, $data);<span aria-hidden="true" class="line-numbers
 
 <p>利用伪协议，在写入的时候进行base64解码，这样就把前面的<strong>死亡exit</strong>给解码掉了。</p>
 <p>然后发现字符不够，于是一个一个加，加到3个字符就成了。</p>
-<p>base64编码后的字符串字节数都是4的倍数，而表中字符只有[a-zA-z0-9+/]，其他字符是不在编码范围内的</p>
+<p>base64编码后的字符串字节数都是4的倍数，而表中字符只有[a-zA-z0-9+&#x2F;]，其他字符是不在编码范围内的</p>
 <p>写个代码测试下</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$s1</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'12'</span><span class="token punctuation">;</span>
@@ -798,7 +799,7 @@ file_put_contents($filename, $data);<span aria-hidden="true" class="line-numbers
 <pre class="line-numbers language-none"><code class="language-none">php&#x2F;&#x2F;123456789123exit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后这里的$contents就是放webshell的地方，这有两个选择，一是从<code>$cleaned</code>取，一是从<code>$complete</code>里取。明显从<code>$complete</code>里取要简单点，所以这里可以让<code>$cleaned</code>为空或空数组即可。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817221009582.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817221009582.png"></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'MTIzNDU='</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//$a = json_encode(['', 'MTIzNDU=']);</span>
@@ -806,7 +807,7 @@ file_put_contents($filename, $data);<span aria-hidden="true" class="line-numbers
 <span class="token keyword">echo</span> <span class="token string single-quoted-string">'&lt;br>'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token function">base64_decode</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817221607606.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-EIS-2019-EzPOP/image-20210817221607606.png"></p>
 <p>payload</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -921,12 +922,12 @@ file_put_contents($filename, $data);<span aria-hidden="true" class="line-numbers
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1284,12 +1285,12 @@ file_put_contents($filename, $data);<span aria-hidden="true" class="line-numbers
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1341,12 +1342,12 @@ file_put_contents($filename, $data);<span aria-hidden="true" class="line-numbers
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/thinkphp/">

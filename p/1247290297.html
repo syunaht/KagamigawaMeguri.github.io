@@ -48,7 +48,7 @@ Nmap抓包分析
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -566,7 +566,7 @@ Nmap抓包分析
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -601,7 +601,7 @@ Nmap抓包分析
 <p>这里主要是针对Nmap进行讨论，实战中当然哪个快用哪个。不过万变不离其宗，哪怕稍微了解下其原理都受益无穷。</p>
 <h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><p>这里的防火墙值得是Windows server自带的防火墙，主要绕过其两个防御规则：</p>
 <p>1.禁止ICMP回显</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011140259263.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011140259263.png"></p>
 <p>2.隐藏模式</p>
 <p>具体见<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd448557(v=ws.10)?redirectedfrom=MSDN">Stealth Mode in Windows Firewall with Advanced Security</a>，大意为：不会使用ICMP不可达响应UDP查询，不使用RST响应TCP查询。默认开启。</p>
 <p><a target="_blank" rel="noopener" href="https://shamsher-khan-404.medium.com/understanding-nmap-scan-with-wireshark-5144d68059f7">https://shamsher-khan-404.medium.com/understanding-nmap-scan-with-wireshark-5144d68059f7</a></p>
@@ -609,7 +609,7 @@ Nmap抓包分析
 <p><code>-sn</code>：禁用端口扫描</p>
 <p><code>-P*</code> 用于选择不同的PING方法，用于存活扫描</p>
 </blockquote>
-<h2 id="Nmap抓包分析"><a href="#Nmap抓包分析" class="headerlink" title="Nmap抓包分析"></a>Nmap抓包分析</h2><h3 id="拓扑图"><a href="#拓扑图" class="headerlink" title="拓扑图"></a>拓扑图</h3><p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011184244502.png"></p>
+<h2 id="Nmap抓包分析"><a href="#Nmap抓包分析" class="headerlink" title="Nmap抓包分析"></a>Nmap抓包分析</h2><h3 id="拓扑图"><a href="#拓扑图" class="headerlink" title="拓扑图"></a>拓扑图</h3><p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011184244502.png"></p>
 <p>关闭防火墙便于查看数据包</p>
 <h3 id="主机发现-Ping"><a href="#主机发现-Ping" class="headerlink" title="主机发现(Ping)"></a>主机发现(Ping)</h3><h4 id="PS-TCP-SYN"><a href="#PS-TCP-SYN" class="headerlink" title="-PS(TCP SYN)"></a><code>-PS</code>(TCP SYN)</h4><p>TCP SYN Ping：发送单个TCP SYN包到指定端口检测主机是否存活，默认80端口。该扫描就是经典的半开放扫描。</p>
 <p><strong>请求局域网主机135端口(开启)</strong></p>
@@ -619,61 +619,61 @@ Nmap抓包分析
 <blockquote>
 <p>注意nmap扫局域网存活主机都会预先进行arp扫描，在这里禁用了端口扫描，意味着nmap只会进行存活扫描，当nmap进行arp扫描后发现主机存活就不会进行后续操作，wireshark也就抓不到包，所以使用<code>--disable-arp-ping</code>禁用arp扫描。</p>
 </blockquote>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010170432-wjoz7le.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010171352-08vy8ig.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201315-qjbkh98.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010170432-wjoz7le.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010171352-08vy8ig.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201315-qjbkh98.png" alt="image"></p>
 <p><strong>请求局域网主机666端口(关闭)</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -sn -PS666 <span class="token number">172.16</span>.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010191559-lk4qj79.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010191548-is85l8r.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201228-iiggo07.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010191559-lk4qj79.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010191548-is85l8r.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201228-iiggo07.png" alt="image"></p>
 <p><strong>请求远程主机135端口(开启)：</strong></p>
 <p>还是这里会发现，和扫局域网比起来多了很多包，为什么和扫局域网情况不一样？</p>
 <p>还是fofa随便找个开启135端口的IP：</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211128-7hgz3hs.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211148-elaogvh.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211128-7hgz3hs.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211148-elaogvh.png" alt="image"></p>
 <p>这里会发现，和扫局域网比起来多了很多包。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211738-18wsn9z.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211738-18wsn9z.png" alt="image"></p>
 <p><strong>请求远程主机6666端口(关闭)：</strong></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211954-01fbcb8.png" alt="image"></p>
-<p>奇怪的是，明明远程主机返回了RST/ACK包，但nmap没有接收到。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211931-6y2jfte.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211954-01fbcb8.png" alt="image"></p>
+<p>奇怪的是，明明远程主机返回了RST&#x2F;ACK包，但nmap没有接收到。</p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010211931-6y2jfte.png" alt="image"></p>
 <p>为什么会有这样的差别？翻了翻nmap官方文档，其中有这样一句话：</p>
 <blockquote>
-<p><a href="">The RST packet is sent by the kernel of the machine running Nmap in response to the unexpected SYN/ACK, not by Nmap itself</a></p>
-<p>RST报文是运行Nmap的机器的内核为响应意外的SYN/ACK而发送的，而不是Nmap本身。</p>
+<p><a href="">The RST packet is sent by the kernel of the machine running Nmap in response to the unexpected SYN&#x2F;ACK, not by Nmap itself</a></p>
+<p>RST报文是运行Nmap的机器的内核为响应意外的SYN&#x2F;ACK而发送的，而不是Nmap本身。</p>
 </blockquote>
 <p>突然想到，我的kali是放在vmware，以nat形式接入网络，这样偶尔会出现点小问题。</p>
 <p>于是我在windows上装了个nmap再进行测试：</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010220008-noefwtx.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010220008-noefwtx.png" alt="image"></p>
 <p>再看下抓包</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010220058-27fg43m.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010234108-r0d2w0n.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010220058-27fg43m.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010234108-r0d2w0n.png" alt="image"></p>
 <p>发现这里没发RST包</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010234122-v7cc7mg.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010234122-v7cc7mg.png" alt="image"></p>
 <p>关掉防火墙再试，还一下发俩RST……</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010234619-kqzdun1.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010234619-kqzdun1.png" alt="image"></p>
 <p>接下来将vmware网络模式换为桥接，发现正常了。说明是NAT网络的问题。</p>
 <h4 id="PA-TCP-ACK"><a href="#PA-TCP-ACK" class="headerlink" title="-PA(TCP ACK)"></a><code>-PA</code>(TCP ACK)</h4><p>TCP ACK Ping：发送单个TCP ACK包到指定端口检测主机是否存活，默认80端口</p>
 <p><strong>请求局域网主机135端口(开启)</strong></p>
 <p>一般ACK包是双方建立起连接发送的，但实际上不存在连接，无论端口是否开启，远程主机都会用RST包来回应，以此来判断主机存活。当然很多防御策略都会丢弃无效包防止被检测。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -sn -PA135 <span class="token number">172.16</span>.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201749-2x7ta2e.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201804-bdsuzs5.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201548-trru4er.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201749-2x7ta2e.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201804-bdsuzs5.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201548-trru4er.png" alt="image"></p>
 <p><strong>请求局域网主机666端口(关闭)</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -sn -PA666 <span class="token number">172.16</span>.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201855-gf1pl5n.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201846-wopvybu.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201855-gf1pl5n.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010201846-wopvybu.png" alt="image"></p>
 <h4 id="PU-UDP"><a href="#PU-UDP" class="headerlink" title="-PU(UDP)"></a><code>-PU</code>(UDP)</h4><p>UDP Ping：发送UDP包到指定端口检测主机是否存活，默认40125端口。特定端口会发送特定的UDP包以便于获取更好的响应。</p>
 <p>按照最新官方文档解释，该包发送大概有以下几种情况：</p>
 <blockquote>
 <ol>
 <li>端口关闭-&gt;返回ICMP端口不可达包-&gt;判断主机存活。</li>
-<li>返回其他ICMP错误，如主机/网络不可达或TTL超标等-&gt;判断停机。</li>
+<li>返回其他ICMP错误，如主机&#x2F;网络不可达或TTL超标等-&gt;判断停机。</li>
 <li>端口开启且该服务不响应—&gt;nmap未接收到返回包-&gt;判断停机。</li>
 <li>端口关闭且协议不匹配-&gt;返回ICMP端口不可达包-&gt;判断主机存活。</li>
 </ol>
@@ -682,62 +682,62 @@ Nmap抓包分析
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -sn -PA135 <span class="token number">172.16</span>.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>返回ICMP端口不可达，仍旧判断出主机存活。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010210024-xxhoern.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010205948-ybtcrif.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010210024-xxhoern.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010205948-ybtcrif.png" alt="image"></p>
 <p>局域网没什么问题，扫外网的话同样有前文说的Vmware Nat网络问题，注意一下就好。</p>
 <h4 id="PY-SCTP-INIT"><a href="#PY-SCTP-INIT" class="headerlink" title="-PY(SCTP INIT)"></a><code>-PY</code>(SCTP INIT)</h4><p>SCTP INIT Ping：发送包含最小INIT块的SCTP包到指定端口检测主机是否存活，默认80端口。SCTP可看做TCP协议的改版。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -sn -PY135 <span class="token number">172.16</span>.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>返回协议不可达，以此判断出主机存活。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010203147-l6u94dp.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010203116-dnn4ap2.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010203147-l6u94dp.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010203116-dnn4ap2.png" alt="image"></p>
 <h4 id="PR-ARP"><a href="#PR-ARP" class="headerlink" title="-PR(ARP)"></a><code>-PR</code>(ARP)</h4><p>ARP Ping：ARP扫描，Nmap扫内网最常用的方式。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -sn -PR <span class="token number">172.16</span>.1.128 -vvv -n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>接收到arp返回包，判断主机存活。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010204732-3gbevtk.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010204653-6tahbor.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010204732-3gbevtk.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010204653-6tahbor.png" alt="image"></p>
 <h4 id="PE-PP-PM-ICMP"><a href="#PE-PP-PM-ICMP" class="headerlink" title="-PE/PP/PM(ICMP)"></a><code>-PE/PP/PM</code>(ICMP)</h4><p>ICMP Ping：三种ICMP标准请求，如果防火墙关掉ICMP回显则收不到reply。</p>
 <p>第一个就是常说的Ping。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011002639-srwv0yv.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011002639-srwv0yv.png" alt="image"></p>
 <p>第二个是时间戳请求</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011002609-fwmiv57.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011002609-fwmiv57.png" alt="image"></p>
 <p>第三个是地址掩码请求</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011002729-69s1a50.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011002729-69s1a50.png" alt="image"></p>
 <p>ICMP标准还有个信息请求，但目前未被广泛支持，所以Nmap没有做相关功能。</p>
 <h4 id="PO-IP-Protocol"><a href="#PO-IP-Protocol" class="headerlink" title="-PO(IP Protocol)"></a><code>-PO</code>(IP Protocol)</h4><p>IP Protocol Ping：默认发送ICMP(协议1)、IGMP(协议2)和IP-in-IP(协议4)，更改协议需要改nmap.h文件中的<code>DEFAULT_PROTO_PROBE_PORT_SPEC</code>。目前意义不大。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -sn -PO -vv <span class="token number">172.16</span>.1.128 -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011001846-t639b5l.png" alt="image"><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011001909-hj8woco.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011001846-t639b5l.png" alt="image"><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011001909-hj8woco.png" alt="image"></p>
 <h3 id="端口扫描-Scan"><a href="#端口扫描-Scan" class="headerlink" title="端口扫描(Scan)"></a>端口扫描(Scan)</h3><p>其实端口扫描(Scan)很多参数和主机发现(Ping)的前期抓包情况是一样的。Ping相当于点到为止，根据回显发现主机存活即可，而Scan还需要进一步分析，判断端口是否开启、判断什么服务等。</p>
 <p>由于大部分Scan参数与Ping参数请求包一致，而部分Scan参数在本文中并未体现，所以暂且贴出三个参数抓包情况。</p>
 <h4 id="sS-TCP-SYN"><a href="#sS-TCP-SYN" class="headerlink" title="-sS(TCP SYN)"></a><code>-sS</code>(TCP SYN)</h4><p>TCP SYN scan：经典的半开放扫描。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -Pn -sS -p <span class="token number">135</span> -vvv <span class="token number">172.16</span>.1.128 -n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011003408-md8z99v.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011003408-md8z99v.png" alt="image"></p>
 <p>可见发送的请求包和<code>-PS</code>是一样的，至于Nmap如何判断如何分析，这里就不关心了。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011003358-16vkgpl.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011003358-16vkgpl.png" alt="image"></p>
 <h4 id="sT-TCP-connect"><a href="#sT-TCP-connect" class="headerlink" title="-sT(TCP connect)"></a><code>-sT</code>(TCP connect)</h4><p>TCP connect scan：TCP连接扫描，三次握手确认目标后直接发送RST结束当前连接，跳过四次挥手阶段。</p>
 <p><strong>端口开启</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -Pn -sT -p <span class="token number">135</span> <span class="token number">172.16</span>.1.128 -vvv -n --disable-arp-ping
 <span class="token comment"># -Pn 不进行主机存活探测</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010202201-yocp3ht.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010202222-otm2qg8.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011143337-r1gq2gi.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010202201-yocp3ht.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010202222-otm2qg8.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011143337-r1gq2gi.png" alt="image"></p>
 <p><strong>端口关闭</strong></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010202328-u2bfu22.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010202315-f5phxzm.png" alt="image"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010205213-h48p307.png" alt="image"></p>
-<p>可以发现，<code>-sT</code>和<code>-PS</code>两个扫描的抓包情况十分接近，只有收到SYN/ACK返回包后应答的不同，这也是<code>-PS</code>被称为半开放扫描的原理。</p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010202328-u2bfu22.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010202315-f5phxzm.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221010205213-h48p307.png" alt="image"></p>
+<p>可以发现，<code>-sT</code>和<code>-PS</code>两个扫描的抓包情况十分接近，只有收到SYN&#x2F;ACK返回包后应答的不同，这也是<code>-PS</code>被称为半开放扫描的原理。</p>
 <h4 id="sU-UDP"><a href="#sU-UDP" class="headerlink" title="-sU(UDP)"></a><code>-sU</code>(UDP)</h4><p>UDP scans：发送UDP包进行扫描</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmap -Pn -sU -p <span class="token number">135</span> <span class="token number">172.16</span>.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这里显示<code>open|filtered</code>，为什么呢？</p>
 <p>因为UDP包请求到开放的端口，经常没有回显。而且这里使用<code>-Pn</code>跳过了主机存活探测，默认主机存活，又因为收不到回显，所以nmap无法判断该端口是开启还是被防御规则过滤。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011150443-6lcfqrx.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011150443-6lcfqrx.png" alt="image"></p>
 <p>抓包情况和<code>-PU</code>基本一致：</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011150502-xwqs4qh.png" alt="image"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011150502-xwqs4qh.png" alt="image"></p>
 <h2 id="Vmware-Nat模式"><a href="#Vmware-Nat模式" class="headerlink" title="Vmware Nat模式"></a>Vmware Nat模式</h2><p>nmap默认发送以下四个请求做存活探测，</p>
 <blockquote>
 <p>ICMP echo request </p>
@@ -748,49 +748,49 @@ Nmap抓包分析
 <p>80端口SYN扫描下，NAT模式会返回一个RST包且窗口不为0导致判断存活。</p>
 <p>当只是用ICMP echo请求探测是，添加-PE，这样nmap只发送ICMP echo请求探测。</p>
 <blockquote>
-<p>nmap -sn -PE -n 192.168.0.0/24</p>
+<p>nmap -sn -PE -n 192.168.0.0&#x2F;24</p>
 </blockquote>
 <p>且nat模式返回的数据包TTL永远为128，即对方操作系统为Linux。</p>
 <p>同时vmware的NAT驱动也吃不住扫描器的大并发量。扫描的时会发现vmware网络进程cpu超高，实体机ping虚拟机高延迟高丢包。最终导致你的扫描结果不准</p>
-<h2 id="绕防火墙测试"><a href="#绕防火墙测试" class="headerlink" title="绕防火墙测试"></a>绕防火墙测试</h2><h3 id="拓扑图-1"><a href="#拓扑图-1" class="headerlink" title="拓扑图"></a>拓扑图</h3><p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011141250378.png"></p>
+<h2 id="绕防火墙测试"><a href="#绕防火墙测试" class="headerlink" title="绕防火墙测试"></a>绕防火墙测试</h2><h3 id="拓扑图-1"><a href="#拓扑图-1" class="headerlink" title="拓扑图"></a>拓扑图</h3><p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011141250378.png"></p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><pre class="line-numbers language-none"><code class="language-none">nmap -sn -PS135 172.16.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>未收到[SYN, ACK]返回包，判断主机离线。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011151748991.png"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011151716644.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011151748991.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011151716644.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">nmap -sn -PA135 172.16.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>未收到[RST, ACK]返回包，判断主机离线。</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152459432.png"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152450019.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152459432.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152450019.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">nmap -sn -PU135 172.16.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152752776.png"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152740281.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152752776.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152740281.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">nmap -sn -PY135 172.16.1.128 -vvv -n --disable-arp-ping<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152845662.png"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152823315.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152845662.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152823315.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">nmap -sn -PR 172.16.1.128 -vvv -n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>成功收到ARP回显，判断主机存活：</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152959126.png"></p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011153027260.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011152959126.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011153027260.png"></p>
 <p>这样一圈测试下来，发现只有ARP扫描可以。原因也很简单，ARP扫描不会走靶机防火墙，而是以广播的形式进行扫描；而其他参数不是被禁ICMP回显规则拦截就是被隐身模式过滤。</p>
 <p>后面又尝试了常用的nbt扫描、smb扫描、以及Nmap其他参数，仍然绕不过防火墙。</p>
 <h3 id="WINRM"><a href="#WINRM" class="headerlink" title="WINRM"></a>WINRM</h3><p>难道就止步于此了吗？突然想到，之前用Ladon插件扫的时候，没见什么防火墙拦截。</p>
 <p>于是拿Ladon测试了下，选多协议探测存活主机，一扫，果真有：</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011181931266.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011181931266.png"></p>
 <p>WIMRM，很熟悉，这也能拿来扫内网？</p>
-<p>简单概述下：WIMRM是windows自带的服务，开启服务后防火墙默认放心5985(HTTP)/5986(HTTPS)端口，平常拿来横向移动。</p>
+<p>简单概述下：WIMRM是windows自带的服务，开启服务后防火墙默认放心5985(HTTP)&#x2F;5986(HTTPS)端口，平常拿来横向移动。</p>
 <p>由于没搜到Ladon源码怎么实现该扫描，谷歌找了找WINRM的文章：<a target="_blank" rel="noopener" href="https://www.hackingarticles.in/winrm-penetration-testing/">WinRM Penetration Testing</a></p>
 <p>其中有一行代码：</p>
 <pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">test-wsman</span> <span class="token operator">-</span>computername <span class="token string">"172.16.1.128"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>很快就有回显：</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011181234370.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011181234370.png"></p>
 <p>随便输了个其他IP，报错：</p>
-<p><img src="./../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011181222487.png"></p>
+<p><img src="../images/Nmap%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%95%E8%BF%87Windows%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%AB%E5%86%85%E7%BD%91%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA/image-20221011181222487.png"></p>
 <p>显然，使用该服务也可以绕过Windows防火墙进行存活主机扫描。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>总结一下：</p>
 <ol>

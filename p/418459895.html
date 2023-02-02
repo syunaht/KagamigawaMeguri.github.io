@@ -5,13 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Django学习笔记, 远离尘世的幻想乡">
-    <meta name="description" content="Models新增/更改Models表后需要生成建库脚本
+    <meta name="description" content="Models新增&amp;#x2F;更改Models表后需要生成建库脚本
 #生成脚本
 python manage.py makemigrations index
 #写入库
 python manage.py migrate
 
-管理员python manage.">
+管理员python ma">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -47,7 +47,7 @@ python manage.py migrate
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -565,7 +565,7 @@ python manage.py migrate
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    241
+                    223
                 </div>
                 
 
@@ -590,7 +590,7 @@ python manage.py migrate
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h2><p>新增/更改Models表后需要生成建库脚本</p>
+                <h2 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h2><p>新增&#x2F;更改Models表后需要生成建库脚本</p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">#生成脚本
 python manage.py makemigrations index
 #写入库
@@ -603,12 +603,12 @@ python manage.py migrate<span aria-hidden="true" class="line-numbers-rows"><span
 
 admin.site.register(Data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174009236.png"></p>
+<p><img src="../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174009236.png"></p>
 <p>这数据库名，我明明没加s，他自动给加了个s。怪</p>
-<p><img src="./../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174224004.png"></p>
-<p><img src="./../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174257947.png"></p>
+<p><img src="../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174224004.png"></p>
+<p><img src="../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211004174257947.png"></p>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>1.安装库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install django gunicorn gevent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> django gunicorn gevent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>2.在<code>nginx.conf</code>的<code>http&#123;&#125;</code>里添加</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">http</span></span><span class="token punctuation">&#123;</span>
@@ -621,25 +621,25 @@ admin.site.register(Data)<span aria-hidden="true" class="line-numbers-rows"><spa
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171832820.png"></p>
+<p><img src="../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171832820.png"></p>
 <p>3.在网站配置里添加</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">&#123;</span>
   <span class="token directive"><span class="token keyword">proxy_pass</span> http://app_server</span><span class="token punctuation">;</span>
   <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171932377.png"></p>
+<p><img src="../images/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211106171932377.png"></p>
 <h2 id="一键运行"><a href="#一键运行" class="headerlink" title="一键运行"></a>一键运行</h2><p>编辑<code>./run.sh</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!&#x2F;bin&#x2F;bash
-DIR&#x3D;&quot;$(cd &quot;$(dirname &quot;$0&quot;)&quot; &amp;&amp; pwd)&quot;
-echo $DIR
-cd $DIR
-PROC_NAME&#x3D;gunicorn
-ProcNumber&#x3D;$(ps -ef | grep -w $PROC_NAME | grep -v grep | wc -l)
-if [ $ProcNumber -ge 0 ]; then
-  kill $(ps -ef | grep &#39;gunicorn&#39; | grep -v grep | awk &#39;&#123;print $2&#125;&#39;)
-fi
-nohup gunicorn --config&#x3D;gunicorn.py djangoProject.wsgi &amp;&gt;&#x2F;dev&#x2F;null &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">DIR</span><span class="token operator">=</span><span class="token string">"$(cd "<span class="token variable"><span class="token variable">$(</span><span class="token function">dirname</span> <span class="token string">"<span class="token variable">$0</span>"</span><span class="token variable">)</span></span>"</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">pwd</span><span class="token punctuation">)</span>"
+<span class="token builtin class-name">echo</span> <span class="token variable">$DIR</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">$DIR</span>
+<span class="token assign-left variable">PROC_NAME</span><span class="token operator">=</span>gunicorn
+<span class="token assign-left variable">ProcNumber</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> -w $PROC_NAME <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">wc</span> -l<span class="token variable">)</span></span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$ProcNumber</span> -ge <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token function">kill</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'gunicorn'</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span><span class="token variable">)</span></span>
+<span class="token keyword">fi</span>
+<span class="token function">nohup</span> gunicorn --config<span class="token operator">=</span>gunicorn.py djangoProject.wsgi <span class="token operator">&amp;></span>/dev/null <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1117,12 +1117,12 @@ nohup gunicorn --config&#x3D;gunicorn.py djangoProject.wsgi &amp;&gt;&#x2F;dev&#
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

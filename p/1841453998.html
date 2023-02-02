@@ -47,7 +47,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -522,12 +522,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/SSTI/">
@@ -599,13 +599,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[ruby erb|ssti|jwt]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810153449038.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810153449038.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>点work会加钱，所以可以007不停工作这样几百年后就能买房了。</p>
 <p>这题很容易想到有关cookie。</p>
-<p>抓个包再随便点一点<img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810154500243.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810154529026.png"></p>
+<p>抓个包再随便点一点<img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810154500243.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810154529026.png"></p>
 <p>网页上已经77了，burp里还是74，可见金额不是存session，而是存在本地cookie。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810154700928.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810154700928.png"></p>
 <p>那只要解开cookie就行了。</p>
 <p>因为是jwt加密，用jwtcrack试试。</p>
 <p>没跑出来，还是得先找到key，得先看看其他地方。</p>
@@ -699,7 +699,7 @@ post <span class="token string">"/shop"</span> <span class="token keyword">do</s
 <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Ruby-ERB模板注入"><a href="#Ruby-ERB模板注入" class="headerlink" title="Ruby ERB模板注入"></a>Ruby ERB模板注入</h3><p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/86867">【技术分享】手把手教你如何完成Ruby ERB模板注入</a></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810161958684.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810161958684.png"></p>
 <p>重点在这里，如果传入的参数do和name相等，则输出。</p>
 <p>erb的模板注入形式如下</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;%&#x3D; 7 * 7 %&gt;
@@ -715,12 +715,12 @@ post <span class="token string">"/shop"</span> <span class="token keyword">do</s
 <p>内层的正则限制了SECRET为数字+小写字母，重点是前面的正则，<code>#&#123;&#125;</code>类似于php里的取变量，不用管。</p>
 <p>因为SECERT是空，所以把完成的SECERT给输出出来了。</p>
 <p>如图：</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810195657304.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810195657304.png"></p>
 <p>在这发现ruby的match挺怪的，可以pattern.mathch(string),也可以string.mathch(pattern)</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810185758372.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810193801522.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810193824137.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810195735718.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810185758372.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810193801522.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810193824137.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810195735718.png"></p>
 <p><code>unless params[:SECRET].nil?</code>意思是设置了SECRET参数才执行代码块，所以要设个SECRET</p>
 <pre class="line-numbers language-none"><code class="language-none">work?SECRET&#x3D;&amp;name&#x3D;&lt;%&#x3D;$&#39;%&gt;&amp;do&#x3D;&lt;%&#x3D;$&#39;%&gt; is working
 &#x2F;&#x2F;urlencode
@@ -742,11 +742,11 @@ X-Xss-Protection: 1; mode&#x3D;block
 
 <p>上<a target="_blank" rel="noopener" href="https://jwt.io/%E8%BF%9B%E8%A1%8C%E5%A4%84%E7%90%86%E3%80%82">https://jwt.io/进行处理。</a></p>
 <p>然后把key放进去，修改金额，拿到jwt token。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810171616528.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810171616528.png"></p>
 <p>然后再打进去，返回成功，但是没看到flag</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810171408733.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810171408733.png"></p>
 <p>竟然藏在jwt里，还得再解码下。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810171329820.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SCTF2019-Flag-Shop/image-20210810171329820.png"></p>
 <h4 id="爆破"><a href="#爆破" class="headerlink" title="爆破"></a>爆破</h4><p>构造</p>
 <pre class="line-numbers language-none"><code class="language-none">name&#x3D;&lt;%&#x3D;$~%&gt;
 do&#x3D;&lt;%&#x3D;$~%&gt; is working<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -853,12 +853,12 @@ flag <span class="token operator">=</span> <span class="token string">""</span>
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/SSTI/">
@@ -1216,12 +1216,12 @@ flag <span class="token operator">=</span> <span class="token string">""</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1273,12 +1273,12 @@ flag <span class="token operator">=</span> <span class="token string">""</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

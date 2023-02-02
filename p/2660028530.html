@@ -48,7 +48,7 @@ class a
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -523,12 +523,12 @@ class a
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -574,7 +574,7 @@ class a
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    848
+                    851
                 </div>
                 
 
@@ -721,24 +721,24 @@ class a
 
 <p>第二个稍微复杂了点，用xdebug调试下</p>
 <p>在这下个断点</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027193043669.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027193043669.png"></p>
 <p>步入看看，实例化了一个类a，下同。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027193109632.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027193109632.png"></p>
 <p>于是，<code>call</code>和<code>value</code>结果为数组，且数组的第一个元素是一个对象</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027193232821.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027193601517.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027193232821.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027193601517.png"></p>
 <p>然后来看看<code>($this-&gt;call)($this-&gt;value)</code>是怎么执行的。</p>
 <p>下个断点，步入</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027194316856.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027194316856.png"></p>
 <p>跳转到这</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027194335263.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027195851377.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027194335263.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027195851377.png"></p>
 <p>整理下思路，<code>($this-&gt;call)($this-&gt;value)；</code></p>
-<p>先看一半，<code>($this-&gt;call)()</code>=<code>[类a(system)，&#39;eval&#39;]()</code> ，按第一个demo的思想，就是找到类a并执行其eval函数，而后面的<code>$this-&gt;value</code>是作为参数传进去的。原式=<code>[类a(system)，&#39;eval&#39;]([类a(echo 123)，&#39;eval&#39;])</code> ①</p>
+<p>先看一半，<code>($this-&gt;call)()</code>&#x3D;<code>[类a(system)，&#39;eval&#39;]()</code> ，按第一个demo的思想，就是找到类a并执行其eval函数，而后面的<code>$this-&gt;value</code>是作为参数传进去的。原式&#x3D;<code>[类a(system)，&#39;eval&#39;]([类a(echo 123)，&#39;eval&#39;])</code> ①</p>
 <p>这样就开始执行<code>eval([类a，&#39;eval&#39;])</code>函数。</p>
-<p>此时在<code>eval()</code>函数中<code>$call($this-&gt;value)</code>=<code>([类a(echo 123),&#39;eval&#39;])(system)</code> ②。</p>
+<p>此时在<code>eval()</code>函数中<code>$call($this-&gt;value)</code>&#x3D;<code>([类a(echo 123),&#39;eval&#39;])(system)</code> ②。</p>
 <p>然后会发现，①和②，十分相似！于是它又套娃了一遍，又一次执行<code>eval([类a，&#39;eval&#39;])</code>函数，函数变为<code>system(&#39;echo 123&#39;)</code></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027234813468.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211027234813468.png"></p>
 <p>这样，就达到了任意命令执行的目的了。</p>
 <p>回到题目，顺着上面的思路，exp如下：</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
@@ -790,7 +790,7 @@ class a
 <span class="token variable">$a</span><span class="token operator">-></span><span class="token property">test</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token function">base64_encode</span><span class="token punctuation">(</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211028000105328.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20211028000105328.png"></p>
 <p>因为也不需要字符串逃逸啥的修改序列化后的代码，所以直接urlencode方便点，省的手改了。</p>
 <p>看了一下题目php版本是7.4.24&gt;7.1，也可以直接改为public。</p>
 
@@ -857,12 +857,12 @@ class a
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1186,13 +1186,13 @@ class a
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="./p/3538007516.html">
+                <a href="./p/1625935779.html">
                     <div class="card-image">
                         
                         
-                        <img src="./medias/featureimages/80.jpg" class="responsive-img" alt="刷题笔记:[极客大挑战2021]验证码">
+                        <img src="./medias/featureimages/69.jpg" class="responsive-img" alt="赛题笔记:2021浙江省决赛">
                         
-                        <span class="card-title">刷题笔记:[极客大挑战2021]验证码</span>
+                        <span class="card-title">赛题笔记:2021浙江省决赛</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1203,7 +1203,7 @@ class a
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-30
                         </span>
                         <span class="publish-author">
                             
@@ -1224,8 +1224,8 @@ class a
                         <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="./tags/Web/">
-                        <span class="chip bg-color">Web</span>
+                    <a href="./tags/%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">比赛</span>
                     </a>
                     
                 </div>
@@ -1239,13 +1239,13 @@ class a
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="./p/1992334403.html">
+                <a href="./p/3538007516.html">
                     <div class="card-image">
                         
                         
-                        <img src="./medias/featureimages/67.jpg" class="responsive-img" alt="刷题笔记:[2021江西省赛]ez rsa">
+                        <img src="./medias/featureimages/80.jpg" class="responsive-img" alt="刷题笔记:[极客大挑战2021]验证码">
                         
-                        <span class="card-title">刷题笔记:[2021江西省赛]ez rsa</span>
+                        <span class="card-title">刷题笔记:[极客大挑战2021]验证码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1256,14 +1256,14 @@ class a
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="./categories/Crypto/" class="post-category">
-                                    Crypto
+                            <a href="./categories/Web/" class="post-category">
+                                    Web
                                 </a>
                             
                             
@@ -1273,16 +1273,12 @@ class a
                 
                 <div class="card-action article-tags">
                     
+                    <a href="./tags/Web/">
+                        <span class="chip bg-color">Web</span>
+                    </a>
+                    
                     <a href="./tags/CTF/">
                         <span class="chip bg-color">CTF</span>
-                    </a>
-                    
-                    <a href="./tags/Crypto/">
-                        <span class="chip bg-color">Crypto</span>
-                    </a>
-                    
-                    <a href="./tags/RSA/">
-                        <span class="chip bg-color">RSA</span>
                     </a>
                     
                 </div>

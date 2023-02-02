@@ -12,12 +12,9 @@
 
 然后跳入sub_401000,并没有重新赋值ecx，
 
-所以*v1=var_804
+所以*v1&amp;#x3D;var_804
 
-ascii 32位之前是不可视字符，所以有种情况是字符显示不出来，但实际有字符
-
-
-d">
+ascii 32位之前是不可视字符，所以有种情况是字符显示不出来，但实际有字">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -53,7 +50,7 @@ d">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -571,7 +568,7 @@ d">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    416
+                    420
                 </div>
                 
 
@@ -597,21 +594,21 @@ d">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前做的题，这题似乎有点小迷惑？</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222821370.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222824857.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222821370.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222824857.png"></p>
 <p>这里把v4给ecx</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222832228.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222832228.png"></p>
 <p>然后跳入sub_401000,并没有重新赋值ecx，</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222839870.png"></p>
-<p>所以*v1=var_804</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222847473.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222839870.png"></p>
+<p>所以*v1&#x3D;var_804</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222847473.png"></p>
 <p>ascii 32位之前是不可视字符，所以有种情况是字符显示不出来，但实际有字符</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222858174.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222901627.png"></p>
-<p>dword=双字=四字节，正好等于一个地址0xAABBCCDD</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222908652.png"></p>
-<p>esp+8+arg_0=0019F700,<br>[0019F700]相当于取值，取这个地址里面的数据，而数据正好是0019FB2C,就是输入的字符串的地址</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222921201.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222858174.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222901627.png"></p>
+<p>dword&#x3D;双字&#x3D;四字节，正好等于一个地址0xAABBCCDD</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222908652.png"></p>
+<p>esp+8+arg_0&#x3D;0019F700,<br>[0019F700]相当于取值，取这个地址里面的数据，而数据正好是0019FB2C,就是输入的字符串的地址</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-DDCTF-2019-Windows-Reverse1/image-20210719222921201.png"></p>
 <p>贴两个脚本</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">126</span><span class="token punctuation">,</span> <span class="token number">125</span><span class="token punctuation">,</span> <span class="token number">124</span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">122</span><span class="token punctuation">,</span> <span class="token number">121</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token number">119</span><span class="token punctuation">,</span> <span class="token number">118</span><span class="token punctuation">,</span> <span class="token number">117</span><span class="token punctuation">,</span>
     <span class="token number">116</span><span class="token punctuation">,</span> <span class="token number">115</span><span class="token punctuation">,</span> <span class="token number">114</span><span class="token punctuation">,</span> <span class="token number">113</span><span class="token punctuation">,</span> <span class="token number">112</span><span class="token punctuation">,</span> <span class="token number">111</span><span class="token punctuation">,</span> <span class="token number">110</span><span class="token punctuation">,</span> <span class="token number">109</span><span class="token punctuation">,</span> <span class="token number">108</span><span class="token punctuation">,</span> <span class="token number">107</span><span class="token punctuation">,</span>

@@ -41,7 +41,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -585,7 +585,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><img src="https://i.loli.net/2019/12/01/HtCcs9mBKgxGNXO.png"><br>使用 Install-Module posh-git 时报错，提示找不到与参数名称Scope匹配的参数。<br>谷歌一个多小时，发现没有相关解。怀疑人生<br>仔细一看代码才发现，提示psgetXXXXXX<br>想想应该是之前不规范配置powershell遗留下来的东西<br>管理员运行powershell 输入</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token variable">$profile</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable">$profile</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>清空 ~\WindowsPowerShell 文档下的 Microsoft.PowerShell_profile 配置文件。<br>删除 ~\WindowsPowerShell\Modules 文档下的 psget和posh-git (反正就是清理干净)<br>重新Install-Module posh-git<br>成功，结束。<br>附两篇美化指南：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51901035">https://zhuanlan.zhihu.com/p/51901035</a><br><a target="_blank" rel="noopener" href="https://nexmoe.com/1519803391.html">https://nexmoe.com/1519803391.html</a></p>
 

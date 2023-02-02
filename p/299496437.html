@@ -47,7 +47,7 @@ app = F">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -680,7 +680,7 @@ o.
 <span class="token comment">#OUTPUT: KGNidWlsdGlucwpleGVjClMnYz0iZ2xvYmFsIGFkbWluO2FkbWluLnMiKyJlY3JldD0nMSciO2V4ZWMoYyknCm8uCg==</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>访问<code>/balancer</code>，将POC结果输入到cookie里的userdata字段，刷新，这里会爆500，本地复现可以发现有报错，但不影响，反序列化还是成功了。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2022%E5%BC%BA%E7%BD%91%E6%9D%AF-%E5%88%9D%E8%B5%9B/image-20220731155103266.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-2022%E5%BC%BA%E7%BD%91%E6%9D%AF-%E5%88%9D%E8%B5%9B/image-20220731155103266.png"></p>
 <p>然后访问<code>/login?username=admin&amp;password=1</code>，更新了session和userdata，再访问<code>/balancer</code></p>
 <p>最后访问到负载均衡，这里随便打点IP点个数字，点一下出flag，结束。</p>
 

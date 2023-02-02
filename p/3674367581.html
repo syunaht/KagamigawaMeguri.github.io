@@ -44,7 +44,7 @@ What yo">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -562,7 +562,7 @@ What yo">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    678
+                    681
                 </div>
                 
 
@@ -602,7 +602,7 @@ What yo">
 </ul>
 </blockquote>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><strong>1.http报文的结构是什么？（1分）</strong></p>
-<p><img src="./../images/hacker101-THE-WEB-IN-DEPTH/22901708-0141fed962448a31.png"></p>
+<p><img src="../images/hacker101-THE-WEB-IN-DEPTH/22901708-0141fed962448a31.png"></p>
 <p><strong>2.什么是crlf？在http报文的哪个位置。（1分）</strong></p>
 <p>回车换行，每行末位</p>
 <p><strong>3.解释下这几个头的含义（5分）</strong></p>
@@ -616,19 +616,19 @@ What yo">
 <p>Secure:限制只有通过https访问时才能传递cookie</p>
 <p>httponly:阻止JavaScript读取cookie，可防xss攻击</p>
 <p><strong>5.简述本视频提到的xss绕过web防火墙的方案（5分）</strong></p>
-<p>用UTF-7/UTF-32编码payload</p>
+<p>用UTF-7&#x2F;UTF-32编码payload</p>
 <p><strong>6.内容嗅探是什么？主要有哪些类型？请分别举例，主要用途是什么？在什么情况下可以利用这些漏洞？。为什么facebook等网站需要使用不同的域名来存储图片？（5分）</strong></p>
 <p>通过解析文件的内容，来猜测MIME类型的格式。有浏览器嗅探和客户端嗅探。客户端嗅探可用来判断浏览器为什么浏览器。</p>
 <p>有些MIME类型是可执行类型，可以通过混淆MIME嗅探算法来执行XSS。</p>
 <p>防止内容嗅探。</p>
 <p><strong>7.同源策略是什么？限制是什么？浏览器在遇到哪两种情况的时候会用到同源策略？如何放松SOP限制？放松SOP限制会对浏览器插件安全造成怎样的破坏？</strong></p>
 <p>协议域名端口三者相同。</p>
-<p>通过XHR连接域名和跨独立的框架/窗口进行访问。</p>
+<p>通过XHR连接域名和跨独立的框架&#x2F;窗口进行访问。</p>
 <p>容易造成XSS,CSRF攻击。</p>
 <p><strong>8.csrf是什么？如何设计规避csrf？视频中提到的错误的csrf配置方法是什么？</strong></p>
 <p>跨站请求伪造。</p>
 <p>验证token，验证HTTP请求的Referer，还有验证XHR里的自定义header。</p>
-<p>没有对请求来源进行验证/过滤。</p>
+<p>没有对请求来源进行验证&#x2F;过滤。</p>
 <p><strong>附加题：5、6两点主要利用的是由于服务端和客户端对同一信息的处理方式不同造成的漏洞，你还能举出相似的例子么？（1分）</strong></p>
 <p>SSTI</p>
 

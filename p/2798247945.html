@@ -7,7 +7,7 @@
     <meta name="keywords" content="刷题笔记:[SWPU2019]Web4, 远离尘世的幻想乡">
     <meta name="description" content="前言关键字:[PDO|PDOSQL注入]
 
-题解/static/js/login.js
+题解&amp;#x2F;static&amp;#x2F;js&amp;#x2F;login.js
 
 怪，随手一试就登录成功了
 
@@ -15,9 +15,7 @@
 
 再加上分号又正常，所以可以尝试堆叠注入.
 
-PDO注入类似ORM框架吧。
-
-PHP数据对象（PDO">
+PDO注入类似ORM框架">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -53,7 +51,7 @@ PHP数据对象（PDO">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -528,12 +526,12 @@ PHP数据对象（PDO">
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -575,7 +573,7 @@ PHP数据对象（PDO">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    762
+                    769
                 </div>
                 
 
@@ -601,21 +599,21 @@ PHP数据对象（PDO">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[PDO|PDOSQL注入]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818131748854.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>/static/js/login.js</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818131912162.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818131748854.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>&#x2F;static&#x2F;js&#x2F;login.js</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818131912162.png"></p>
 <p>怪，随手一试就登录成功了</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818141958030.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818141958030.png"></p>
 <p>单引号，报语法错误，</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818161946674.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818161946674.png"></p>
 <p>再加上分号又正常，所以可以尝试堆叠注入.</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818162006205.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818162006205.png"></p>
 <h3 id="PDO注入"><a href="#PDO注入" class="headerlink" title="PDO注入"></a>PDO注入</h3><p>类似ORM框架吧。</p>
 <blockquote>
 <p>PHP数据对象（PDO）扩展为PHP访问数据库定义了一个轻量级的一致接口<br>PHP连接MySQL数据库的方式：MySQL、Mysqli、PDO</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/3950">PDO场景下的SQL注入探究</a></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/QQ%E5%9B%BE%E7%89%8720210818160939.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/QQ%E5%9B%BE%E7%89%8720210818160939.png"></p>
 <blockquote>
 <p>Mysqli通过multi_query()函数来进行多语句执行，普通的mysqli_query()函数只执行单个语句</p>
 <p>PDO默认支持多语句查询，如果php版本小于5.5.21或者创建PDO实例时未设置<code>PDO::MYSQL_ATTR_MULTI_STATEMENTS</code>为<code>false</code>时可能会造成<strong>堆叠注入</strong>，设置<code>$pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</code>情况下可以<strong>报错注入</strong></p>
@@ -626,7 +624,7 @@ PHP数据对象（PDO">
 <span class="token keyword">prepare</span> test <span class="token keyword">from</span> <span class="token variable">@a</span><span class="token punctuation">;</span>
 <span class="token keyword">execute</span> test<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818143036402.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818143036402.png"></p>
 <p>那思路就很明显了,利用堆叠注入+盲注</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> hex<span class="token punctuation">(</span><span class="token string">'select sleep(10)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">set</span> <span class="token variable">@a</span><span class="token operator">=</span><span class="token number">0x73656C65637420736C65657028313029</span><span class="token punctuation">;</span><span class="token keyword">prepare</span> test <span class="token keyword">from</span> <span class="token variable">@a</span><span class="token punctuation">;</span><span class="token keyword">execute</span> test<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -667,32 +665,32 @@ PHP数据对象（PDO">
 
 <p>多试几次，跑出来是<code>glzjin_wants_a_girl_friend.zip</code></p>
 <p>下载下来，MVC框架.</p>
-<h3 id="url大致的解析流程"><a href="#url大致的解析流程" class="headerlink" title="url大致的解析流程"></a>url大致的解析流程</h3><p>从r参数中获取要访问的Controller以及Action,然后以/分隔开后拼接成完整的控制器名。以Login/Index为例，就是将Login/Index分隔开分别拼接成LoginController以及actionIndex,然后调用LoginController这个类中的actionIndex方法。每个action里面会调用对应的loadView()方法进行模版渲染，然后将页面返回给客户端。若访问的Controller不存在则默认解析Login/Index。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818165518569.png"></p>
+<h3 id="url大致的解析流程"><a href="#url大致的解析流程" class="headerlink" title="url大致的解析流程"></a>url大致的解析流程</h3><p>从r参数中获取要访问的Controller以及Action,然后以&#x2F;分隔开后拼接成完整的控制器名。以Login&#x2F;Index为例，就是将Login&#x2F;Index分隔开分别拼接成LoginController以及actionIndex,然后调用LoginController这个类中的actionIndex方法。每个action里面会调用对应的loadView()方法进行模版渲染，然后将页面返回给客户端。若访问的Controller不存在则默认解析Login&#x2F;Index。</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818165518569.png"></p>
 <p>在BaseController.php中，明显这里可以利用<code>extract()</code>进行变量覆盖，于是接下来就要找<code>$viewData</code>在哪可以控制。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818170822451.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818170822451.png"></p>
 <p>明显，在UserController.php中，<code>$viewData</code>是可控的。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818171350231.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818171350231.png"></p>
 <p>所以按照url解析流程，</p>
 <pre class="line-numbers language-none"><code class="language-none">index.php?r&#x3D;User&#x2F;Index<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>但是直接包含flag.php，还是读取不了里面内容，所以得找其他办法</p>
 <p>在这，正好有转化base64输出的代码可以利用。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818185340434.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818185340434.png"></p>
 <p>payload</p>
 <pre class="line-numbers language-none"><code class="language-none">img_file&#x3D;&#x2F;..&#x2F;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818191056981.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818191056981.png"></p>
 <p>解码一下，结束</p>
 <pre class="line-numbers language-none"><code class="language-none">PD9waHAKICAgIGVjaG8gImZsYWcgaXMgaGVyZSxidXQgeW91IG11c3QgdHJ5IHRvIHNlZSBpdC4i
 OwogICAgJGZsYWcgPSAiZmxhZ3s4MzM0OTMxNS1mNDE3LTRkYTMtOTQ0OS0zM2ZhZjZhNzdmN2V9
 IjsK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818191123627.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818191123627.png"></p>
 <p>在这发现个奇怪的事</p>
 <p>chrome里的hackbar似乎对带有换行的base64解码处理不太好</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818191201454.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818191210846.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818191201454.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-SWPU2019-Web4/image-20210818191210846.png"></p>
 
                 
             </div>
@@ -757,12 +755,12 @@ IjsK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1173,12 +1171,12 @@ IjsK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

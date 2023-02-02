@@ -50,7 +50,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -525,12 +525,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -568,7 +568,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    336
+                    349
                 </div>
                 
 
@@ -594,37 +594,37 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这题很欢乐，思维比较开阔。但对于当下而言参考价值不大。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022210716880.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022210716880.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>GET不行，POST才可以</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022210812703.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022210812703.png"></p>
 <p>这题很难，很考验脑洞</p>
 <p>上来先猜五个接口，得用raw。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022233829000.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022233829000.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;circle&#x2F;one&#x2F;
 &#x2F;two&#x2F;
 &#x2F;square&#x2F;
 &#x2F;com&#x2F;seaerch&#x2F;
 &#x2F;vim&#x2F;quit&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="circle-one"><a href="#circle-one" class="headerlink" title="/circle/one/"></a>/circle/one/</h3><p>尝试万能<code>OPTIONS</code></p>
+<h3 id="x2F-circle-x2F-one-x2F"><a href="#x2F-circle-x2F-one-x2F" class="headerlink" title="&#x2F;circle&#x2F;one&#x2F;"></a>&#x2F;circle&#x2F;one&#x2F;</h3><p>尝试万能<code>OPTIONS</code></p>
 <blockquote>
 <p>浏览器的预检请求，它用于获取当前URL所支持的方法。若请求成功，则它会在HTTP头中包含一个名为“Allow”的头，值是所支持的方法，如”GET, POST”</p>
 </blockquote>
 <p>不过测试了下没看到Allow头。</p>
 <p>返回一个PDF，没啥用。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022234638246.png"></p>
-<h3 id="two"><a href="#two" class="headerlink" title="/two/"></a>/two/</h3><p>PUT，返回：</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022234638246.png"></p>
+<h3 id="x2F-two-x2F"><a href="#x2F-two-x2F" class="headerlink" title="&#x2F;two&#x2F;"></a>&#x2F;two&#x2F;</h3><p>PUT，返回：</p>
 <pre class="line-numbers language-none"><code class="language-none">Put the dots???<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>CONNECT 请求会返回一个.png文件，这是真想不到。</p>
 <pre class="line-numbers language-none"><code class="language-none">curl -X CONNECT http:&#x2F;&#x2F;7dd46417-5376-444d-92dc-0c879b824e97.node4.buuoj.cn:81&#x2F;two&#x2F; --output two.png<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>返回一张图片</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235132798.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235132798.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">up_on_noodles_<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="square"><a href="#square" class="headerlink" title="/square/"></a>/square/</h3><p>DELETE请求也有一张图片</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235300491.png"></p>
+<h3 id="x2F-square-x2F"><a href="#x2F-square-x2F" class="headerlink" title="&#x2F;square&#x2F;"></a>&#x2F;square&#x2F;</h3><p>DELETE请求也有一张图片</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235300491.png"></p>
 <p>答案：</p>
 <pre class="line-numbers language-none"><code class="language-none">    E
     S
@@ -647,16 +647,16 @@ TASTES
 <p>得到文字</p>
 <pre class="line-numbers language-none"><code class="language-none">tastes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="com-seaerch"><a href="#com-seaerch" class="headerlink" title="/com/seaerch/"></a><strong>/com/seaerch/</strong></h3><p>GET请求</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235436412.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235745339.png"></p>
+<h3 id="x2F-com-x2F-seaerch-x2F"><a href="#x2F-com-x2F-seaerch-x2F" class="headerlink" title="&#x2F;com&#x2F;seaerch&#x2F;"></a><strong>&#x2F;com&#x2F;seaerch&#x2F;</strong></h3><p>GET请求</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235436412.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235745339.png"></p>
 <p>返回</p>
 <pre class="line-numbers language-none"><code class="language-none">_good_in_s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235754647.png"></p>
-<h3 id="vim-quit"><a href="#vim-quit" class="headerlink" title="/vim/quit/"></a><strong>/vim/quit/</strong></h3><blockquote>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-b01lers2020-Space-Noodles/image-20211022235754647.png"></p>
+<h3 id="x2F-vim-x2F-quit-x2F"><a href="#x2F-vim-x2F-quit-x2F" class="headerlink" title="&#x2F;vim&#x2F;quit&#x2F;"></a><strong>&#x2F;vim&#x2F;quit&#x2F;</strong></h3><blockquote>
 <p>BUUCTF没法复现TRACE请求</p>
 </blockquote>
 <p>预期解是发送</p>
@@ -739,12 +739,12 @@ TASTES
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -1094,12 +1094,12 @@ TASTES
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1155,12 +1155,12 @@ TASTES
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

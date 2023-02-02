@@ -54,7 +54,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -572,7 +572,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    179
+                    181
                 </div>
                 
 
@@ -598,27 +598,27 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前做的题</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221226972.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221231704.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221226972.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221231704.png"></p>
 <p>有个小陷阱，正好掉进去了。</p>
 <p>进入sub_401220()</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221239853.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221239853.png"></p>
 <p>这里存了个地址，ProcName就是那个函数名</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221248531.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221248531.png"></p>
 <p>就相当于把WriteFile()函数地址存过去</p>
 <p>值得注意，-23就是0xE9</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221255905.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221258893.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221315669.png"></p>
-<p>而dword_40C9BD的计算方式跟jmp偏移地址的计算方式十分类似。<br>即偏移地址=目标地址-当前地址-5。（5为E9 xxxxxxxx这条指令的长度）</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221255905.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221258893.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221315669.png"></p>
+<p>而dword_40C9BD的计算方式跟jmp偏移地址的计算方式十分类似。<br>即偏移地址&#x3D;目标地址-当前地址-5。（5为E9 xxxxxxxx这条指令的长度）</p>
 <blockquote>
-<p>偏移地址=目标地址-下一行指令地址<br>《汇编语言》P180。在8086上 JMP指令长度为2</p>
+<p>偏移地址&#x3D;目标地址-下一行指令地址<br>《汇编语言》P180。在8086上 JMP指令长度为2</p>
 </blockquote>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221336278.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221336278.png"></p>
 <p>这俩变量在地址上还是连续</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221411766.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221411766.png"></p>
 <p>真正的加密函数</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221420596.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-XCTF-4th-WHCTF-2017-EASYHOOK/image-20210719221420596.png"></p>
 <p>诶，笔记做到这就断了，忘了当时在干嘛了，算了，留个</p>
 <p>TODO:补充此题后续</p>
 

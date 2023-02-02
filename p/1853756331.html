@@ -46,7 +46,7 @@ app/controller/index.php文件下有个Index类，注入点在这。
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -593,7 +593,7 @@ app/controller/index.php文件下有个Index类，注入点在这。
 <p>ThinkPHP6.0.12LTS反序列化漏洞</p>
 <p>分析见<a target="_blank" rel="noopener" href="https://www.freebuf.com/vuls/321546.html">ThinkPHP6.0.12LTS反序列漏洞分析</a></p>
 <p><code>app/controller/index.php</code>文件下有个<code>Index</code>类，注入点在这。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529225033872.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529225033872.png"></p>
 <p>所以访问<code>/index.php/Index/test/</code>,POST传值a即可。</p>
 <p>POC</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
@@ -643,8 +643,8 @@ app/controller/index.php文件下有个Index类，注入点在这。
 <p><code>&#39;&#39;</code>代替空格，utf8mb4_bin+collate来判断大小写问题，通过溢出报错来盲注</p>
 <pre class="line-numbers language-none"><code class="language-none">select &#39;1&#39;&amp;&amp;case&#39;&#39;when&#96;password&#96;like&#39;f%&#39;collate&#39;utf8mb4_bin&#39;then&#39;&#39;else+18446744073709551615+2+&#39;&#39;end&#x3D;&#39;0&#39; from flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231138751.png"></p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231155254.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231138751.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231155254.png"></p>
 <p>写了个POC，但靶机没了，还没测试。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 
@@ -686,34 +686,34 @@ length <span class="token operator">=</span> <span class="token number">32</span
 </blockquote>
 <p>这题出的很好，要求其实不深，各方面知识融合的很不错，我很喜欢。虽然当时没做出来。</p>
 <p>通过<a target="_blank" rel="noopener" href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=1ad73b4d27bd8c1b369a3cd453681d3a4f1bb9b2">commit</a>大致能判断漏洞点在<code>$fname</code>能RCE。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231633000.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231633000.png"></p>
 <p>源码执行了<code>c_rehash</code>。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231848451.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231848451.png"></p>
 <p>表单提交创建crt。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231939847.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529231939847.png"></p>
 <p>还有个给内网发送数据的proxy。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530081248147.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530081248147.png"></p>
 <p>main.go里还有重命名的接口。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529232219272.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529232219272.png"></p>
 <p>思路很清晰：创建crt-&gt;SSRF重命名-&gt;访问<code>/createlink</code>进行RCE。</p>
 <p>本地起个环境复现一下。</p>
 <p>首先先测试下SSRF。</p>
 <p>GET,但是表单，所以</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529232949757.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529232949757.png"></p>
 <p>改一改代码</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529233113721.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529233113721.png"></p>
 <p>说明这样能传</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529233123477.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529233123477.png"></p>
 <p>一开始老想着这里可以用curl的解析绕过去SSRF，但这哪来的curl，实属魔怔。</p>
 <p>但实际上这里有个验证：</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529234721206.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529234721206.png"></p>
 <p>加上这里的请求包格式，很有请求走私的味道。可惜当时脑子没转过弯来。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529235738578.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220529235738578.png"></p>
 <p>还好之前打过ISCC的一题gunicorn的请求走私，稍微加深了点印象，不然理解这玩意都有丶难度。</p>
-<p>请求走私大概可以理解为：ABC三个GET请求，AC是正常请求，B是恶意请求。将ABC包裹在一起发送-&gt;前端/中间件接收后解析为AB+C然后转发给后端-&gt;后端解析为A+BC。这样就绕过了前端的限制。两个好人把一个坏人夹在中间通过验证，所以是走私。</p>
+<p>请求走私大概可以理解为：ABC三个GET请求，AC是正常请求，B是恶意请求。将ABC包裹在一起发送-&gt;前端&#x2F;中间件接收后解析为AB+C然后转发给后端-&gt;后端解析为A+BC。这样就绕过了前端的限制。两个好人把一个坏人夹在中间通过验证，所以是走私。</p>
 <p>这里虽然没有中间件前端分离，但其实也差不多，也是将多个请求包裹到一起发送过去</p>
 <p>proxy起的就是一个中间件的作用，gunicorn之前的那个走私洞是利用数据包长度来包裹，这里就没有那么麻烦了，构造好格式原模原样转发。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530002110915.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530002110915.png"></p>
 <p>然后这样构造一下,注意最后有两个<code>/r/n</code>，这是http协议决定的。</p>
 <p>因为在这里第三个数据包没用，所以加个<code>Connection: close</code>直接截断。</p>
 <pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/proxy</span> <span class="token http-version property">HTTP/1.1</span></span>
@@ -727,30 +727,30 @@ uri=/%2561dmin/rename?oldname=789%26newname=789 HTTP/1.1
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530125100775.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530125100775.png"></p>
 <p>debug看看输出，红框有用，下面的没用就不用管格式了。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530125310649.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530125310649.png"></p>
 <p>后端也是接收到了。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530125407810.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530125407810.png"></p>
 <p><strong>注意</strong>：由于后端有个rawpath验证，</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530142004691.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530142004691.png"></p>
 <p>去翻了翻文档大概就是不进行urldecode，传过去怎样就是这样。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530142044019.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530142044019.png"></p>
 <p>奇怪的是如果传进去的数据不带urlencode的字符串，就会检测为空！</p>
 <p><strong>情况1</strong> 没有url编码</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530143955776.png"></p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144028324.png"></p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144104856.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530143955776.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144028324.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144104856.png"></p>
 <p><strong>情况2</strong> 一次url编码</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144136020.png"></p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144154374.png"></p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144209509.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144136020.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144154374.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530144209509.png"></p>
 <p>因为前端会进行一次url解码，所以传过去的数据需要urlencode两次。</p>
 <p><code>c_rehash</code>里有个后缀检测，所以需要加个后缀。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530151508906.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530151508906.png"></p>
 <p>也就是说<code>/admin</code>-&gt;<code>/%2561dmin</code></p>
 <p>打<code>/</code>的话会导致问题，所以最好base64一下</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530165708990.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530165708990.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">echo$&#123;IFS&#125;Y2F0IC9mbGFn|base64$&#123;IFS&#125;-d|bash&gt;1.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>奇怪的是，本地复现可以用<code>$&#123;IFS&#125;</code>来替换空格，比赛的时候不行，怪哉。所以比赛环境将空格进行两次urlencode加密即可。</p>
@@ -758,7 +758,7 @@ uri=/%2561dmin/rename?oldname=789%26newname=789 HTTP/1.1
 
 <p>最后再访问<code>/createlink</code>就执行命令了。</p>
 <p>最后值得注意的是这里给的是<code>ls static/crt/</code>的回显，所以需要写入文件看回显，不能直接回显！比赛的时候在这里浪费了很多时间。</p>
-<p><img src="./../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530165946594.png"></p>
+<p><img src="../images/CISCN2022%E5%88%9D%E8%B5%9B-Web/image-20220530165946594.png"></p>
 
                 
             </div>

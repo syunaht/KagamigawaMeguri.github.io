@@ -47,7 +47,7 @@ if(preg_match(&#39;/127.0.">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -604,30 +604,30 @@ if(preg_match(&#39;/127.0.">
 <span class="token function">curl_close</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>直接访问flag.php,显然需要SSRF</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817123027540.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817123027540.png"></p>
 <p>这里需要利用gopher协议。</p>
 <p>首先随便访问下flag.php，抓个包。删掉没用的请求头，注意最后要留两个<code>\r\n</code></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131245042.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131245042.png"></p>
 <h3 id="CyberChef手操"><a href="#CyberChef手操" class="headerlink" title="CyberChef手操"></a>CyberChef手操</h3><p>然后开CyberChef。</p>
 <p>需要先将<code>\n</code>替换成<code>\r\n</code>，因为复制下来默认都是<code>\n</code>。</p>
 <p>再进行两次urlencode，因为gopher会urldecode一次，curl又会urldecode一次。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131341721.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131341721.png"></p>
 <pre class="line-numbers language-none"><code class="language-none">gopher:&#x2F;&#x2F;0.0.0.0:80&#x2F;_GET%2520&#x2F;flag.php%2520HTTP&#x2F;1.1%250D%250AHost:%25200.0.0.0%250D%250A%250D%250A<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131534983.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131534983.png"></p>
 <p>再去访问，拿到源码，后续一致</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131552527.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131552527.png"></p>
 <p>扔到CyberChef里</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131710757.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131710757.png"></p>
 <p>注意，因为检测<code>file</code>，所以对<code>file</code>中的<code>e</code>再进行<code>两次urlencode</code></p>
 <p>最终payload</p>
 <pre class="line-numbers language-none"><code class="language-none">gopher:&#x2F;&#x2F;0.0.0.0:80&#x2F;_POST%2520&#x2F;flag.php%2520HTTP&#x2F;1.1%250D%250AHost:%25200.0.0.0%250D%250AContent-Type:%2520application&#x2F;x-www-form-urlencoded%250D%250AContent-Length:%252011%250D%250A%250D%250Afil%2565s&#x3D;&#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131920857.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817131920857.png"></p>
 <h3 id="BurpSuite一键"><a href="#BurpSuite一键" class="headerlink" title="BurpSuite一键"></a>BurpSuite一键</h3><p>其实也可以在bp里直接进行两次<code>URL-encode all characters</code></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817132337758.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817132337758.png"></p>
 <p>然后直接打！</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817132348811.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%80%E5%8D%95%E7%9A%84SSRF/image-20220817132348811.png"></p>
 
                 
             </div>

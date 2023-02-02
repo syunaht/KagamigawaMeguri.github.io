@@ -44,7 +44,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -562,7 +562,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    590
+                    596
                 </div>
                 
 
@@ -598,15 +598,15 @@
 <p>验证命令(windows自带)</p>
 <pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">certutil -hashfile cobaltstrike.jar SHA256<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721140132514.png"></p>
+<p><img src="../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721140132514.png"></p>
 <h3 id="CobaltStrike-4-3-20210317-破解版"><a href="#CobaltStrike-4-3-20210317-破解版" class="headerlink" title="CobaltStrike 4.3[20210317]破解版"></a>CobaltStrike 4.3[20210317]破解版</h3><blockquote>
-<p>破解思路和以前版本一样，替换resources/authkey.pub，然后自己签发cobaltstrike.auth</p>
+<p>破解思路和以前版本一样，替换resources&#x2F;authkey.pub，然后自己签发cobaltstrike.auth</p>
 <p>改了四个地方：</p>
 <ol>
-<li>替换resources/authkey.pub文件</li>
-<li>修改common/AuthCrypto.class里面authkey.pub的MD5值</li>
-<li>修复beacon/BeaconData.class里30分钟退出的暗桩</li>
-<li>在aggressor/Aggressor.class的版本号后面加了自己的半个ID</li>
+<li>替换resources&#x2F;authkey.pub文件</li>
+<li>修改common&#x2F;AuthCrypto.class里面authkey.pub的MD5值</li>
+<li>修复beacon&#x2F;BeaconData.class里30分钟退出的暗桩</li>
+<li>在aggressor&#x2F;Aggressor.class的版本号后面加了自己的半个ID</li>
 </ol>
 </blockquote>
 <p>以下为@Twi1ight发布的下载地址</p>
@@ -635,22 +635,22 @@
 </blockquote>
 <h2 id="相关问题集锦"><a href="#相关问题集锦" class="headerlink" title="相关问题集锦"></a>相关问题集锦</h2><p><strong>WARNING: An illegal reflective access operation has occurred</strong></p>
 <p>teamserver启动报如下错误：</p>
-<p><img src="./../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721142058187.png"></p>
-<p>主要出现在高版本(&gt;=jdk9)情况下，没有影响，忽略就好</p>
+<p><img src="../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721142058187.png"></p>
+<p>主要出现在高版本(&gt;&#x3D;jdk9)情况下，没有影响，忽略就好</p>
 <p>在启动项加个如下命令即可忽略该warning</p>
 <pre class="line-numbers language-none"><code class="language-none">--add-opens&#x3D;java.base&#x2F;java.lang.reflect&#x3D;ALL-UNNAMED<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>java.security.NoSuchAlgorithmException</strong></p>
 <p>teamserver启动报如下错误：</p>
-<p><img src="./../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20221007232228997.png"></p>
-<p><img src="./../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20221007232306280.png"></p>
+<p><img src="../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20221007232228997.png"></p>
+<p><img src="../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20221007232306280.png"></p>
 <ol>
 <li>java版本问题，缺少某个算法包。用jdk11即可。</li>
 <li>也有可能是因为<code>cobaltstrike.store</code>文件的问题。经过测试，哪怕是自定义的<code>.profile</code>且指定了<code>.store</code>，也需要读取<code>cobaltstrike.store</code>文件，所以可以考虑将此文件删除让其重新生成。</li>
 </ol>
 <h2 id="官方哈希验证地址"><a href="#官方哈希验证地址" class="headerlink" title="官方哈希验证地址"></a>官方哈希验证地址</h2><pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;verify.cobaltstrike.com&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721135356961.png"></p>
+<p><img src="../images/CobaltStrike4-3-%E6%B1%89%E5%8C%96%E5%8F%8A%E7%A0%B4%E8%A7%A3%E6%95%B4%E5%90%88/image-20210721135356961.png"></p>
 
                 
             </div>

@@ -47,7 +47,7 @@ TOTP算法(Time-based One-time Password algorithm)是一种从共享密钥和当
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -522,12 +522,12 @@ TOTP算法(Time-based One-time Password algorithm)是一种从共享密钥和当
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -592,9 +592,9 @@ TOTP算法(Time-based One-time Password algorithm)是一种从共享密钥和当
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[TOTP]</p>
 <p>太高级了</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921210056501.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921210056501.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>main.js里给了TOTP的参数</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921213806794.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921213806794.png"></p>
 <blockquote>
 <p>TOTP算法(Time-based One-time Password algorithm)是一种从共享密钥和当前时间计算一次性密码的算法。它已被采纳为Internet工程任务组标准RFC 6238，是Initiative for Open Authentication(OATH)的基石，并被用于许多双因素身份验证系统。<br>TOTP是基于散列的消息认证码（HMAC）的示例。它使用加密哈希函数将密钥与当前时间戳组合在一起以生成一次性密码。 由于网络延迟和不同步时钟可能导致密码接收者必须尝试一系列可能的时间来进行身份验证，因此时间戳通常以30秒的间隔增加，从而减少了潜在的搜索空间。</p>
 </blockquote>
@@ -602,9 +602,9 @@ TOTP算法(Time-based One-time Password algorithm)是一种从共享密钥和当
 <p>服务端时间与客户端时间相差大于<code>15秒</code>，需要先计算正确的<code>totp</code>才能调用<code>shell.php</code></p>
 </blockquote>
 <p>提示了python库</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921215240815.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921215240815.png"></p>
 <p>有login。没想到竟然是sql注入。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921215040757.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921215040757.png"></p>
 <p>跑脚本跑出密码</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token keyword">from</span> urllib<span class="token punctuation">.</span>parse <span class="token keyword">import</span> quote
@@ -666,14 +666,14 @@ real_password <span class="token operator">=</span> <span class="token string">'
 <pre class="line-numbers language-none"><code class="language-none">hint&#123;G1ve_u_hi33en_C0mm3nd-sh0w_hiiintttt_23333&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>里面还有个隐藏命令<code>sh0w_hiiintttt_23333</code></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921220333263.png" alt="、"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921220333263.png" alt="、"></p>
 <blockquote>
 <p><code>launch</code>前需要先用<code>targeting</code>设置，不过对输入有限制，这里可以<code>fuzz</code>一下，得知<code>code</code>限制<code>a-zA-Z0-9</code>， <code>position</code>限制<code>a-zA-Z0-9&#125;)$(&#123;_+-,.</code>，而且两者的长度也有限制。</p>
 <p>这里需要用<code>php可变变量</code>构造和拼接<code>payload</code> 。</p>
 <p>构造payload，绕过<code>open_basedir</code>的限制，写个脚本就能拿到flag</p>
 </blockquote>
 <p>最长11个字符</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921221924928.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-De1CTF-2019-Giftbox/image-20210921221924928.png"></p>
 <p>脚本</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token keyword">from</span> urllib<span class="token punctuation">.</span>parse <span class="token keyword">import</span> quote
@@ -807,12 +807,12 @@ targeting<span class="token punctuation">(</span><span class="token string">'r'<
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -1162,12 +1162,12 @@ targeting<span class="token punctuation">(</span><span class="token string">'r'<
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1223,12 +1223,12 @@ targeting<span class="token punctuation">(</span><span class="token string">'r'<
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

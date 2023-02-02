@@ -47,7 +47,7 @@ class Check &amp;#123;
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -522,12 +522,12 @@ class Check &amp;#123;
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -680,9 +680,9 @@ class Check &amp;#123;
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>编译一下</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gcc hpdoger.c -fPIC -shared -o hpdoger.so<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gcc hpdoger.c -fPIC -shared -o hpdoger.so<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>然后复制字节码的base64，写入。/tmp目录应该是可写的。</p>
+<p>然后复制字节码的base64，写入。&#x2F;tmp目录应该是可写的。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> base64
 
 <span class="token keyword">import</span> requests
@@ -728,7 +728,7 @@ conn<span class="token punctuation">.</span>send<span class="token punctuation">
 conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="生成payload"><a href="#生成payload" class="headerlink" title="生成payload"></a>生成payload</h4><p>查下<code>script_filename</code>，这是fastcgi默认执行的文件。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211107233457499.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211107233457499.png"></p>
 <p>脚本出自<a target="_blank" rel="noopener" href="https://github.com/wofeiwo/webcgi-exploits/blob/master/php/Fastcgi/fcgi_jailbreak.php">webcgi-exploits</a></p>
 <p>一般改<code>$filepath</code>，so文件名，端口号就行了。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
@@ -1148,16 +1148,16 @@ conn<span class="token punctuation">.</span>close<span class="token punctuation"
 <span class="token keyword">echo</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>打入，结束。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211107232626266.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211107232626266.png"></p>
 <h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><p>吐了。原来之前打发没错，结果一直没尝试在这里写，而是直接POST传data。然后一直打不出来。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211108124621741.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211108124621741.png"></p>
 <p>这题其实不用写.so，可以直接转发恶意ftp。</p>
 <h4 id="开启恶意ftp-1"><a href="#开启恶意ftp-1" class="headerlink" title="开启恶意ftp"></a>开启恶意ftp</h4><p>同前，不再赘述。</p>
-<h4 id="gopherus生成payload"><a href="#gopherus生成payload" class="headerlink" title="gopherus生成payload"></a>gopherus生成payload</h4><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211108124938723.png"></p>
+<h4 id="gopherus生成payload"><a href="#gopherus生成payload" class="headerlink" title="gopherus生成payload"></a>gopherus生成payload</h4><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211108124938723.png"></p>
 <h4 id="生成反序列化payload-1"><a href="#生成反序列化payload-1" class="headerlink" title="生成反序列化payload"></a>生成反序列化payload</h4><p>代码同上</p>
 <p>然后写在序列化字符串里。打入，结束。</p>
 <h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><p>真怪，试了很久，一定要在反序列化类里写payload，传data就不行，两次urlencode也不行，太怪了。</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211108123447057.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E9%99%87%E5%8E%9F%E6%88%98%E7%96%AB2021%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B-eaaasyphp/image-20211108123447057.png"></p>
 <p>按理来说，http传过去url解码一次，phpfpm转发解码一次。因为gopherus编码了一次，所以我再编码一次。但试了下并不行。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://whoamianony.top/2021/10/24/Web%E5%AE%89%E5%85%A8/%E6%95%99%E4%BD%A0%E7%94%A8%20FTP%20SSRF%20%E6%89%93%E7%A9%BF%E5%86%85%E7%BD%91/">教你用 FTP SSRF 打穿内网</a></p>
 
@@ -1224,12 +1224,12 @@ conn<span class="token punctuation">.</span>close<span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -1579,12 +1579,12 @@ conn<span class="token punctuation">.</span>close<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>

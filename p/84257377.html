@@ -43,7 +43,7 @@ In this session we talk about the class and introduce the instru">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -561,7 +561,7 @@ In this session we talk about the class and introduce the instru">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    854
+                    859
                 </div>
                 
 
@@ -601,11 +601,11 @@ In this session we talk about the class and introduce the instru">
 </ul>
 </blockquote>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><strong>1.本视频一开始介绍了哪两个工具，他们的作用分别是什么？为什么作者会推荐firefox，它的优点是什么？（5分）</strong></p>
-<p>Burpsuite：允许你监视包括HTTP/HTTPS数据流，可以中途修改或重发数据包。</p>
+<p>Burpsuite：允许你监视包括HTTP&#x2F;HTTPS数据流，可以中途修改或重发数据包。</p>
 <p>Firefox浏览器：可以设置代理而避免系统代理的诸多问题。</p>
 <p><strong>2.本视频中体现了哪些攻防上的哲学观点？作者希望你养成什么样的思维？这些思维在帮助你挖掘漏洞的时候有什么帮助？结合你的经历与视频内容谈谈你的看法。（10分）</strong></p>
 <p>先发制人。</p>
-<p>按下最关键的按钮去查看反馈。如果不理解这个程序在做什么/为什么，就很难去找到方法去渗透。</p>
+<p>按下最关键的按钮去查看反馈。如果不理解这个程序在做什么&#x2F;为什么，就很难去找到方法去渗透。</p>
 <p>漏洞是潜藏在程序流程之中的，所以挖掘漏洞的前提是把我程序脉络。</p>
 <p><strong>3.审计以下代码：</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span>?php
@@ -625,7 +625,7 @@ Enter your name<span class="token punctuation">:</span> <span class="token opera
 </blockquote>
 <p>**那么，以上代码中，哪些部分属于客户端的内容，哪些属于服务端的内容？（1分） **</p>
 <p>客户端：</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>GET<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>GET<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 Enter your name: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span> submit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -639,10 +639,10 @@ Enter your name: <span class="token tag"><span class="token tag"><span class="to
 <p>**客户端是通过传递什么参数来控制服务端代码的？（1分） **</p>
 <p>GET参数</p>
 <p><strong>客户端通过控制该参数会对服务端造成什么影响，继而使得客户端本身收到影响，从而造成了什么漏洞？如果是xss漏洞，具体又是什么类型的xss漏洞，为什么？（3分）</strong></p>
-<p>可以任意执行JavaScript/HTML代码，造成xss漏洞。</p>
-<p>属于反射型，恶意代码未被服务器存储，需要通过GET/POST方式才可触发。</p>
+<p>可以任意执行JavaScript&#x2F;HTML代码，造成xss漏洞。</p>
+<p>属于反射型，恶意代码未被服务器存储，需要通过GET&#x2F;POST方式才可触发。</p>
 <p><strong>4.思考：现实中如何利用xss漏洞实施攻击，我们应该如何预防？（1分）</strong></p>
-<p>找on事件、img标签等带有xss漏洞的地方，写入恶意代码，获取敏感信息，入cookie/session</p>
+<p>找on事件、img标签等带有xss漏洞的地方，写入恶意代码，获取敏感信息，入cookie&#x2F;session</p>
 <p>用户可换带有XSS Auditor的谷歌浏览器，管理人员则需要加强过滤。</p>
 
                 
@@ -1116,12 +1116,12 @@ Enter your name: <span class="token tag"><span class="token tag"><span class="to
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

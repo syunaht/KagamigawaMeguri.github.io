@@ -11,8 +11,8 @@
 有session，解一下
 
 随便上传了个zip，然后会解压显示，那很明显，用软连接
-先试试/etc/passwd
-rm -f test &amp;amp;&amp;amp; rm -f tes">
+先试试&amp;#x2F;etc&amp;#x2F;passwd
+rm -f test &amp;amp;&amp;amp;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -48,7 +48,7 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -523,12 +523,12 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/flask/">
@@ -570,7 +570,7 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    626
+                    633
                 </div>
                 
 
@@ -596,29 +596,29 @@ rm -f test &amp;amp;&amp;amp; rm -f tes">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[MAC|uuid.getnode|网卡]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014222905857.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014222916429.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014222905857.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014222916429.png"></p>
 <p>有session，解一下</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014225146618.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014225146618.png"></p>
 <p>随便上传了个zip，然后会解压显示，那很明显，用软连接</p>
-<p>先试试/etc/passwd</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">rm</span> -f <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> -f test.zip <span class="token operator">&amp;&amp;</span> <span class="token function">ln</span> -s /etc/passwd <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">zip</span> -ry test.zip <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>先试试&#x2F;etc&#x2F;passwd</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> -f <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> -f test.zip <span class="token operator">&amp;&amp;</span> <span class="token function">ln</span> -s /etc/passwd <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">zip</span> -ry test.zip <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014223537047.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014223537047.png"></p>
 <p>可行，接下来就是尝试读取flag了</p>
-<p>先试了下/flag,不太行，看来flag不在这</p>
+<p>先试了下&#x2F;flag,不太行，看来flag不在这</p>
 <p>读取下<code>/proc/self/environ</code></p>
 <p>中间件是uwsgi</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014224449417.png"></p>
-<p>再读取下/app/uwsgi.ini</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">rm</span> -f <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> -f test.zip <span class="token operator">&amp;&amp;</span> <span class="token function">ln</span> -s /app/uwsgi.ini <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">zip</span> -ry test.zip <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014224449417.png"></p>
+<p>再读取下&#x2F;app&#x2F;uwsgi.ini</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> -f <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">rm</span> -f test.zip <span class="token operator">&amp;&amp;</span> <span class="token function">ln</span> -s /app/uwsgi.ini <span class="token builtin class-name">test</span> <span class="token operator">&amp;&amp;</span> <span class="token function">zip</span> -ry test.zip <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014224657061.png"></p>
-<p>读了下/app/main.py，没什么内容，应该不是真正的main</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014224657061.png"></p>
+<p>读了下&#x2F;app&#x2F;main.py，没什么内容，应该不是真正的main</p>
 <p>看了下网上的wp，不知道怎么做到的触发flask报错，然后就会把路径爆出来</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014225914167.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014225914167.png"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
 <span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span>session<span class="token punctuation">,</span>render_template<span class="token punctuation">,</span>redirect<span class="token punctuation">,</span> url_for<span class="token punctuation">,</span> escape<span class="token punctuation">,</span> request<span class="token punctuation">,</span>Response
 <span class="token keyword">import</span> uuid
@@ -728,7 +728,7 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
 
 <p>生成key为28.882339309493887</p>
 <p>构造session，结束</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014230919725.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-HCTF-2018-Hideandseek/image-20211014230919725.png"></p>
 
                 
             </div>
@@ -793,12 +793,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/flask/">
@@ -1152,12 +1152,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/mongdb/">
@@ -1213,12 +1213,12 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>

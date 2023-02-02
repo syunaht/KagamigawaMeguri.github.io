@@ -44,7 +44,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -604,12 +604,12 @@ asar pack app app.asar<span aria-hidden="true" class="line-numbers-rows"><span><
 
 <p>搜了下相关字符串，改了几个位置，</p>
 <p>然后问题来了</p>
-<p><img src="./../images/JavaScript%E7%AE%80%E5%8D%95%E6%B7%B7%E6%B7%86%E8%AE%B0%E5%BD%95/image-20210811003235195.png"></p>
+<p><img src="../images/JavaScript%E7%AE%80%E5%8D%95%E6%B7%B7%E6%B7%86%E8%AE%B0%E5%BD%95/image-20210811003235195.png"></p>
 <p>这地方的字符串，一直没搜到，折腾了很久，翻了半天代码。unicode，十六进制，各个样式都搜了一遍，简直怀疑人生。</p>
 <p>之后没办法，只能使出大杀器，文件比较，翻找了一下，终于找到了位置，叹为观止</p>
 <h3 id="混淆"><a href="#混淆" class="headerlink" title="混淆"></a>混淆</h3><p>原来，修改者加了个混淆函数，将中文转化为[ascii码10进制异或0x12的数字],这样就减少了字符串搜索的风险。</p>
-<p><img src="./../images/JavaScript%E7%AE%80%E5%8D%95%E6%B7%B7%E6%B7%86%E8%AE%B0%E5%BD%95/image-20210811003537545.png"></p>
-<p><img src="./../images/JavaScript%E7%AE%80%E5%8D%95%E6%B7%B7%E6%B7%86%E8%AE%B0%E5%BD%95/image-20210811003552075.png"></p>
+<p><img src="../images/JavaScript%E7%AE%80%E5%8D%95%E6%B7%B7%E6%B7%86%E8%AE%B0%E5%BD%95/image-20210811003537545.png"></p>
+<p><img src="../images/JavaScript%E7%AE%80%E5%8D%95%E6%B7%B7%E6%B7%86%E8%AE%B0%E5%BD%95/image-20210811003552075.png"></p>
 <p>提取出来改改运行下</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">D &#x3D; (str) &#x3D;&gt; &#123;
     var V1,
@@ -623,7 +623,7 @@ asar pack app app.asar<span aria-hidden="true" class="line-numbers-rows"><span><
 &#125;;
 D(&quot;50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.39.32.98.125.120.123.119.60.113.124.82.22798.27867.50.63.50.22928.26510.35291.24453.35831.36733.20196.22895.30010.35813.25917.25363.27505.29274.65310.35831.34935.19987.20183.38466.30010.20124.23412.20082.21662.30726.31332.30460.30358.65289.19999.24453.23572.35831.34935.19987.30010.20124.21844.19976.25092.32791.38732.27847.30010.36870.65310.21556.21003.65310.19986.21013.21532.26510.35813.30010.25125.33272.36109.51&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="./../images/JavaScript%E7%AE%80%E5%8D%95%E6%B7%B7%E6%B7%86%E8%AE%B0%E5%BD%95/image-20210811003627648.png"></p>
+<p><img src="../images/JavaScript%E7%AE%80%E5%8D%95%E6%B7%B7%E6%B7%86%E8%AE%B0%E5%BD%95/image-20210811003627648.png"></p>
 <p>而且我也是刚刚才知道，<code>str.split</code>也可以<code>str[&quot;split&quot;]</code></p>
 <p>算是开辟了新思路，收获很大。</p>
 
@@ -1049,12 +1049,12 @@ D(&quot;50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
@@ -1110,12 +1110,12 @@ D(&quot;50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.50.8220.
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">

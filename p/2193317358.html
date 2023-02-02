@@ -10,7 +10,7 @@
 题解
 一看疑似hash长度扩展攻击，转头花了几个小时学了下。
 结果不是，可惜了。
-直接?pass=fa25">
+直接?pass&amp;#x3D">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -46,7 +46,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -521,12 +521,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
@@ -568,7 +568,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    895
+                    913
                 </div>
                 
 
@@ -594,15 +594,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关键字:[临时文件包含|session|条件竞争|segment fault|session.upload_progress]</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802163522235.png"></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802164104898.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802163522235.png"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802164104898.png"></p>
 <p>一看疑似hash长度扩展攻击，转头花了几个小时学了下。</p>
 <p>结果不是，可惜了。</p>
-<p>直接?pass=fa25e54758d5d5c1927781a6ede89f8a</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802231716300.png"></p>
+<p>直接?pass&#x3D;fa25e54758d5d5c1927781a6ede89f8a</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802231716300.png"></p>
 <p>文件包含</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802231817384.png"></p>
-<p>包含../../../../../../flag，没有结果，看来没那么简单。</p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802231817384.png"></p>
+<p>包含..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;flag，没有结果，看来没那么简单。</p>
 <p>伪协议读一下源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -640,7 +640,8 @@
 <h4 id="利用segment-fault特性"><a href="#利用segment-fault特性" class="headerlink" title="利用segment fault特性"></a>利用segment fault特性</h4><p>php版本是7.0.33，这里预期解是1号情况。</p>
 <ul>
 <li><p>php&lt;7.2</p>
-<pre class="line-numbers language-none"><code class="language-none">php:&#x2F;&#x2F;filter&#x2F;string.strip_tags&#x2F;resource&#x3D;&#x2F;etc&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-none"><code class="language-none">php:&#x2F;&#x2F;filter&#x2F;string.strip_tags&#x2F;resource&#x3D;&#x2F;etc&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>php7老版本通杀</p>
 <pre class="line-numbers language-none"><code class="language-none">php:&#x2F;&#x2F;filter&#x2F;convert.quoted-printable-encode&#x2F;resource&#x3D;data:&#x2F;&#x2F;,%bfAAAAAAAAAAAAAAAAAAAAAAA%ff%ff%ff%ff%ff%ff%ff%ffAAAAAAAAAAAAAAAAAAAAAAAA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
@@ -657,27 +658,27 @@ print(r.text)<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
 <p>打进去后，提示实例无法访问，因为崩溃了嘛</p>
 <p>产生临时文件</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802234200446.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802234200446.png"></p>
 <p>之后再文件包含下，flag在phpinfo里</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802234243611.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-NPUCTF2020-ezinclude/image-20210802234243611.png"></p>
 <h4 id="条件竞争：利用session-upload-progress"><a href="#条件竞争：利用session-upload-progress" class="headerlink" title="条件竞争：利用session.upload_progress"></a>条件竞争：利用session.upload_progress</h4><blockquote>
 <p>在PHP&gt;5.4，<code>session.upload_progress.enabled</code>这个参数在<code>php.ini</code>中默认开启，在上传的过程中会生成上传进度文件，PHP将会把此次文件上传的详细信息(如上传时间、上传进度等)存储在session当中 ，它的存储路径可以在<code>phpinfo</code>中查到</p>
 </blockquote>
 <p>php&gt;5.4,尝试利用session.upload_progress进行session文件包含</p>
 <ul>
-<li><p>开启upload_progress功能<br>session.upload_progress.enabled = on</p>
+<li><p>开启upload_progress功能<br>session.upload_progress.enabled &#x3D; on</p>
 </li>
-<li><p>当文件上传结束后，php将会立即清空对应session文件中的内容<br>session.upload_progress.cleanup = on</p>
+<li><p>当文件上传结束后，php将会立即清空对应session文件中的内容<br>session.upload_progress.cleanup &#x3D; on</p>
 </li>
 </ul>
 <blockquote>
-<p>session.upload_progress.prefix = “upload_progress_”<br>session.upload_progress.name = “PHP_SESSION_UPLOAD_PROGRESS”</p>
+<p>session.upload_progress.prefix &#x3D; “upload_progress_”<br>session.upload_progress.name &#x3D; “PHP_SESSION_UPLOAD_PROGRESS”</p>
 </blockquote>
 <ul>
-<li><p>session.use_strict_mode=off</p>
-<p>表示对cookie中的sessionid可控，默认off。即使没有<code>session_start()</code>，也可以自己定义PHPSESSID，并且PHP会自动初始化session，并产生一个键值，这个键值由<code>session.upload_progress.prefix</code>和<code>session.upload_progress.name</code>组成，最后被写入session文件里。比如在Cookie里设置PHPSESSID=flag，PHP将会在服务器上创建一个文件：<code>/tmp/sess_flag</code></p>
+<li><p>session.use_strict_mode&#x3D;off</p>
+<p>表示对cookie中的sessionid可控，默认off。即使没有<code>session_start()</code>，也可以自己定义PHPSESSID，并且PHP会自动初始化session，并产生一个键值，这个键值由<code>session.upload_progress.prefix</code>和<code>session.upload_progress.name</code>组成，最后被写入session文件里。比如在Cookie里设置PHPSESSID&#x3D;flag，PHP将会在服务器上创建一个文件：<code>/tmp/sess_flag</code></p>
 <blockquote>
-<p>在Linux系统中，session文件一般的默认存储位置为/tmp或/var/lib/php/session</p>
+<p>在Linux系统中，session文件一般的默认存储位置为&#x2F;tmp或&#x2F;var&#x2F;lib&#x2F;php&#x2F;session</p>
 </blockquote>
 </li>
 </ul>
@@ -786,12 +787,12 @@ sessid <span class="token operator">=</span> <span class="token string">'feng'</
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
@@ -1194,12 +1195,12 @@ sessid <span class="token operator">=</span> <span class="token string">'feng'</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/thinkphp/">

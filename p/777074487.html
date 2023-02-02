@@ -42,7 +42,7 @@ wget http://nginx.org/keys/nginx_signing">
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -560,7 +560,7 @@ wget http://nginx.org/keys/nginx_signing">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    357
+                    361
                 </div>
                 
 
@@ -586,7 +586,7 @@ wget http://nginx.org/keys/nginx_signing">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="nginx注意事项"><a href="#nginx注意事项" class="headerlink" title="nginx注意事项"></a>nginx注意事项</h2><p>一直以来都是用宝塔建站，今天特殊情况，需要单独装个nginx用。<br>环境：Ubuntu16.06<br>首先安装nginx，直接apt装的是低版本，所以</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">wget</span> http://nginx.org/keys/nginx_signing.key
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> http://nginx.org/keys/nginx_signing.key
 apt-key <span class="token function">add</span> nginx_signing.key
 <span class="token builtin class-name">echo</span> -e <span class="token string">"deb http://nginx.org/packages/ubuntu/ xenial nginx"</span> <span class="token operator">>></span> /etc/apt/sources.list
 <span class="token builtin class-name">echo</span> -e <span class="token string">"deb-src http://nginx.org/packages/ubuntu/ xenial nginx"</span> <span class="token operator">>></span> /etc/apt/sources.list
@@ -594,17 +594,17 @@ apt-key <span class="token function">add</span> nginx_signing.key
 <span class="token function">apt</span> <span class="token function">install</span> nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这样就是当前最新稳定版的了。<br>然后坑就开始了。<br>百度半天nginx搭建web教程(大多文章都你抄我我抄你，也是醉了)<br>怎么搞都不行，折腾几个小时烦死了。</p>
-<p>写的比较标准的方法都是在 <strong>sites-available</strong> 里创建配置然后软链接到 <strong>sites-enabled</strong><br>没错，但我主要强调一点，也就是被坑的地方<br>注意要在 <strong>/etc/nginx/nginx.conf</strong> 里加入 <code>include /etc/nginx/sites-enabled/*;</code></p>
+<p>写的比较标准的方法都是在 <strong>sites-available</strong> 里创建配置然后软链接到 <strong>sites-enabled</strong><br>没错，但我主要强调一点，也就是被坑的地方<br>注意要在 <strong>&#x2F;etc&#x2F;nginx&#x2F;nginx.conf</strong> 里加入 <code>include /etc/nginx/sites-enabled/*;</code></p>
 <blockquote>
 <p>conf.d：用户自己定义的conf配置文件<br>sites-available：系统默认设置的配置文件<br>sites-enabled：由sites-available中的配置文件转换生成<br>nginx.conf：汇总以上三个配置文件的内容，同时配置我们所需要的参数</p>
 </blockquote>
 <p>所以有两种办法</p>
 <ul>
-<li>直接在<strong>conf.d/</strong> 下创建<strong>domain.com.conf</strong></li>
+<li>直接在<strong>conf.d&#x2F;</strong> 下创建<strong>domain.com.conf</strong></li>
 <li>在<strong>sites-available</strong> 下创建<strong>domain.com</strong> 然后<code>ln -s /etc/nginx/sites-available/excalibur.moe /etc/nginx/sites-enabled/</code>软连接过去</li>
 </ul>
 <p><strong>nginx.conf</strong> 文件中，谁的include在上面谁的优先级就高</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">service</span>  nginx reload
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span>  nginx reload
 <span class="token function">service</span>  nginx start
 <span class="token function">service</span>  nginx stop
 <span class="token function">service</span>  nginx restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>

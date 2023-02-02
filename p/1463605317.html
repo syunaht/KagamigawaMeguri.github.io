@@ -43,7 +43,7 @@ https://syunaht.com/p/3645611024.html#toc-heading-10
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -628,14 +628,14 @@ echo <span class="token function">urlencode</span><span class="token punctuation
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="web-so-easy-4-u"><a href="#web-so-easy-4-u" class="headerlink" title="web_so_easy_4_u"></a>web_so_easy_4_u</h2><h3 id="break-1"><a href="#break-1" class="headerlink" title="break"></a>break</h3><p>在avatarhash处有任意文件读取</p>
-<p><img src="./../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2022%E6%80%BB%E5%86%B3%E8%B5%9B/image-20220823174821-ihti7sa.png"></p>
+<p><img src="../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2022%E6%80%BB%E5%86%B3%E8%B5%9B/image-20220823174821-ihti7sa.png"></p>
 <p>再访问<code>/api/get.ph</code>解个码即可。</p>
 <h3 id="fix-2"><a href="#fix-2" class="headerlink" title="fix"></a>fix</h3><p>先是读文件，把所有源码都读出来</p>
 <p>发现<code>/util/img2base.php</code>可以读文件</p>
-<p><img src="./../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2022%E6%80%BB%E5%86%B3%E8%B5%9B/image-20220823174955-mnmw30d.png" alt="image">​</p>
+<p><img src="../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2022%E6%80%BB%E5%86%B3%E8%B5%9B/image-20220823174955-mnmw30d.png" alt="image">​</p>
 <p><code>/api/get.php</code>处进行了简单的路径拼接。</p>
-<p><img src="./../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2022%E6%80%BB%E5%86%B3%E8%B5%9B/image-20220823175024-447d649.png" alt="image">​</p>
-<p>在<code>/api/save.php</code>里接收数据:<img src="./../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2022%E6%80%BB%E5%86%B3%E8%B5%9B/image-20220823175251-dc1le3s.png" alt="image">​</p>
+<p><img src="../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2022%E6%80%BB%E5%86%B3%E8%B5%9B/image-20220823175024-447d649.png" alt="image">​</p>
+<p>在<code>/api/save.php</code>里接收数据:<img src="../images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-CISCN2022%E6%80%BB%E5%86%B3%E8%B5%9B/image-20220823175251-dc1le3s.png" alt="image">​</p>
 <p>所以加点严格判断：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span>$_POST<span class="token punctuation">[</span><span class="token string">'avatarHash'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> $_POST<span class="token punctuation">[</span><span class="token string">'avatarHash'</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">""</span> <span class="token operator">&amp;&amp;</span> <span class="token function">strlen</span><span class="token punctuation">(</span>$_POST<span class="token punctuation">[</span><span class="token string">'avatarHash'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">32</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string">"/flag|\.|\//i"</span><span class="token punctuation">,</span> $_POST<span class="token punctuation">[</span><span class="token string">'avatarHash'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>

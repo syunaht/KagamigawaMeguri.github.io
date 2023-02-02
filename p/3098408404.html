@@ -45,7 +45,7 @@ http://challenges.fbctf.com:8083
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -520,12 +520,12 @@ http://challenges.fbctf.com:8083
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                             <a href="./tags/SSTI/">
@@ -598,18 +598,18 @@ http://challenges.fbctf.com:8083
 <p><a target="_blank" rel="noopener" href="http://challenges.fbctf.com:8083/">http://challenges.fbctf.com:8083</a></p>
 <p>(This problem does not require any brute force or scanning. We will ban your team if we detect brute force or scanning).</p>
 </blockquote>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914235156669.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914235156669.png"></p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>1@1登录</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914235137547.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914235137547.png"></p>
 <p>session解个码</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914234509346.png"></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914235120014.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914234509346.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914235120014.png"></p>
 <p>看来得想办法找到key</p>
 <p>在name和address试了半天，没想到event_important才是注入点</p>
 <p>先试试<code>event_important=__dict__</code></p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914235708569.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210914235708569.png"></p>
 <p>tplmap跑了一圈没跑出来，可惜</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210915091750684.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-FBCTF2019-Event/image-20210915091750684.png"></p>
 <p>key为</p>
 <pre class="line-numbers language-none"><code class="language-none">fb+wwn!n1yo+9c(9s6!_3o#nqm&amp;&amp;_ej$tez)$_ik36n8d7o6mr#y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -678,12 +678,12 @@ http://challenges.fbctf.com:8083
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                                 <a href="./tags/SSTI/">
@@ -1037,12 +1037,12 @@ http://challenges.fbctf.com:8083
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1090,12 +1090,12 @@ http://challenges.fbctf.com:8083
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SSRF/">

@@ -8,11 +8,10 @@
     <meta name="description" content="前言提示：后台五位弱口令
 
 有种莫名的熟悉感，怎么感觉这个比赛我参加过。
-题解进/admin.php，输入admin@12345，进入后台
+题解进&amp;#x2F;admin.php，输入admin@12345，进入后台
 解法1这种CMS，第一时间想到主题。
 试了下主题可以导出，主题这里想导入需要创建这个文件
-
-所以接下">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -48,7 +47,7 @@
 
     <script src="./libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="./atom.xml" title="远离尘世的幻想乡" type="application/atom+xml">
 </head>
 
 
@@ -523,12 +522,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="./tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="./tags/Web/">
                                 <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="./tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -566,7 +565,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    255
+                    257
                 </div>
                 
 
@@ -592,29 +591,29 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>提示：后台五位弱口令</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829195840158.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829195840158.png"></p>
 <p>有种莫名的熟悉感，怎么感觉这个比赛我参加过。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>进/admin.php，输入admin@12345，进入后台</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>进&#x2F;admin.php，输入admin@12345，进入后台</p>
 <h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><p>这种CMS，第一时间想到主题。</p>
 <p>试了下主题可以导出，主题这里想导入需要创建这个文件</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829200802221.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829200802221.png"></p>
 <p>所以接下来想想办法创建下这个文件。</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;var&#x2F;www&#x2F;html&#x2F;system&#x2F;tmp&#x2F;qgak.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在设计-组件-素材库里可以上传txt文件然后重命名</p>
 <p>这样竟然还不行</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829201527384.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829201527384.png"></p>
 <p>哦 原来可以，多打了个.txt 删掉就好</p>
 <p>都不需要上传主题了，直接在高级里改就好。</p>
 <p>加个马</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829201923198.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829201923198.png"></p>
 <p>御剑连接下结束。</p>
 <h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><p>还可以在抓个导出主题的包</p>
-<p><img src="./../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829202744885.png"></p>
+<p><img src="../images/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-GKCTF-2021-easycms/image-20210829202744885.png"></p>
 <p>解个码</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;var&#x2F;www&#x2F;html&#x2F;system&#x2F;tmp&#x2F;theme&#x2F;default&#x2F;123.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>于是将/flag进行base64编码</p>
+<p>于是将&#x2F;flag进行base64编码</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;admin.php?m&#x3D;ui&amp;f&#x3D;downloadtheme&amp;theme&#x3D;L2ZsYWc&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>直接下载了flag.zip，改下后缀看下内容，结束。</p>
@@ -682,12 +681,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="./tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="./tags/Web/">
                                     <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="./tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -1037,12 +1036,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">
@@ -1094,12 +1093,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="./tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="./tags/Web/">
                         <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="./tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="./tags/SQL%E6%B3%A8%E5%85%A5/">

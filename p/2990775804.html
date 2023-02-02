@@ -702,7 +702,8 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 <p><img src="/.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%912023-%E5%88%9D%E8%B5%9B/image-20230202203732829.png"></p>
 <p>flag2要求验证checkcode，长度为16，且<code>checkcode==aGr5AtSp55dRacer</code></p>
 <p><img src="/.images/%E8%B5%9B%E9%A2%98%E7%AC%94%E8%AE%B0-%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%912023-%E5%88%9D%E8%B5%9B/image-20230202203835964.png" alt="image-20230202203835964"></p>
-<p>但是直接输会不匹配，根据js弱类型判定</p>
+<p>因为有个大小写转换函数<code>toLowerCase()</code>，所以无法直接匹配</p>
+<p>根据js弱类型判定</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">var obj &#x3D; [&quot;1&quot;]
 console.log(typeof obj);&#x2F;&#x2F;object
 console.log(obj &#x3D;&#x3D; &quot;1&quot;);&#x2F;&#x2F;true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>

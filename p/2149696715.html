@@ -565,7 +565,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-09
+                    2023-02-02
                 </div>
                 
 
@@ -604,15 +604,15 @@
 <p>找一下usages，找到个loginChk，看起来像是登录验证。</p>
 <p><img src="/../images/Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230106144811498.png"></p>
 <p>正好抓包也发现类似的登录验证请求。</p>
-<p><img src="/.images/Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109161846319.png"></p>
-<p><img src="/.images/Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109161824418.png"></p>
+<p><img src="/./Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109161846319.png"></p>
+<p><img src="/./Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109161824418.png"></p>
 <p>找到位置后，接下来就是尝试把该编码算法扒出来。</p>
 <p>主要就是这里，进行md5-&gt;SysCrypt的php_decrypt-&gt;unserialize</p>
-<p><img src="/.images/Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109162514486.png"></p>
+<p><img src="/./Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109162514486.png"></p>
 <p>有get_cookie，自然还有set_cookie</p>
-<p><img src="/.images/Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109165433714.png"></p>
+<p><img src="/./Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109165433714.png"></p>
 <p>其中<code>CFG_COOKIE_ENCODE</code>在后台</p>
-<p><img src="/.images/Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109164651025.png"></p>
+<p><img src="/./Thinkphp3-2-3-xyhcms-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/image-20230109164651025.png"></p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/232823">痛失CVE之xyhcms（Thinkphp3.2.3）反序列化-安全客 - 安全资讯平台 (anquanke.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/S3Un1EM-cftFXr8hxG4qfA">ThinkPHP v3.2.* （SQL注入&amp;文件读取）反序列化POP链 (qq.com)</a></p>
 

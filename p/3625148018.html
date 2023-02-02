@@ -553,7 +553,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-12
+                    2023-01-23
                 </div>
                 
 
@@ -793,9 +793,9 @@ echo &#39;hack:$1$hack$.JxSX4bOP1WSqH0kCgs9Y.:0:0:root:&#x2F;root:&#x2F;bin&#x2F
 </blockquote>
 <p>先<code>fdisk -l</code>看看磁盘文件名称：</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220416190824951.png"></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir test5
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir test
 mount &#x2F;dev&#x2F;sda1 test #将宿主机的目录挂载到test目录
-chroot test5 #改变根目录为&#x2F;test<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+chroot test #改变根目录为&#x2F;test<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>这样就逃逸成功了</p>
 <p><img src="/../images/NASA%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E9%A1%B9%E7%9B%AE%E4%B8%80/image-20220421144822200.png"></p>
